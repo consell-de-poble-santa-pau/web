@@ -1,14 +1,16 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import CapPagina from '../../components/CapPagina.astro';
 const actes = (await getCollection('actes')).sort((a,b)=>b.data.data-a.data.data);
 const anys = [...new Set(actes.map(a => a.data.data.getFullYear()))].sort((a,b)=>b-a);
 const fmt = d => d.toLocaleDateString('ca-ES', { day:'numeric', month:'long', year:'numeric' });
 ---
 <Base titol="Reunions i actes" descripcio="Ordres del dia i actes de les reunions del Consell de Poble.">
-  <div class="contenidor--mitja prosa" style="padding-top:2.5rem">
-    <h1>Reunions i actes</h1>
-    <p>El reglament del Consell estableix que les actes del Cercle de Coordinació han d'estar a disposició del públic. Aquest web és la plataforma on es publiquen.</p>
+  <CapPagina sobre="Transparència" titol="Reunions i actes" to="blau"
+    entrada="El reglament del Consell estableix que les actes del Cercle de Coordinació han d'estar a disposició del públic. Aquest web és la plataforma on es publiquen." />
+
+  <div class="contenidor--mitja prosa" style="padding-top:1rem">
     <p class="compromis"><strong>El nostre compromís:</strong> l'ordre del dia es publica com a mínim 3 dies abans de cada reunió, i l'esborrany de l'acta dins del mes següent.</p>
     {anys.map(any => (
       <>

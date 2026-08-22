@@ -1,13 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
 import Foto from '../components/Foto.astro';
+import CapPagina from '../components/CapPagina.astro';
 const cercleCoordinacio = ['Josep M. Collellmir','Balta Colomer','Pep Companys','Teia Farrés','Mingu Neras','Marina Pujol','Rosa M. Teixidor','Judit Viñas'];
 ---
 <Base titol="El Consell" descripcio="Què és el Consell de Poble de Santa Pau, com funciona i qui en forma part.">
-  <div class="contenidor--mitja prosa" style="padding-top:2.5rem">
-    <h1>El Consell de Poble</h1>
-    <p class="lede">L'espai on el poble es coordina, decideix i es cuida.</p>
+  <CapPagina sobre="Qui som" titol="El Consell de Poble"
+    entrada="L'espai on el poble es coordina, decideix i es cuida." />
 
+  <div class="contenidor--mitja prosa" style="padding-top:1rem">
     <h2>Què és</h2>
     <p>El Consell de Poble és l'òrgan principal de participació de Santa Pau. Va néixer de la necessitat de millorar la comunicació i la coordinació entre tots els agents que fan poble — veïns i veïnes, entitats, comerços, Ajuntament — per fer Santa Pau més forta davant dels reptes que té al davant, tant els socials com els del territori.</p>
     <p>El seu propòsit, recollit al reglament, és <strong>donar veu al poble per millorar la vida a Santa Pau i generar sinergies positives</strong>.</p>

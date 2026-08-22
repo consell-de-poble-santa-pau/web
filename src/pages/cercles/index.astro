@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import CapPagina from '../../components/CapPagina.astro';
 const tots = await getCollection('cercles');
 const ordena = (a,b) => a.data.ordre - b.data.ordre;
 const oberts = tots.filter(c => !c.data.dataFi).sort(ordena);
@@ -10,12 +11,10 @@ const tancats = tots.filter(c => c.data.dataFi).sort((a,b)=>b.data.dataFi-a.data
 const any = d => d.getFullYear();
 ---
 <Base titol="Cercles" descripcio="Els cercles de treball del Consell de Poble de Santa Pau.">
-  <div class="contenidor--mitja prosa" style="padding-top:2.5rem">
-    <h1>Cercles</h1>
-    <p>La feina del Consell es reparteix en cercles que es creen a partir de les necessitats reals del municipi. Són <strong>oberts a tothom</strong>: no cal apuntar-s'hi enlloc, n'hi ha prou de venir.</p>
-  </div>
+  <CapPagina sobre="Com ens organitzem" titol="Cercles"
+    entrada="La feina del Consell es reparteix en cercles que es creen a partir de les necessitats reals del municipi. Són oberts a tothom: no cal apuntar-s'hi enlloc, n'hi ha prou de venir." />
 
-  <div class="contenidor" style="margin-top:2.5rem">
+  <div class="contenidor" style="margin-top:1.5rem">
     <h2 class="titolet">Cercles Estratègics</h2>
     <p class="nota">Treballen un àmbit del poble de manera continuada.</p>
     <ul class="graella">

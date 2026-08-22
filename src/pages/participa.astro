@@ -2,13 +2,14 @@
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 import Foto from '../components/Foto.astro';
+import CapPagina from '../components/CapPagina.astro';
 const cercles = (await getCollection('cercles', c => !c.data.dataFi)).sort((a,b)=>a.data.ordre-b.data.ordre);
 ---
 <Base titol="Participa-hi" descripcio="Com prendre part en el Consell de Poble de Santa Pau.">
-  <div class="contenidor--mitja prosa" style="padding-top:2.5rem">
-    <h1>Participa-hi</h1>
-    <p class="lede">No cal ser escollit, ni apuntar-se enlloc, ni demanar permís. Els cercles del Consell són oberts a tothom.</p>
+  <CapPagina sobre="Fes-hi cap" titol="Participa-hi" to="terra"
+    entrada="No cal ser escollit, ni apuntar-se enlloc, ni demanar permís. Els cercles del Consell són oberts a tothom." />
 
+  <div class="contenidor--mitja prosa" style="padding-top:1rem">
     <h2>Vine a un cercle</h2>
     <p>Els cercles es reuneixen quan ells mateixos ho acorden, sense calendari fix: es troben en funció de la feina que tenen i de l'energia que hi ha al poble en cada moment. Per això, la manera d'assabentar-se'n és estar connectat a algun dels canals.</p>
     <p><strong>Escriu-nos i t'avisem</strong> de la propera trobada del cercle que t'interessi.</p>

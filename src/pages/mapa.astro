@@ -1,18 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
 import Mapa from '../components/Mapa.astro';
+import CapPagina from '../components/CapPagina.astro';
 import { getCollection } from 'astro:content';
 const rutes = await getCollection('rutes', r => r.data.visible);
 const capes = rutes.map(r => ({ id: r.id, nom: r.data.nom, gpx: r.data.gpx, color: r.data.color }));
 ---
 <Base titol="Mapa del terme" descripcio="Mapa del terme municipal de Santa Pau amb els punts i les rutes que interessen al Consell de Poble.">
-  <div class="contenidor" style="padding-top:2.8rem">
-    <p class="eyebrow">El territori</p>
-    <h1>Mapa del terme</h1>
-    <p class="entrada">Un mapa per situar-hi el que anem trobant: fonts, equipaments, camins, elements de patrimoni i tot allò sobre el que treballin els cercles.</p>
-  </div>
+  <CapPagina sobre="El territori" titol="Mapa del terme" to="blau"
+    entrada="Un mapa per situar-hi el que anem trobant: fonts, equipaments, camins, elements de patrimoni i tot allò sobre el que treballin els cercles." />
 
-  <div class="contenidor" style="margin-top:1.8rem">
+  <div class="contenidor" style="margin-top:2rem">
     <Mapa capes={capes} />
   </div>
 
