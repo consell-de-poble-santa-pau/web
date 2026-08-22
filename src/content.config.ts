@@ -34,6 +34,8 @@ const cercles = defineCollection({
     entradeta: z.string(),
     icona: z.string().default('/identitat/isotip-consell-de-poble.svg'),
     color: z.string().default('#30A860'),
+    imatge: z.string().optional(),
+    imatgeAlt: z.string().optional(),
     dataInici: z.coerce.date().optional(),
     // Tancar un cercle = posar-hi data de fi. MAI esborrar el fitxer:
     // la pàgina i les seves actes queden a l'arxiu.

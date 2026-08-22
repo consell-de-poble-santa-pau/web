@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import Foto from '../components/Foto.astro';
 const cercles = (await getCollection('cercles', c => !c.data.dataFi)).sort((a,b)=>a.data.ordre-b.data.ordre);
 ---
 <Base titol="Participa-hi" descripcio="Com prendre part en el Consell de Poble de Santa Pau.">
@@ -40,6 +41,13 @@ const cercles = (await getCollection('cercles', c => !c.data.dataFi)).sort((a,b)
     </div>
     <p class="nota">Els canals avisen; aquest web guarda. Tot el que importa acaba publicat aquí.</p>
 
+  </div>
+
+  <div class="contenidor" style="margin:2.5rem auto">
+    <Foto nom="fageda" alt="Bosc de faigs al terme de Santa Pau a la tardor, amb el terra cobert de fullaraca." proporcio="21/9" />
+  </div>
+
+  <div class="contenidor prosa">
     <h2>Proposa un cercle nou</h2>
     <p>Els cercles neixen de necessitats reals del poble. Si detectes un tema que no té qui se n'ocupi, es pot proposar al Cercle de Coordinació la creació d'un cercle nou — estratègic si és una feina de llarg recorregut, o operatiu si és per a una acció concreta.</p>
 

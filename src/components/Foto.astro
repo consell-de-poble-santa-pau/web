@@ -1,0 +1,27 @@
+---
+// nom: base del fitxer a /imatges/ (sense mida ni extensió)
+// alt: descripció obligatòria per a l'accessibilitat
+// proporcio: si s'omet, es respecta la proporció natural de la imatge
+// ample: amplada màxima (per a verticals), p. ex. "34rem"
+const { nom, alt, credit = 'Jacint Garrigolas Coll', proporcio, ample, prioritat = false } = Astro.props;
+const srcset = [700, 1200, 1800].map(a => `/imatges/${nom}-${a}.webp ${a}w`).join(', ');
+---
+<figure class="foto" style={ample ? `max-width:${ample}` : undefined}>
+  <img
+    src={`/imatges/${nom}-1200.webp`}
+    srcset={srcset}
+    sizes={ample ? `(max-width: ${ample}) 100vw, ${ample}` : '(max-width: 68rem) 100vw, 68rem'}
+    alt={alt}
+    class={proporcio ? 'retallada' : ''}
+    style={proporcio ? `aspect-ratio:${proporcio}` : undefined}
+    loading={prioritat ? 'eager' : 'lazy'}
+    decoding="async"
+  />
+  <figcaption>Fotografia: {credit}</figcaption>
+</figure>
+<style>
+.foto { margin: 0 auto; }
+.foto img { width: 100%; height: auto; border-radius: var(--radi); display: block; }
+.foto img.retallada { object-fit: cover; height: auto; }
+figcaption { font-size: .78rem; color: var(--tinta-suau); margin-top: .4rem; text-align: right; }
+</style>

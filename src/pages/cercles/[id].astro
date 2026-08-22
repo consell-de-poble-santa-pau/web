@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
+import Foto from '../../components/Foto.astro';
 export async function getStaticPaths() {
   const cercles = await getCollection('cercles');
   return cercles.map(c => ({ params: { id: c.id }, props: { c } }));
@@ -23,6 +24,12 @@ const tancat = !!c.data.dataFi;
       </div>
     </div>
   </div>
+
+  {c.data.imatge && (
+    <div class="contenidor" style="margin-top:2rem">
+      <Foto nom={c.data.imatge} alt={c.data.imatgeAlt ?? ''} proporcio="21/9" />
+    </div>
+  )}
 
   <div class="contenidor prosa" style="margin-top:2.5rem">
     {tancat && (

@@ -48,6 +48,27 @@ A `/admin/` hi ha Sveltia CMS. Abans no funcioni cal:
 
 Fins llavors, el contingut s'edita directament als fitxers Markdown.
 
+## Fotografies
+
+Totes són de **Jacint Garrigolas Coll**. Els originals no són al repositori; a
+`public/imatges/` hi ha versions optimitzades en WebP a tres amplades (700, 1200 i 1800 px)
+que el navegador tria segons la pantalla.
+
+Per afegir-ne una de nova, generar les tres mides amb el mateix patró de nom
+(`nom-700.webp`, `nom-1200.webp`, `nom-1800.webp`) i fer servir el component:
+
+```astro
+<Foto nom="nom-de-la-imatge" alt="Descripció del que s'hi veu." proporcio="16/9" />
+```
+
+- `alt` és **obligatori** i ha de descriure la imatge, no repetir el títol de la pàgina.
+- `proporcio` retalla la imatge a la forma indicada. Si s'omet, es respecta la proporció
+  original (recomanat per a les verticals, combinant-ho amb `ample="30rem"`).
+- El crèdit de l'autor surt sol al peu de cada imatge.
+
+Les fotografies del poble són majoritàriament nocturnes. Convé no encadenar-ne massa:
+el logotip és lluminós i el conjunt ha de mantenir-ne el to.
+
 ## Crear i tancar cercles
 
 Els cercles són contingut, no codi. Cada cercle és un fitxer a `src/content/cercles/`.
