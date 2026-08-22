@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
-const cercles = (await getCollection('cercles', c => c.data.actiu)).sort((a,b)=>a.data.ordre-b.data.ordre);
+const cercles = (await getCollection('cercles', c => !c.data.dataFi)).sort((a,b)=>a.data.ordre-b.data.ordre);
 const noticies = (await getCollection('noticies')).sort((a,b)=>b.data.data-a.data.data).slice(0,3);
 const fmt = d => d.toLocaleDateString('ca-ES', { day:'numeric', month:'long', year:'numeric' });
 ---
