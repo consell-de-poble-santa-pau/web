@@ -1,0 +1,33 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+const actes = (await getCollection('actes')).sort((a,b)=>b.data.data-a.data.data);
+const anys = [...new Set(actes.map(a => a.data.data.getFullYear()))].sort((a,b)=>b-a);
+const fmt = d => d.toLocaleDateString('ca-ES', { day:'numeric', month:'long', year:'numeric' });
+---
+<Base titol="Reunions i actes" descripcio="Ordres del dia i actes de les reunions del Consell de Poble.">
+  <div class="contenidor prosa" style="padding-top:2.5rem">
+    <h1>Reunions i actes</h1>
+    <p>El reglament del Consell estableix que les actes del Cercle de Coordinació han d'estar a disposició del públic. Aquest web és la plataforma on es publiquen.</p>
+    <p class="compromis"><strong>El nostre compromís:</strong> l'ordre del dia es publica com a mínim 3 dies abans de cada reunió, i l'esborrany de l'acta dins del mes següent.</p>
+    {anys.map(any => (
+      <>
+        <h2>{any}</h2>
+        <ul class="actes">
+          {actes.filter(a => a.data.data.getFullYear() === any).map(a => (
+            <li>
+              <a href={`/actes/${a.id}/`}>{a.data.titol}</a>
+              <span>{fmt(a.data.data)}{a.data.estat === 'esborrany' ? ' · esborrany' : ''}</span>
+            </li>
+          ))}
+        </ul>
+      </>
+    ))}
+  </div>
+</Base>
+<style>
+.compromis { background: var(--crema); padding: 1rem 1.2rem; border-radius: var(--radi); }
+.actes { list-style: none; padding: 0; }
+.actes li { padding: .7rem 0; border-bottom: 1px solid var(--vora); }
+.actes span { display: block; font-size: .85rem; color: var(--tinta-suau); }
+</style>

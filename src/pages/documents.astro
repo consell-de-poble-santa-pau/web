@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+const docs = [
+  { grup: 'Reglaments', items: [
+    { titol: 'Reglament del Consell de Poble de Santa Pau', desc: "El document que crea el Consell i en regula el funcionament: els cercles, les eleccions sense candidatura, com es prenen les decisions i com es fan els processos participatius.", fitxer: '/documents/reglament-consell-de-poble.pdf', data: 'Setembre de 2022' },
+    { titol: 'Reglament de Participació Ciutadana de Santa Pau', desc: 'El marc general de participació del municipi, dins del qual s\u2019inscriu el Consell de Poble.', fitxer: '/documents/reglament-participacio-ciutadana.pdf', data: '' },
+  ]},
+];
+---
+<Base titol="Documents" descripcio="Reglaments, informes i materials del Consell de Poble de Santa Pau.">
+  <div class="contenidor prosa" style="padding-top:2.5rem">
+    <h1>Documents</h1>
+    <p>Aquí hi ha els documents que regeixen el Consell i els materials que en surten. Les actes de les reunions tenen secció pròpia, a <a href="/reunions/">Reunions i actes</a>.</p>
+
+    {docs.map(g => (
+      <>
+        <h2>{g.grup}</h2>
+        <ul class="docs">
+          {g.items.map(d => (
+            <li>
+              <a href={d.fitxer}>{d.titol}</a>
+              {d.data && <span class="data">{d.data}</span>}
+              <p>{d.desc}</p>
+              <span class="format">PDF</span>
+            </li>
+          ))}
+        </ul>
+      </>
+    ))}
+
+    <h2>Enquestes</h2>
+    <p class="pendent">Els resultats de les enquestes de 2022 i 2023 es publicaran aquí. Pendent de recuperar-los de la pàgina de participació de l'Ajuntament.</p>
+
+    <h2>Pla Estratègic</h2>
+    <p class="pendent">El Pla Estratègic del Consell de Poble encara no s'ha redactat. Quan es cocreï amb la població, es publicarà en aquesta pàgina.</p>
+  </div>
+</Base>
+<style>
+.docs { list-style: none; padding: 0; }
+.docs li { padding: 1.1rem 0; border-bottom: 1px solid var(--vora); }
+.docs a { font-family: var(--tipo-titol); font-size: 1.15rem; }
+.docs p { margin: .35rem 0 .5rem; color: var(--tinta-suau); font-size: .96rem; }
+.data { display: block; font-size: .82rem; color: var(--tinta-suau); }
+.format { display: inline-block; font-size: .72rem; letter-spacing: .08em; background: var(--vora); color: var(--tinta); padding: .15rem .5rem; border-radius: 4px; }
+.pendent { background: var(--crema); padding: .9rem 1.1rem; border-radius: var(--radi); color: var(--tinta-suau); }
+</style>

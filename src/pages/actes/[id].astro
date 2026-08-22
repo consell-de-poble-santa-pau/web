@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+export async function getStaticPaths() {
+  const actes = await getCollection('actes');
+  return actes.map(a => ({ params: { id: a.id }, props: { a } }));
+}
+const { a } = Astro.props;
+const { Content } = await render(a);
+const fmt = d => d.toLocaleDateString('ca-ES', { day:'numeric', month:'long', year:'numeric' });
+---
+<Base titol={a.data.titol} descripcio={`Acta de ${fmt(a.data.data)}`}>
+  <article class="contenidor prosa" style="padding-top:2.5rem">
+    {a.data.estat === 'esborrany' && <p class="avis">Aquesta acta és un esborrany i encara no s'ha aprovat.</p>}
+    <h1>{a.data.titol}</h1>
+    <p class="meta"><time datetime={a.data.data.toISOString()}>{fmt(a.data.data)}</time></p>
+    <Content />
+    {a.data.pdf && <p><a href={a.data.pdf}>Descarrega l'acta signada (PDF)</a></p>}
+  </article>
+</Base>
+<style>
+.avis { background: var(--sol); color: #3A2200; padding: .7rem 1rem; border-radius: var(--radi); font-weight: 600; }
+.meta { color: var(--tinta-suau); }
+</style>

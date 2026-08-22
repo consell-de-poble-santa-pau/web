@@ -1,0 +1,90 @@
+---
+import '../styles/tokens.css';
+const { titol, descripcio } = Astro.props;
+const nav = [
+  { href: '/el-consell/', text: 'El Consell' },
+  { href: '/cercles/', text: 'Cercles' },
+  { href: '/reunions/', text: 'Reunions i actes' },
+  { href: '/noticies/', text: 'Notícies' },
+  { href: '/mapa/', text: 'Mapa' },
+  { href: '/participa/', text: 'Participa-hi' },
+];
+const actual = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{titol} · Consell de Poble de Santa Pau</title>
+<meta name="description" content={descripcio} />
+<link rel="icon" href="/identitat/isotip-consell-de-poble.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/identitat/favicon-180.png" />
+<link rel="alternate" type="application/rss+xml" title="Notícies del Consell de Poble" href="/rss.xml" />
+</head>
+<body>
+<a class="salta" href="#principal">Salta al contingut</a>
+
+<header class="cap">
+  <div class="contenidor cap__int">
+    <a class="marca" href="/">
+      <img src="/identitat/isotip-consell-de-poble.svg" alt="" width="52" height="52" />
+      <span><strong>Consell de Poble</strong><span>de Santa Pau</span></span>
+    </a>
+    <nav aria-label="Principal">
+      <ul>
+        {nav.map(i => (
+          <li><a href={i.href} aria-current={actual.startsWith(i.href) ? 'page' : undefined}>{i.text}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="principal"><slot /></main>
+
+<footer class="peu">
+  <div class="contenidor peu__int">
+    <div>
+      <p><strong>Consell de Poble de Santa Pau</strong><br />
+      L'espai on el poble es coordina, decideix i es cuida.</p>
+      <p class="xarxes">
+        <a class="wa" href="https://whatsapp.com/channel/0029Va8LbICDuMRnssDBYR1r">Canal de WhatsApp</a>
+        <a class="ig" href="https://www.instagram.com/conselldepoble_santapau">Instagram</a>
+      </p>
+    </div>
+    <div>
+      <p><a href="/documents/">Documents i reglaments</a><br />
+      <a href="/credits/">Crèdits</a><br />
+      <a href="/accessibilitat/">Accessibilitat</a><br />
+      <a href="/privacitat/">Privacitat</a></p>
+      <p class="fi">Fotografies: Jacint Garrigolas Coll</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+.cap { border-bottom: 1px solid var(--vora); background: #fff; }
+.cap__int { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center;
+  justify-content: space-between; padding: .9rem 0; }
+.marca { display: flex; align-items: center; gap: .7rem; text-decoration: none; color: var(--tinta); }
+.marca span { display: flex; flex-direction: column; line-height: 1.15; }
+.marca strong { font-family: var(--tipo-titol); font-size: 1.12rem; }
+.marca span span { font-size: .82rem; color: var(--tinta-suau); }
+nav ul { display: flex; flex-wrap: wrap; gap: .25rem 1.1rem; list-style: none; margin: 0; padding: 0; }
+nav a { text-decoration: none; font-size: .95rem; padding: .35rem 0; border-bottom: 2px solid transparent; }
+nav a[aria-current="page"] { border-bottom-color: var(--coral); }
+nav a:hover { border-bottom-color: var(--sorra); }
+.peu { margin-top: 5rem; background: var(--blau-fosc); color: #E9EFEA; padding: 2.5rem 0; font-size: .95rem; }
+.peu__int { display: grid; gap: 1.5rem 3rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+.peu a { color: var(--crema); }
+.peu a:hover { color: #fff; }
+.xarxes { display: flex; flex-wrap: wrap; gap: .5rem; }
+.wa, .ig { display: inline-block; padding: .5rem .9rem; border-radius: var(--radi);
+  text-decoration: none; font-weight: 600; font-size: .9rem; }
+.wa { background: var(--verd); color: #06210F !important; }
+.ig { background: transparent; color: var(--crema) !important; box-shadow: inset 0 0 0 2px rgba(251,226,202,.45); }
+.fi { color: #9DAAA2; font-size: .85rem; }
+</style>
+</body>
+</html>

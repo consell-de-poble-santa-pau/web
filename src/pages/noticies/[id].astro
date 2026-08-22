@@ -1,0 +1,28 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+export async function getStaticPaths() {
+  const noticies = await getCollection('noticies');
+  return noticies.map(n => ({ params: { id: n.id }, props: { n } }));
+}
+const { n } = Astro.props;
+const { Content } = await render(n);
+const fmt = d => d.toLocaleDateString('ca-ES', { day:'numeric', month:'long', year:'numeric' });
+---
+<Base titol={n.data.titol} descripcio={n.data.entradeta}>
+  <article class="contenidor prosa" style="padding-top:2.5rem">
+    <h1>{n.data.titol}</h1>
+    <p class="meta"><time datetime={n.data.data.toISOString()}>{fmt(n.data.data)}</time></p>
+    {n.data.imatge && (
+      <figure>
+        <img src={n.data.imatge} alt={n.data.imatgeAlt ?? ''} />
+        <figcaption>Fotografia: {n.data.credit}</figcaption>
+      </figure>
+    )}
+    <Content />
+  </article>
+</Base>
+<style>
+.meta { color: var(--tinta-suau); }
+figcaption { font-size: .82rem; color: var(--tinta-suau); margin-top: .4rem; }
+</style>

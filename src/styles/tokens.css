@@ -1,0 +1,45 @@
+/* Paleta extreta del logo del Consell de Poble de Santa Pau */
+:root {
+  --verd-fosc:  #006018;
+  --verd:       #30A860;
+  --verd-clar:  #4CAE86;
+  --sorra:      #C09060;
+  --coral:      #D86048;
+  --terra:      #A84848;
+  --blau:       #4890C0;
+  --blau-fosc:  #21384A;
+  --sol:        #F5921E;
+  --crema:      #FBE2CA;
+  --paper:      #FDF9F3;
+  --tinta:      #1F2A24;
+  --tinta-suau: #55605A;
+  --vora:       #E4DACB;
+
+  --amplada: 68rem;
+  --amplada-text: 40rem;
+  --radi: 10px;
+  --tipo: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --tipo-titol: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--tinta);
+  font-family: var(--tipo); font-size: 1.0625rem; line-height: 1.65;
+  -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--tipo-titol); line-height: 1.2; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 .5em; }
+h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin: 2.2em 0 .6em; }
+a { color: var(--verd-fosc); text-underline-offset: .18em; }
+a:hover { color: var(--coral); }
+img { max-width: 100%; height: auto; display: block; }
+
+.contenidor { width: min(100% - 2.5rem, var(--amplada)); margin-inline: auto; }
+.prosa { max-width: var(--amplada-text); }
+.prosa table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.prosa th, .prosa td { text-align: left; padding: .55rem .6rem; border-bottom: 1px solid var(--vora); vertical-align: top; }
+
+/* Enllaç de salt per a accessibilitat */
+.salta { position: absolute; left: -9999px; }
+.salta:focus { left: 1rem; top: 1rem; position: fixed; background: var(--crema);
+  padding: .6rem 1rem; border-radius: var(--radi); z-index: 99; }
+:focus-visible { outline: 3px solid var(--sol); outline-offset: 2px; }

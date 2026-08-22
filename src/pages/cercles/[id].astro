@@ -1,0 +1,60 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+export async function getStaticPaths() {
+  const cercles = await getCollection('cercles');
+  return cercles.map(c => ({ params: { id: c.id }, props: { c } }));
+}
+const { c } = Astro.props;
+const { Content } = await render(c);
+const actes = (await getCollection('actes', a => a.data.cercle === c.id)).sort((x,y)=>y.data.data-x.data.data);
+const etiqueta = { estrategic: 'Cercle Estratègic', operatiu: 'Cercle Operatiu', coordinacio: 'Cercle de Coordinació' }[c.data.tipus];
+const fmt = d => d.toLocaleDateString('ca-ES', { day:'numeric', month:'long', year:'numeric' });
+const tancat = !!c.data.dataFi;
+---
+<Base titol={c.data.nom} descripcio={c.data.entradeta}>
+  <div class={`capsa ${tancat ? 'capsa--tancat' : ''}`} style={`--accent:${c.data.color}`}>
+    <div class="contenidor capsa__int">
+      <img src={c.data.icona} alt="" width="84" height="84" />
+      <div>
+        <p class="sobre">{etiqueta}{tancat ? ' · tancat' : ''}</p>
+        <h1>{c.data.nom}</h1>
+        <p class="entrada">{c.data.entradeta}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="contenidor prosa" style="margin-top:2.5rem">
+    {tancat && (
+      <p class="avis">
+        Aquest cercle es va tancar el {fmt(c.data.dataFi)}.
+        {c.data.motiuTancament && ` ${c.data.motiuTancament}`}
+        {' '}La pàgina es conserva perquè quedi constància de la seva feina.
+      </p>
+    )}
+    <Content />
+
+    {!tancat && (
+      <p class="obert"><strong>Vols venir-hi?</strong> Els cercles són oberts: no cal apuntar-s'hi.
+      Escriu a <a href="mailto:conselldepoble@santapau.cat">conselldepoble@santapau.cat</a> i t'avisem de la propera trobada.</p>
+    )}
+
+    {actes.length > 0 && (
+      <>
+        <h2>Actes d'aquest cercle</h2>
+        <ul>{actes.map(a => <li><a href={`/actes/${a.id}/`}>{a.data.titol}</a> — {fmt(a.data.data)}</li>)}</ul>
+      </>
+    )}
+  </div>
+</Base>
+<style>
+.capsa { background: var(--crema); border-bottom: 5px solid var(--accent); padding: 2.5rem 0; }
+.capsa--tancat { background: #F0EDE6; }
+.capsa--tancat img { filter: grayscale(.75); opacity: .75; }
+.capsa__int { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+.sobre { text-transform: uppercase; letter-spacing: .12em; font-size: .75rem; color: var(--terra); margin: 0 0 .3rem; font-weight: 600; }
+.capsa h1 { margin: 0 0 .3rem; }
+.entrada { margin: 0; color: var(--tinta-suau); max-width: 44ch; }
+.avis { background: #F0EDE6; border-left: 4px solid var(--tinta-suau); padding: .9rem 1.1rem; border-radius: 0 var(--radi) var(--radi) 0; }
+.obert { background: var(--crema); padding: 1rem 1.2rem; border-radius: var(--radi); }
+</style>

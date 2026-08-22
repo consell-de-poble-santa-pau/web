@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+const noticies = (await getCollection('noticies')).sort((a,b)=>b.data.data-a.data.data);
+const fmt = d => d.toLocaleDateString('ca-ES', { day:'numeric', month:'long', year:'numeric' });
+---
+<Base titol="Notícies" descripcio="Què fa el Consell de Poble de Santa Pau.">
+  <div class="contenidor prosa" style="padding-top:2.5rem">
+    <h1>Notícies</h1>
+    <ul class="llista">
+      {noticies.map(n => (
+        <li>
+          <time datetime={n.data.data.toISOString()}>{fmt(n.data.data)}</time>
+          <a href={`/noticies/${n.id}/`}>{n.data.titol}</a>
+          <p>{n.data.entradeta}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>
+<style>
+.llista { list-style: none; padding: 0; }
+.llista li { padding: 1rem 0; border-bottom: 1px solid var(--vora); }
+.llista time { display: block; font-size: .82rem; color: var(--tinta-suau); }
+.llista a { font-family: var(--tipo-titol); font-size: 1.25rem; }
+.llista p { margin: .3rem 0 0; color: var(--tinta-suau); }
+</style>

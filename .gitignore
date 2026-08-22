@@ -1,0 +1,15 @@
+# Dependències
+node_modules/
+
+# Resultat de la compilació
+dist/
+.astro/
+
+# Entorn local
+.env
+.env.production
+.DS_Store
+*.log
+
+# Cloudflare
+.wrangler/

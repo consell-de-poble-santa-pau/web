@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Cercle de l'Aigua">
+<title>Cercle de l'Aigua</title>
+<defs><clipPath id="ca"><circle cx="120" cy="120" r="104"/></clipPath></defs>
+<circle cx="120" cy="120" r="104" fill="#3E739B"/>
+<g clip-path="url(#ca)">
+<path d="M16,182 C46,170 66,192 96,184 C126,176 150,194 180,186 C200,181 218,186 226,190 L226,240 L16,240 Z" fill="#86B7DA"/>
+<path d="M16,206 C50,196 74,214 108,206 C140,199 164,214 196,208 C212,205 222,208 226,210 L226,240 L16,240 Z" fill="#AFD2E8"/>
+</g>
+<path d="M120,56 C120,56 156,102 156,120 A36,36 0 0 1 84,120 C84,102 120,56 120,56 Z" fill="#FBE2CA"/>
+</svg>

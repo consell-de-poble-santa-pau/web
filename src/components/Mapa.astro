@@ -1,0 +1,79 @@
+---
+const { alcada = '520px' } = Astro.props;
+---
+<div class="mapa-caixa">
+  <div id="mapa" style={`height:${alcada}`} role="application" aria-label="Mapa del terme municipal de Santa Pau"></div>
+  <p class="mapa-nota">
+    Cartografia d'<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>.
+    En carregar el mapa es fan peticions als seus servidors.
+  </p>
+</div>
+
+<script>
+  import 'maplibre-gl/dist/maplibre-gl.css';
+  import { Map, Marker, Popup, NavigationControl, ScaleControl } from 'maplibre-gl';
+
+  const estil = {
+    version: 8,
+    sources: {
+      osm: {
+        type: 'raster',
+        tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+        tileSize: 256,
+        attribution: '© OpenStreetMap',
+      },
+    },
+    layers: [{ id: 'osm', type: 'raster', source: 'osm' }],
+  };
+
+  const colors = {
+    font: '#4890C0',
+    'cercle-aigua': '#4890C0',
+    equipament: '#A84848',
+    patrimoni: '#C09060',
+    natura: '#006018',
+  };
+
+  const mapa = new Map({
+    container: 'mapa',
+    style: estil,
+    center: [2.5699, 42.145],
+    zoom: 12.5,
+    attributionControl: { compact: true },
+  });
+
+  mapa.addControl(new NavigationControl({ showCompass: false }), 'top-right');
+  mapa.addControl(new ScaleControl({ unit: 'metric' }));
+  mapa.scrollZoom.disable(); // no segrestar el desplaçament de la pàgina
+
+  mapa.on('load', async () => {
+    try {
+      const dades = await (await fetch('/dades/punts.geojson')).json();
+      for (const f of dades.features) {
+        const el = document.createElement('div');
+        el.className = 'marca';
+        el.style.background = colors[f.properties.categoria] ?? '#30A860';
+        new Marker({ element: el })
+          .setLngLat(f.geometry.coordinates)
+          .setPopup(new Popup({ offset: 16 }).setHTML(
+            `<strong>${f.properties.nom}</strong>${f.properties.descripcio ? `<br>${f.properties.descripcio}` : ''}`
+          ))
+          .addTo(mapa);
+      }
+    } catch (e) {
+      console.error('No s\'han pogut carregar els punts del mapa', e);
+    }
+  });
+</script>
+
+<style is:global>
+  .marca { width: 18px; height: 18px; border-radius: 50%; border: 3px solid #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,.35); cursor: pointer; }
+  .maplibregl-popup-content { font-family: var(--tipo); font-size: .92rem; border-radius: 8px; }
+</style>
+<style>
+  .mapa-caixa { border: 1px solid var(--vora); border-radius: var(--radi); overflow: hidden; background: #fff; }
+  #mapa { width: 100%; }
+  .mapa-nota { margin: 0; padding: .6rem .9rem; font-size: .8rem; color: var(--tinta-suau);
+    border-top: 1px solid var(--vora); }
+</style>

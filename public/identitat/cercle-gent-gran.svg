@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Cercle de Gent Gran">
+<title>Cercle de Gent Gran</title>
+<circle cx="120" cy="120" r="104" fill="#D8674F"/>
+<circle cx="94" cy="90" r="18" fill="#FBE2CA"/>
+<path d="M68,176 V144 A26,26 0 0 1 120,144 V176 Z" fill="#FBE2CA"/>
+<circle cx="153" cy="100" r="16" fill="#FBE2CA"/>
+<path d="M130,176 V150 A23,23 0 0 1 176,150 V176 Z" fill="#FBE2CA"/>
+<rect x="46" y="176" width="148" height="13" rx="6.5" fill="#C8A16A"/>
+</svg>

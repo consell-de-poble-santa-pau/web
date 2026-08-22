@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 728 812" width="728" height="812" role="img" aria-label="Consell de Poble de Santa Pau">
+<title>Consell de Poble de Santa Pau</title>
+<defs>
+<linearGradient id="sol" x1="1" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#E8730F"/><stop offset="0.55" stop-color="#F5A81B"/><stop offset="1" stop-color="#FFF07E"/>
+</linearGradient>
+<linearGradient id="torreA" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#E5694F"/><stop offset="0.5" stop-color="#CE6151"/><stop offset="1" stop-color="#58404F"/>
+</linearGradient>
+<linearGradient id="torreB" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#6B4653"/><stop offset="1" stop-color="#D8674F"/>
+</linearGradient>
+<linearGradient id="torreC" x1="0" y1="0" x2="1" y2="0.55">
+<stop offset="0" stop-color="#21384A"/><stop offset="1" stop-color="#5093C8"/>
+</linearGradient>
+<linearGradient id="casaEsq" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#2A3843"/><stop offset="1" stop-color="#DA6856"/>
+</linearGradient>
+<linearGradient id="casaDreta" x1="1" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#E5694F"/><stop offset="1" stop-color="#4E4058"/>
+</linearGradient>
+<linearGradient id="teulada" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#93B4DC"/><stop offset="1" stop-color="#FBEFE6"/>
+</linearGradient>
+<linearGradient id="nevada" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#87B3DA"/><stop offset="1" stop-color="#FCEBE1"/>
+</linearGradient>
+<linearGradient id="merlet" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#4E86B8"/><stop offset="1" stop-color="#3A6E9C"/>
+</linearGradient>
+</defs>
+
+<path d="M22,72 C30,42 62,28 90,43 C104,22 144,20 158,44 C184,39 202,54 194,72 Z" fill="#FDF4E7"/>
+
+<circle cx="592" cy="91" r="67" fill="url(#sol)"/>
+
+<path d="M26,300 L228,300 L228,412 L26,398 Z" fill="#45AC6A"/>
+<path d="M26,122 C80,135 150,180 228,199 L228,318 C150,332 80,330 26,326 Z" fill="#00682D"/>
+
+<path d="M466,236 C490,240 505,245 520,242 C560,226 610,208 660,205 L660,401 C610,382 540,377 466,384 Z" fill="#45AC6A"/>
+
+<path d="M26,398 L228,412 L228,450 L40,528 L26,528 Z" fill="#C8A16A"/>
+<path d="M466,384 C540,377 610,382 660,401 L660,528 L466,528 Z" fill="#C8A16A"/>
+
+<path d="M40,528 L228,450 L228,528 Z" fill="url(#nevada)"/>
+<path d="M615,528 L660,478 L660,528 Z" fill="#40291A"/>
+<path d="M467,528 L565,458 L660,528 Z" fill="url(#teulada)"/>
+
+<path d="M25,686 H645 C640,698 620,706 590,710 C550,714 500,706 430,704 C380,703 355,710 350,713 C300,733 250,757 190,772 C140,776 95,760 62,733 C40,715 27,698 25,686 Z" fill="#59B592"/>
+<ellipse cx="370" cy="744" rx="54" ry="30" fill="#59B592"/>
+
+<rect x="26" y="528" width="202" height="158" fill="url(#casaEsq)"/>
+<rect x="467" y="528" width="193" height="158" fill="url(#casaDreta)"/>
+
+<rect x="227.5" y="75" width="11.5" height="39" rx="2" fill="url(#merlet)"/>
+<rect x="259" y="75" width="12" height="39" rx="2" fill="url(#merlet)"/>
+<rect x="290" y="75" width="12.5" height="39" rx="2" fill="url(#merlet)"/>
+
+<rect x="228" y="114" width="238" height="182" fill="url(#torreA)"/>
+<rect x="228" y="296" width="238" height="146" fill="url(#torreB)"/>
+<rect x="228" y="442" width="238" height="244" fill="url(#torreC)"/>
+
+<rect x="329" y="184" width="34" height="59" rx="17" fill="#FBE2CA"/>
+<rect x="344" y="347" width="5" height="54" rx="2.5" fill="#FBE2CA"/>
+<rect x="344" y="507" width="5" height="52" rx="2.5" fill="#FBE2CA"/>
+
+<path d="M113,686 V656.5 A13.5,13.5 0 0 1 140,656.5 V686 Z" fill="#FBE2CA"/>
+<path d="M547,686 V657 A14,14 0 0 1 575,657 V686 Z" fill="#FBE2CA"/>
+
+<circle cx="562" cy="545" r="17" fill="#1B3355"/>
+<path d="M562,537 L570,545 L562,553 L554,545 Z" fill="#FBE2CA"/>
+
+<path d="M256,686 C262,660 288,646 315,640 C328,622 358,616 380,620 C404,624 418,648 422,668 C428,678 438,684 446,686 Z" fill="#1F8285"/>
+
+<g fill="#E0CDB2">
+<circle cx="118" cy="34" r="3"/>
+<circle cx="212" cy="126" r="2.5"/>
+<circle cx="301" cy="97" r="2"/>
+<circle cx="417" cy="103" r="3"/>
+<circle cx="437" cy="122" r="2"/>
+<circle cx="504" cy="57" r="2.5"/>
+<circle cx="527" cy="146" r="2"/>
+<circle cx="646" cy="171" r="2.5"/>
+<circle cx="93" cy="769" r="2.5"/>
+<circle cx="252" cy="783" r="2"/>
+<circle cx="479" cy="742" r="2.5"/>
+<circle cx="663" cy="63" r="2"/>
+</g>
+</svg>

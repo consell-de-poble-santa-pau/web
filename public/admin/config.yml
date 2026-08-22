@@ -1,0 +1,101 @@
+backend:
+  name: github
+  # Canviar per l'organitzacio/repositori reals un cop creats a GitHub.
+  repo: ORGANITZACIO/REPOSITORI
+  branch: main
+  # base_url: https://sveltia-cms-auth.XXXX.workers.dev
+  #   Nomes cal quan hi hagi mes d'una persona editant. Amb un sol editor,
+  #   s'hi entra amb un token personal de GitHub, sense muntar res.
+  #   Vegeu SETUP.md, pas 5.
+locale: ca
+media_folder: public/imatges
+public_folder: /imatges
+publish_mode: editorial_workflow
+
+collections:
+  - name: actes
+    label: Actes de reunions
+    label_singular: Acta
+    folder: src/content/actes
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{cercle}}"
+    sortable_fields: [data]
+    fields:
+      - { name: titol, label: Títol, widget: string }
+      - { name: data, label: Data de la reunió, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+      - name: cercle
+        label: Cercle
+        widget: select
+        default: coordinacio
+        options:
+          - { label: Coordinació, value: coordinacio }
+          - { label: Comunicació, value: comunicacio }
+          - { label: Gent Gran, value: gent-gran }
+          - { label: Aigua, value: aigua }
+      - name: estat
+        label: Estat
+        widget: select
+        default: esborrany
+        options:
+          - { label: Esborrany, value: esborrany }
+          - { label: Aprovada, value: aprovada }
+      - { name: assistents, label: Assistents, widget: list, required: false }
+      - { name: pdf, label: PDF signat, widget: file, required: false }
+      - { name: body, label: Text de l'acta, widget: markdown }
+
+  - name: noticies
+    label: Notícies
+    label_singular: Notícia
+    folder: src/content/noticies
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { name: titol, label: Títol, widget: string }
+      - { name: data, label: Data, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+      - { name: entradeta, label: Entradeta, widget: text, hint: "Una o dues frases. Surt a la portada." }
+      - { name: imatge, label: Imatge, widget: image, required: false }
+      - { name: imatgeAlt, label: Descripció de la imatge, widget: string, required: false, hint: "Obligatòria si hi ha imatge. Descriu què s'hi veu." }
+      - { name: credit, label: Autoria de la imatge, widget: string, default: "Jacint Garrigolas Coll" }
+      - { name: body, label: Text, widget: markdown }
+
+  - name: cercles
+    label: Cercles
+    label_singular: Cercle
+    folder: src/content/cercles
+    create: true
+    delete: false
+    summary: "{{nom}}{{#if dataFi}} (tancat){{/if}}"
+    fields:
+      - { name: nom, label: Nom del cercle, widget: string }
+      - name: tipus
+        label: Tipus
+        widget: select
+        default: estrategic
+        options:
+          - { label: "Estratègic — treballa un àmbit de manera continuada", value: estrategic }
+          - { label: "Operatiu — creat per a una acció concreta", value: operatiu }
+      - { name: entradeta, label: En una frase, widget: text, hint: "Què fa aquest cercle. Surt a la portada i al llistat." }
+      - { name: dataInici, label: Data de creació, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+      - name: color
+        label: Color
+        widget: select
+        default: "#30A860"
+        options:
+          - { label: Verd, value: "#30A860" }
+          - { label: Verd fosc, value: "#006018" }
+          - { label: Coral, value: "#D86048" }
+          - { label: Blau, value: "#4890C0" }
+          - { label: Terra, value: "#A84848" }
+          - { label: Sorra, value: "#C09060" }
+          - { label: Sol, value: "#F5921E" }
+      - { name: icona, label: Icona, widget: image, required: false,
+          hint: "Si no se'n posa cap, es fa servir l'isotip del Consell." }
+      - { name: ordre, label: Ordre al llistat, widget: number, default: 99 }
+      - { name: body, label: Descripció, widget: markdown }
+
+      # --- Tancar un cercle ---
+      # No s'esborra mai el cercle: se li posa data de fi i passa a l'arxiu,
+      # de manera que la seva pàgina i les seves actes es conserven.
+      - { name: dataFi, label: "Data de tancament (deixar buit si és actiu)", widget: datetime,
+          format: "YYYY-MM-DD", time_format: false, required: false }
+      - { name: motiuTancament, label: Per què s'ha tancat, widget: text, required: false }

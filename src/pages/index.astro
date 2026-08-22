@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+const cercles = (await getCollection('cercles', c => c.data.actiu)).sort((a,b)=>a.data.ordre-b.data.ordre);
+const noticies = (await getCollection('noticies')).sort((a,b)=>b.data.data-a.data.data).slice(0,3);
+const fmt = d => d.toLocaleDateString('ca-ES', { day:'numeric', month:'long', year:'numeric' });
+---
+<Base titol="Inici" descripcio="Òrgan principal de participació de Santa Pau.">
+  <section class="hero">
+    <div class="contenidor">
+      <p class="sobre">Consell de Poble de Santa Pau</p>
+      <h1>L'espai on el poble es coordina, decideix i es cuida.</h1>
+      <p class="entrada">Participar-hi és obert a tothom. No cal ser escollit ni demanar permís: qui ve a una reunió d'un cercle, en aquell moment, en forma part.</p>
+      <p><a class="boto" href="/participa/">Com hi puc participar</a> <a class="boto boto--buit" href="/el-consell/">Què és el Consell</a></p>
+    </div>
+  </section>
+
+  <section class="contenidor bloc">
+    <h2>Els cercles actius</h2>
+    <ul class="graella">
+      {cercles.map(c => (
+        <li><a href={`/cercles/${c.id}/`} style={`--accent:${c.data.color}`}>
+          <img src={c.data.icona} alt="" width="60" height="60" />
+          <strong>{c.data.nom}</strong>
+          <span>{c.data.entradeta}</span>
+        </a></li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="contenidor bloc">
+    <h2>Darreres notícies</h2>
+    <ul class="llista">
+      {noticies.map(n => (
+        <li>
+          <time datetime={n.data.data.toISOString()}>{fmt(n.data.data)}</time>
+          <a href={`/noticies/${n.id}/`}>{n.data.titol}</a>
+          <p>{n.data.entradeta}</p>
+        </li>
+      ))}
+    </ul>
+    <p><a href="/noticies/">Totes les notícies</a></p>
+  </section>
+</Base>
+
+<style>
+.hero { background: linear-gradient(180deg, var(--crema), var(--paper)); padding: 4rem 0 3.5rem; border-bottom: 1px solid var(--vora); }
+.sobre { text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; color: var(--terra); margin: 0 0 .8rem; font-weight: 600; }
+.hero h1 { max-width: 20ch; }
+.entrada { max-width: 46ch; font-size: 1.12rem; color: var(--tinta-suau); }
+.boto { display: inline-block; background: var(--verd-fosc); color: #fff !important; padding: .7rem 1.2rem;
+  border-radius: var(--radi); text-decoration: none; font-weight: 600; margin: .4rem .4rem 0 0; }
+.boto--buit { background: transparent; color: var(--verd-fosc) !important; box-shadow: inset 0 0 0 2px var(--verd-fosc); }
+.bloc { margin-top: 3.5rem; }
+.graella { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+.graella a { display: block; background: #fff; border: 1px solid var(--vora); border-top: 5px solid var(--accent);
+  border-radius: var(--radi); padding: 1.4rem; text-decoration: none; color: var(--tinta); height: 100%; }
+.graella a:hover { border-color: var(--accent); }
+.graella strong { display: block; font-family: var(--tipo-titol); font-size: 1.25rem; margin: .7rem 0 .3rem; }
+.graella span { color: var(--tinta-suau); font-size: .95rem; }
+.llista { list-style: none; padding: 0; margin: 0; }
+.llista li { padding: 1rem 0; border-bottom: 1px solid var(--vora); }
+.llista time { display: block; font-size: .82rem; color: var(--tinta-suau); }
+.llista a { font-family: var(--tipo-titol); font-size: 1.2rem; }
+.llista p { margin: .3rem 0 0; color: var(--tinta-suau); }
+</style>

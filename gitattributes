@@ -1,0 +1,14 @@
+# Normalitza els finals de línia: al repositori sempre LF, en qualsevol sistema.
+# Evita que els fitxers surtin "modificats" només per editar-los des de Windows.
+* text=auto eol=lf
+
+# Fitxers binaris: que Git no els toqui.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.webp binary
+*.pdf  binary
+*.ico  binary
+*.woff binary
+*.woff2 binary

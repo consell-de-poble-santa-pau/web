@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+const cercles = (await getCollection('cercles', c => !c.data.dataFi)).sort((a,b)=>a.data.ordre-b.data.ordre);
+---
+<Base titol="Participa-hi" descripcio="Com prendre part en el Consell de Poble de Santa Pau.">
+  <div class="contenidor prosa" style="padding-top:2.5rem">
+    <h1>Participa-hi</h1>
+    <p class="lede">No cal ser escollit, ni apuntar-se enlloc, ni demanar permís. Els cercles del Consell són oberts a tothom.</p>
+
+    <h2>Vine a un cercle</h2>
+    <p>Els cercles es reuneixen quan ells mateixos ho acorden, sense calendari fix: es troben en funció de la feina que tenen i de l'energia que hi ha al poble en cada moment. Per això, la manera d'assabentar-se'n és estar connectat a algun dels canals.</p>
+    <p><strong>Escriu-nos i t'avisem</strong> de la propera trobada del cercle que t'interessi.</p>
+    <ul class="cercles">
+      {cercles.map(c => (
+        <li style={`--accent:${c.data.color}`}>
+          <img src={c.data.icona} alt="" width="42" height="42" />
+          <div>
+            <a href={`/cercles/${c.id}/`}>{c.data.nom}</a>
+            <span>{c.data.entradeta}</span>
+          </div>
+        </li>
+      ))}
+    </ul>
+
+    <h2>Segueix-nos</h2>
+    <div class="canals">
+      <a class="canal canal--wa" href="https://whatsapp.com/channel/0029Va8LbICDuMRnssDBYR1r">
+        <strong>Canal de WhatsApp</strong>
+        <span>Avisos de reunions i activitats. Només hi publica el Consell.</span>
+      </a>
+      <a class="canal canal--ig" href="https://www.instagram.com/conselldepoble_santapau">
+        <strong>Instagram</strong>
+        <span>@conselldepoble_santapau</span>
+      </a>
+      <a class="canal canal--mail" href="mailto:conselldepoble@santapau.cat">
+        <strong>Correu</strong>
+        <span>conselldepoble@santapau.cat</span>
+      </a>
+    </div>
+    <p class="nota">Els canals avisen; aquest web guarda. Tot el que importa acaba publicat aquí.</p>
+
+    <h2>Proposa un cercle nou</h2>
+    <p>Els cercles neixen de necessitats reals del poble. Si detectes un tema que no té qui se n'ocupi, es pot proposar al Cercle de Coordinació la creació d'un cercle nou — estratègic si és una feina de llarg recorregut, o operatiu si és per a una acció concreta.</p>
+
+    <h2>Presenta't a les eleccions? No cal</h2>
+    <p>Al Cercle de Coordinació no s'hi arriba presentant-s'hi. Cada dos anys, el poble proposa noms en unes <a href="/el-consell/#les-eleccions-sense-candidatura">eleccions sense candidatura</a>. Si algun dia et proposen, tindràs tot el dret a dir que no.</p>
+  </div>
+</Base>
+<style>
+.lede { font-size: 1.2rem; color: var(--tinta-suau); }
+.cercles { list-style: none; padding: 0; }
+.cercles li { display: flex; gap: .9rem; align-items: center; padding: .8rem 0 .8rem .9rem;
+  border-left: 4px solid var(--accent); margin-bottom: .5rem; background: #fff; border-radius: 0 var(--radi) var(--radi) 0; }
+.cercles a { font-family: var(--tipo-titol); font-size: 1.1rem; }
+.cercles span { display: block; font-size: .9rem; color: var(--tinta-suau); }
+.canals { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+.canal { display: block; padding: 1rem 1.1rem; border-radius: var(--radi); text-decoration: none;
+  color: var(--tinta); border: 1px solid var(--vora); background: #fff; }
+.canal strong { display: block; margin-bottom: .2rem; }
+.canal span { font-size: .88rem; color: var(--tinta-suau); }
+.canal--wa { border-left: 4px solid #25D366; }
+.canal--ig { border-left: 4px solid #C13584; }
+.canal--mail { border-left: 4px solid var(--blau); }
+.nota { font-size: .92rem; color: var(--tinta-suau); }
+</style>

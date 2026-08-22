@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import Mapa from '../components/Mapa.astro';
+---
+<Base titol="Mapa del terme" descripcio="Mapa del terme municipal de Santa Pau amb els punts que interessen al Consell de Poble.">
+  <div class="contenidor prosa" style="padding-top:2.5rem">
+    <h1>Mapa del terme</h1>
+    <p>Un mapa del terme municipal per situar-hi el que anem trobant: fonts, equipaments, camins, elements de patrimoni i tot allò sobre el que treballin els cercles.</p>
+  </div>
+  <div class="contenidor" style="margin-top:1.5rem">
+    <Mapa />
+  </div>
+  <div class="contenidor prosa" style="margin-top:2rem">
+    <h2>Coneixes un lloc que hi hauria de ser?</h2>
+    <p>El mapa es construeix entre tots. Si saps d'una font, d'un camí o d'un element que hi hauria de constar, escriu a <a href="mailto:conselldepoble@santapau.cat">conselldepoble@santapau.cat</a> dient on és — amb una descripció n'hi ha prou, ja el situarem.</p>
+    <p class="nota">De moment el mapa només té un punt de prova. S'anirà omplint a mesura que els cercles hi aportin informació. El <a href="/cercles/aigua/">Cercle de l'Aigua</a> és qui té més feina per endavant en aquest sentit.</p>
+  </div>
+</Base>
+<style>.nota { font-size: .93rem; color: var(--tinta-suau); }</style>

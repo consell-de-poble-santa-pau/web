@@ -1,0 +1,22 @@
+{
+  "name": "web-consell-de-poble-santa-pau",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22 <23"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && pagefind --site dist",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.19",
+    "astro": "^5.0.0",
+    "maplibre-gl": "^6.5.0"
+  },
+  "devDependencies": {
+    "pagefind": "^1.1.0"
+  }
+}

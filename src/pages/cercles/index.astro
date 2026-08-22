@@ -1,0 +1,76 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+const tots = await getCollection('cercles');
+const ordena = (a,b) => a.data.ordre - b.data.ordre;
+const oberts = tots.filter(c => !c.data.dataFi).sort(ordena);
+const estrategics = oberts.filter(c => c.data.tipus === 'estrategic');
+const operatius   = oberts.filter(c => c.data.tipus === 'operatiu');
+const tancats = tots.filter(c => c.data.dataFi).sort((a,b)=>b.data.dataFi-a.data.dataFi);
+const any = d => d.getFullYear();
+---
+<Base titol="Cercles" descripcio="Els cercles de treball del Consell de Poble de Santa Pau.">
+  <div class="contenidor prosa" style="padding-top:2.5rem">
+    <h1>Cercles</h1>
+    <p>La feina del Consell es reparteix en cercles que es creen a partir de les necessitats reals del municipi. Són <strong>oberts a tothom</strong>: no cal apuntar-s'hi enlloc, n'hi ha prou de venir.</p>
+  </div>
+
+  <div class="contenidor" style="margin-top:2.5rem">
+    <h2 class="titolet">Cercles Estratègics</h2>
+    <p class="nota">Treballen un àmbit del poble de manera continuada.</p>
+    <ul class="graella">
+      {estrategics.map(c => (
+        <li><a href={`/cercles/${c.id}/`} style={`--accent:${c.data.color}`}>
+          <img src={c.data.icona} alt="" width="60" height="60" />
+          <strong>{c.data.nom}</strong>
+          <span>{c.data.entradeta}</span>
+        </a></li>
+      ))}
+    </ul>
+
+    {operatius.length > 0 && (
+      <>
+        <h2 class="titolet">Cercles Operatius</h2>
+        <p class="nota">Neixen per dur a terme una acció concreta i es dissolen quan la feina està feta.</p>
+        <ul class="graella">
+          {operatius.map(c => (
+            <li><a href={`/cercles/${c.id}/`} style={`--accent:${c.data.color}`}>
+              <img src={c.data.icona} alt="" width="60" height="60" />
+              <strong>{c.data.nom}</strong>
+              <span>{c.data.entradeta}</span>
+            </a></li>
+          ))}
+        </ul>
+      </>
+    )}
+
+    {tancats.length > 0 && (
+      <>
+        <h2 class="titolet">Cercles tancats</h2>
+        <p class="nota">Van fer la seva feina i es van dissoldre. Les seves pàgines i actes es conserven.</p>
+        <ul class="arxiu">
+          {tancats.map(c => (
+            <li>
+              <a href={`/cercles/${c.id}/`}>{c.data.nom}</a>
+              <span>{c.data.dataInici ? `${any(c.data.dataInici)}–` : ''}{any(c.data.dataFi)}</span>
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+  </div>
+</Base>
+<style>
+.titolet { font-family: var(--tipo-titol); font-size: 1.5rem; margin: 2.6rem 0 .2rem; }
+.nota { color: var(--tinta-suau); font-size: .95rem; margin: 0 0 1.1rem; }
+.graella { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+.graella a { display: block; background: #fff; border: 1px solid var(--vora); border-top: 5px solid var(--accent);
+  border-radius: var(--radi); padding: 1.4rem; text-decoration: none; color: var(--tinta); height: 100%; }
+.graella a:hover { border-color: var(--accent); }
+.graella strong { display: block; font-family: var(--tipo-titol); font-size: 1.25rem; margin: .7rem 0 .3rem; }
+.graella span { color: var(--tinta-suau); font-size: .95rem; }
+.arxiu { list-style: none; padding: 0; margin: 0; max-width: var(--amplada-text); }
+.arxiu li { display: flex; justify-content: space-between; gap: 1rem; padding: .6rem 0; border-bottom: 1px solid var(--vora); }
+.arxiu span { color: var(--tinta-suau); font-size: .9rem; white-space: nowrap; }
+</style>

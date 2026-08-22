@@ -1,0 +1,19 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "descripcio": "Punts d'interès del terme municipal de Santa Pau, mantinguts pel Consell de Poble.",
+    "com_afegir_punts": "Cada punt és un objecte dins de 'features'. Copia'n un, canvia-li nom, categoria, descripció i coordenades. Les coordenades van en ordre [longitud, latitud] — primer l'est-oest, després el nord-sud. Es poden treure del mapa d'OpenStreetMap fent clic dret sobre el lloc.",
+    "categories": ["font", "equipament", "patrimoni", "natura", "cercle-aigua"]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nom": "Ajuntament de Santa Pau",
+        "categoria": "equipament",
+        "descripcio": "Carrer Major, 23"
+      },
+      "geometry": { "type": "Point", "coordinates": [2.5699146, 42.1449829] }
+    }
+  ]
+}
