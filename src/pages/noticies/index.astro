@@ -5,7 +5,7 @@ const noticies = (await getCollection('noticies')).sort((a,b)=>b.data.data-a.dat
 const fmt = d => d.toLocaleDateString('ca-ES', { day:'numeric', month:'long', year:'numeric' });
 ---
 <Base titol="Notícies" descripcio="Què fa el Consell de Poble de Santa Pau.">
-  <div class="contenidor prosa" style="padding-top:2.5rem">
+  <div class="contenidor--mitja prosa" style="padding-top:2.5rem">
     <h1>Notícies</h1>
     <ul class="llista">
       {noticies.map(n => (

@@ -1,0 +1,19 @@
+---
+// Separador decoratiu inspirat en els turons del logotip.
+// dalt: color de la secció superior · baix: color de la secció inferior
+const { dalt = 'transparent', baix = 'var(--paper-2)', invertit = false } = Astro.props;
+---
+<div class="onada" style={`--dalt:${dalt};--baix:${baix}`} aria-hidden="true">
+  <svg viewBox="0 0 1440 96" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d={invertit
+      ? "M0,96 L1440,96 L1440,20 C1180,52 980,10 720,30 C470,50 240,4 0,34 Z"
+      : "M0,0 L1440,0 L1440,44 C1200,10 1010,72 740,58 C480,44 250,92 0,60 Z"} fill="var(--dalt)"/>
+    <path d={invertit
+      ? "M0,34 C240,4 470,50 720,30 C980,10 1180,52 1440,20 L1440,96 L0,96 Z"
+      : "M0,60 C250,92 480,44 740,58 C1010,72 1200,10 1440,44 L1440,96 L0,96 Z"} fill="var(--baix)"/>
+  </svg>
+</div>
+<style>
+.onada { line-height: 0; background: var(--dalt); }
+.onada svg { display: block; width: 100%; height: clamp(38px, 5vw, 76px); }
+</style>

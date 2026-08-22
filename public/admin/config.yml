@@ -102,3 +102,43 @@ collections:
       - { name: dataFi, label: "Data de tancament (deixar buit si és actiu)", widget: datetime,
           format: "YYYY-MM-DD", time_format: false, required: false }
       - { name: motiuTancament, label: Per què s'ha tancat, widget: text, required: false }
+
+  - name: rutes
+    label: Capes del mapa
+    label_singular: Capa
+    folder: src/content/rutes
+    create: true
+    delete: false
+    summary: "{{nom}}"
+    fields:
+      - { name: nom, label: Nom de la capa, widget: string }
+      - { name: descripcio, label: Descripció, widget: text, required: false }
+      - name: gpx
+        label: Fitxer GPX
+        widget: file
+        media_folder: /public/dades
+        public_folder: /dades
+        hint: "Fitxer .gpx amb punts (fonts, equipaments) o traçats (camins, rutes)."
+      - name: categoria
+        label: Categoria
+        widget: select
+        default: ruta
+        options:
+          - { label: Ruta o camí, value: ruta }
+          - { label: Fonts, value: fonts }
+          - { label: Patrimoni, value: patrimoni }
+          - { label: Natura, value: natura }
+          - { label: Equipaments, value: equipaments }
+      - name: color
+        label: Color al mapa
+        widget: select
+        default: "#4890C0"
+        options:
+          - { label: Blau, value: "#4890C0" }
+          - { label: Verd fosc, value: "#006018" }
+          - { label: Verd, value: "#30A860" }
+          - { label: Coral, value: "#D86048" }
+          - { label: Terra, value: "#A84848" }
+          - { label: Sorra, value: "#C09060" }
+          - { label: Sol, value: "#F5921E" }
+      - { name: visible, label: Visible al mapa, widget: boolean, default: true }

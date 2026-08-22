@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Consell de Poble de Santa Pau" xmlns="http://www.topografic.net/GPX/1/1">
+  <metadata><name>Fonts del terme (exemple)</name></metadata>
+  <wpt lat="42.1449" lon="2.5699"><name>Nucli de Santa Pau</name><desc>Punt de prova</desc></wpt>
+  <wpt lat="42.1512" lon="2.5410"><name>Font d'exemple</name><desc>Substituir per dades reals</desc></wpt>
+  <trk>
+    <name>Camí d'exemple</name>
+    <trkseg>
+      <trkpt lat="42.1449" lon="2.5699"/>
+      <trkpt lat="42.1478" lon="2.5590"/>
+      <trkpt lat="42.1502" lon="2.5480"/>
+      <trkpt lat="42.1512" lon="2.5410"/>
+    </trkseg>
+  </trk>
+</gpx>

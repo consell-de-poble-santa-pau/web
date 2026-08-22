@@ -1,79 +1,168 @@
 ---
-const { alcada = '520px' } = Astro.props;
+const { alcada = '620px', capes = [] } = Astro.props;
 ---
 <div class="mapa-caixa">
   <div id="mapa" style={`height:${alcada}`} role="application" aria-label="Mapa del terme municipal de Santa Pau"></div>
+
+  {capes.length > 0 && (
+    <div class="llegenda">
+      <p class="llegenda__t">Capes</p>
+      <ul>
+        {capes.map(c => (
+          <li>
+            <label>
+              <input type="checkbox" data-capa={c.id} checked />
+              <span class="mostra" style={`background:${c.color}`}></span>
+              {c.nom}
+            </label>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+
   <p class="mapa-nota">
-    Cartografia d'<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>.
-    En carregar el mapa es fan peticions als seus servidors.
+    Cartografia d'<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> servida per
+    <a href="https://openfreemap.org">OpenFreeMap</a>. En carregar el mapa es fan peticions als seus servidors.
   </p>
 </div>
 
+<script define:vars={{ capes }}>
+  window.__capesMapa = capes;
+</script>
+
 <script>
   import 'maplibre-gl/dist/maplibre-gl.css';
-  import { Map, Marker, Popup, NavigationControl, ScaleControl } from 'maplibre-gl';
+  import { Map, Marker, Popup, NavigationControl, ScaleControl, FullscreenControl } from 'maplibre-gl';
 
-  const estil = {
-    version: 8,
-    sources: {
-      osm: {
-        type: 'raster',
-        tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
-        tileSize: 256,
-        attribution: '© OpenStreetMap',
-      },
-    },
-    layers: [{ id: 'osm', type: 'raster', source: 'osm' }],
-  };
+  /* ---------- GPX → GeoJSON (sense dependències) ---------- */
+  function gpxAGeoJSON(text) {
+    const doc = new DOMParser().parseFromString(text, 'application/xml');
+    if (doc.querySelector('parsererror')) throw new Error('GPX mal format');
+    const punts = [], linies = [];
+    const coord = n => [parseFloat(n.getAttribute('lon')), parseFloat(n.getAttribute('lat'))];
+    const txt = (n, t) => n.getElementsByTagName(t)[0]?.textContent?.trim() ?? '';
 
-  const colors = {
-    font: '#4890C0',
-    'cercle-aigua': '#4890C0',
-    equipament: '#A84848',
-    patrimoni: '#C09060',
-    natura: '#006018',
-  };
+    for (const w of doc.getElementsByTagName('wpt')) {
+      punts.push({ coords: coord(w), nom: txt(w, 'name'), desc: txt(w, 'desc') });
+    }
+    for (const t of [...doc.getElementsByTagName('trk'), ...doc.getElementsByTagName('rte')]) {
+      const nom = txt(t, 'name');
+      const segs = t.getElementsByTagName('trkseg').length
+        ? [...t.getElementsByTagName('trkseg')]
+        : [t];
+      for (const s of segs) {
+        const pts = [...s.getElementsByTagName('trkpt'), ...s.getElementsByTagName('rtept')].map(coord);
+        if (pts.length > 1) linies.push({ coords: pts, nom });
+      }
+    }
+    return { punts, linies };
+  }
 
   const mapa = new Map({
     container: 'mapa',
-    style: estil,
+    style: 'https://tiles.openfreemap.org/styles/bright',
     center: [2.5699, 42.145],
-    zoom: 12.5,
+    zoom: 12.2,
     attributionControl: { compact: true },
   });
 
   mapa.addControl(new NavigationControl({ showCompass: false }), 'top-right');
+  mapa.addControl(new FullscreenControl(), 'top-right');
   mapa.addControl(new ScaleControl({ unit: 'metric' }));
-  mapa.scrollZoom.disable(); // no segrestar el desplaçament de la pàgina
+  mapa.scrollZoom.disable();          // no segrestar el desplaçament de la pàgina
+  mapa.on('click', () => mapa.scrollZoom.enable());
+
+  const marques = {};   // id de capa → llista de marcadors
+
+  function alterna(id, visible) {
+    (marques[id] ?? []).forEach(m => m.getElement().style.display = visible ? '' : 'none');
+    const l = `linia-${id}`;
+    if (mapa.getLayer(l)) mapa.setLayoutProperty(l, 'visibility', visible ? 'visible' : 'none');
+    const h = `halo-${id}`;
+    if (mapa.getLayer(h)) mapa.setLayoutProperty(h, 'visibility', visible ? 'visible' : 'none');
+  }
 
   mapa.on('load', async () => {
+    const capes = window.__capesMapa ?? [];
+
+    /* punts solts del fitxer GeoJSON propi */
     try {
       const dades = await (await fetch('/dades/punts.geojson')).json();
+      const colors = { font:'#4890C0', 'cercle-aigua':'#4890C0', equipament:'#A84848',
+                       patrimoni:'#C09060', natura:'#006018' };
       for (const f of dades.features) {
-        const el = document.createElement('div');
-        el.className = 'marca';
-        el.style.background = colors[f.properties.categoria] ?? '#30A860';
-        new Marker({ element: el })
-          .setLngLat(f.geometry.coordinates)
-          .setPopup(new Popup({ offset: 16 }).setHTML(
-            `<strong>${f.properties.nom}</strong>${f.properties.descripcio ? `<br>${f.properties.descripcio}` : ''}`
-          ))
-          .addTo(mapa);
+        posaMarca(f.geometry.coordinates, f.properties.nom, f.properties.descripcio,
+                  colors[f.properties.categoria] ?? '#30A860', 'punts');
       }
-    } catch (e) {
-      console.error('No s\'han pogut carregar els punts del mapa', e);
+    } catch (e) { /* sense punts */ }
+
+    /* capes GPX */
+    for (const capa of capes) {
+      try {
+        const text = await (await fetch(capa.gpx)).text();
+        const { punts, linies } = gpxAGeoJSON(text);
+
+        punts.forEach(p => posaMarca(p.coords, p.nom, p.desc, capa.color, capa.id));
+
+        if (linies.length) {
+          mapa.addSource(`font-${capa.id}`, {
+            type: 'geojson',
+            data: { type: 'FeatureCollection', features: linies.map(l => ({
+              type: 'Feature', properties: { nom: l.nom },
+              geometry: { type: 'LineString', coordinates: l.coords } })) },
+          });
+          mapa.addLayer({ id: `halo-${capa.id}`, type: 'line', source: `font-${capa.id}`,
+            layout: { 'line-join': 'round', 'line-cap': 'round' },
+            paint: { 'line-color': '#ffffff', 'line-width': 7, 'line-opacity': .85 } });
+          mapa.addLayer({ id: `linia-${capa.id}`, type: 'line', source: `font-${capa.id}`,
+            layout: { 'line-join': 'round', 'line-cap': 'round' },
+            paint: { 'line-color': capa.color, 'line-width': 3.5 } });
+        }
+      } catch (e) {
+        console.error('No s\'ha pogut carregar la capa', capa.nom, e);
+      }
     }
+
+    document.querySelectorAll('[data-capa]').forEach(inp => {
+      inp.addEventListener('change', () => alterna(inp.dataset.capa, inp.checked));
+    });
   });
+
+  function posaMarca(coords, nom, desc, color, capa) {
+    const el = document.createElement('div');
+    el.className = 'marca';
+    el.style.background = color;
+    const m = new Marker({ element: el }).setLngLat(coords);
+    if (nom) m.setPopup(new Popup({ offset: 16 }).setHTML(
+      `<strong>${nom}</strong>${desc ? `<br>${desc}` : ''}`));
+    m.addTo(mapa);
+    (marques[capa] ??= []).push(m);
+  }
 </script>
 
 <style is:global>
-  .marca { width: 18px; height: 18px; border-radius: 50%; border: 3px solid #fff;
-    box-shadow: 0 1px 4px rgba(0,0,0,.35); cursor: pointer; }
-  .maplibregl-popup-content { font-family: var(--tipo); font-size: .92rem; border-radius: 8px; }
+  .marca { width: 16px; height: 16px; border-radius: 50%; border: 3px solid #fff;
+    box-shadow: 0 1px 5px rgba(0,0,0,.4); cursor: pointer; }
+  .maplibregl-popup-content { font-family: var(--tipo); font-size: .92rem; border-radius: 10px;
+    padding: .7rem .9rem; box-shadow: var(--ombra-f); }
+  .maplibregl-ctrl-group { border-radius: 10px !important; overflow: hidden; }
 </style>
 <style>
-  .mapa-caixa { border: 1px solid var(--vora); border-radius: var(--radi); overflow: hidden; background: #fff; }
+  .mapa-caixa { border: 1px solid var(--vora); border-radius: var(--radi); overflow: hidden;
+    background: var(--blanc); box-shadow: var(--ombra); position: relative; }
   #mapa { width: 100%; }
-  .mapa-nota { margin: 0; padding: .6rem .9rem; font-size: .8rem; color: var(--tinta-suau);
-    border-top: 1px solid var(--vora); }
+  .llegenda { position: absolute; left: 12px; top: 12px; background: rgba(255,255,255,.94);
+    backdrop-filter: blur(6px); border: 1px solid var(--vora); border-radius: var(--radi-s);
+    padding: .7rem .9rem; box-shadow: var(--ombra); max-width: 15rem; }
+  .llegenda__t { margin: 0 0 .45rem; font-size: .72rem; text-transform: uppercase;
+    letter-spacing: .1em; font-weight: 700; color: var(--terra); }
+  .llegenda ul { list-style: none; margin: 0; padding: 0; }
+  .llegenda li + li { margin-top: .3rem; }
+  .llegenda label { display: flex; align-items: center; gap: .45rem; font-size: .88rem; cursor: pointer; }
+  .mostra { width: 12px; height: 12px; border-radius: 3px; flex: 0 0 auto; }
+  .mapa-nota { margin: 0; padding: .65rem .95rem; font-size: .8rem; color: var(--tinta-suau);
+    border-top: 1px solid var(--vora); background: var(--paper); }
+  @media (max-width: 40rem) { .llegenda { position: static; max-width: none; border: 0;
+    border-bottom: 1px solid var(--vora); border-radius: 0; } }
 </style>

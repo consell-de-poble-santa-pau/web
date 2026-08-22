@@ -45,4 +45,16 @@ const cercles = defineCollection({
   }),
 });
 
-export const collections = { actes, noticies, cercles };
+const rutes = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/rutes' }),
+  schema: z.object({
+    nom: z.string(),
+    descripcio: z.string().optional(),
+    gpx: z.string(),
+    color: z.string().default('#4890C0'),
+    categoria: z.enum(['ruta', 'fonts', 'patrimoni', 'natura', 'equipaments']).default('ruta'),
+    visible: z.boolean().default(true),
+  }),
+});
+
+export const collections = { actes, noticies, cercles, rutes };

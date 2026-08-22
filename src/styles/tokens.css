@@ -1,4 +1,4 @@
-/* Paleta extreta del logo del Consell de Poble de Santa Pau */
+/* ── Paleta, extreta del logotip del Consell ─────────────────────────── */
 :root {
   --verd-fosc:  #006018;
   --verd:       #30A860;
@@ -10,36 +10,88 @@
   --blau-fosc:  #21384A;
   --sol:        #F5921E;
   --crema:      #FBE2CA;
-  --paper:      #FDF9F3;
-  --tinta:      #1F2A24;
-  --tinta-suau: #55605A;
-  --vora:       #E4DACB;
 
-  --amplada: 68rem;
-  --amplada-text: 40rem;
-  --radi: 10px;
-  --tipo: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --tipo-titol: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  --paper:      #FDFAF5;
+  --paper-2:    #F6F1E8;
+  --tinta:      #1C2620;
+  --tinta-suau: #5A655E;
+  --vora:       #E7DCCB;
+  --blanc:      #FFFFFF;
+
+  /* Amplades. La columna de text és més ampla que abans i la de
+     continguts amples arriba molt més enllà. */
+  --amplada:      82rem;
+  --amplada-mitja: 62rem;
+  --amplada-text: 46rem;
+
+  --radi:    14px;
+  --radi-s:  8px;
+  --ombra:   0 1px 2px rgba(28,38,32,.04), 0 8px 24px -12px rgba(28,38,32,.14);
+  --ombra-f: 0 2px 6px rgba(28,38,32,.06), 0 18px 40px -18px rgba(28,38,32,.22);
+
+  --tipo:       ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --tipo-titol: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+
+  --cap-alt: 68px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-body { margin: 0; background: var(--paper); color: var(--tinta);
-  font-family: var(--tipo); font-size: 1.0625rem; line-height: 1.65;
-  -webkit-font-smoothing: antialiased; }
-h1, h2, h3 { font-family: var(--tipo-titol); line-height: 1.2; letter-spacing: -0.01em; }
-h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 .5em; }
-h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin: 2.2em 0 .6em; }
-a { color: var(--verd-fosc); text-underline-offset: .18em; }
+
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--cap-alt) + 1rem); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--tinta);
+  font-family: var(--tipo);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 { font-family: var(--tipo-titol); line-height: 1.15; letter-spacing: -0.015em; font-weight: 700; }
+h1 { font-size: clamp(2.2rem, 1.4rem + 3.2vw, 3.8rem); margin: 0 0 .45em; }
+h2 { font-size: clamp(1.55rem, 1.15rem + 1.5vw, 2.3rem); margin: 2.4em 0 .55em; }
+h3 { font-size: clamp(1.15rem, 1rem + .6vw, 1.45rem); margin: 2em 0 .4em; }
+
+p { margin: 0 0 1.15em; }
+a { color: var(--verd-fosc); text-decoration-thickness: 1px; text-underline-offset: .2em; }
 a:hover { color: var(--coral); }
 img { max-width: 100%; height: auto; display: block; }
+strong { font-weight: 650; }
 
+/* ── Contenidors ─────────────────────────────────────────────────────── */
 .contenidor { width: min(100% - 2.5rem, var(--amplada)); margin-inline: auto; }
-.prosa { max-width: var(--amplada-text); }
-.prosa table { width: 100%; border-collapse: collapse; font-size: .95rem; }
-.prosa th, .prosa td { text-align: left; padding: .55rem .6rem; border-bottom: 1px solid var(--vora); vertical-align: top; }
+.contenidor--mitja { width: min(100% - 2.5rem, var(--amplada-mitja)); margin-inline: auto; }
+.prosa { max-width: var(--amplada-text); margin-inline: auto; }
+.prosa--ample { max-width: var(--amplada-mitja); }
 
-/* Enllaç de salt per a accessibilitat */
+.prosa table { width: 100%; border-collapse: collapse; font-size: .95rem; margin: 1.5rem 0 2rem;
+  background: var(--blanc); border-radius: var(--radi-s); overflow: hidden; box-shadow: var(--ombra); }
+.prosa thead th { background: var(--verd-fosc); color: #fff; font-weight: 600; font-size: .82rem;
+  text-transform: uppercase; letter-spacing: .06em; }
+.prosa th, .prosa td { text-align: left; padding: .7rem .9rem; vertical-align: top; }
+.prosa tbody tr + tr td { border-top: 1px solid var(--vora); }
+
+.prosa ul, .prosa ol { padding-left: 1.2em; }
+.prosa li { margin-bottom: .45em; }
+
+/* ── Titular de secció amb filet ─────────────────────────────────────── */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: .5rem;
+  text-transform: uppercase; letter-spacing: .14em; font-size: .74rem;
+  font-weight: 700; color: var(--terra); margin: 0 0 .9rem;
+}
+.eyebrow::before { content: ""; width: 1.6rem; height: 2px; background: var(--sol); border-radius: 2px; }
+
+/* ── Accessibilitat ──────────────────────────────────────────────────── */
 .salta { position: absolute; left: -9999px; }
 .salta:focus { left: 1rem; top: 1rem; position: fixed; background: var(--crema);
-  padding: .6rem 1rem; border-radius: var(--radi); z-index: 99; }
-:focus-visible { outline: 3px solid var(--sol); outline-offset: 2px; }
+  padding: .7rem 1.1rem; border-radius: var(--radi-s); z-index: 999; }
+:focus-visible { outline: 3px solid var(--sol); outline-offset: 3px; border-radius: 3px; }
+
+/* ── Utilitats ───────────────────────────────────────────────────────── */
+.fons-alt { background: var(--paper-2); }
+.centrat { text-align: center; }

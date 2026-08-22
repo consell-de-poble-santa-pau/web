@@ -6,7 +6,7 @@ const anys = [...new Set(actes.map(a => a.data.data.getFullYear()))].sort((a,b)=
 const fmt = d => d.toLocaleDateString('ca-ES', { day:'numeric', month:'long', year:'numeric' });
 ---
 <Base titol="Reunions i actes" descripcio="Ordres del dia i actes de les reunions del Consell de Poble.">
-  <div class="contenidor prosa" style="padding-top:2.5rem">
+  <div class="contenidor--mitja prosa" style="padding-top:2.5rem">
     <h1>Reunions i actes</h1>
     <p>El reglament del Consell estableix que les actes del Cercle de Coordinació han d'estar a disposició del públic. Aquest web és la plataforma on es publiquen.</p>
     <p class="compromis"><strong>El nostre compromís:</strong> l'ordre del dia es publica com a mínim 3 dies abans de cada reunió, i l'esborrany de l'acta dins del mes següent.</p>

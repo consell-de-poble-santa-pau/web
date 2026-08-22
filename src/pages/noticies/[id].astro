@@ -10,7 +10,7 @@ const { Content } = await render(n);
 const fmt = d => d.toLocaleDateString('ca-ES', { day:'numeric', month:'long', year:'numeric' });
 ---
 <Base titol={n.data.titol} descripcio={n.data.entradeta}>
-  <article class="contenidor prosa" style="padding-top:2.5rem">
+  <article class="contenidor--mitja prosa" style="padding-top:2.5rem">
     <h1>{n.data.titol}</h1>
     <p class="meta"><time datetime={n.data.data.toISOString()}>{fmt(n.data.data)}</time></p>
     {n.data.imatge && (

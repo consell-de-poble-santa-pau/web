@@ -18,6 +18,7 @@ const actual = Astro.url.pathname;
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{titol} · Consell de Poble de Santa Pau</title>
 <meta name="description" content={descripcio} />
+<meta name="theme-color" content="#006018" />
 <link rel="icon" href="/identitat/isotip-consell-de-poble.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/identitat/favicon-180.png" />
 <link rel="alternate" type="application/rss+xml" title="Notícies del Consell de Poble" href="/rss.xml" />
@@ -28,9 +29,16 @@ const actual = Astro.url.pathname;
 <header class="cap">
   <div class="contenidor cap__int">
     <a class="marca" href="/">
-      <img src="/identitat/isotip-consell-de-poble.svg" alt="" width="52" height="52" />
-      <span><strong>Consell de Poble</strong><span>de Santa Pau</span></span>
+      <img src="/identitat/isotip-consell-de-poble.svg" alt="" width="42" height="42" />
+      <span class="marca__txt">
+        <strong>Consell de Poble</strong>
+        <span>de Santa Pau</span>
+      </span>
     </a>
+
+    <input type="checkbox" id="menu" class="menu-check" />
+    <label for="menu" class="menu-boto" aria-hidden="true"><span></span><span></span><span></span></label>
+
     <nav aria-label="Principal">
       <ul>
         {nav.map(i => (
@@ -45,46 +53,94 @@ const actual = Astro.url.pathname;
 
 <footer class="peu">
   <div class="contenidor peu__int">
+    <div class="peu__marca">
+      <img src="/identitat/logo-consell-de-poble.svg" alt="Logotip del Consell de Poble de Santa Pau" width="150" height="167" />
+    </div>
     <div>
-      <p><strong>Consell de Poble de Santa Pau</strong><br />
-      L'espai on el poble es coordina, decideix i es cuida.</p>
+      <p class="peu__nom">Consell de Poble de Santa Pau</p>
+      <p class="peu__lema">L'espai on el poble es coordina, decideix i es cuida.</p>
       <p class="xarxes">
         <a class="wa" href="https://whatsapp.com/channel/0029Va8LbICDuMRnssDBYR1r">Canal de WhatsApp</a>
         <a class="ig" href="https://www.instagram.com/conselldepoble_santapau">Instagram</a>
       </p>
     </div>
-    <div>
-      <p><a href="/documents/">Documents i reglaments</a><br />
-      <a href="/credits/">Crèdits</a><br />
-      <a href="/accessibilitat/">Accessibilitat</a><br />
-      <a href="/privacitat/">Privacitat</a></p>
+    <div class="peu__enll">
+      <p><strong>El web</strong></p>
+      <p>
+        <a href="/documents/">Documents i reglaments</a><br />
+        <a href="/reunions/">Reunions i actes</a><br />
+        <a href="/rss.xml">Canal de notícies</a>
+      </p>
+      <p class="peu__legal">
+        <a href="/credits/">Crèdits</a> · <a href="/accessibilitat/">Accessibilitat</a> · <a href="/privacitat/">Privacitat</a>
+      </p>
       <p class="fi">Fotografies: Jacint Garrigolas Coll</p>
     </div>
   </div>
 </footer>
 
 <style>
-.cap { border-bottom: 1px solid var(--vora); background: #fff; }
-.cap__int { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center;
-  justify-content: space-between; padding: .9rem 0; }
-.marca { display: flex; align-items: center; gap: .7rem; text-decoration: none; color: var(--tinta); }
-.marca span { display: flex; flex-direction: column; line-height: 1.15; }
-.marca strong { font-family: var(--tipo-titol); font-size: 1.12rem; }
-.marca span span { font-size: .82rem; color: var(--tinta-suau); }
-nav ul { display: flex; flex-wrap: wrap; gap: .25rem 1.1rem; list-style: none; margin: 0; padding: 0; }
-nav a { text-decoration: none; font-size: .95rem; padding: .35rem 0; border-bottom: 2px solid transparent; }
-nav a[aria-current="page"] { border-bottom-color: var(--coral); }
-nav a:hover { border-bottom-color: var(--sorra); }
-.peu { margin-top: 5rem; background: var(--blau-fosc); color: #E9EFEA; padding: 2.5rem 0; font-size: .95rem; }
-.peu__int { display: grid; gap: 1.5rem 3rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+/* ── Capçalera enganxada ─────────────────────────────────────────── */
+.cap {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(253,250,245,.88);
+  backdrop-filter: saturate(150%) blur(10px);
+  -webkit-backdrop-filter: saturate(150%) blur(10px);
+  border-bottom: 1px solid var(--vora);
+}
+.cap__int {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; min-height: var(--cap-alt); flex-wrap: nowrap;
+}
+.marca { display: flex; align-items: center; gap: .6rem; text-decoration: none;
+  color: var(--tinta); flex: 0 0 auto; }
+.marca img { flex: 0 0 auto; }
+.marca__txt { display: flex; flex-direction: column; line-height: 1.1; }
+.marca strong { font-family: var(--tipo-titol); font-size: 1.06rem; white-space: nowrap; }
+.marca__txt > span { font-size: .78rem; color: var(--tinta-suau); white-space: nowrap; }
+
+nav ul { display: flex; flex-wrap: wrap; gap: .1rem 1.15rem; list-style: none; margin: 0; padding: 0; }
+nav a { text-decoration: none; font-size: .94rem; padding: .3rem 0; display: inline-block;
+  border-bottom: 2px solid transparent; color: var(--tinta); white-space: nowrap; }
+nav a:hover { border-bottom-color: var(--sorra); color: var(--verd-fosc); }
+nav a[aria-current="page"] { border-bottom-color: var(--coral); color: var(--verd-fosc); font-weight: 600; }
+
+.menu-check, .menu-boto { display: none; }
+
+@media (max-width: 62rem) {
+  .menu-boto { display: flex; flex-direction: column; gap: 5px; padding: .6rem; cursor: pointer;
+    border-radius: var(--radi-s); order: 3; }
+  .menu-boto span { width: 24px; height: 2px; background: var(--tinta); border-radius: 2px; }
+  nav { order: 4; flex-basis: 100%; display: none; }
+  .menu-check:checked ~ nav { display: block; }
+  nav ul { flex-direction: column; gap: 0; padding-bottom: .8rem; }
+  nav li { border-top: 1px solid var(--vora); }
+  nav a { display: block; padding: .8rem .2rem; }
+  .cap__int { flex-wrap: wrap; }
+}
+
+/* ── Peu ─────────────────────────────────────────────────────────── */
+.peu { margin-top: 0; background: var(--blau-fosc); color: #E8EEEA; padding: 3.2rem 0 2.4rem; font-size: .96rem; }
+.peu__int { display: grid; gap: 2rem 3rem; align-items: start;
+  grid-template-columns: auto minmax(16rem, 1fr) minmax(14rem, auto); }
+.peu__marca img { filter: drop-shadow(0 6px 18px rgba(0,0,0,.3)); border-radius: var(--radi-s); }
+.peu__nom { font-family: var(--tipo-titol); font-size: 1.3rem; margin: 0 0 .2rem; color: #fff; }
+.peu__lema { color: #B9C6BE; margin: 0 0 1.1rem; }
 .peu a { color: var(--crema); }
 .peu a:hover { color: #fff; }
-.xarxes { display: flex; flex-wrap: wrap; gap: .5rem; }
-.wa, .ig { display: inline-block; padding: .5rem .9rem; border-radius: var(--radi);
-  text-decoration: none; font-weight: 600; font-size: .9rem; }
+.peu__enll p { margin: 0 0 .7rem; }
+.peu__legal { font-size: .88rem; }
+.fi { color: #8E9C94; font-size: .82rem; margin-top: 1.2rem; }
+.xarxes { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0; }
+.wa, .ig { display: inline-block; padding: .5rem .95rem; border-radius: 999px;
+  text-decoration: none; font-weight: 600; font-size: .88rem; }
 .wa { background: var(--verd); color: #06210F !important; }
-.ig { background: transparent; color: var(--crema) !important; box-shadow: inset 0 0 0 2px rgba(251,226,202,.45); }
-.fi { color: #9DAAA2; font-size: .85rem; }
+.ig { color: var(--crema) !important; box-shadow: inset 0 0 0 2px rgba(251,226,202,.4); }
+
+@media (max-width: 46rem) {
+  .peu__int { grid-template-columns: 1fr; }
+  .peu__marca img { width: 110px; height: auto; }
+}
 </style>
 </body>
 </html>

@@ -1,41 +1,66 @@
 ---
 import Base from '../layouts/Base.astro';
-import { getCollection } from 'astro:content';
 import Foto from '../components/Foto.astro';
+import Onada from '../components/Onada.astro';
+import { getCollection } from 'astro:content';
 const cercles = (await getCollection('cercles', c => !c.data.dataFi)).sort((a,b)=>a.data.ordre-b.data.ordre);
 const noticies = (await getCollection('noticies')).sort((a,b)=>b.data.data-a.data.data).slice(0,3);
 const fmt = d => d.toLocaleDateString('ca-ES', { day:'numeric', month:'long', year:'numeric' });
 ---
 <Base titol="Inici" descripcio="Òrgan principal de participació de Santa Pau.">
+
   <section class="hero">
     <div class="hero__fons" aria-hidden="true"></div>
-    <div class="contenidor">
-      <p class="sobre">Consell de Poble de Santa Pau</p>
-      <h1>L'espai on el poble es coordina, decideix i es cuida.</h1>
-      <p class="entrada">Participar-hi és obert a tothom. No cal ser escollit ni demanar permís: qui ve a una reunió d'un cercle, en aquell moment, en forma part.</p>
-      <p><a class="boto" href="/participa/">Com hi puc participar</a> <a class="boto boto--buit" href="/el-consell/">Què és el Consell</a></p>
+    <div class="contenidor hero__int">
+      <p class="hero__sobre">Consell de Poble de Santa Pau</p>
+      <h1>L'espai on el poble<br/>es coordina, decideix<br/>i es cuida.</h1>
+      <p class="hero__entrada">Participar-hi és obert a tothom. No cal ser escollit ni demanar permís: qui ve a una reunió d'un cercle, en aquell moment, en forma part.</p>
+      <p class="hero__botons">
+        <a class="boto" href="/participa/">Com hi puc participar</a>
+        <a class="boto boto--buit" href="/el-consell/">Què és el Consell</a>
+      </p>
     </div>
+    <svg class="hero__turons" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,64 C220,18 420,86 700,58 C960,32 1180,92 1440,52 L1440,120 L0,120 Z" fill="#00682D" opacity=".9"/>
+      <path d="M0,92 C260,60 520,110 800,88 C1060,68 1240,104 1440,84 L1440,120 L0,120 Z" fill="var(--paper)"/>
+    </svg>
   </section>
 
   <section class="contenidor bloc">
-    <h2>Els cercles actius</h2>
+    <p class="eyebrow">Com ens organitzem</p>
+    <h2 class="bloc__titol">Els cercles actius</h2>
+    <p class="bloc__intro">La feina del Consell es reparteix en cercles que es creen a partir de les necessitats reals del municipi. Són oberts a tothom: no cal apuntar-s'hi enlloc, n'hi ha prou de venir.</p>
     <ul class="graella">
       {cercles.map(c => (
         <li><a href={`/cercles/${c.id}/`} style={`--accent:${c.data.color}`}>
-          <img src={c.data.icona} alt="" width="60" height="60" />
+          <span class="graella__icona"><img src={c.data.icona} alt="" width="56" height="56" /></span>
           <strong>{c.data.nom}</strong>
-          <span>{c.data.entradeta}</span>
+          <span class="graella__txt">{c.data.entradeta}</span>
+          <span class="graella__mes">Vés-hi</span>
         </a></li>
       ))}
     </ul>
   </section>
+
+  <Onada dalt="var(--paper)" baix="var(--paper-2)" />
+
+  <section class="fons-alt bloc-ple">
+    <div class="contenidor tres">
+      <div class="tres__i"><span class="num">01</span><h3>Obert de veritat</h3><p>Qualsevol persona pot prendre part en un cercle. La pertinença s'adquireix participant-hi.</p></div>
+      <div class="tres__i"><span class="num">02</span><h3>Decisions compartides</h3><p>No es decideix per majoria, sinó per consens i consentiment, allà on hi ha el coneixement.</p></div>
+      <div class="tres__i"><span class="num">03</span><h3>Tot a la vista</h3><p>Les actes de les reunions es publiquen aquí, tal com estableix el reglament del Consell.</p></div>
+    </div>
+  </section>
+
+  <Onada dalt="var(--paper-2)" baix="var(--paper)" invertit={true} />
 
   <section class="contenidor bloc">
     <Foto nom="panoramica-poble" alt="Vista general de Santa Pau des de dalt, amb les teulades del nucli antic i el campanar entre els turons de la Garrotxa." proporcio="1568/644" />
   </section>
 
   <section class="contenidor bloc">
-    <h2>Darreres notícies</h2>
+    <p class="eyebrow">Què fem</p>
+    <h2 class="bloc__titol">Darreres notícies</h2>
     <ul class="llista">
       {noticies.map(n => (
         <li>
@@ -45,36 +70,69 @@ const fmt = d => d.toLocaleDateString('ca-ES', { day:'numeric', month:'long', ye
         </li>
       ))}
     </ul>
-    <p><a href="/noticies/">Totes les notícies</a></p>
+    <p><a class="mes" href="/noticies/">Totes les notícies →</a></p>
   </section>
 </Base>
 
 <style>
-.hero { position: relative; padding: 5rem 0 4.5rem; border-bottom: 1px solid var(--vora);
-  background: var(--blau-fosc); color: #fff; overflow: hidden; }
+/* ── Hero ────────────────────────────────────────────────────────── */
+.hero { position: relative; color: #fff; background: var(--blau-fosc); overflow: hidden; }
 .hero__fons { position: absolute; inset: 0;
-  background-image: linear-gradient(100deg, rgba(20,32,42,.92) 0%, rgba(20,32,42,.72) 45%, rgba(20,32,42,.28) 100%),
-    image-set(url('/imatges/arc-de-sant-marti-1800.webp') 1x);
-  background-size: cover; background-position: center 62%; }
-.hero .contenidor { position: relative; }
-.sobre { text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; color: var(--crema); margin: 0 0 .8rem; font-weight: 600; }
-.hero h1 { max-width: 20ch; }
-.entrada { max-width: 46ch; font-size: 1.12rem; color: #E4EAE6; }
-.boto { display: inline-block; background: var(--crema); color: #1F2A24 !important; padding: .7rem 1.2rem;
-  border-radius: var(--radi); text-decoration: none; font-weight: 600; margin: .4rem .4rem 0 0; }
-.boto--buit { background: transparent; color: var(--crema) !important; box-shadow: inset 0 0 0 2px rgba(251,226,202,.6); }
-.credit-hero { position: absolute; right: 1rem; bottom: .5rem; font-size: .7rem; color: rgba(255,255,255,.6); }
-.bloc { margin-top: 3.5rem; }
-.graella { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
-.graella a { display: block; background: #fff; border: 1px solid var(--vora); border-top: 5px solid var(--accent);
-  border-radius: var(--radi); padding: 1.4rem; text-decoration: none; color: var(--tinta); height: 100%; }
-.graella a:hover { border-color: var(--accent); }
-.graella strong { display: block; font-family: var(--tipo-titol); font-size: 1.25rem; margin: .7rem 0 .3rem; }
-.graella span { color: var(--tinta-suau); font-size: .95rem; }
-.llista { list-style: none; padding: 0; margin: 0; }
-.llista li { padding: 1rem 0; border-bottom: 1px solid var(--vora); }
-.llista time { display: block; font-size: .82rem; color: var(--tinta-suau); }
-.llista a { font-family: var(--tipo-titol); font-size: 1.2rem; }
-.llista p { margin: .3rem 0 0; color: var(--tinta-suau); }
+  background-image:
+    linear-gradient(105deg, rgba(16,28,38,.94) 0%, rgba(16,28,38,.74) 42%, rgba(16,28,38,.24) 100%),
+    url('/imatges/arc-de-sant-marti-1800.webp');
+  background-size: cover; background-position: center 60%; }
+.hero__int { position: relative; padding: clamp(4rem, 9vw, 7.5rem) 0 clamp(5rem, 9vw, 8rem); }
+.hero__sobre { text-transform: uppercase; letter-spacing: .16em; font-size: .78rem;
+  font-weight: 700; color: var(--crema); margin: 0 0 1.1rem; }
+.hero h1 { max-width: 18ch; text-shadow: 0 2px 20px rgba(0,0,0,.25); }
+.hero__entrada { max-width: 44ch; font-size: 1.16rem; color: #DCE5E0; }
+.hero__botons { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.8rem; }
+.boto { display: inline-block; background: var(--crema); color: #16211A !important;
+  padding: .8rem 1.4rem; border-radius: 999px; text-decoration: none; font-weight: 650; }
+.boto:hover { background: #fff; }
+.boto--buit { background: transparent; color: var(--crema) !important; box-shadow: inset 0 0 0 2px rgba(251,226,202,.55); }
+.boto--buit:hover { background: rgba(251,226,202,.12); color: #fff !important; }
+.hero__turons { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%;
+  height: clamp(50px, 7vw, 110px); display: block; }
+
+/* ── Blocs ───────────────────────────────────────────────────────── */
+.bloc { padding: clamp(3rem, 6vw, 5rem) 0 0; }
+.bloc__titol { margin-top: 0; }
+.bloc__intro { max-width: 52ch; color: var(--tinta-suau); margin-bottom: 2rem; }
+.bloc-ple { padding: clamp(2.5rem, 5vw, 4rem) 0; }
+
+/* ── Targetes de cercle ──────────────────────────────────────────── */
+.graella { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); }
+.graella a { display: flex; flex-direction: column; height: 100%; background: var(--blanc);
+  border: 1px solid var(--vora); border-radius: var(--radi); padding: 1.7rem;
+  text-decoration: none; color: var(--tinta); box-shadow: var(--ombra);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; position: relative; overflow: hidden; }
+.graella a::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 5px; background: var(--accent); }
+.graella a:hover { transform: translateY(-3px); box-shadow: var(--ombra-f); border-color: var(--accent); }
+.graella__icona { display: grid; place-items: center; width: 76px; height: 76px; border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 12%, transparent); margin-bottom: 1rem; }
+.graella strong { font-family: var(--tipo-titol); font-size: 1.4rem; margin-bottom: .35rem; }
+.graella__txt { color: var(--tinta-suau); font-size: .98rem; flex: 1; }
+.graella__mes { margin-top: 1rem; font-size: .88rem; font-weight: 650; color: var(--accent); }
+@media (prefers-reduced-motion: reduce) { .graella a:hover { transform: none; } }
+
+/* ── Tres idees ──────────────────────────────────────────────────── */
+.tres { display: grid; gap: 2rem 2.6rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+.tres__i h3 { margin: .3rem 0 .4rem; }
+.tres__i p { color: var(--tinta-suau); font-size: 1rem; margin: 0; }
+.num { font-family: var(--tipo-titol); font-size: 2.2rem; color: var(--sorra); line-height: 1; }
+
+/* ── Notícies ────────────────────────────────────────────────────── */
+.llista { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
+.llista li { padding: 1.3rem 0; border-bottom: 1px solid var(--vora); }
+.llista li:first-child { border-top: 1px solid var(--vora); }
+.llista time { display: block; font-size: .82rem; color: var(--terra); text-transform: uppercase;
+  letter-spacing: .07em; font-weight: 600; margin-bottom: .2rem; }
+.llista a { font-family: var(--tipo-titol); font-size: 1.35rem; text-decoration: none; }
+.llista a:hover { text-decoration: underline; }
+.llista p { margin: .35rem 0 0; color: var(--tinta-suau); max-width: 62ch; }
+.mes { display: inline-block; margin-top: 1.4rem; font-weight: 650; text-decoration: none; }
+.mes:hover { text-decoration: underline; }
 </style>
