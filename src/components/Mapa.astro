@@ -47,25 +47,21 @@ const { alcada = '620px', capes = [] } = Astro.props;
     const coord = n => [parseFloat(n.getAttribute('lon')), parseFloat(n.getAttribute('lat'))];
     const txt = (n, t) => n.getElementsByTagName(t)[0]?.textContent?.trim() ?? '';
 
-    for (const w of doc.getElementsByTagName('wpt')) {
+    for (const w of doc.getElementsByTagName('wpt'))
       punts.push({ coords: coord(w), nom: txt(w, 'name'), desc: txt(w, 'desc') });
-    }
+
     for (const t of [...doc.getElementsByTagName('trk'), ...doc.getElementsByTagName('rte')]) {
       const nom = txt(t, 'name');
-      const segs = t.getElementsByTagName('trkseg').length
-        ? [...t.getElementsByTagName('trkseg')]
-        : [t];
-      for (const s of segs) {
-        const pts = [...s.getElementsByTagName('trkpt'), ...s.getElementsByTagName('rtept')].map(coord);
+      const segs = t.getElementsByTagName('trkseg').length ? [...t.getElementsByTagName('trkseg')] : [t];
+      for (const sg of segs) {
+        const pts = [...sg.getElementsByTagName('trkpt'), ...sg.getElementsByTagName('rtept')].map(coord);
         if (pts.length > 1) linies.push({ coords: pts, nom });
       }
     }
     return { punts, linies };
   }
 
-  /* Cadena de proveïdors de cartografia. Es prova el primer; si no respon
-     (tallafocs, VPN, bloquejador o servei caigut), es passa al següent.
-     L'últim són imatges d'OpenStreetMap, que sempre funcionen. */
+  /* ---------- Proveïdors de cartografia ---------- */
   const RASTER = {
     version: 8,
     sources: { osm: { type: 'raster', tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
@@ -74,122 +70,26 @@ const { alcada = '620px', capes = [] } = Astro.props;
   };
 
   const PROVEIDORS = [
-    { host: 'maptoolkit.org',  estil: 'https://styles.maptoolkit.org/summer.json',
+    { estil: 'https://styles.maptoolkit.org/summer.json',
       credit: 'Cartografia de <a href="https://www.maptoolkit.org">Maptoolkit</a> amb dades d\'<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>.' },
-    { host: 'openfreemap.org', estil: 'https://tiles.openfreemap.org/styles/liberty',
+    { estil: 'https://tiles.openfreemap.org/styles/liberty',
       credit: 'Cartografia d\'<a href="https://openfreemap.org">OpenFreeMap</a> amb dades d\'<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>.' },
-    { host: null, estil: RASTER,
+    { estil: RASTER, simplificada: true,
       credit: 'Cartografia d\'<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, en versió simplificada.' },
   ];
 
-  let actual = 0;
-  let rellotge = null;
+  /* Es prova cada proveïdor amb el mapa mateix: si en deu segons no ha
+     acabat de dibuixar, es passa al següent. No es fa cap petició prèvia
+     de comprovació, perquè podria fallar allà on MapLibre sí que funciona,
+     ni es reacciona a errors de tessel·les soltes, que són normals. */
 
-  function credit() {
-    const n = document.getElementById('mapa-credit');
-    if (n) n.innerHTML = PROVEIDORS[actual].credit + ' En carregar el mapa es fan peticions als seus servidors.';
-    const avis = document.getElementById('mapa-avis');
-    if (avis) avis.hidden = actual < PROVEIDORS.length - 1;
-  }
-
-  function seguent(motiu) {
-    if (actual >= PROVEIDORS.length - 1) return;
-    actual++;
-    console.warn('Cartografia no disponible, es prova la següent opció.', motiu);
-    clearTimeout(rellotge);
-    mapa.setStyle(PROVEIDORS[actual].estil);
-    vigila();
-  }
-
-  function vigila() {
-    clearTimeout(rellotge);
-    if (actual >= PROVEIDORS.length - 1) { credit(); return; }
-    rellotge = setTimeout(() => { if (!mapa.isStyleLoaded()) seguent('temps esgotat'); else credit(); }, 5000);
-  }
-
-  const mapa = new Map({
-    container: 'mapa',
-    style: PROVEIDORS[0].estil,
-    center: [2.5699, 42.145],
-    zoom: 12.2,
-    attributionControl: { compact: true },
-  });
-
-  mapa.on('error', e => {
-    const u = e?.error?.url ?? '';
-    const h = PROVEIDORS[actual].host;
-    if (h && u.includes(h)) seguent(u);
-  });
-  vigila();
-
-  mapa.addControl(new NavigationControl({ showCompass: false }), 'top-right');
-  mapa.addControl(new FullscreenControl(), 'top-right');
-  mapa.addControl(new ScaleControl({ unit: 'metric' }));
-  mapa.scrollZoom.disable();          // no segrestar el desplaçament de la pàgina
-  mapa.on('click', () => mapa.scrollZoom.enable());
-
-  const marques = {};   // id de capa → llista de marcadors
+  const marques = {};
+  let mapa;
 
   function alterna(id, visible) {
     (marques[id] ?? []).forEach(m => m.getElement().style.display = visible ? '' : 'none');
-    const l = `linia-${id}`;
-    if (mapa.getLayer(l)) mapa.setLayoutProperty(l, 'visibility', visible ? 'visible' : 'none');
-    const h = `halo-${id}`;
-    if (mapa.getLayer(h)) mapa.setLayoutProperty(h, 'visibility', visible ? 'visible' : 'none');
-  }
-
-  let puntsPosats = false;
-
-  mapa.on('style.load', () => { credit(); dibuixa(); });
-
-  async function dibuixa() {
-    const capes = window.__capesMapa ?? [];
-
-    /* punts solts del fitxer GeoJSON propi (els marcadors sobreviuen a un
-       canvi d'estil; les capes de línies, no, i s'han de tornar a posar) */
-    if (!puntsPosats) try {
-      const dades = await (await fetch('/dades/punts.geojson')).json();
-      const colors = { font:'#4890C0', 'cercle-aigua':'#4890C0', equipament:'#A84848',
-                       patrimoni:'#C09060', natura:'#006018' };
-      for (const f of dades.features) {
-        posaMarca(f.geometry.coordinates, f.properties.nom, f.properties.descripcio,
-                  colors[f.properties.categoria] ?? '#30A860', 'punts');
-      }
-      puntsPosats = true;
-    } catch (e) { /* sense punts */ }
-
-    /* capes GPX */
-    for (const capa of capes) {
-      try {
-        const text = await (await fetch(capa.gpx)).text();
-        const { punts, linies } = gpxAGeoJSON(text);
-
-        if (!puntsPosats) punts.forEach(p => posaMarca(p.coords, p.nom, p.desc, capa.color, capa.id));
-
-        if (linies.length && !mapa.getSource(`font-${capa.id}`)) {
-          mapa.addSource(`font-${capa.id}`, {
-            type: 'geojson',
-            data: { type: 'FeatureCollection', features: linies.map(l => ({
-              type: 'Feature', properties: { nom: l.nom },
-              geometry: { type: 'LineString', coordinates: l.coords } })) },
-          });
-          mapa.addLayer({ id: `halo-${capa.id}`, type: 'line', source: `font-${capa.id}`,
-            layout: { 'line-join': 'round', 'line-cap': 'round' },
-            paint: { 'line-color': '#ffffff', 'line-width': 7, 'line-opacity': .85 } });
-          mapa.addLayer({ id: `linia-${capa.id}`, type: 'line', source: `font-${capa.id}`,
-            layout: { 'line-join': 'round', 'line-cap': 'round' },
-            paint: { 'line-color': capa.color, 'line-width': 3.5 } });
-        }
-      } catch (e) {
-        console.error('No s\'ha pogut carregar la capa', capa.nom, e);
-      }
-    }
-
-    puntsPosats = true;
-
-    document.querySelectorAll('[data-capa]').forEach(inp => {
-      inp.onchange = () => alterna(inp.dataset.capa, inp.checked);
-    });
+    for (const l of [`linia-${id}`, `halo-${id}`])
+      if (mapa.getLayer(l)) mapa.setLayoutProperty(l, 'visibility', visible ? 'visible' : 'none');
   }
 
   function posaMarca(coords, nom, desc, color, capa) {
@@ -201,6 +101,90 @@ const { alcada = '620px', capes = [] } = Astro.props;
       `<strong>${nom}</strong>${desc ? `<br>${desc}` : ''}`));
     m.addTo(mapa);
     (marques[capa] ??= []).push(m);
+  }
+
+  let idx = 0;
+  let puntsPosats = false;
+
+  function anuncia(prov) {
+    const credit = document.getElementById('mapa-credit');
+    if (credit) credit.innerHTML = prov.credit + ' En carregar el mapa es fan peticions als seus servidors.';
+    const avis = document.getElementById('mapa-avis');
+    if (avis) { if (prov.simplificada) avis.hidden = false; else avis.remove(); }
+  }
+
+  function intenta() {
+    const prov = PROVEIDORS[idx];
+    const ultim = idx === PROVEIDORS.length - 1;
+
+    if (!mapa) {
+      mapa = new Map({
+        container: 'mapa', style: prov.estil,
+        center: [2.5699, 42.145], zoom: 12.2,
+        attributionControl: { compact: true },
+      });
+      mapa.addControl(new NavigationControl({ showCompass: false }), 'top-right');
+      mapa.addControl(new FullscreenControl(), 'top-right');
+      mapa.addControl(new ScaleControl({ unit: 'metric' }));
+      mapa.scrollZoom.disable();
+      mapa.on('click', () => mapa.scrollZoom.enable());
+      mapa.on('style.load', () => dibuixa());
+      mapa.on('error', e => console.warn('Avís del mapa:', e?.error?.message ?? e));
+    } else {
+      mapa.setStyle(prov.estil);
+    }
+
+    if (ultim) { anuncia(prov); return; }
+
+    const rellotge = setTimeout(() => {
+      console.warn('Cartografia massa lenta o inaccessible:', prov.estil);
+      idx++; intenta();
+    }, 10000);
+
+    mapa.once('idle', () => { clearTimeout(rellotge); anuncia(prov); });
+  }
+
+  intenta();
+
+  async function dibuixa() {
+    const capes = window.__capesMapa ?? [];
+
+      if (!puntsPosats) try {
+        const dades = await (await fetch('/dades/punts.geojson')).json();
+        const colors = { font:'#4890C0', 'cercle-aigua':'#4890C0', equipament:'#A84848',
+                         patrimoni:'#C09060', natura:'#006018' };
+        for (const f of dades.features)
+          posaMarca(f.geometry.coordinates, f.properties.nom, f.properties.descripcio,
+                    colors[f.properties.categoria] ?? '#30A860', 'punts');
+      } catch (e) { /* sense punts */ }
+
+      for (const capa of capes) {
+        try {
+          const text = await (await fetch(capa.gpx)).text();
+          const { punts, linies } = gpxAGeoJSON(text);
+          if (!puntsPosats) punts.forEach(p => posaMarca(p.coords, p.nom, p.desc, capa.color, capa.id));
+
+          if (linies.length && !mapa.getSource(`font-${capa.id}`)) {
+            mapa.addSource(`font-${capa.id}`, { type: 'geojson',
+              data: { type: 'FeatureCollection', features: linies.map(l => ({
+                type: 'Feature', properties: { nom: l.nom },
+                geometry: { type: 'LineString', coordinates: l.coords } })) } });
+            mapa.addLayer({ id: `halo-${capa.id}`, type: 'line', source: `font-${capa.id}`,
+              layout: { 'line-join': 'round', 'line-cap': 'round' },
+              paint: { 'line-color': '#ffffff', 'line-width': 7, 'line-opacity': .85 } });
+            mapa.addLayer({ id: `linia-${capa.id}`, type: 'line', source: `font-${capa.id}`,
+              layout: { 'line-join': 'round', 'line-cap': 'round' },
+              paint: { 'line-color': capa.color, 'line-width': 3.5 } });
+          }
+        } catch (e) {
+          console.error('No s\'ha pogut carregar la capa', capa.nom, e);
+        }
+      }
+
+      puntsPosats = true;
+      document.querySelectorAll('[data-capa]').forEach(inp => {
+        inp.onchange = () => alterna(inp.dataset.capa, inp.checked);
+      });
   }
 </script>
 
