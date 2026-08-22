@@ -32,6 +32,19 @@ Al panell de l'organització: **New repository**.
 - **No** marcar cap de les caselles d'inicialització (README, .gitignore, llicència):
   el projecte ja les porta.
 
+**Abans de res**, si és el primer cop que fas servir Git en aquest ordinador, cal dir-li
+qui ets. Sense això el `commit` falla:
+
+```bash
+git config --global user.name "El teu nom"
+git config --global user.email "correu@exemple.cat"
+```
+
+> **Compte amb quin correu hi poses.** En un repositori públic, l'adreça de cada commit
+> queda visible per sempre. Per no exposar la teva, GitHub en dona una d'anònima: la
+> trobaràs a `Settings → Emails → Keep my email addresses private`, i té la forma
+> `12345678+usuari@users.noreply.github.com`. Fes servir aquesta.
+
 Després, des de la carpeta del projecte al teu ordinador:
 
 ```bash
@@ -45,9 +58,24 @@ git push -u origin main
 
 Substituint `ORGANITZACIO` pel nom real.
 
+> Els avisos de tipus *"LF will be replaced by CRLF"* són normals a Windows i no
+> trenquen res. El fitxer `.gitattributes` que porta el projecte els fa desaparèixer
+> a partir del primer commit.
+
 > Si `git` demana usuari i contrasenya, GitHub ja no accepta contrasenyes: cal un
 > *personal access token*. La manera més còmoda d'evitar-ho és instal·lar
 > [GitHub CLI](https://cli.github.com) i fer `gh auth login` una vegada.
+
+### On tenir la carpeta del projecte
+
+**No la posis dins d'una carpeta sincronitzada** amb Nextcloud, Dropbox o OneDrive.
+Git i els sincronitzadors de fitxers es porten malament: el sincronitzador copia i
+bloqueja fitxers de dins de `.git` mentre Git hi escriu, i això acaba en conflictes o
+en un repositori corromput. A més, `node_modules` són desenes de milers de fitxers
+petits que el faran anar de bòlit.
+
+Un lloc net com `C:\dev\web-consell-de-poble` va bé. La còpia de seguretat ja la fa
+GitHub: aquesta és precisament la gràcia.
 
 ## Pas 3 · Connectar Cloudflare Pages
 
