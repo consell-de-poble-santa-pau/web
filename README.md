@@ -86,6 +86,21 @@ s'esborra: és feina acabada.
 
 ## El mapa
 
+**Nota tècnica important.** A `public/vendor/` hi ha una còpia del *worker* de MapLibre,
+i `public/_headers` li assigna el tipus de contingut correcte. MapLibre processa les
+tessel·les vectorials en aquest fitxer i el localitza pel seu compte a partir de la ruta
+del seu propi mòdul; en empaquetar el projecte aquell fitxer no s'emet, la petició torna
+la pàgina d'error en HTML i el navegador la rebutja. El resultat és un mapa que només
+funciona amb cartografia en imatges. Per això la ruta se li indica explícitament amb
+`setWorkerUrl()` a `src/components/Mapa.astro`.
+
+Si algun dia s'actualitza `maplibre-gl`, cal tornar a copiar el fitxer:
+
+```bash
+copy node_modules\maplibre-gl\dist\maplibre-gl-worker.mjs public\vendor\
+```
+
+
 El mapa viu a `/mapa/` i es construeix amb MapLibre sobre cartografia d'OpenStreetMap,
 sense clau d'API ni cost.
 

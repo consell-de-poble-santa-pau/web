@@ -37,7 +37,14 @@ const { alcada = '620px', capes = [] } = Astro.props;
 
 <script>
   import 'maplibre-gl/dist/maplibre-gl.css';
-  import { Map, Marker, Popup, NavigationControl, ScaleControl, FullscreenControl } from 'maplibre-gl';
+  import { Map, Marker, Popup, NavigationControl, ScaleControl, FullscreenControl, setWorkerUrl } from 'maplibre-gl';
+
+  /* MapLibre processa les tessel·les vectorials en un worker que localitza
+     pel seu compte, a partir de la ruta del seu propi mòdul. En empaquetar
+     el projecte, aquell fitxer no s'emet i la petició torna la pàgina d'error
+     en HTML: el navegador la rebutja i el mapa vectorial no arriba a dibuixar-se.
+     Se li indica explícitament on és la còpia que servim nosaltres. */
+  setWorkerUrl('/vendor/maplibre-gl-worker.mjs');
 
   /* ---------- GPX → GeoJSON (sense dependències) ---------- */
   function gpxAGeoJSON(text) {
