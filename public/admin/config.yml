@@ -1,7 +1,6 @@
 backend:
   name: github
-  # Canviar per l'organitzacio/repositori reals un cop creats a GitHub.
-  repo: ORGANITZACIO/REPOSITORI
+  repo: consell-de-poble-santa-pau/web
   branch: main
   # base_url: https://sveltia-cms-auth.XXXX.workers.dev
   #   Nomes cal quan hi hagi mes d'una persona editant. Amb un sol editor,
@@ -10,7 +9,11 @@ backend:
 locale: ca
 media_folder: public/imatges
 public_folder: /imatges
-publish_mode: editorial_workflow
+
+# NOTA: Sveltia CMS encara no implementa l'editorial workflow (branques de revisio
+# per entrada). Tot el que es desa va directament a 'main' i es publica.
+# Els esborranys es gestionen amb el camp 'estat' de cada acta, que fa sortir
+# un avis visible a la pagina mentre no estigui aprovada.
 
 collections:
   - name: actes
