@@ -13,3 +13,5 @@ dist/
 
 # Cloudflare
 .wrangler/
+
+*.bundle
