@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd http://www.topografix.com/GPX/gpx_style/0/2 http://www.topografix.com/GPX/gpx_style/0/2/gpx_style.xsd" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpx_style="http://www.topografix.com/GPX/gpx_style/0/2" version="1.1" creator="@alexistudela">
+	<metadata>
+		<name>SantaPau_Molins</name>
+		<author>
+			<name>Alexis Tudela i Casanovas</name>
+		</author>
+	</metadata>
+	
+	<!-- Molins -->
+	<wpt lat="42.15522963978584" lon="2.6080003380775456">
+		<ele>340.8</ele>
+		<name>Molí de Can Batlle</name>
+		<sym>Circle, Blue</sym>
+		<type>moli</type>
+	</wpt>
+	
+	<wpt lat="42.15282363006943" lon="2.594626843929291">
+		<ele>405.1</ele>
+		<name>Molí de Can Biel</name>
+		<sym>Circle, Blue</sym>
+		<type>moli</type>
+	</wpt>
+	
+	<wpt lat="42.15360907304904" lon="2.5984838604927067">
+		<ele>384.7</ele>
+		<name>Molí de Reixac</name>
+		<sym>Circle, Blue</sym>
+		<type>moli</type>
+	</wpt>
+	
+	<wpt lat="42.1514543169479" lon="2.5875489465257178">
+		<ele>414.0</ele>
+		<name>Molí Nou</name>
+		<desc>XVIII - El Sallent</desc>
+		<sym>Circle, Blue</sym>
+		<type>moli</type>
+	</wpt>
+
+</gpx>

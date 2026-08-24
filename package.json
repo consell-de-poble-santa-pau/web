@@ -7,9 +7,10 @@
     "node": ">=22 <23"
   },
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build && pagefind --site dist",
-    "preview": "astro preview"
+  "dev": "astro dev",
+  "mapa": "node scripts/gpx-a-geojson.mjs",
+  "build": "npm run mapa && astro build && pagefind --site dist",
+  "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",
@@ -17,6 +18,10 @@
     "maplibre-gl": "^6.5.0"
   },
   "devDependencies": {
+    "@tmcw/togeojson": "^7.1.2",
+    "@xmldom/xmldom": "^0.9.12",
     "pagefind": "^1.1.0"
-  }
+  },
+  "mapa": "node scripts/gpx-a-geojson.mjs",
+  "build": "npm run mapa && astro build && pagefind --site dist"
 }

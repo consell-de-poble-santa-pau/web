@@ -1,235 +1,222 @@
 ---
-const { alcada = '620px', capes = [] } = Astro.props;
+import { CATEGORIES } from '../dades/categories.js';
+const { alcada = '560px' } = Astro.props;
+const llista = Object.entries(CATEGORIES);
 ---
+
 <div class="mapa-caixa">
-  <div id="mapa" style={`height:${alcada}`} role="application" aria-label="Mapa del terme municipal de Santa Pau"></div>
+  <div class="mapa-plec">
+    <div id="mapa" style={`height:${alcada}`} role="application"
+         aria-label="Mapa del terme municipal de Santa Pau"></div>
 
-  {capes.length > 0 && (
-    <div class="llegenda">
-      <p class="llegenda__t">Capes</p>
-      <ul>
-        {capes.map(c => (
-          <li>
-            <label>
-              <input type="checkbox" data-capa={c.id} checked />
-              <span class="mostra" style={`background:${c.color}`}></span>
-              {c.nom}
-            </label>
-          </li>
-        ))}
-      </ul>
-    </div>
-  )}
+    <fieldset class="capes">
+      <legend>Capes</legend>
+      {llista.map(([clau, cat]) => (
+        <label>
+          <input type="checkbox" checked={clau !== 'habitatge'} data-capa={clau} />
+          <span class="mostra" style={`--c:${cat.color}`}></span>
+          {cat.etiqueta}
+        </label>
+      ))}
+      <label class="capes-rutes">
+        <input type="checkbox" checked data-capa="rutes" />
+        <span class="mostra mostra-linia"></span>
+        Rutes
+      </label>
+    </fieldset>
+  </div>
 
-  <p class="mapa-avis" id="mapa-avis" hidden>
-    No s'ha pogut carregar la cartografia detallada i es mostra una versió simplificada.
-    Sol ser cosa d'una VPN o d'un bloquejador de continguts.
-  </p>
-
-  <p class="mapa-nota" id="mapa-credit">
-    Cartografia d'<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>.
+  <p class="mapa-nota">
+    Cartografia de <a href="https://maptoolkit.com/">Maptoolkit</a> amb dades
+    d'<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>.
+    En carregar el mapa es fan peticions als seus servidors.
   </p>
 </div>
 
-<script define:vars={{ capes }}>
-  window.__capesMapa = capes;
-</script>
-
 <script>
   import 'maplibre-gl/dist/maplibre-gl.css';
-  import { Map, Marker, Popup, NavigationControl, ScaleControl, FullscreenControl, setWorkerUrl } from 'maplibre-gl';
+  import { Map, Popup, NavigationControl, ScaleControl, FullscreenControl } from 'maplibre-gl';
+  import { CATEGORIES } from '../dades/categories.js';
 
-  /* MapLibre processa les tessel·les vectorials en un worker que localitza
-     pel seu compte, a partir de la ruta del seu propi mòdul. En empaquetar
-     el projecte, aquell fitxer no s'emet i la petició torna la pàgina d'error
-     en HTML: el navegador la rebutja i el mapa vectorial no arriba a dibuixar-se.
-     Se li indica explícitament on és la còpia que servim nosaltres. */
-  setWorkerUrl('/vendor/maplibre-gl-worker.mjs');
-
-  /* ---------- GPX → GeoJSON (sense dependències) ---------- */
-  function gpxAGeoJSON(text) {
-    const doc = new DOMParser().parseFromString(text, 'application/xml');
-    if (doc.querySelector('parsererror')) throw new Error('GPX mal format');
-    const punts = [], linies = [];
-    const coord = n => [parseFloat(n.getAttribute('lon')), parseFloat(n.getAttribute('lat'))];
-    const txt = (n, t) => n.getElementsByTagName(t)[0]?.textContent?.trim() ?? '';
-
-    for (const w of doc.getElementsByTagName('wpt'))
-      punts.push({ coords: coord(w), nom: txt(w, 'name'), desc: txt(w, 'desc') });
-
-    for (const t of [...doc.getElementsByTagName('trk'), ...doc.getElementsByTagName('rte')]) {
-      const nom = txt(t, 'name');
-      const segs = t.getElementsByTagName('trkseg').length ? [...t.getElementsByTagName('trkseg')] : [t];
-      for (const sg of segs) {
-        const pts = [...sg.getElementsByTagName('trkpt'), ...sg.getElementsByTagName('rtept')].map(coord);
-        if (pts.length > 1) linies.push({ coords: pts, nom });
-      }
-    }
-    return { punts, linies };
-  }
-
-  /* ---------- Proveïdors de cartografia ---------- */
-  const RASTER = {
+  // ─────────────────────────────────────────────────────────────────────
+  // NO TOQUIS AIXÒ: és l'estil de base que ja fas servir ara mateix.
+  // Enganxa-hi la URL o l'objecte d'estil de Maptoolkit que tens al fitxer vell.
+  // const ESTIL = 'ENGANXA-HI-EL-TEU-ESTIL-ACTUAL';
+  const ESTIL = {
     version: 8,
-    sources: { osm: { type: 'raster', tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
-      tileSize: 256, maxzoom: 19, attribution: '© OpenStreetMap' } },
+    sources: {
+      osm: {
+        type: 'raster',
+        tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+        tileSize: 256,
+        attribution: '© OpenStreetMap',
+      },
+    },
     layers: [{ id: 'osm', type: 'raster', source: 'osm' }],
   };
+  // ─────────────────────────────────────────────────────────────────────
 
-  const PROVEIDORS = [
-    { estil: 'https://styles.maptoolkit.org/summer.json',
-      credit: 'Cartografia de <a href="https://www.maptoolkit.org">Maptoolkit</a> amb dades d\'<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>.' },
-    { estil: 'https://tiles.openfreemap.org/styles/liberty',
-      credit: 'Cartografia d\'<a href="https://openfreemap.org">OpenFreeMap</a> amb dades d\'<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>.' },
-    { estil: RASTER, simplificada: true,
-      credit: 'Cartografia d\'<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, en versió simplificada.' },
-  ];
+  const MIDA = 32;   // diàmetre del marcador, en píxels de pantalla
+  const RATIO = 2;   // el dibuixem al doble per a pantalles retina
+  const GLIF = 1.15; // com d'gran surt la silueta dins del cercle
 
-  /* Es prova cada proveïdor amb el mapa mateix: si en deu segons no ha
-     acabat de dibuixar, es passa al següent. No es fa cap petició prèvia
-     de comprovació, perquè podria fallar allà on MapLibre sí que funciona,
-     ni es reacciona a errors de tessel·les soltes, que són normals. */
+  // Pinta un marcador: cercle de color, vora blanca, silueta blanca a dins.
+  function pintaMarcador({ color, icona }) {
+    const c = document.createElement('canvas');
+    c.width = c.height = MIDA * RATIO;
+    const g = c.getContext('2d');
+    g.scale(RATIO, RATIO);
 
-  const marques = {};
-  let mapa;
+    g.beginPath();
+    g.arc(MIDA / 2, MIDA / 2, MIDA / 2 - 3, 0, Math.PI * 2);
+    g.fillStyle = color;
+    g.fill();
+    g.lineWidth = 2.5;
+    g.strokeStyle = '#fff';
+    g.stroke();
 
-  function alterna(id, visible) {
-    (marques[id] ?? []).forEach(m => m.getElement().style.display = visible ? '' : 'none');
-    for (const l of [`linia-${id}`, `halo-${id}`])
-      if (mapa.getLayer(l)) mapa.setLayoutProperty(l, 'visibility', visible ? 'visible' : 'none');
+    g.translate(MIDA / 2 - 7.5 * GLIF, MIDA / 2 - 7.5 * GLIF); // la icona fa 15×15
+    g.scale(GLIF, GLIF);
+    g.fillStyle = '#fff';
+    g.fill(new Path2D(icona));
+
+    return g.getImageData(0, 0, c.width, c.height);
   }
 
-  function posaMarca(coords, nom, desc, color, capa) {
-    const el = document.createElement('div');
-    el.className = 'marca';
-    el.style.background = color;
-    const m = new Marker({ element: el }).setLngLat(coords);
-    if (nom) m.setPopup(new Popup({ offset: 16 }).setHTML(
-      `<strong>${nom}</strong>${desc ? `<br>${desc}` : ''}`));
-    m.addTo(mapa);
-    (marques[capa] ??= []).push(m);
-  }
+  const mapa = new Map({
+    container: 'mapa',
+    style: ESTIL,
+    center: [2.5699, 42.145],
+    zoom: 12.5,
+    attributionControl: { compact: true },
+  });
 
-  let idx = 0;
-  let gen = 0;
-  let puntsPosats = false;
+  mapa.addControl(new NavigationControl({ showCompass: false }), 'top-right');
+  mapa.addControl(new FullscreenControl(), 'top-right');
+  mapa.addControl(new ScaleControl({ unit: 'metric' }));
+  mapa.scrollZoom.disable(); // no segrestar el desplaçament de la pàgina
 
-  function anuncia(prov) {
-    const credit = document.getElementById('mapa-credit');
-    if (credit) credit.innerHTML = prov.credit + ' En carregar el mapa es fan peticions als seus servidors.';
-    const avis = document.getElementById('mapa-avis');
-    if (avis) { if (prov.simplificada) avis.hidden = false; else avis.remove(); }
-  }
+  mapa.on('load', () => {
+    // ── Rutes: primer, perquè quedin per sota dels punts ──────────────
+    mapa.addSource('rutes', { type: 'geojson', data: '/dades/rutes.geojson' });
 
-  function intenta() {
-    const prov = PROVEIDORS[idx];
-    const ultim = idx === PROVEIDORS.length - 1;
-    const meva = ++gen;          // invalida els intents anteriors
+    mapa.addLayer({
+      id: 'rutes-fons', source: 'rutes', type: 'line',
+      layout: { 'line-cap': 'round', 'line-join': 'round' },
+      paint: { 'line-color': '#fff', 'line-width': 6, 'line-opacity': 0.8 },
+    });
+    mapa.addLayer({
+      id: 'rutes-linia', source: 'rutes', type: 'line',
+      layout: { 'line-cap': 'round', 'line-join': 'round' },
+      paint: { 'line-color': '#A03030', 'line-width': 2.5 },
+    });
 
-    if (!mapa) {
-      mapa = new Map({
-        container: 'mapa', style: prov.estil,
-        center: [2.5699, 42.145], zoom: 12.2,
-        attributionControl: { compact: true },
+    // ── Punts: una capa per categoria, per poder-les encendre i apagar ─
+    mapa.addSource('punts', { type: 'geojson', data: '/dades/punts.geojson' });
+
+    for (const [clau, cat] of Object.entries(CATEGORIES)) {
+      mapa.addImage(clau, pintaMarcador(cat), { pixelRatio: RATIO });
+
+      mapa.addLayer({
+        id: `punts-${clau}`,
+        source: 'punts',
+        type: 'symbol',
+        filter: ['==', ['get', 'categoria'], clau],
+        layout: {
+          'icon-image': clau,visibility: clau === 'habitatge' ? 'none' : 'visible',
+          'icon-size': ['interpolate', ['linear'], ['zoom'], 11, 0.55, 15, 1],
+          'icon-allow-overlap': false,   // ← aquí és on es descongestiona sol
+          'icon-padding': 4,
+          //'text-field': ['get', 'nom'],
+          //'text-font': ['Noto Sans Regular'], // ha d'existir a l'estil de base
+          //'text-size': 11,
+          //'text-offset': [0, 1.1],
+          //'text-anchor': 'top',
+          //'text-optional': true,
+          //'text-max-width': 9,
+        },
+        paint: {
+          'text-color': '#2A2A2A',
+          'text-halo-color': '#fff',
+          'text-halo-width': 1.5,
+        },
+        minzoom: 11,
       });
-      mapa.addControl(new NavigationControl({ showCompass: false }), 'top-right');
-      mapa.addControl(new FullscreenControl(), 'top-right');
-      mapa.addControl(new ScaleControl({ unit: 'metric' }));
-      mapa.scrollZoom.disable();
-      mapa.on('click', () => mapa.scrollZoom.enable());
-      mapa.on('style.load', () => dibuixa());
-      mapa.on('error', e => console.warn('Avís del mapa:', e?.error?.message ?? e));
-    } else {
-      mapa.setStyle(prov.estil);
     }
 
-    if (ultim) { anuncia(prov); return; }
+    // ── Fitxa del punt ────────────────────────────────────────────────
+    const capesPunt = Object.keys(CATEGORIES).map((c) => `punts-${c}`);
 
-    /* Senyal d'èxit: que l'estil s'hagi descarregat i interpretat. Esperar
-       que el mapa quedi del tot quiet ('idle') no serveix, perquè amb
-       cartografia vectorial pot trigar molt més o no arribar-hi mai. */
-    const rellotge = setTimeout(() => {
-      if (meva !== gen) return;
-      console.warn('Cartografia massa lenta o inaccessible:', prov.estil);
-      idx++; intenta();
-    }, 12000);
-
-    mapa.once('style.load', () => {
-      if (meva !== gen) return;
-      clearTimeout(rellotge);
-      console.info('Cartografia carregada:', prov.estil);
-      anuncia(prov);
+    mapa.on('click', (e) => {
+      const [t] = mapa.queryRenderedFeatures(e.point, { layers: capesPunt });
+      if (!t) return;
+      const p = t.properties;
+      new Popup({ offset: 18 })
+        .setLngLat(t.geometry.coordinates)
+        .setHTML(
+          `<strong>${p.nom}</strong><br><small>${CATEGORIES[p.categoria].etiqueta}</small>` +
+          (p.descripcio ? `<p>${p.descripcio}</p>` : '')
+        )
+        .addTo(mapa);
     });
-  }
 
-  intenta();
+    mapa.on('mouseenter', () => (mapa.getCanvas().style.cursor = ''));
+    for (const capa of capesPunt) {
+      mapa.on('mouseenter', capa, () => (mapa.getCanvas().style.cursor = 'pointer'));
+      mapa.on('mouseleave', capa, () => (mapa.getCanvas().style.cursor = ''));
+    }
 
-  async function dibuixa() {
-    const capes = window.__capesMapa ?? [];
-
-      if (!puntsPosats) try {
-        const dades = await (await fetch('/dades/punts.geojson')).json();
-        const colors = { font:'#4890C0', 'cercle-aigua':'#4890C0', equipament:'#A84848',
-                         patrimoni:'#C09060', natura:'#006018' };
-        for (const f of dades.features)
-          posaMarca(f.geometry.coordinates, f.properties.nom, f.properties.descripcio,
-                    colors[f.properties.categoria] ?? '#30A860', 'punts');
-      } catch (e) { /* sense punts */ }
-
-      for (const capa of capes) {
-        try {
-          const text = await (await fetch(capa.gpx)).text();
-          const { punts, linies } = gpxAGeoJSON(text);
-          if (!puntsPosats) punts.forEach(p => posaMarca(p.coords, p.nom, p.desc, capa.color, capa.id));
-
-          if (linies.length && !mapa.getSource(`font-${capa.id}`)) {
-            mapa.addSource(`font-${capa.id}`, { type: 'geojson',
-              data: { type: 'FeatureCollection', features: linies.map(l => ({
-                type: 'Feature', properties: { nom: l.nom },
-                geometry: { type: 'LineString', coordinates: l.coords } })) } });
-            mapa.addLayer({ id: `halo-${capa.id}`, type: 'line', source: `font-${capa.id}`,
-              layout: { 'line-join': 'round', 'line-cap': 'round' },
-              paint: { 'line-color': '#ffffff', 'line-width': 7, 'line-opacity': .85 } });
-            mapa.addLayer({ id: `linia-${capa.id}`, type: 'line', source: `font-${capa.id}`,
-              layout: { 'line-join': 'round', 'line-cap': 'round' },
-              paint: { 'line-color': capa.color, 'line-width': 3.5 } });
-          }
-        } catch (e) {
-          console.error('No s\'ha pogut carregar la capa', capa.nom, e);
-        }
-      }
-
-      puntsPosats = true;
-      document.querySelectorAll('[data-capa]').forEach(inp => {
-        inp.onchange = () => alterna(inp.dataset.capa, inp.checked);
+    // ── Llegenda ──────────────────────────────────────────────────────
+    for (const casella of document.querySelectorAll('.capes input')) {
+      casella.addEventListener('change', () => {
+        const v = casella.checked ? 'visible' : 'none';
+        const capes = casella.dataset.capa === 'rutes'
+          ? ['rutes-fons', 'rutes-linia']
+          : [`punts-${casella.dataset.capa}`];
+        for (const c of capes) mapa.setLayoutProperty(c, 'visibility', v);
       });
-  }
+    }
+  });
+
+  mapa.on('error', (e) => console.error('Mapa:', e.error?.message ?? e));
 </script>
 
 <style is:global>
-  .marca { width: 16px; height: 16px; border-radius: 50%; border: 3px solid #fff;
-    box-shadow: 0 1px 5px rgba(0,0,0,.4); cursor: pointer; }
-  .maplibregl-popup-content { font-family: var(--tipo); font-size: .92rem; border-radius: 10px;
-    padding: .7rem .9rem; box-shadow: var(--ombra-f); }
-  .maplibregl-ctrl-group { border-radius: 10px !important; overflow: hidden; }
+  .maplibregl-popup-content {
+    font-family: var(--tipo); font-size: .92rem; border-radius: 8px; padding: .7rem .9rem;
+  }
+  .maplibregl-popup-content p { margin: .4rem 0 0; }
+  .maplibregl-popup-content small { color: #666; }
 </style>
+
 <style>
-  .mapa-caixa { border: 1px solid var(--vora); border-radius: var(--radi); overflow: hidden;
-    background: var(--blanc); box-shadow: var(--ombra); position: relative; }
+  .mapa-caixa { border: 1px solid var(--vora); border-radius: var(--radi);
+    overflow: hidden; background: #fff; }
+  .mapa-plec { position: relative; }
   #mapa { width: 100%; }
-  .llegenda { position: absolute; left: 12px; top: 12px; background: rgba(255,255,255,.94);
-    backdrop-filter: blur(6px); border: 1px solid var(--vora); border-radius: var(--radi-s);
-    padding: .7rem .9rem; box-shadow: var(--ombra); max-width: 15rem; }
-  .llegenda__t { margin: 0 0 .45rem; font-size: .72rem; text-transform: uppercase;
-    letter-spacing: .1em; font-weight: 700; color: var(--terra); }
-  .llegenda ul { list-style: none; margin: 0; padding: 0; }
-  .llegenda li + li { margin-top: .3rem; }
-  .llegenda label { display: flex; align-items: center; gap: .45rem; font-size: .88rem; cursor: pointer; }
-  .mostra { width: 12px; height: 12px; border-radius: 3px; flex: 0 0 auto; }
-  .mapa-avis { margin: 0; padding: .7rem .95rem; font-size: .86rem;
-    background: #FDF0DC; color: #6B4415; border-top: 1px solid var(--vora); }
-  .mapa-nota { margin: 0; padding: .65rem .95rem; font-size: .8rem; color: var(--tinta-suau);
-    border-top: 1px solid var(--vora); background: var(--paper); }
-  @media (max-width: 40rem) { .llegenda { position: static; max-width: none; border: 0;
-    border-bottom: 1px solid var(--vora); border-radius: 0; } }
+
+  .capes { position: absolute; top: .7rem; left: .7rem; z-index: 1;
+    margin: 0; padding: .6rem .8rem .7rem; border: 1px solid var(--vora);
+    border-radius: 8px; background: rgba(255,255,255,.94);
+    backdrop-filter: blur(3px); box-shadow: 0 1px 6px rgba(0,0,0,.18);
+    max-height: calc(100% - 1.4rem); overflow-y: auto; }
+  .capes legend { padding: 0 .3rem; font-size: .7rem; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--tinta-suau); }
+  .capes label { display: flex; align-items: center; gap: .45rem;
+    font-size: .82rem; line-height: 1.9; cursor: pointer; }
+  .capes input { accent-color: #444; margin: 0; }
+  .capes-rutes { margin-top: .35rem; padding-top: .35rem;
+    border-top: 1px solid var(--vora); }
+
+  .mostra { width: 12px; height: 12px; border-radius: 50%;
+    background: var(--c); border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.2); }
+  .mostra-linia { width: 14px; height: 3px; border-radius: 2px;
+    background: #A03030; border: 0; box-shadow: 0 0 0 1px #fff; }
+
+  .mapa-nota { margin: 0; padding: .6rem .9rem; font-size: .8rem;
+    color: var(--tinta-suau); border-top: 1px solid var(--vora); }
+
+  @media (max-width: 640px) {
+    .capes { font-size: .78rem; padding: .5rem .6rem; }
+  }
 </style>

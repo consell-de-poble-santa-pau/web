@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd http://www.topografix.com/GPX/gpx_style/0/2 http://www.topografix.com/GPX/gpx_style/0/2/gpx_style.xsd" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpx_style="http://www.topografix.com/GPX/gpx_style/0/2" version="1.1" creator="@alexistudela">
+	<metadata>
+		<name>SantaPau_Volcans</name>
+		<author>
+			<name>Alexis Tudela i Casanovas</name>
+		</author>
+	</metadata>
+	
+	<!-- Volcans -->
+	<wpt lat="42.135061068756556" lon="2.5350985676050186">
+		<ele>711.9</ele>
+		<name>Comadega / El Torrent</name>
+		<sym>Elevation point</sym>
+		<type>volca</type>
+	</wpt>
+	
+	<wpt lat="42.15399532845799" lon="2.536053098738194">
+		<ele>780.7</ele>
+		<name>Croscat</name>
+		<sym>Elevation point</sym>
+		<type>volca</type>
+	</wpt>
+	
+	<wpt lat="42.14026168062739" lon="2.569221295416355">
+		<ele>577.7</ele>
+		<name>D’en Simó</name>
+		<sym>Elevation point</sym>
+		<type>volca</type>
+	</wpt>
+	
+	<wpt lat="42.130916666666664" lon="2.571888888888889">
+		<ele>587.9</ele>
+		<name>Pla sa Ribera</name>
+		<sym>Elevation point</sym>
+		<type>volca</type>
+	</wpt>
+	
+	<wpt lat="42.15382780227023" lon="2.499475479125977">
+		<ele>573.6</ele>
+		<name>Puig Cabrioler</name>
+		<sym>Elevation point</sym>
+		<type>volca</type>
+	</wpt>
+	
+	<wpt lat="42.1441675133538" lon="2.5277147515687397">
+		<ele>716.2</ele>
+		<name>Puig de la Costa</name>
+		<sym>Elevation point</sym>
+		<type>volca</type>
+	</wpt>
+	
+	<wpt lat="42.14902155057477" lon="2.5517490506172185">
+		<ele>658.0</ele>
+		<name>Puig de Mar</name>
+		<sym>Elevation point</sym>
+		<type>volca</type>
+	</wpt>
+	
+	<wpt lat="42.15555787213147" lon="2.5463840142179976">
+		<ele>656.3</ele>
+		<name>Puig de Martinyà</name>
+		<sym>Elevation point</sym>
+		<type>volca</type>
+	</wpt>
+	
+	<wpt lat="42.147213891889564" lon="2.508358955383301">
+		<ele>602.3</ele>
+		<name>Puig Jordà</name>
+		<sym>Elevation point</sym>
+		<type>volca</type>
+	</wpt>
+	
+	<wpt lat="42.16077604017281" lon="2.5444693882572627">
+		<ele>662.5</ele>
+		<name>Puig Safont</name>
+		<sym>Elevation point</sym>
+		<type>volca</type>
+	</wpt>
+	
+	<wpt lat="42.13520601940902" lon="2.557996585965157">
+		<ele>702.3</ele>
+		<name>Puig Subià</name>
+		<sym>Elevation point</sym>
+		<type>volca</type>
+	</wpt>
+	
+	<wpt lat="42.13998174652964" lon="2.5553458929061894">
+		<ele>646.3</ele>
+		<name>Rocanegra</name>
+		<sym>Elevation point</sym>
+		<type>volca</type>
+	</wpt>
+	
+	<wpt lat="42.13783333333333" lon="2.586888888888889">
+		<ele>453.2</ele>
+		<name>Sant Jordi</name>
+		<sym>Elevation point</sym>
+		<type>volca</type>
+	</wpt>
+	
+	<wpt lat="42.14175281849311" lon="2.541489601135254">
+		<ele>693.3</ele>
+		<name>Santa Margarida</name>
+		<sym>Elevation point</sym>
+		<type>volca</type>
+	</wpt>
+	
+</gpx>

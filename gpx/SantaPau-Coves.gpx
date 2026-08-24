@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd http://www.topografix.com/GPX/gpx_style/0/2 http://www.topografix.com/GPX/gpx_style/0/2/gpx_style.xsd" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpx_style="http://www.topografix.com/GPX/gpx_style/0/2" version="1.1" creator="@alexistudela">
+	<metadata>
+		<name>SantaPau_Coves</name>
+		<author>
+			<name>Alexis Tudela i Casanovas</name>
+		</author>
+	</metadata>
+	
+	<!-- Coves -->
+	<wpt lat="42.09248940954829" lon="2.5769282877445225">
+		<ele>622.2</ele>
+		<name>Cova dels Carlins</name>
+		<sym>Square, Red</sym>
+		<type>cova</type>
+	</wpt>
+	
+	<wpt lat="42.114422416002846" lon="2.590069538800899">
+		<ele>844.8</ele>
+		<name>Forat de l’Ovella</name>
+		<sym>Square, Red</sym>
+		<type>cova</type>
+	</wpt>
+	
+	<wpt lat="42.11618" lon="2.57705">
+		<ele>949.7</ele>
+		<name>Avenc Pujolar</name>
+		<sym>Square, Red</sym>
+		<type>cova</type>
+	</wpt>
+	
+	<wpt lat="42.11701390475437" lon="2.5722831472608214">
+		<ele>908.0</ele>
+		<name>Cova del Llop</name>
+		<sym>Square, Red</sym>
+		<type>cova</type>
+	</wpt>
+	
+	<wpt lat="42.11787050316126" lon="2.577466070652008">
+		<ele>917.8</ele>
+		<name>Avenc dels Troncs</name>
+		<sym>Square, Red</sym>
+		<type>cova</type>
+	</wpt>
+	
+	<wpt lat="42.11791427375937" lon="2.5721794366836552">
+		<ele>876.0</ele>
+		<name>Cova de les Angúnies</name>
+		<sym>Square, Red</sym>
+		<type>cova</type>
+	</wpt>
+	
+	<wpt lat="42.13389116073739" lon="2.4980233504640204">
+		<ele>816.6</ele>
+		<name>Cova de Rocalladre</name>
+		<sym>Square, Red</sym>
+		<type>cova</type>
+	</wpt>
+	
+	<wpt lat="42.167855" lon="2.573429">
+		<ele>618.8</ele>
+		<name>Balma de la Feu</name>
+		<sym>Square, Red</sym>
+		<type>cova</type>
+	</wpt>
+
+</gpx>

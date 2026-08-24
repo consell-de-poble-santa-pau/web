@@ -1,0 +1,2 @@
+Deixa aquí els fitxers .gpx. L'script scripts/gpx-a-geojson.mjs
+els llegeix tots i genera public/dades/punts.geojson i rutes.geojson.

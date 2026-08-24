@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd http://www.topografix.com/GPX/gpx_style/0/2 http://www.topografix.com/GPX/gpx_style/0/2/gpx_style.xsd" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpx_style="http://www.topografix.com/GPX/gpx_style/0/2" version="1.1" creator="@alexistudela">
+	<metadata>
+		<name>SantaPau_Muntanyes</name>
+		<author>
+			<name>Alexis Tudela i Casanovas</name>
+		</author>
+	</metadata>
+	
+	<!-- Muntanyes -->
+	<wpt lat="42.12470474059058" lon="2.562133448569553">
+		<ele>965.1</ele>
+		<name>Sant Jordi</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.13441761314169" lon="2.6112484931945805">
+		<ele>682.3</ele>
+		<name>Montestí</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.13651702456281" lon="2.498155497014523">
+		<ele>862.4</ele>
+		<name>Roca Lladre</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.13935151736646" lon="2.579925991594792">
+		<ele>590.8</ele>
+		<name>Turó de Can Gordi</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.14904141196564" lon="2.619490673239531">
+		<ele>508.4</ele>
+		<name>Muntanya de Colitzà</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.17232732091376" lon="2.560101784765721">
+		<ele>758.4</ele>
+		<name>Puigsacreu</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.17304269896309" lon="2.5775337964296345">
+		<ele>901.0</ele>
+		<name>Sant Julià del Mont- vèrtex geodèsic</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.17458300790691" lon="2.5867012515664105">
+		<ele>768.2</ele>
+		<name>Puig dels Tres Quartos</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.17579877939378" lon="2.5926768779754643">
+		<ele>754.8</ele>
+		<name>Puig dels Agustins</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+
+	<wpt lat="42.17141139103081" lon="2.570288863756405">
+		<ele>772.8</ele>
+		<name>Puig d&apos;en Bardissa</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.163345248126056" lon="2.5500672273093583">
+		<ele>622.2</ele>
+		<name>Turó del Buc</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.16488742572074" lon="2.561132039448926">
+		<ele>570.7</ele>
+		<name>Turó de l&apos;Omell</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.13467597454716" lon="2.5031347095171923">
+		<ele>867.3</ele>
+		<name>Puig del Prat</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.13135592064887" lon="2.522008805850225">
+		<ele>859.5</ele>
+		<name>Turó de Sant Joan</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.132751897579716" lon="2.5287303852507352">
+		<ele>829.0</ele>
+		<name>Turó de la Rovira</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.13257538028165" lon="2.530329225949011">
+		<ele>825.3</ele>
+		<name>Penyes Llargues</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.115047787673994" lon="2.581511094375184">
+		<ele>1008.2</ele>
+		<name>Puigsallança</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.12105146377658" lon="2.592314174585462">
+		<ele>790.4</ele>
+		<name>Muntanya del Clascar</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.127374580171185" lon="2.594592949317334">
+		<ele>663.4</ele>
+		<name>Puig Gros</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.137484162496015" lon="2.5936646014451985">
+		<ele>574.8</ele>
+		<name>Turó de Sant Joan</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.15628758390821" lon="2.5794305151984402">
+		<ele>536.2</ele>
+		<name>Turó de Sant Martí</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.16049569804099" lon="2.5711233168840413">
+		<ele>560.4</ele>
+		<name>Turó del Campells</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.114337419840496" lon="2.5782070308923726">
+		<ele>1016.8</ele>
+		<name>Faig Rodó</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.13501731000382" lon="2.5788608193397526">
+		<ele>593.4</ele>
+		<name>Montverd</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.158523090114286" lon="2.5394833087921143">
+		<ele>619.5</ele>
+		<name>Puig s&apos;Agonia</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+
+</gpx>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd http://www.topografix.com/GPX/gpx_style/0/2 http://www.topografix.com/GPX/gpx_style/0/2/gpx_style.xsd" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpx_style="http://www.topografix.com/GPX/gpx_style/0/2" version="1.1" creator="@alexistudela">
+	<metadata>
+		<name>SantaPau_Ermites</name>
+		<author>
+			<name>Alexis Tudela i Casanovas</name>
+		</author>
+	</metadata>
+	
+	<!-- Ermites -->
+	<wpt lat="42.17227389708069" lon="2.5601604580879216">
+		<ele>757.0</ele>
+		<name>Sant Abdó i Sant Senen</name>
+		<desc>XV - Serra de Godmar</desc>
+		<sym>Church</sym>
+		<type>ermita</type>
+	</wpt>
+	
+	<wpt lat="42.17415797454704" lon="2.5779739201138923">
+		<ele>896.9</ele>
+		<name>Monestir Sant Julià del Mont</name>
+		<desc>XII - Runes</desc>
+		<sym>Church</sym>
+		<type>ermita</type>
+	</wpt>
+	
+	<wpt lat="42.15446211273701" lon="2.579000294208527">
+		<ele>478.2</ele>
+		<name>Sant Martí Vell de Santa Pau</name>
+		<desc>X, XVI - Sant Martí</desc>
+		<sym>Church</sym>
+		<type>ermita</type>
+	</wpt>
+	
+	<wpt lat="42.162935" lon="2.600348">
+		<ele>580.2</ele>
+		<name>Sant Miquel de Giracàrregues</name>
+		<desc>XVIII - El Sallent - Runes</desc>
+		<sym>Church</sym>
+		<type>ermita</type>
+	</wpt>
+	
+	<wpt lat="42.13926" lon="2.53219">
+		<ele>642.6</ele>
+		<name>Sant Miquel Sacot</name>
+		<desc>XVIII - Sant Miquel Sacot</desc>
+		<sym>Church</sym>
+		<type>ermita</type>
+	</wpt>
+	
+	<wpt lat="42.14434259208905" lon="2.5688142508941474">
+		<ele>490.6</ele>
+		<name>Sant Roc de Santa Pau</name>
+		<desc>XV, XVIII - Santa Pau</desc>
+		<sym>Church</sym>
+		<type>ermita</type>
+	</wpt>
+	
+	<wpt lat="42.15438666011045" lon="2.614827862021674">
+		<ele>336.5</ele>
+		<name>Sant Vicenç del Sallent</name>
+		<desc>XIII, XVIII - Sallent</desc>
+		<sym>Church</sym>
+		<type>ermita</type>
+	</wpt>
+	
+	<wpt lat="42.14725963086465" lon="2.552100419998169">
+		<ele>581.6</ele>
+		<name>Santa Llúcia de Treinteres</name>
+		<sym>Church</sym>
+		<type>ermita</type>
+	</wpt>
+	
+	<wpt lat="42.141522" lon="2.541778">
+		<ele>695.4</ele>
+		<name>Santa Margarida de Sacot</name>
+		<desc>XII, XIX - Sant Miquel Sacot</desc>
+		<sym>Church</sym>
+		<type>ermita</type>
+	</wpt>
+	
+	<wpt lat="42.144296472464745" lon="2.5716993212699895">
+		<ele>490.1</ele>
+		<name>Santa Maria de Santa Pau / Església Parroquial De Santa Maria Assumpta</name>
+		<desc>XVI - Santa Pau</desc>
+		<sym>Church</sym>
+		<type>ermita</type>
+	</wpt>
+	
+	<wpt lat="42.14121289878186" lon="2.5852559472324765">
+		<ele>446.9</ele>
+		<name>Santa Maria dels Arcs / Santuari de la Mare de Déu dels Arcs</name>
+		<desc>XVI, XVIII - Els Arcs</desc>
+		<sym>Church</sym>
+		<type>ermita</type>
+	</wpt>
+	
+	<wpt lat="42.11191344065324" lon="2.5930255651474003">
+		<ele>852.5</ele>
+		<name>Santa Maria de Finestres</name>
+		<desc>Serra de Finestres</desc>
+		<sym>Church</sym>
+		<type>ermita</type>
+	</wpt>
+	
+	<wpt lat="42.13953654020718" lon="2.491521777612729">
+		<ele>602.6</ele>
+		<name>Sant Martí del Corb</name>
+		<desc>Serra del Corb</desc>
+		<sym>Church</sym>
+		<type>ermita</type>
+	</wpt>
+	
+	<wpt lat="42.14392704297645" lon="2.484970892948684">
+		<ele>608.5</ele>
+		<name>Sant Miquel del Corb</name>
+		<desc>Serra del Corb</desc>
+		<sym>Church</sym>
+		<type>ermita</type>
+	</wpt>
+
+</gpx>
