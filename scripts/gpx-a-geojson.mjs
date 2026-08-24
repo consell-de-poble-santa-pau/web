@@ -31,7 +31,12 @@ const TOLERANCIA = 0.00004; // ≈ 4 m de tolerància en aprimar els tracks
 const IGNORA = [
   'santapau-tot.gpx',
 ];
-
+// Fitxers dels quals només volem el traçat, no els waypoints.
+// Els GPX de rutes solen portar aparcaments, lavabos i senyals de camí
+// que no pertanyen a l'inventari del terme.
+const NOMES_TRACKS = [
+  'r1 - la fageda i els volcans (b).gpx',
+];
 // ---------------------------------------------------------------- utilitats
 
 // "Volcà Croscat" → "volca croscat"
@@ -103,6 +108,7 @@ let vertexOriginals = 0, vertexFinals = 0;
 
 for (const fitxer of fitxers) {
   const categoriaFitxer = categoriaDelNom(fitxer);
+  const nomesTracks = NOMES_TRACKS.includes(fitxer.toLowerCase());
   const xml = new DOMParser().parseFromString(readFileSync(join(ENTRADA, fitxer), 'utf8'), 'text/xml');
   const dades = gpx(xml);
   perFitxer[fitxer] = { categoria: categoriaFitxer, punts: 0, rutes: 0 };
@@ -111,7 +117,7 @@ for (const fitxer of fitxers) {
     const p = f.properties ?? {};
     const nom = p.name?.trim() || '(sense nom)';
 
-    if (f.geometry?.type === 'Point') {
+      if (f.geometry?.type === 'Point' && !nomesTracks) {
       const categoria = resol(p.type) ?? categoriaFitxer;
 
       if (!categoria) {

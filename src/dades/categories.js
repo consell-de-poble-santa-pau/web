@@ -76,4 +76,5 @@ export const SINONIMS = {
   pont: 'pont', ponts: 'pont', palanca: 'pont',
   volca: 'volca', volcans: 'volca', craters: 'volca', crater: 'volca',
   varis: 'varis', altres: 'varis', divers: 'varis',
+  varis: 'varis', altres: 'varis', divers: 'varis', b: 'varis', ruta: 'varis', rutes: 'varis',
 };
