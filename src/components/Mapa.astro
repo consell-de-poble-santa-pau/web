@@ -38,10 +38,8 @@ const llista = Object.entries(CATEGORIES);
   import { Map, Popup, NavigationControl, ScaleControl, FullscreenControl } from 'maplibre-gl';
   import { CATEGORIES } from '../dades/categories.js';
 
-  // ─────────────────────────────────────────────────────────────────────
-  // NO TOQUIS AIXÒ: és l'estil de base que ja fas servir ara mateix.
-  // Enganxa-hi la URL o l'objecte d'estil de Maptoolkit que tens al fitxer vell.
-  // const ESTIL = 'ENGANXA-HI-EL-TEU-ESTIL-ACTUAL';
+  // Estil de base. Aquest és raster (imatges): no porta 'glyphs', o sigui
+  // que NO pot dibuixar text. Per això les capes de punts no duen etiquetes.
   const ESTIL = {
     version: 8,
     sources: {
@@ -54,7 +52,6 @@ const llista = Object.entries(CATEGORIES);
     },
     layers: [{ id: 'osm', type: 'raster', source: 'osm' }],
   };
-  // ─────────────────────────────────────────────────────────────────────
 
   const MIDA = 32;   // diàmetre del marcador, en píxels de pantalla
   const RATIO = 2;   // el dibuixem al doble per a pantalles retina
@@ -98,7 +95,11 @@ const llista = Object.entries(CATEGORIES);
 
   mapa.on('load', () => {
     // ── Rutes: primer, perquè quedin per sota dels punts ──────────────
-    mapa.addSource('rutes', { type: 'geojson', data: '/dades/rutes.geojson' });
+    // Buida d'entrada; s'omple més avall si el fitxer existeix.
+    mapa.addSource('rutes', {
+      type: 'geojson',
+      data: { type: 'FeatureCollection', features: [] },
+    });
 
     mapa.addLayer({
       id: 'rutes-fons', source: 'rutes', type: 'line',
@@ -123,22 +124,12 @@ const llista = Object.entries(CATEGORIES);
         type: 'symbol',
         filter: ['==', ['get', 'categoria'], clau],
         layout: {
-          'icon-image': clau,visibility: clau === 'habitatge' ? 'none' : 'visible',
+          'icon-image': clau,
+          visibility: clau === 'habitatge' ? 'none' : 'visible',
           'icon-size': ['interpolate', ['linear'], ['zoom'], 11, 0.55, 15, 1],
           'icon-allow-overlap': false,   // ← aquí és on es descongestiona sol
           'icon-padding': 4,
-          'text-field': ['get', 'nom'],
-          'text-font': ['Noto Sans Regular'], // ha d'existir a l'estil de base
-          'text-size': 11,
-          'text-offset': [0, 1.1],
-          'text-anchor': 'top',
-          'text-optional': true,
-          'text-max-width': 9,
-        },
-        paint: {
-          'text-color': '#2A2A2A',
-          'text-halo-color': '#fff',
-          'text-halo-width': 1.5,
+          // Sense etiquetes: l'estil raster no té 'glyphs' i no pot fer text.
         },
         minzoom: 11,
       });
@@ -176,6 +167,12 @@ const llista = Object.entries(CATEGORIES);
         for (const c of capes) mapa.setLayoutProperty(c, 'visibility', v);
       });
     }
+
+    // Les rutes són opcionals: si encara no n'hi ha, el mapa funciona igual.
+    fetch('/dades/rutes.geojson')
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => d && mapa.getSource('rutes').setData(d))
+      .catch(() => console.info('Encara no hi ha rutes.'));
   });
 
   mapa.on('error', (e) => console.error('Mapa:', e.error?.message ?? e));

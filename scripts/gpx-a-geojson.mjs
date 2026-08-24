@@ -5,19 +5,32 @@
 //
 // Ús:  node scripts/gpx-a-geojson.mjs
 //
-// Si troba una categoria que no és a categories.js, PETA i diu quina i on.
-// És volgut: val més que falli la compilació que no pas que un punt
-// desaparegui del mapa sense que ningú se n'adoni.
+// D'ON SURT LA CATEGORIA D'UN PUNT
+// 1r  del <type> del waypoint, si n'hi ha i el coneixem
+// 2n  del NOM DEL FITXER: SantaPau-Coves.gpx → tots els punts són "cova"
+//
+// El <sym> NO es fa servir: és el dibuix del GPS (valors com "Square, Red"
+// o "Residence") i no diu res del que és el punt en realitat.
+//
+// Si un fitxer no es pot classificar pel nom i els punts no porten <type>,
+// l'script s'atura. És volgut: val més que falli la compilació que no pas
+// que 200 punts acabin silenciosament al calaix de sastre.
 
 import { readFileSync, writeFileSync, readdirSync, mkdirSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, basename, extname } from 'node:path';
 import { DOMParser } from '@xmldom/xmldom';
 import { gpx } from '@tmcw/togeojson';
 import { CATEGORIES, SINONIMS } from '../src/dades/categories.js';
 
 const ENTRADA = 'gpx';
 const SORTIDA = 'public/dades';
-const TOLERANCIA = 0.00004; // ≈ 4 m. Puja-ho si els tracks encara pesen massa.
+const TOLERANCIA = 0.00004; // ≈ 4 m de tolerància en aprimar els tracks
+
+// Fitxers que hi són però NO s'han de processar (recopilatoris, còpies
+// velles, proves). Es comparen en minúscules.
+const IGNORA = [
+  'santapau-tot.gpx',
+];
 
 // ---------------------------------------------------------------- utilitats
 
@@ -29,9 +42,20 @@ const normalitza = (t) =>
     .toLowerCase()
     .trim();
 
+const resol = (t) => {
+  const n = normalitza(t);
+  return SINONIMS[n] ?? (CATEGORIES[n] ? n : null);
+};
+
+// SantaPau-Coves.gpx → "cova"   ·   fonts.gpx → "font"
+const categoriaDelNom = (fitxer) => {
+  const tros = basename(fitxer, extname(fitxer)).split(/[-_ ]+/).pop();
+  return resol(tros);
+};
+
 const arrodoneix = (c) => [Number(c[0].toFixed(5)), Number(c[1].toFixed(5))];
 
-// Douglas-Peucker: treu els punts que no canvien la forma de la línia.
+// Douglas-Peucker: treu els vèrtexs que no canvien la forma de la línia.
 function simplifica(punts, tol) {
   if (punts.length < 3) return punts;
   const dist2 = (p, a, b) => {
@@ -50,11 +74,7 @@ function simplifica(punts, tol) {
       const d = dist2(punts[i], punts[ini], punts[fi]);
       if (d > max) { idx = i; max = d; }
     }
-    if (idx) {
-      guarda[idx] = true;
-      marca(ini, idx, guarda);
-      marca(idx, fi, guarda);
-    }
+    if (idx) { guarda[idx] = true; marca(ini, idx, guarda); marca(idx, fi, guarda); }
   };
   const guarda = { 0: true, [punts.length - 1]: true };
   marca(0, punts.length - 1, guarda);
@@ -63,38 +83,49 @@ function simplifica(punts, tol) {
 
 // ------------------------------------------------------------------ procés
 
-const fitxers = readdirSync(ENTRADA).filter((f) => f.toLowerCase().endsWith('.gpx'));
+const tots = readdirSync(ENTRADA).filter((f) => f.toLowerCase().endsWith('.gpx'));
+const omesos = tots.filter((f) => IGNORA.includes(f.toLowerCase()));
+const fitxers = tots.filter((f) => !IGNORA.includes(f.toLowerCase()));
+
 if (!fitxers.length) {
-  console.error(`Cap fitxer .gpx dins de ${ENTRADA}/`);
+  console.error(`Cap fitxer .gpx per processar dins de ${ENTRADA}/`);
   process.exit(1);
 }
 
 const punts = [];
 const rutes = [];
 const errors = [];
+const avisos = [];
 const compte = {};
-let puntsOriginals = 0;
-let puntsSimplificats = 0;
+const perFitxer = {};
+const vistos = new Map();
+let vertexOriginals = 0, vertexFinals = 0;
 
 for (const fitxer of fitxers) {
+  const categoriaFitxer = categoriaDelNom(fitxer);
   const xml = new DOMParser().parseFromString(readFileSync(join(ENTRADA, fitxer), 'utf8'), 'text/xml');
   const dades = gpx(xml);
+  perFitxer[fitxer] = { categoria: categoriaFitxer, punts: 0, rutes: 0 };
 
   for (const f of dades.features) {
     const p = f.properties ?? {};
     const nom = p.name?.trim() || '(sense nom)';
 
     if (f.geometry?.type === 'Point') {
-      // <type> mana; si no hi és, es prova amb <sym>; si tampoc, "varis".
-      const cru = normalitza(p.type || p.sym || 'varis');
-      const categoria = SINONIMS[cru] ?? (CATEGORIES[cru] ? cru : null);
+      const categoria = resol(p.type) ?? categoriaFitxer;
 
       if (!categoria) {
-        errors.push(`${fitxer} → "${nom}": categoria desconeguda «${p.type || p.sym}»`);
-        continue;
+        errors.push(fitxer);
+        break; // un error per fitxer n'hi ha prou; no cal repetir-ho 400 cops
       }
 
+      // Avís (no fatal) si un punt ja hi era exactament al mateix lloc
+      const clau = `${nom}|${f.geometry.coordinates.map((n) => n.toFixed(4)).join()}`;
+      if (vistos.has(clau)) avisos.push(`"${nom}" surt a ${vistos.get(clau)} i a ${fitxer}`);
+      else vistos.set(clau, fitxer);
+
       compte[categoria] = (compte[categoria] ?? 0) + 1;
+      perFitxer[fitxer].punts++;
       punts.push({
         type: 'Feature',
         geometry: { type: 'Point', coordinates: arrodoneix(f.geometry.coordinates) },
@@ -108,14 +139,13 @@ for (const fitxer of fitxers) {
 
     if (f.geometry?.type === 'LineString' || f.geometry?.type === 'MultiLineString') {
       const linies = f.geometry.type === 'LineString'
-        ? [f.geometry.coordinates]
-        : f.geometry.coordinates;
-
+        ? [f.geometry.coordinates] : f.geometry.coordinates;
       for (const linia of linies) {
         const plana = linia.map(arrodoneix); // fora altitud i marques de temps
-        puntsOriginals += plana.length;
+        vertexOriginals += plana.length;
         const prima = simplifica(plana, TOLERANCIA);
-        puntsSimplificats += prima.length;
+        vertexFinals += prima.length;
+        perFitxer[fitxer].rutes++;
         rutes.push({
           type: 'Feature',
           geometry: { type: 'LineString', coordinates: prima },
@@ -127,9 +157,18 @@ for (const fitxer of fitxers) {
 }
 
 if (errors.length) {
-  console.error('\nCategories que no consten a src/dades/categories.js:\n');
-  for (const e of errors) console.error('  · ' + e);
-  console.error('\nO les escrius bé al GPX, o les afegeixes a categories.js.\n');
+  console.error('\nNo sé de quina categoria són aquests fitxers:\n');
+  for (const e of [...new Set(errors)]) console.error(`  · ${e}`);
+  console.error(`
+El nom del fitxer ha d'acabar amb una categoria coneguda, per exemple
+SantaPau-Coves.gpx o SantaPau-Ponts.gpx. Categories disponibles:
+
+  ${Object.keys(CATEGORIES).join(', ')}
+
+Tens tres sortides: reanomenar el fitxer, afegir el nom que fas servir
+a SINONIMS dins de src/dades/categories.js, o posar-lo a la llista
+IGNORA de dalt de tot d'aquest script.
+`);
   process.exit(1);
 }
 
@@ -137,11 +176,26 @@ mkdirSync(SORTIDA, { recursive: true });
 writeFileSync(join(SORTIDA, 'punts.geojson'), JSON.stringify({ type: 'FeatureCollection', features: punts }));
 writeFileSync(join(SORTIDA, 'rutes.geojson'), JSON.stringify({ type: 'FeatureCollection', features: rutes }));
 
-console.log(`\n${punts.length} punts i ${rutes.length} rutes des de ${fitxers.length} fitxers GPX.\n`);
+// ------------------------------------------------------------------ informe
+
+console.log('');
+for (const [fitxer, d] of Object.entries(perFitxer)) {
+  const què = d.rutes ? `${d.punts} punts, ${d.rutes} rutes` : `${d.punts} punts`;
+  console.log(`  ${fitxer.padEnd(30)} → ${String(d.categoria ?? 'segons <type>').padEnd(12)} ${què}`);
+}
+for (const o of omesos) console.log(`  ${o.padEnd(30)} → omès (és a la llista IGNORA)`);
+
+console.log(`\n  TOTAL: ${punts.length} punts i ${rutes.length} rutes\n`);
 for (const clau of Object.keys(CATEGORIES)) {
-  console.log(`  ${String(compte[clau] ?? 0).padStart(4)}  ${CATEGORIES[clau].etiqueta}`);
+  console.log(`  ${String(compte[clau] ?? 0).padStart(5)}  ${CATEGORIES[clau].etiqueta}`);
 }
-if (puntsOriginals) {
-  const estalvi = Math.round((1 - puntsSimplificats / puntsOriginals) * 100);
-  console.log(`\n  Tracks: ${puntsOriginals} → ${puntsSimplificats} vèrtexs (−${estalvi}%)\n`);
+if (vertexOriginals) {
+  console.log(`\n  Tracks aprimats: ${vertexOriginals} → ${vertexFinals} vèrtexs ` +
+              `(−${Math.round((1 - vertexFinals / vertexOriginals) * 100)}%)`);
 }
+if (avisos.length) {
+  console.log(`\n  ${avisos.length} punts repetits (no és cap error, però mira-t'ho):`);
+  for (const a of avisos.slice(0, 12)) console.log(`    · ${a}`);
+  if (avisos.length > 12) console.log(`    · ...i ${avisos.length - 12} més`);
+}
+console.log('');
