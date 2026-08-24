@@ -21,6 +21,7 @@ collections:
     label_singular: Acta
     folder: src/content/actes
     create: true
+    delete: true
     slug: "{{year}}-{{month}}-{{day}}-{{cercle}}"
     sortable_fields: [data]
     fields:
@@ -51,6 +52,7 @@ collections:
     label_singular: Notícia
     folder: src/content/noticies
     create: true
+    delete: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { name: titol, label: Títol, widget: string }
@@ -108,7 +110,7 @@ collections:
     label_singular: Capa
     folder: src/content/rutes
     create: true
-    delete: false
+    delete: true
     summary: "{{nom}}"
     fields:
       - { name: nom, label: Nom de la capa, widget: string }
