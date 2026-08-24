@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd http://www.topografix.com/GPX/gpx_style/0/2 http://www.topografix.com/GPX/gpx_style/0/2/gpx_style.xsd" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpx_style="http://www.topografix.com/GPX/gpx_style/0/2" version="1.1" creator="@alexistudela">
+	<metadata>
+		<name>SantaPau_Fonts</name>
+		<author>
+			<name>Alexis Tudela i Casanovas</name>
+		</author>
+	</metadata>
+	
+	<!-- Fonts -->
+	<wpt lat="42.1651800" lon="2.5663980">
+		<ele></ele>
+		<name>Font del Roc</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.1653200" lon="2.5663290">
+		<ele></ele>
+		<name>Font de Bellapart</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.12956" lon="2.571333">
+		<ele></ele>
+		<name>Font Mallonga</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.145542" lon="2.57843">
+		<ele></ele>
+		<name>Font del Pujol</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.145405" lon="2.57827">
+		<ele></ele>
+		<name>Font de Nogués</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.148315" lon="2.584183">
+		<ele></ele>
+		<name>Font de Can Teixidor</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.11592" lon="2.59247">
+		<ele>796.5</ele>
+		<name>Font del Clascar</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.11999" lon="2.58491">
+		<ele>626.1</ele>
+		<name>Font de la Salgueda</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.12744" lon="2.57084">
+		<ele>712.4</ele>
+		<name>Font del Fang</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.13173" lon="2.59961">
+		<ele>436.1</ele>
+		<name>Font dels Colls</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.13182" lon="2.57194">
+		<ele>563.6</ele>
+		<name>Font de Can Mallogre</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.13483" lon="2.57254">
+		<ele>510.8</ele>
+		<name>Font Xuclara / Suclara</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.13508593167078" lon="2.5865936279296875">
+		<ele>458.7</ele>
+		<name>Font de Canyart</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.139509" lon="2.491562">
+		<ele>603.2</ele>
+		<name>Font de Sant Martí del Corb</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.14818" lon="2.58574">
+		<ele>424.6</ele>
+		<name>Font de Barbavella</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.15192" lon="2.54924">
+		<ele>582.1</ele>
+		<name>Font Blanca</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.15637" lon="2.56702">
+		<ele>475.6</ele>
+		<name>Font de Llevadús</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.15958" lon="2.57513">
+		<ele>484.9</ele>
+		<name>Font de la Terrada</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.16033067436006" lon="2.505920827388764">
+		<ele>547.6</ele>
+		<name>Font de la Rocassa</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.18272" lon="2.60235">
+		<ele>465.6</ele>
+		<name>Font del Palomer</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.1484" lon="2.5843">
+		<ele>428.0</ele>
+		<name>Font Calenta</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.1539" lon="2.5862">
+		<ele>429.1</ele>
+		<name>Font de Bernadal / Vernadal / Vernadar</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.14026" lon="2.59963">
+		<ele>379.7</ele>
+		<name>Font de Bonolla</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.14679786214207" lon="2.5458131351549356">
+		<ele>618.9</ele>
+		<name>Font de Collelldamunt</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.1459" lon="2.61">
+		<ele>343.3</ele>
+		<name>Font de Corbs</name>
+		<sym>Water Source</sym>
+	</wpt>
+	<wpt lat="42.127698807505894" lon="2.5439060956269226">
+		<ele>840.1</ele>
+		<name>Font de Fontpobra</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.1443" lon="2.59">
+		<ele>428.1</ele>
+		<name>Font de la Canova</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.14241708200815" lon="2.525535151362419">
+		<ele>636.3</ele>
+		<name>Font de la Llet</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.140950619097936" lon="2.553011711513458">
+		<ele>554.4</ele>
+		<name>Font del Clavell o de Roca Negra</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.1541" lon="2.5675">
+		<ele>464.9</ele>
+		<name>Font del Consol</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.14622" lon="2.61142">
+		<ele>342.0</ele>
+		<name>Font del Ferro</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.15122301390035" lon="2.584908867935014">
+		<ele>429.0</ele>
+		<name>Font Fresca</name>
+		<sym>Water Source</sym>
+	</wpt>
+	
+	<wpt lat="42.14334" lon="2.6045">
+		<ele>371.0</ele>
+		<name>La Fontica</name>
+		<sym>Water Source</sym>
+	</wpt>
+
+</gpx>
