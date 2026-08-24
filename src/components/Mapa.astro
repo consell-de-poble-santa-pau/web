@@ -111,6 +111,7 @@ const { alcada = '620px', capes = [] } = Astro.props;
   }
 
   let idx = 0;
+  let gen = 0;
   let puntsPosats = false;
 
   function anuncia(prov) {
@@ -123,6 +124,7 @@ const { alcada = '620px', capes = [] } = Astro.props;
   function intenta() {
     const prov = PROVEIDORS[idx];
     const ultim = idx === PROVEIDORS.length - 1;
+    const meva = ++gen;          // invalida els intents anteriors
 
     if (!mapa) {
       mapa = new Map({
@@ -143,12 +145,21 @@ const { alcada = '620px', capes = [] } = Astro.props;
 
     if (ultim) { anuncia(prov); return; }
 
+    /* Senyal d'èxit: que l'estil s'hagi descarregat i interpretat. Esperar
+       que el mapa quedi del tot quiet ('idle') no serveix, perquè amb
+       cartografia vectorial pot trigar molt més o no arribar-hi mai. */
     const rellotge = setTimeout(() => {
+      if (meva !== gen) return;
       console.warn('Cartografia massa lenta o inaccessible:', prov.estil);
       idx++; intenta();
-    }, 10000);
+    }, 12000);
 
-    mapa.once('idle', () => { clearTimeout(rellotge); anuncia(prov); });
+    mapa.once('style.load', () => {
+      if (meva !== gen) return;
+      clearTimeout(rellotge);
+      console.info('Cartografia carregada:', prov.estil);
+      anuncia(prov);
+    });
   }
 
   intenta();

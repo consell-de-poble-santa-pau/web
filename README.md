@@ -98,7 +98,12 @@ Si algun dia s'actualitza `maplibre-gl`, cal tornar a copiar el fitxer:
 
 ```bash
 copy node_modules\maplibre-gl\dist\maplibre-gl-worker.mjs public\vendor\
+copy node_modules\maplibre-gl\dist\maplibre-gl-shared.mjs public\vendor\
 ```
+
+**Calen els dos fitxers.** El worker importa `maplibre-gl-shared.mjs` del mateix directori.
+Si en falta un, el worker no arrenca, l'error queda dins seu i no apareix a la consola:
+el símptoma és un mapa que només funciona amb cartografia en imatges.
 
 
 El mapa viu a `/mapa/` i es construeix amb MapLibre sobre cartografia d'OpenStreetMap,
