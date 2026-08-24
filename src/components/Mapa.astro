@@ -4,6 +4,8 @@ const { alcada = '560px' } = Astro.props;
 const llista = Object.entries(CATEGORIES);
 ---
 
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.5.0/dist/maplibre-gl.css" />
+
 <div class="mapa-caixa">
   <div class="mapa-plec">
     <div id="mapa" style={`height:${alcada}`} role="application"
@@ -33,10 +35,20 @@ const llista = Object.entries(CATEGORIES);
   </p>
 </div>
 
-<script>
-  import 'maplibre-gl/dist/maplibre-gl.css';
-  import { Map, Popup, NavigationControl, ScaleControl, FullscreenControl } from 'maplibre-gl';
-  import { CATEGORIES } from '../dades/categories.js';
+<script type="application/json" id="dades-categories" set:html={JSON.stringify(CATEGORIES)}></script>
+
+<script is:inline type="module">
+  // MapLibre es carrega del CDN a propòsit. Si s'empaqueta amb la resta,
+  // el compilador reescriu les rutes internes i la biblioteca no troba el
+  // seu worker. Carregant-la d'aquí, se'l busca ella mateixa i funciona.
+  const MAPLIBRE = 'https://unpkg.com/maplibre-gl@6.5.0/dist/maplibre-gl.mjs';
+
+  const { Map, Popup, NavigationControl, ScaleControl, FullscreenControl } =
+    await import(MAPLIBRE);
+
+  const CATEGORIES = JSON.parse(
+    document.getElementById('dades-categories').textContent
+  );
 
   // Estil de base. Aquest és raster (imatges): no porta 'glyphs', o sigui
   // que NO pot dibuixar text. Per això les capes de punts no duen etiquetes.
@@ -87,6 +99,8 @@ const llista = Object.entries(CATEGORIES);
     zoom: 12.5,
     attributionControl: { compact: true },
   });
+
+  window.__mapa = mapa; // provisional, per depurar
 
   mapa.addControl(new NavigationControl({ showCompass: false }), 'top-right');
   mapa.addControl(new FullscreenControl(), 'top-right');

@@ -23,5 +23,6 @@
     "pagefind": "^1.1.0"
   },
   "mapa": "node scripts/gpx-a-geojson.mjs",
-  "build": "npm run mapa && astro build && pagefind --site dist"
+  "vendor": "node -e \"require('fs').copyFileSync('node_modules/maplibre-gl/dist/maplibre-gl-worker.mjs','public/vendor/maplibre-gl-worker.mjs')\"",
+  "build": "npm run vendor && npm run mapa && astro build && pagefind --site dist"
 }

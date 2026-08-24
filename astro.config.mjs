@@ -6,7 +6,9 @@ export default defineConfig({
   trailingSlash: 'always',
   build: { format: 'directory' },
   markdown: { shikiConfig: { theme: 'github-light' } },
-  vite: {
+    vite: {
     optimizeDeps: { exclude: ['maplibre-gl'] },
+    worker: { format: 'es' },
+    build: { target: 'es2022' },
   },
 });
