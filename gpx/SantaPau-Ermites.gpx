@@ -43,15 +43,15 @@
 	<wpt lat="42.13926" lon="2.53219">
 		<ele>642.6</ele>
 		<name>Sant Miquel Sacot</name>
-		<desc>XVIII - Sant Miquel Sacot</desc>
+		<desc>XVIII, 1787 - Sant Miquel Sacot. Amb la rectoria, avui casa de colonies La Cot.</desc>
 		<sym>Church</sym>
 		<type>ermita</type>
 	</wpt>
 	
 	<wpt lat="42.14434259208905" lon="2.5688142508941474">
 		<ele>490.6</ele>
-		<name>Sant Roc de Santa Pau</name>
-		<desc>XV, XVIII - Santa Pau</desc>
+		<name>Sant Roc de Santa Pau / Antic hospital</name>
+		<desc>XV, XVIII - Santa Pau (Pl. de Sant Roc 4). La capella i l antic hospital son el mateix edifici.</desc>
 		<sym>Church</sym>
 		<type>ermita</type>
 	</wpt>
@@ -67,6 +67,7 @@
 	<wpt lat="42.14725963086465" lon="2.552100419998169">
 		<ele>581.6</ele>
 		<name>Santa Llúcia de Treinteres</name>
+		<desc>XVIII - Santa Pau, prop de la carretera comarcal</desc>
 		<sym>Church</sym>
 		<type>ermita</type>
 	</wpt>

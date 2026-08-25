@@ -445,13 +445,7 @@
 		<desc>Sant Miquel de Sacot - 1789 / 1990&apos;s - Bo</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
-	<wpt lat="42.13928066280793" lon="2.5322091579437256">
-		<ele>642.5</ele>
-		<name>Rectoria de Sant Miquel Sacot / Casa de colònies La Cot</name>
-		<desc>Sant Miquel de Sacot - 1787 - Bo</desc>
-		<sym>Residence</sym><type>habitatge</type>
-	</wpt>
-	<wpt lat="42.141145230044025" lon="2.6120940595865254">
+<wpt lat="42.141145230044025" lon="2.6120940595865254">
 		<ele>517.9</ele>
 		<name>Can Talaia</name>
 		<desc>El Sallent - Runes</desc>
@@ -667,13 +661,7 @@
 		<desc>Santa Pau (C. del Pont 11) - XVIII</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
-	<wpt lat="42.144364389006114" lon="2.5688076127655006">
-		<ele>491.0</ele>
-		<name>Antic hospital de Santa Pau / Capella de Sant Roc</name>
-		<desc>Santa Pau (Pl. de Sant Roc 4) - XV, XVIII</desc>
-		<sym>Residence</sym><type>habitatge</type>
-	</wpt>
-	<wpt lat="42.14434259208905" lon="2.5689906354551444">
+<wpt lat="42.14434259208905" lon="2.5689906354551444">
 		<ele>489.6</ele>
 		<name>Can Ballestoles</name>
 		<desc>Santa Pau (Placeta de Sant Roc 3) - XVIII</desc>
@@ -682,7 +670,7 @@
 	<wpt lat="42.14438829529366" lon="2.569461942588625">
 		<ele>488.0</ele>
 		<name>Can Pere Petit</name>
-		<desc>Santa Pau (Pont, 7-9) - XVIII</desc>
+		<desc>Santa Pau (Pont, 7-9) - XVIII</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.144389" lon="2.510796">
@@ -829,13 +817,7 @@
 		<desc>Santa Pau (C. Major 39-25) - XIX</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
-	<wpt lat="42.14477923212657" lon="2.5717881325250596">
-		<ele>491.3</ele>
-		<name>Castell de Santa Pau</name>
-		<desc>Santa Pau - XII-XVII</desc>
-		<sym>Residence</sym><type>habitatge</type>
-	</wpt>
-	<wpt lat="42.142925776382015" lon="2.607654889873583">
+<wpt lat="42.142925776382015" lon="2.607654889873583">
 		<ele>419.2</ele>
 		<name>Mas Plan Samata</name>
 		<desc>El Sallent - XIX - Dolent, no habitada</desc>
@@ -973,13 +955,7 @@
 		<desc>Sant Miquel de Sacot - Runes</desc>
 		<sym>Block, Red</sym><type>habitatge</type>
 	</wpt>
-	<wpt lat="42.14725979663793" lon="2.552097546369274">
-		<ele>581.6</ele>
-		<name>Santa Llúcia</name>
-		<desc>Santa Pau (Prop de la carretera comarcal) - XVIII -</desc>
-		<sym>Church</sym>
-	</wpt>
-	<wpt lat="42.14779059828729" lon="2.550641298294068">
+<wpt lat="42.14779059828729" lon="2.550641298294068">
 		<ele>595.1</ele>
 		<name>Mas Can Collell d&apos;avall</name>
 		<desc>Santa Llúcia - XVIII - Regular, habitada</desc>
@@ -1132,7 +1108,7 @@
 	<wpt lat="42.15105783912554" lon="2.573013603687287">
 		<ele>470.9</ele>
 		<name>Mas Rifago</name>
-		<desc>Sant Martí - XVII / 1993 - Molt bo, habitada</desc>
+		<desc>Sant Martí - XVII / 1993 - Molt bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.150778" lon="2.586224">
@@ -1189,13 +1165,7 @@
 		<desc>Sant Miquel de Sacot (Can Xel) - XIX - Bo</desc>
 		<sym> </sym><type>habitatge</type>
 	</wpt>
-	<wpt lat="42.15144" lon="2.587546">
-		<ele>-1.0</ele>
-		<name>El Molí Nou</name>
-		<desc>El Sallent - XVIII</desc>
-		<sym>Residence</sym><type>habitatge</type>
-	</wpt>
-	<wpt lat="42.151744" lon="2.574477">
+<wpt lat="42.151744" lon="2.574477">
 		<ele>-1.0</ele>
 		<name>La Casica</name>
 		<desc>Sant Martí - XIX - Runes</desc>
@@ -1257,7 +1227,7 @@
 	</wpt>
 	<wpt lat="42.15044536859823" lon="2.5904801487922673">
 		<ele>419.7</ele>
-		<name>Can Creuet Nou / Casa Nova de Can Creuet</name>
+		<name>Can Creuet Nou / Casa Nova de Can Creuet</name>
 		<desc>Els Arcs - XX - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
@@ -1306,7 +1276,7 @@
 	<wpt lat="42.15290316904254" lon="2.570613026618958">
 		<ele>459.3</ele>
 		<name>Can Sidric</name>
-		<desc>Sant Martí - XVIII - Bo, habitada</desc>
+		<desc>Sant Martí - XVIII - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.152666540303834" lon="2.5180685520172124">
@@ -1354,7 +1324,7 @@
 	<wpt lat="42.15346789287759" lon="2.5689741969108586">
 		<ele>463.7</ele>
 		<name>Can Llaurella / Can Llorella</name>
-		<desc>Sant Martí (C. Font del Consol 135-185) - XVIII / 2001 - Bo, habitada</desc>
+		<desc>Sant Martí (C. Font del Consol 135-185) - XVIII / 2001 - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.153191" lon="2.601652">
@@ -1369,13 +1339,7 @@
 		<desc>El Sallent - XIX - Dolent, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
-	<wpt lat="42.15206034098495" lon="2.590357823244736">
-		<ele>408.8</ele>
-		<name>Mas Molí Cutilla</name>
-		<desc>Sant Martí - XVII - Bo, habitada</desc>
-		<sym>Residence</sym><type>habitatge</type>
-	</wpt>
-	<wpt lat="42.157080813098936" lon="2.6086306571960454">
+<wpt lat="42.157080813098936" lon="2.6086306571960454">
 		<ele>365.5</ele>
 		<name>Can Batlle</name>
 		<desc>El Sallent - XIX - Dolent, no habitada</desc>
@@ -1402,7 +1366,7 @@
 	<wpt lat="42.15421355923633" lon="2.557502388954163">
 		<ele>548.1</ele>
 		<name>Can Rosta</name>
-		<desc>Sant Martí - XVII - Bo, habitada</desc>
+		<desc>Sant Martí - XVII - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.1524635335771" lon="2.5426842058050396">
@@ -1432,19 +1396,19 @@
 	<wpt lat="42.15444421691756" lon="2.5803306698799138">
 		<ele>460.6</ele>
 		<name>Can Sala</name>
-		<desc>Sant Martí - 1884 - Bo, habitada</desc>
+		<desc>Sant Martí - 1884 - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.15446211273701" lon="2.579005658626557">
 		<ele>478.2</ele>
 		<name>Mas Coderch</name>
-		<desc>Sant Martí - 1989 - Bo, habitada</desc>
+		<desc>Sant Martí - 1989 - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.154352749316956" lon="2.5634890794754033">
 		<ele>483.2</ele>
 		<name>Ca l&apos;Oix</name>
-		<desc>Sant Martí - XVIII - Molt bo, habitada</desc>
+		<desc>Sant Martí - XVIII - Molt bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.154528" lon="2.604618">
@@ -1528,16 +1492,10 @@
 	<wpt lat="42.15544398571939" lon="2.5648579262244335">
 		<ele>487.3</ele>
 		<name>El Castellot</name>
-		<desc>Sant Martí - XIX - Bo, habitada</desc>
+		<desc>Sant Martí - XIX - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
-	<wpt lat="42.1536130499507" lon="2.5984811782836914">
-		<ele>384.8</ele>
-		<name>Mas Molí d&apos;en Reixach</name>
-		<desc>El Sallent - XVIII - Bo</desc>
-		<sym>Residence</sym><type>habitatge</type>
-	</wpt>
-	<wpt lat="42.15545453076617" lon="2.570143773230412">
+<wpt lat="42.15545453076617" lon="2.570143773230412">
 		<ele>469.8</ele>
 		<name>Cal Moliner</name>
 		<desc>Sant Martí - XIX - Bo, no habitada</desc>
@@ -1570,7 +1528,7 @@
 	<wpt lat="42.15596136675076" lon="2.5547692179679875">
 		<ele>537.3</ele>
 		<name>La Torre</name>
-		<desc>Sant Martí - XVIII - Bo, habitada</desc>
+		<desc>Sant Martí - XVIII - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.15588382000038" lon="2.5288242101669316">
@@ -1726,7 +1684,7 @@
 	<wpt lat="42.155700888828164" lon="2.561072409152985">
 		<ele>499.6</ele>
 		<name>Can Barraca</name>
-		<desc>Sant Martí - XIX / 1992-93 - Molt bo, habitada</desc>
+		<desc>Sant Martí - XIX / 1992-93 - Molt bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.15598881083574" lon="2.501004818527695">
@@ -1768,13 +1726,13 @@
 	<wpt lat="42.159075088524816" lon="2.582272589206696">
 		<ele>481.3</ele>
 		<name>La Clota</name>
-		<desc>Sant Martí - 1686 - Bo, habitada</desc>
+		<desc>Sant Martí - 1686 - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.15885836572482" lon="2.576232254505158">
 		<ele>483.1</ele>
 		<name>Can Viladecàs</name>
-		<desc>Sant Martí - XIX - Bo, habitada</desc>
+		<desc>Sant Martí - XIX - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.15710268485522" lon="2.6245844364166264">
@@ -1804,7 +1762,7 @@
 	<wpt lat="42.16045692745585" lon="2.5730028748512273">
 		<ele>514.8</ele>
 		<name>La Terrada</name>
-		<desc>Sant Martí - XVIII - Bo, no habitada</desc>
+		<desc>Sant Martí - XVIII - Bo, no habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.15874304503326" lon="2.541816830635071">
@@ -1852,19 +1810,19 @@
 	<wpt lat="42.1628637492441" lon="2.5689299439932882">
 		<ele>527.3</ele>
 		<name>Ca l&apos;Aulet</name>
-		<desc>Sant Martí - 1586 - Regular</desc>
+		<desc>Sant Martí - 1586 - Regular</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.162868611453895" lon="2.5649388134479527">
 		<ele>509.4</ele>
 		<name>Mas les Feixes</name>
-		<desc>Sant Martí - XVIII - Bo, habitada</desc>
+		<desc>Sant Martí - XVIII - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.16300281210918" lon="2.5653532147407536">
 		<ele>510.4</ele>
 		<name>Ca l&apos;Ambrós</name>
-		<desc>Sant Martí - XIX - Bo, habitada</desc>
+		<desc>Sant Martí - XIX - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.1617651730518" lon="2.5439840555191044">
@@ -1876,13 +1834,13 @@
 	<wpt lat="42.162745658447804" lon="2.5646929213124996">
 		<ele>508.6</ele>
 		<name>Can Ventura</name>
-		<desc>Sant Martí - XIX - Bo, habitada</desc>
+		<desc>Sant Martí - XIX - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.162868611453895" lon="2.553556859493256">
 		<ele>540.2</ele>
 		<name>La Renella</name>
-		<desc>Sant Martí - XVIII / 1996 - Bo, habitada</desc>
+		<desc>Sant Martí - XVIII / 1996 - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.16372693003765" lon="2.5577968539591427">
@@ -1906,13 +1864,13 @@
 	<wpt lat="42.16403863277462" lon="2.5658722221851353">
 		<ele>520.8</ele>
 		<name>Can Ventós</name>
-		<desc>Sant Martí - XVII - Bo, habitada</desc>
+		<desc>Sant Martí - XVII - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.16261913235005" lon="2.5628911435386796">
 		<ele>510.6</ele>
 		<name>Can Camó</name>
-		<desc>Sant Martí - 1767 - Bo, habitada</desc>
+		<desc>Sant Martí - 1767 - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.164964" lon="2.601615">
@@ -1942,7 +1900,7 @@
 	<wpt lat="42.1660549289706" lon="2.565436391720217">
 		<ele>532.1</ele>
 		<name>Can Bellapart</name>
-		<desc>Sant Martí - XIX / 1999 - Molt bo, habitada</desc>
+		<desc>Sant Martí - XIX / 1999 - Molt bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.166253" lon="2.562358">
@@ -1966,7 +1924,7 @@
 	<wpt lat="42.16702630899253" lon="2.556143011623582">
 		<ele>551.8</ele>
 		<name>Can Bosquet Vell</name>
-		<desc>Sant Martí - XIX - Bo, habitada</desc>
+		<desc>Sant Martí - XIX - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.16654063634577" lon="2.622127532958985">
@@ -2014,7 +1972,7 @@
 	<wpt lat="42.17303278932513" lon="2.59288789856083">
 		<ele>666.2</ele>
 		<name>Mas Agustins</name>
-		<desc>Sant Martí - XVIII - Runes</desc>
+		<desc>Sant Martí - XVIII - Runes</desc>
 		<sym>Block, Red</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.175727" lon="2.57905">
@@ -2032,31 +1990,31 @@
 	<wpt lat="42.17827895032468" lon="2.5971373915672307">
 		<ele>621.8</ele>
 		<name>La Camota</name>
-		<desc>Sant Martí - XVIII - Runes</desc>
+		<desc>Sant Martí - XVIII - Runes</desc>
 		<sym>Block, Red</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.180564" lon="2.601965">
 		<ele>-1.0</ele>
 		<name>El Cellers</name>
-		<desc>Sant Martí - Runes</desc>
+		<desc>Sant Martí - Runes</desc>
 		<sym>Block, Red</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.17895078112659" lon="2.60077178478241">
 		<ele>598.1</ele>
 		<name>Mas Cellers</name>
-		<desc>Sant Martí - XIX - Bo</desc>
+		<desc>Sant Martí - XIX - Bo</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.18022702320062" lon="2.594151987914781">
 		<ele>582.5</ele>
 		<name>Mas Codinach</name>
-		<desc>Sant Martí - XVIII - Runes</desc>
+		<desc>Sant Martí - XVIII - Runes</desc>
 		<sym>Block, Red</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.18339700799835" lon="2.5891712307929997">
 		<ele>584.1</ele>
 		<name>Mas Coguleres (Cabana del Pastor)</name>
-		<desc>Sant Martí - Runes</desc>
+		<desc>Sant Martí - Runes</desc>
 		<sym>Block, Red</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.188357763954386" lon="2.59018712850827">

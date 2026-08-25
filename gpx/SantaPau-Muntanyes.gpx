@@ -256,6 +256,7 @@
 	</wpt>
 	
 	<wpt lat="42.18167" lon="2.62807">
+		<ele>431.0</ele>
 		<name>Coll de Can Jou</name>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
@@ -263,7 +264,7 @@
 	
 	<wpt lat="42.114422416002846" lon="2.590069538800899">
 		<ele>844.8</ele>
-		<name>Forat de l’Ovella</name>
+		<name>Forat de l'Ovella</name>
 		<desc>Pas natural a la carena de la serra de Finestres. Abans figurava com a cova.</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>

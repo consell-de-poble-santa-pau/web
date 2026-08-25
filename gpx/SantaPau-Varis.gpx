@@ -70,16 +70,17 @@
 	<wpt lat="42.16858" lon="2.49456">
 		<ele>450.6</ele>
 		<name>Creu del Triai</name>
-		<desc>Cross</desc>
-		<sym>Geographic place name, land</sym>
-		<type>Creu de terme. Probablement dins d’Olot</type>
+		<desc>Creu de terme. Probablement dins d'Olot</desc>
+		<sym>Cross</sym>
+		<type>varis</type>
 	</wpt>
 	
 	<wpt lat="42.12622" lon="2.56868">
 		<ele>835.7</ele>
-		<name>Grau de l’Escaler</name>
+		<name>Grau de l'Escaler</name>
+		<desc>Pas costerut per la cinglera, sota el turo de Sant Jordi</desc>
 		<sym>Geographic place name, land</sym>
-		<type>Pas costerut per la cinglera, sota el turo de Sant Jordi</type>
+		<type>varis</type>
 	</wpt>
 	
 </gpx>

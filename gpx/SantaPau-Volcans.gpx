@@ -24,7 +24,7 @@
 	
 	<wpt lat="42.14026168062739" lon="2.569221295416355">
 		<ele>577.7</ele>
-		<name>D’en Simó</name>
+		<name>D'en Simó</name>
 		<sym>Elevation point</sym>
 		<type>volca</type>
 	</wpt>
@@ -111,7 +111,7 @@
 	<wpt lat="42.15588" lon="2.53850">
 		<ele>632.4</ele>
 		<name>Grederes del Croscat</name>
-		<desc>Tall longitudinal del con, obert per l’extraccio de greda i restaurat el 1995</desc>
+		<desc>Tall longitudinal del con, obert per l'extraccio de greda i restaurat el 1995</desc>
 		<sym>Elevation point</sym>
 		<type>volca</type>
 	</wpt>
@@ -119,7 +119,7 @@
 	<wpt lat="42.14178" lon="2.55449">
 		<ele>561.2</ele>
 		<name>Gredera de Rocanegra</name>
-		<desc>Punt on l’erosio ha obert la paret i es veu l’interior del crater</desc>
+		<desc>Punt on l'erosio ha obert la paret i es veu l'interior del crater</desc>
 		<sym>Elevation point</sym>
 		<type>volca</type>
 	</wpt>
