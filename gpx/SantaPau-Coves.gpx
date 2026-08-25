@@ -11,13 +11,7 @@
 	<wpt lat="42.09248940954829" lon="2.5769282877445225">
 		<ele>622.2</ele>
 		<name>Cova dels Carlins</name>
-		<sym>Square, Red</sym>
-		<type>cova</type>
-	</wpt>
-	
-	<wpt lat="42.114422416002846" lon="2.590069538800899">
-		<ele>844.8</ele>
-		<name>Forat de l’Ovella</name>
+		<desc>Catalogada al terme de Sant Aniol de Finestres (Cataleg Espeleologic de Catalunya, vol.3). Recorregut 19 m.</desc>
 		<sym>Square, Red</sym>
 		<type>cova</type>
 	</wpt>
@@ -25,6 +19,7 @@
 	<wpt lat="42.11618" lon="2.57705">
 		<ele>949.7</ele>
 		<name>Avenc Pujolar</name>
+		<desc>Catalogat al terme de Sant Aniol de Finestres. Recorregut 19 m, desnivell 14 m.</desc>
 		<sym>Square, Red</sym>
 		<type>cova</type>
 	</wpt>
@@ -32,6 +27,7 @@
 	<wpt lat="42.11701390475437" lon="2.5722831472608214">
 		<ele>908.0</ele>
 		<name>Cova del Llop</name>
+		<desc>Catalogada al terme de Sant Aniol de Finestres. Recorregut 116 m, desnivell 17 m.</desc>
 		<sym>Square, Red</sym>
 		<type>cova</type>
 	</wpt>
@@ -39,6 +35,7 @@
 	<wpt lat="42.11787050316126" lon="2.577466070652008">
 		<ele>917.8</ele>
 		<name>Avenc dels Troncs</name>
+		<desc>Catalogat al terme de Sant Aniol de Finestres. Recorregut 5 m.</desc>
 		<sym>Square, Red</sym>
 		<type>cova</type>
 	</wpt>
@@ -46,6 +43,7 @@
 	<wpt lat="42.11791427375937" lon="2.5721794366836552">
 		<ele>876.0</ele>
 		<name>Cova de les Angúnies</name>
+		<desc>Catalogada al terme de Sant Aniol de Finestres. Recorregut 190 m, desnivell 40 m.</desc>
 		<sym>Square, Red</sym>
 		<type>cova</type>
 	</wpt>
@@ -53,6 +51,7 @@
 	<wpt lat="42.13389116073739" lon="2.4980233504640204">
 		<ele>816.6</ele>
 		<name>Cova de Rocalladre</name>
+		<desc>Es la Cova de Roca Lladre, serra del Corb, catalogada al terme de Sant Feliu de Pallerols. Recorregut 80 m.</desc>
 		<sym>Square, Red</sym>
 		<type>cova</type>
 	</wpt>
@@ -60,8 +59,20 @@
 	<wpt lat="42.167855" lon="2.573429">
 		<ele>618.8</ele>
 		<name>Balma de la Feu</name>
+		<desc>Santa Pau. Torrent de Sallent. Amplada 44 m, fondaria maxima 14 m. Espeleologicament inedita fins al 2024.</desc>
 		<sym>Square, Red</sym>
 		<type>cova</type>
 	</wpt>
 
+
+	<!-- Afegida 2026-08-24. Posicio APROXIMADA (±200 m), deduida de la
+	     descripcio del Grup d'Espeleologia de Badalona: uns 600 m a ponent
+	     de Sant Julia del Mont (31TDG652694) i uns 200 m de la cova dels
+	     Encantats. Cal comprovar-la sobre el terreny. -->
+	<wpt lat="42.17410" lon="2.57070">
+		<name>Bauma dels Monjos</name>
+		<desc>Santa Pau. Tambe dita bauma de la Font dels Monjos. Amplada 26 m, fondaria 11 m. Prop del cami dels Monjos, coll de Boixedes. POSICIO APROXIMADA, cal comprovar.</desc>
+		<sym>Square, Red</sym>
+		<type>cova</type>
+	</wpt>
 </gpx>

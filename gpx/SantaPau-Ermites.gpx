@@ -35,7 +35,7 @@
 	<wpt lat="42.162935" lon="2.600348">
 		<ele>580.2</ele>
 		<name>Sant Miquel de Giracàrregues</name>
-		<desc>XVIII - El Sallent - Runes</desc>
+		<desc>No he pogut confirmar el terme municipal en cap font consultada. Cal comprovar-ho. [XVIII - El Sallent - Runes]</desc>
 		<sym>Church</sym>
 		<type>ermita</type>
 	</wpt>
@@ -98,7 +98,7 @@
 	<wpt lat="42.11191344065324" lon="2.5930255651474003">
 		<ele>852.5</ele>
 		<name>Santa Maria de Finestres</name>
-		<desc>Serra de Finestres</desc>
+		<desc>Priorat i santuari de la serra de Finestres, al terme de Sant Aniol de Finestres. [Serra de Finestres]</desc>
 		<sym>Church</sym>
 		<type>ermita</type>
 	</wpt>
@@ -106,7 +106,7 @@
 	<wpt lat="42.13953654020718" lon="2.491521777612729">
 		<ele>602.6</ele>
 		<name>Sant Martí del Corb</name>
-		<desc>Serra del Corb</desc>
+		<desc>Esglesia romanica del terme de LES PRESES, serra de Marboleny. Coordenada bona: 23 m de la de l inventari comarcal. [Serra del Corb]</desc>
 		<sym>Church</sym>
 		<type>ermita</type>
 	</wpt>
@@ -114,9 +114,19 @@
 	<wpt lat="42.14392704297645" lon="2.484970892948684">
 		<ele>608.5</ele>
 		<name>Sant Miquel del Corb</name>
-		<desc>Serra del Corb</desc>
+		<desc>Esglesia romanica del terme de LES PRESES, vessant nord de la serra del Corb. Documentada el 957. [Serra del Corb]</desc>
 		<sym>Church</sym>
 		<type>ermita</type>
 	</wpt>
 
+
+	<!-- Afegida 2026-08-24. Capella de la baronia, dins la torre de
+	     l'homenatge del castell. Coordenada del castell segons l'Inventari
+	     del Patrimoni del Consell Comarcal de la Garrotxa. -->
+	<wpt lat="42.14474" lon="2.57159">
+		<name>Capella de Sant Antoni i Sant Honorat</name>
+		<desc>XIV, 1766 - Castell. Capella de la baronia, a la planta baixa de la torre de l homenatge. Hi hagueren el retaule d alabastre de 1340 i la veracreu de 1391.</desc>
+		<sym>Church</sym>
+		<type>ermita</type>
+	</wpt>
 </gpx>

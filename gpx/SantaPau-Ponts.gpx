@@ -36,4 +36,11 @@
 		<type>pont</type>
 	</wpt>
 	
+	<wpt lat="42.14475" lon="2.57767">
+		<ele>450.6</ele>
+		<name>Pont d&apos;Instints</name>
+		<sym>Bridge</sym>
+		<type>pont</type>
+	</wpt>
+	
 </gpx>

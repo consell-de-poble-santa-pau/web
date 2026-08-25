@@ -11,6 +11,7 @@
 	<wpt lat="42.15522963978584" lon="2.6080003380775456">
 		<ele>340.8</ele>
 		<name>Molí de Can Batlle</name>
+		<desc>Encara es mante en peu i conserva la bassa i els conreus. S hi arriba des del salt de Can Batlle, cami amunt i a la dreta. El salt es a la riera de Sant Marti, uns 50 m abans de desembocar al Ser.</desc>
 		<sym>Circle, Blue</sym>
 		<type>moli</type>
 	</wpt>
@@ -18,6 +19,7 @@
 	<wpt lat="42.15282363006943" lon="2.594626843929291">
 		<ele>405.1</ele>
 		<name>Molí de Can Biel</name>
+		<desc>A 230 m del punt "Moli de Mas Biel" del GPX d habitatges. Comprovar quin dels dos es el moli.</desc>
 		<sym>Circle, Blue</sym>
 		<type>moli</type>
 	</wpt>
@@ -25,6 +27,7 @@
 	<wpt lat="42.15360907304904" lon="2.5984838604927067">
 		<ele>384.7</ele>
 		<name>Molí de Reixac</name>
+		<desc>Mateix punt que "Mas Moli d en Reixach" al GPX d habitatges.</desc>
 		<sym>Circle, Blue</sym>
 		<type>moli</type>
 	</wpt>
@@ -32,9 +35,19 @@
 	<wpt lat="42.1514543169479" lon="2.5875489465257178">
 		<ele>414.0</ele>
 		<name>Molí Nou</name>
-		<desc>XVIII - El Sallent</desc>
+		<desc>Inventari del Patrimoni Arquitectonic de Catalunya. Planta rectangular amb baixos i dos pisos, pedra volcanica i carreus escairats. El riu parteix el moli en dues parts: una per a residencia dels moliners i per moldre, l altra per emmagatzemar els sacs. Durant un temps va ser fonda. Sobre la porta hi ha una pedra desgastada amb una inscripcio. [XVIII - El Sallent]</desc>
 		<sym>Circle, Blue</sym>
 		<type>moli</type>
 	</wpt>
 
+
+	<!-- Afegit el 25-08-2026. Coordenada presa del nostre propi
+	     SantaPau-Habitatges.gpx, on constava com a "Mas Moli Cutilla". -->
+	<wpt lat="42.15206" lon="2.59036">
+		<ele>408.8</ele>
+		<name>Molí Cutilla</name>
+		<desc>Moli d aigua al riu Ser. El gorg de Can Cutilla es a nomes 40 m, cosa que confirma l aprofitament del salt. Al GPX d habitatges hi consta com a Mas Moli Cutilla.</desc>
+		<sym>Circle, Blue</sym>
+		<type>moli</type>
+	</wpt>
 </gpx>

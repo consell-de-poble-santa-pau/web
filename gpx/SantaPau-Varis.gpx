@@ -16,13 +16,6 @@
 		<type>varis</type>
 	</wpt>
 	
-	<wpt lat="42.14414923201217" lon="2.5066149855329694">
-		<ele>528.4</ele>
-		<name>Basses de can JordÃ </name>
-		<sym>Geographic place name, water</sym>
-		<type>varis</type>
-	</wpt>
-	
 	<wpt lat="42.145597" lon="2.598335">
 		<ele>555.2</ele>
 		<name>Paret de la Pubilla</name>
@@ -60,34 +53,6 @@
 		<type>varis</type>
 	</wpt>
 	
-	<wpt lat="42.14425188870831" lon="2.5896892688602025">
-		<ele>427.6</ele>
-		<name>Gorg Blau</name>
-		<sym>Geographic place name, water</sym>
-		<type>varis</type>
-	</wpt>
-	
-	<wpt lat="42.15543133166099" lon="2.6060029441462134">
-		<ele>352.3</ele>
-		<name>Gorg de Can Batlle</name>
-		<sym>Geographic place name, water</sym>
-		<type>varis</type>
-	</wpt>
-	
-	<wpt lat="42.146878718499615" lon="2.580552358938664">
-		<ele>441.2</ele>
-		<name>Gorg de Cagarates</name>
-		<sym>Geographic place name, water</sym>
-		<type>varis</type>
-	</wpt>
-	
-	<wpt lat="42.15218234344685" lon="2.5907778739929204">
-		<ele>406.7</ele>
-		<name>Gorg de Can Cutilla</name>
-		<sym>Geographic place name, water</sym>
-		<type>varis</type>
-	</wpt>
-	
 	<wpt lat="42.144735638570545" lon="2.5717919257414406">
 		<ele>491.5</ele>
 		<name>Castell de Santa Pau</name>
@@ -101,5 +66,20 @@
 		<sym>Geographic place name, Man-made</sym>
 		<type>varis</type>
 	</wpt>
-
+	
+	<wpt lat="42.16858" lon="2.49456">
+		<ele>450.6</ele>
+		<name>Creu del Triai</name>
+		<desc>Cross</desc>
+		<sym>Geographic place name, land</sym>
+		<type>Creu de terme. Probablement dins d’Olot</type>
+	</wpt>
+	
+	<wpt lat="42.12622" lon="2.56868">
+		<ele>835.7</ele>
+		<name>Grau de l’Escaler</name>
+		<sym>Geographic place name, land</sym>
+		<type>Pas costerut per la cinglera, sota el turo de Sant Jordi</type>
+	</wpt>
+	
 </gpx>

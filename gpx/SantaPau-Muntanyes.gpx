@@ -9,7 +9,7 @@
 	
 	<!-- Muntanyes -->
 	<wpt lat="42.12470474059058" lon="2.562133448569553">
-		<ele>965.1</ele>
+		<ele>973.0</ele>
 		<name>Sant Jordi</name>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
@@ -51,8 +51,8 @@
 	</wpt>
 	
 	<wpt lat="42.17304269896309" lon="2.5775337964296345">
-		<ele>901.0</ele>
-		<name>Sant Julià del Mont- vèrtex geodèsic</name>
+		<ele>907.0</ele>
+		<name>Sant Julià del Mont</name>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -121,7 +121,7 @@
 	</wpt>
 	
 	<wpt lat="42.115047787673994" lon="2.581511094375184">
-		<ele>1008.2</ele>
+		<ele>1026.0</ele>
 		<name>Puigsallança</name>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
@@ -182,5 +182,91 @@
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
-
+	
+	<wpt lat="42.12727" lon="2.54651">
+		<ele>855.5</ele>
+		<name>Penya Peguera</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<!-- Colls i passos -->
+	
+	<wpt lat="42.12310" lon="2.54754">
+		<ele>895.4</ele>
+		<name>Collada de Fontpobra</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.12422" lon="2.55389">
+		<ele>861.2</ele>
+		<name>Coll Ciuro</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.13170" lon="2.53543">
+		<ele>799.3</ele>
+		<name>Collada de Colltort</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.17100" lon="2.58852">
+		<ele>749.2</ele>
+		<name>Coll Satrapa</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.17263" lon="2.54908">
+		<ele>671.6</ele>
+		<name>Coll de Palomeres</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.17151" lon="2.56507">
+		<ele>664.6</ele>
+		<name>Coll de Boixeda</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.13211" lon="2.56775">
+		<ele>622.0</ele>
+		<name>Coll de Maria I</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.13188" lon="2.56749">
+		<ele>622.9</ele>
+		<name>Coll de Maria II</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.14077" lon="2.59436">
+		<ele>504.7</ele>
+		<name>Collet de Can Rosta</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.18167" lon="2.62807">
+		<name>Coll de Can Jou</name>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
+	<wpt lat="42.114422416002846" lon="2.590069538800899">
+		<ele>844.8</ele>
+		<name>Forat de l’Ovella</name>
+		<desc>Pas natural a la carena de la serra de Finestres. Abans figurava com a cova.</desc>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
+	
 </gpx>

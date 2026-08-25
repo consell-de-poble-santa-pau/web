@@ -32,12 +32,6 @@
 		<desc>Els Arcs - XVIII - Regular, no habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
-	<wpt lat="42.13" lon="2.53">
-		<ele>749.2</ele>
-		<name>Castell de Sant Iscle de Colltort</name>
-		<desc>Santa Pau</desc>
-		<sym>Block, Red</sym><type>habitatge</type>
-	</wpt>
 	<wpt lat="42.12765309225551" lon="2.583416237294967">
 		<ele>551.7</ele>
 		<name>La Coma</name>
@@ -253,10 +247,10 @@
 		<desc>Sant Miquel de Sacot - 1977 - Bo</desc>
 		<sym> </sym><type>habitatge</type>
 	</wpt>
-	<wpt lat="-811.67296" lon="2.53085">
+	<wpt lat="42.13810" lon="2.53085">
 		<ele>-1.0</ele>
-		<name>Can Batlle / La Masundefined</name>
-		<desc>Sant Miquel de Sacot - XVIII - Regular, habitada</desc>
+		<name>Can Batlle</name>
+		<desc>Sant Miquel de Sacot - XVIII - Regular, habitada. Posicio reconstruida: cal confirmar-la. Segon nom truncat a l origen</desc>
 		<sym> </sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.136149935489335" lon="2.544714050712878">
@@ -574,7 +568,7 @@
 	<wpt lat="42.14374844742678" lon="2.570862587731773">
 		<ele>492.6</ele>
 		<name>Plaça de baix, 11</name>
-		<desc>Santa Pau (Plaundefineda de baix, 11) - XVI</desc>
+		<desc>Santa Pau (Placa de baix, 11) - XVI</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.14334484775419" lon="2.497067459939806">
@@ -865,10 +859,10 @@
 		<desc>Can Font - XVIII - Regular, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
-	<wpt lat="-804.67296" lon="2.57">
+	<wpt lat="42.14405" lon="2.57000">
 		<ele>-1.0</ele>
 		<name>Ajuntament-escoles de Santa Pau</name>
-		<desc>Santa Pau (C. del Pont 23) - XX - </desc>
+		<desc>Santa Pau (C. del Pont 23) - XX. Posicio aproximada (+/- 80 m): cal confirmar-la</desc>
 		<sym> </sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.14529680251886" lon="2.5305783748626713">
@@ -1120,7 +1114,7 @@
 	<wpt lat="42.15011327982804" lon="2.500323057174683">
 		<ele>545.6</ele>
 		<name>Mas Can Rafelic</name>
-		<desc>Sant Miquel de Sacot - 1940 / 1990undefineds - Bo, habitada</desc>
+		<desc>Sant Miquel de Sacot - 1940 / 1990 - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.14856191348223" lon="2.499954097594315">
@@ -1330,7 +1324,7 @@
 	<wpt lat="42.1531162993992" lon="2.5920154587966775">
 		<ele>419.7</ele>
 		<name>Can Riera</name>
-		<desc>Santa Pau</desc>
+		<desc>Sant Martí - 1610 - Bo. Fusionat amb un segon registre que duia la coordenada trencada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.153257" lon="2.591751">
@@ -1488,12 +1482,6 @@
 		<name>Can Roure</name>
 		<desc>Sant Miquel de Sacot - XVIII - Runes</desc>
 		<sym>Block, Red</sym><type>habitatge</type>
-	</wpt>
-	<wpt lat="-794.67296" lon="2.59312">
-		<ele>-1.0</ele>
-		<name>Can Riera</name>
-		<desc>Sant Martundefined - 1610 - Bo</desc>
-		<sym> </sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.15527" lon="2.49978">
 		<ele>-1.0</ele>

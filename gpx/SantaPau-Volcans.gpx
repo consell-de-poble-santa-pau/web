@@ -106,4 +106,36 @@
 		<type>volca</type>
 	</wpt>
 	
+	<!-- Grederes i afloraments -->
+	
+	<wpt lat="42.15588" lon="2.53850">
+		<ele>632.4</ele>
+		<name>Grederes del Croscat</name>
+		<desc>Tall longitudinal del con, obert per l’extraccio de greda i restaurat el 1995</desc>
+		<sym>Elevation point</sym>
+		<type>volca</type>
+	</wpt>
+	
+	<wpt lat="42.14178" lon="2.55449">
+		<ele>561.2</ele>
+		<name>Gredera de Rocanegra</name>
+		<desc>Punt on l’erosio ha obert la paret i es veu l’interior del crater</desc>
+		<sym>Elevation point</sym>
+		<type>volca</type>
+	</wpt>
+	
+	<wpt lat="42.14464" lon="2.54651">
+		<ele>633.7</ele>
+		<name>Aflorament de Santa Margarida</name>
+		<sym>Elevation point</sym>
+		<type>volca</type>
+	</wpt>
+	
+	<wpt lat="42.13883" lon="2.53253">
+		<ele>632.2</ele>
+		<name>Escoria volcanica</name>
+		<sym>Elevation point</sym>
+		<type>volca</type>
+	</wpt>
+	
 </gpx>

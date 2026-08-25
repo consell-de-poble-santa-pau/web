@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd http://www.topografix.com/GPX/gpx_style/0/2 http://www.topografix.com/GPX/gpx_style/0/2/gpx_style.xsd" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpx_style="http://www.topografix.com/GPX/gpx_style/0/2" version="1.1" creator="@alexistudela">
+	<metadata>
+		<name>SantaPau_Gorgs</name>
+		<author>
+			<name>Alexis Tudela i Casanovas</name>
+		</author>
+	</metadata>
+	
+	<wpt lat="42.14425188870831" lon="2.5896892688602025">
+		<ele>427.6</ele>
+		<name>Gorg Blau</name>
+		<sym>Geographic place name, water</sym>
+		<type>gorg</type>
+	</wpt>
+	
+	<wpt lat="42.146878718499615" lon="2.580552358938664">
+		<ele>441.2</ele>
+		<name>Gorg de Caga-rates</name>
+		<sym>Geographic place name, water</sym>
+		<type>gorg</type>
+	</wpt>
+	
+	<wpt lat="42.15218234344685" lon="2.5907778739929204">
+		<ele>406.7</ele>
+		<name>Gorg de Can Cutilla</name>
+		<sym>Geographic place name, water</sym>
+		<type>gorg</type>
+	</wpt>
+	
+	<wpt lat="42.15543133166099" lon="2.6060029441462134">
+		<ele>352.3</ele>
+		<name>Gorg de Can Batlle</name>
+		<sym>Geographic place name, water</sym>
+		<type>gorg</type>
+	</wpt>
+	
+	<wpt lat="42.15580" lon="2.60579">
+		<ele>347.0</ele>
+		<name>Salt de Can Batlle</name>
+		<desc>Inventari del Patrimoni de la Garrotxa</desc>
+		<sym>Geographic place name, water</sym>
+		<type>gorg</type>
+	</wpt>
+	
+	<wpt lat="42.14414923201217" lon="2.5066149855329694">
+		<ele>528.4</ele>
+		<name>Basses de can Jorda</name>
+		<sym>Geographic place name, water</sym>
+		<type>gorg</type>
+	</wpt>
+	
+</gpx>

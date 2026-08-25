@@ -16,27 +16,44 @@
 // l'script s'atura. És volgut: val més que falli la compilació que no pas
 // que 200 punts acabin silenciosament al calaix de sastre.
 
-import { readFileSync, writeFileSync, readdirSync, mkdirSync } from 'node:fs';
+import {
+  readFileSync, writeFileSync, readdirSync, mkdirSync, copyFileSync, rmSync,
+} from 'node:fs';
 import { join, basename, extname } from 'node:path';
 import { DOMParser } from '@xmldom/xmldom';
 import { gpx } from '@tmcw/togeojson';
 import { CATEGORIES, SINONIMS } from '../src/dades/categories.js';
 
 const ENTRADA = 'gpx';
+const ENTRADA_RUTES = 'gpx/rutes';   // d'aquí només se n'agafa el traçat
 const SORTIDA = 'public/dades';
-const TOLERANCIA = 0.00004; // ≈ 4 m de tolerància en aprimar els tracks
+const SORTIDA_GPX = 'public/rutes';  // còpia publicable, per poder-los baixar
+const TOLERANCIA = 0.00004;
 
+// Colors de les rutes. S'assignen pel NÚMERO del fitxer (R1, R2, R3...),
+// de manera que una ruta té sempre el mateix color encara que n'afegeixis
+// o en treguis d'altres. Amb més de dotze rutes la paleta es repeteix:
+// no hi ha dotze colors ben diferenciables i prou, i encara menys vint-i-sis.
+// Evitem els verds, que es perdrien sobre el fons del mapa.
+const PALETA = [
+  '#C0392B', '#2471A3', '#B9770E', '#6C3483', '#117864', '#A93226',
+  '#1F618D', '#7D6608', '#4A235A', '#0E6251', '#873600', '#154360',
+]; // ≈ 4 m de tolerància en aprimar els tracks
+
+// ELS DOS CALAIXOS
+//   gpx/         → punts del terme. La categoria surt del nom del fitxer.
+//   gpx/rutes/   → traçats. Els waypoints s'hi descarten sense mirar-los:
+//                  els GPX de rutes porten aparcaments, lavabos i senyals
+//                  de camí que no pertanyen a l'inventari. El nom de la
+//                  ruta surt del nom del fitxer, no del <name> de dins,
+//                  que sol venir brut de l'aplicació que el va gravar.
+//
 // Fitxers que hi són però NO s'han de processar (recopilatoris, còpies
 // velles, proves). Es comparen en minúscules.
 const IGNORA = [
   'santapau-tot.gpx',
 ];
-// Fitxers dels quals només volem el traçat, no els waypoints.
-// Els GPX de rutes solen portar aparcaments, lavabos i senyals de camí
-// que no pertanyen a l'inventari del terme.
-const NOMES_TRACKS = [
-  'r1 - la fageda i els volcans (b).gpx',
-];
+
 // ---------------------------------------------------------------- utilitats
 
 // "Volcà Croscat" → "volca croscat"
@@ -56,6 +73,27 @@ const resol = (t) => {
 const categoriaDelNom = (fitxer) => {
   const tros = basename(fitxer, extname(fitxer)).split(/[-_ ]+/).pop();
   return resol(tros);
+};
+
+// "R3_-_Ruta_de_les_fonts.gpx" → "R3 - Ruta de les fonts"
+const nomDeRuta = (fitxer) =>
+  basename(fitxer, extname(fitxer)).replace(/_/g, ' ').replace(/\s+/g, ' ').trim();
+
+// "R9 - Torre òptica del Croscat (b).gpx" → "R9-Torre-optica-del-Croscat-b.gpx"
+// Els accents, els espais i els parèntesis dins d'una URL donen maldecaps
+// segons el servidor i el navegador; el nom bonic el posa l'atribut
+// "download" de l'enllaç, que sí que els admet sense problema.
+const nomPublicable = (fitxer) =>
+  basename(fitxer, extname(fitxer))
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^A-Za-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '') + '.gpx';
+
+// "R13 - ...gpx" → PALETA[12]. Sense número, es reparteix per la inicial.
+const colorDeRuta = (fitxer) => {
+  const m = basename(fitxer).match(/^R\s*(\d+)/i);
+  const n = m ? Number(m[1]) : [...basename(fitxer)].reduce((a, c) => a + c.charCodeAt(0), 0);
+  return PALETA[n % PALETA.length];
 };
 
 const arrodoneix = (c) => [Number(c[0].toFixed(5)), Number(c[1].toFixed(5))];
@@ -88,9 +126,22 @@ function simplifica(punts, tol) {
 
 // ------------------------------------------------------------------ procés
 
-const tots = readdirSync(ENTRADA).filter((f) => f.toLowerCase().endsWith('.gpx'));
-const omesos = tots.filter((f) => IGNORA.includes(f.toLowerCase()));
-const fitxers = tots.filter((f) => !IGNORA.includes(f.toLowerCase()));
+const gpxDe = (carpeta) => {
+  try {
+    return readdirSync(carpeta)
+      .filter((f) => f.toLowerCase().endsWith('.gpx'))
+      .filter((f) => !IGNORA.includes(f.toLowerCase()))
+      .map((f) => join(carpeta, f));
+  } catch {
+    return []; // la carpeta encara no existeix; no passa res
+  }
+};
+
+const fitxers = [...gpxDe(ENTRADA), ...gpxDe(ENTRADA_RUTES)];
+const omesos = (() => {
+  try { return readdirSync(ENTRADA).filter((f) => IGNORA.includes(f.toLowerCase())); }
+  catch { return []; }
+})();
 
 if (!fitxers.length) {
   console.error(`Cap fitxer .gpx per processar dins de ${ENTRADA}/`);
@@ -106,18 +157,19 @@ const perFitxer = {};
 const vistos = new Map();
 let vertexOriginals = 0, vertexFinals = 0;
 
-for (const fitxer of fitxers) {
-  const categoriaFitxer = categoriaDelNom(fitxer);
-  const nomesTracks = NOMES_TRACKS.includes(fitxer.toLowerCase());
-  const xml = new DOMParser().parseFromString(readFileSync(join(ENTRADA, fitxer), 'utf8'), 'text/xml');
+for (const cami of fitxers) {
+  const fitxer = basename(cami);
+  const esRuta = cami.replace(/\\/g, '/').startsWith(ENTRADA_RUTES + '/');
+  const categoriaFitxer = esRuta ? null : categoriaDelNom(fitxer);
+  const xml = new DOMParser().parseFromString(readFileSync(cami, 'utf8'), 'text/xml');
   const dades = gpx(xml);
-  perFitxer[fitxer] = { categoria: categoriaFitxer, punts: 0, rutes: 0 };
+  perFitxer[fitxer] = { categoria: esRuta ? 'RUTA' : categoriaFitxer, punts: 0, rutes: 0 };
 
   for (const f of dades.features) {
     const p = f.properties ?? {};
     const nom = p.name?.trim() || '(sense nom)';
 
-      if (f.geometry?.type === 'Point' && !nomesTracks) {
+    if (f.geometry?.type === 'Point' && !esRuta) {
       const categoria = resol(p.type) ?? categoriaFitxer;
 
       if (!categoria) {
@@ -155,7 +207,13 @@ for (const fitxer of fitxers) {
         rutes.push({
           type: 'Feature',
           geometry: { type: 'LineString', coordinates: prima },
-          properties: { nom },
+          properties: esRuta
+            ? {
+                nom: nomDeRuta(fitxer),
+                color: colorDeRuta(fitxer),
+                fitxer: nomPublicable(fitxer),
+              }
+            : { nom },
         });
       }
     }
@@ -178,6 +236,18 @@ IGNORA de dalt de tot d'aquest script.
   process.exit(1);
 }
 
+// Els GPX de ruta es publiquen perquè es puguin baixar. Es buida la carpeta
+// primer: si treus una ruta de gpx/rutes/, la descàrrega ha de desaparèixer
+// també, i no quedar-s'hi orfe fins que algú se n'adoni.
+rmSync(SORTIDA_GPX, { recursive: true, force: true });
+mkdirSync(SORTIDA_GPX, { recursive: true });
+let copiats = 0;
+for (const cami of fitxers) {
+  if (!cami.replace(/\\/g, '/').startsWith(ENTRADA_RUTES + '/')) continue;
+  copyFileSync(cami, join(SORTIDA_GPX, nomPublicable(basename(cami))));
+  copiats++;
+}
+
 mkdirSync(SORTIDA, { recursive: true });
 writeFileSync(join(SORTIDA, 'punts.geojson'), JSON.stringify({ type: 'FeatureCollection', features: punts }));
 writeFileSync(join(SORTIDA, 'rutes.geojson'), JSON.stringify({ type: 'FeatureCollection', features: rutes }));
@@ -191,7 +261,8 @@ for (const [fitxer, d] of Object.entries(perFitxer)) {
 }
 for (const o of omesos) console.log(`  ${o.padEnd(30)} → omès (és a la llista IGNORA)`);
 
-console.log(`\n  TOTAL: ${punts.length} punts i ${rutes.length} rutes\n`);
+console.log(`\n  TOTAL: ${punts.length} punts i ${rutes.length} rutes` +
+            (copiats ? ` · ${copiats} GPX publicats a ${SORTIDA_GPX}/` : '') + '\n');
 for (const clau of Object.keys(CATEGORIES)) {
   console.log(`  ${String(compte[clau] ?? 0).padStart(5)}  ${CATEGORIES[clau].etiqueta}`);
 }

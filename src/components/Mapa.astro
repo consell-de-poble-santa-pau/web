@@ -28,6 +28,11 @@ const llista = Object.entries(CATEGORIES);
     </fieldset>
   </div>
 
+  <section id="rutes-plec" class="rutes-plec" hidden>
+    <h3 id="rutes-titol">Rutes</h3>
+    <ul id="llista-rutes" class="llista-rutes" aria-labelledby="rutes-titol"></ul>
+  </section>
+
   <p class="mapa-nota">
     Cartografia de <a href="https://maptoolkit.com/">Maptoolkit</a> amb dades
     d'<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>.
@@ -43,7 +48,10 @@ const llista = Object.entries(CATEGORIES);
   // seu worker. Carregant-la d'aquí, se'l busca ella mateixa i funciona.
   const MAPLIBRE = 'https://unpkg.com/maplibre-gl@6.5.0/dist/maplibre-gl.mjs';
 
-  const { Map, Popup, NavigationControl, ScaleControl, FullscreenControl } =
+  // OJO amb els noms: si importem la classe com a "Map", tapa el Map de
+  // JavaScript dins de tot el mòdul i qualsevol "new Map()" intenta crear
+  // un mapa de MapLibre. Per això li donem un nom propi.
+  const { Map: MapaGL, Popup, NavigationControl, ScaleControl, FullscreenControl } =
     await import(MAPLIBRE);
 
   const CATEGORIES = JSON.parse(
@@ -92,7 +100,7 @@ const llista = Object.entries(CATEGORIES);
     return g.getImageData(0, 0, c.width, c.height);
   }
 
-  const mapa = new Map({
+  const mapa = new MapaGL({
     container: 'mapa',
     style: ESTIL,
     center: [2.5699, 42.145],
@@ -123,7 +131,12 @@ const llista = Object.entries(CATEGORIES);
     mapa.addLayer({
       id: 'rutes-linia', source: 'rutes', type: 'line',
       layout: { 'line-cap': 'round', 'line-join': 'round' },
-      paint: { 'line-color': '#A03030', 'line-width': 2.5 },
+      paint: {
+        // El color el porta cada ruta, assignat pel conversor segons el
+        // número del fitxer. Si en falta, cau al vermell de sempre.
+        'line-color': ['coalesce', ['get', 'color'], '#A03030'],
+        'line-width': 2.5,
+      },
     });
 
     // ── Punts: una capa per categoria, per poder-les encendre i apagar ─
@@ -154,7 +167,15 @@ const llista = Object.entries(CATEGORIES);
 
     mapa.on('click', (e) => {
       const [t] = mapa.queryRenderedFeatures(e.point, { layers: capesPunt });
-      if (!t) return;
+      if (!t) {
+        // Cap punt: potser han clicat una ruta.
+        const [r] = mapa.queryRenderedFeatures(e.point, { layers: ['rutes-linia'] });
+        const boto = r && document.querySelector(
+          '.llista-rutes button[data-nom="' + CSS.escape(r.properties.nom) + '"]'
+        );
+        if (boto) { boto.click(); boto.scrollIntoView({ block: 'nearest' }); }
+        return;
+      }
       const p = t.properties;
       new Popup({ offset: 18 })
         .setLngLat(t.geometry.coordinates)
@@ -182,11 +203,139 @@ const llista = Object.entries(CATEGORIES);
       });
     }
 
-    // Les rutes són opcionals: si encara no n'hi ha, el mapa funciona igual.
+    // ── Rutes ─────────────────────────────────────────────────────────
+    // Són opcionals: si encara no n'hi ha, el mapa funciona igual.
+    // La llista es construeix a partir del fitxer, de manera que afegir
+    // o treure un GPX no demana tocar res d'aquí.
+    let seleccionada = null;   // la que s'ha clicat
+    let sobrevolada = null;    // la que té el cursor o el focus a sobre
+
+    function pintaRessaltat() {
+      const activa = sobrevolada ?? seleccionada;
+      const es = ['==', ['get', 'nom'], activa ?? ''];
+      mapa.setPaintProperty('rutes-linia', 'line-opacity',
+        activa ? ['case', es, 1, 0.1] : 1);
+      mapa.setPaintProperty('rutes-linia', 'line-width',
+        activa ? ['case', es, 4.5, 2] : 2.5);
+      mapa.setPaintProperty('rutes-fons', 'line-opacity',
+        activa ? ['case', es, 0.9, 0.05] : 0.8);
+      for (const b of document.querySelectorAll('.llista-rutes button')) {
+        b.setAttribute('aria-pressed', String(b.dataset.nom === seleccionada));
+      }
+    }
+
+    function enquadra(trams) {
+      let [o, s, e, n] = [180, 90, -180, -90];
+      for (const t of trams) {
+        for (const [x, y] of t.geometry.coordinates) {
+          if (x < o) o = x; if (x > e) e = x;
+          if (y < s) s = y; if (y > n) n = y;
+        }
+      }
+      mapa.fitBounds([[o, s], [e, n]], { padding: 60, duration: 700 });
+    }
+
+    function construeixLlista(features) {
+      // Una ruta pot venir partida en diversos trams: s'agrupen pel nom.
+      const perNom = new Map();
+      for (const f of features) {
+        const nom = f.properties?.nom ?? 'Sense nom';
+        if (!perNom.has(nom)) {
+          perNom.set(nom, {
+            color: f.properties?.color ?? '#A03030',
+            fitxer: f.properties?.fitxer ?? null,
+            trams: [],
+          });
+        }
+        perNom.get(nom).trams.push(f);
+      }
+      if (!perNom.size) return;
+
+      // R2 abans que R10: ordenem pel número, no per l'alfabet.
+      const num = (n) => {
+        const m = n.match(/^R\s*(\d+)/i);
+        return m ? Number(m[1]) : Number.MAX_SAFE_INTEGER;
+      };
+      const ordenades = [...perNom.entries()].sort(
+        (a, b) => num(a[0]) - num(b[0]) || a[0].localeCompare(b[0], 'ca')
+      );
+
+      const plec = document.getElementById('rutes-plec');
+      const ul = document.getElementById('llista-rutes');
+      if (!plec || !ul) {
+        throw new Error(
+          'Falta el bloc #rutes-plec a la pàgina. Comprova que el Mapa.astro ' +
+          'estigui substituït sencer, amb la <section id="rutes-plec">.'
+        );
+      }
+      ul.innerHTML = '';
+      document.getElementById('rutes-titol').textContent =
+        ordenades.length === 1 ? '1 ruta' : ordenades.length + ' rutes';
+
+      for (const [nom, dades] of ordenades) {
+        const li = document.createElement('li');
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.dataset.nom = nom;
+        b.setAttribute('aria-pressed', 'false');
+        b.innerHTML = '<span class="tirallonga" style="--c:' + dades.color +
+                      '"></span><span class="nom"></span>';
+        b.querySelector('.nom').textContent = nom;
+
+        const entra = () => { sobrevolada = nom; pintaRessaltat(); };
+        const surt  = () => { sobrevolada = null; pintaRessaltat(); };
+        b.addEventListener('mouseenter', entra);
+        b.addEventListener('mouseleave', surt);
+        b.addEventListener('focus', entra);
+        b.addEventListener('blur', surt);
+        b.addEventListener('click', () => {
+          const ja = seleccionada === nom;
+          seleccionada = ja ? null : nom;
+          if (!ja) enquadra(dades.trams);
+          pintaRessaltat();
+        });
+
+        li.appendChild(b);
+
+        // Enllaç de descàrrega, si el conversor n'ha publicat el fitxer.
+        if (dades.fitxer) {
+          const a = document.createElement('a');
+          a.className = 'baixa';
+          a.href = '/rutes/' + encodeURIComponent(dades.fitxer);
+          a.download = nom + '.gpx';   // el nom bonic, amb accents i espais
+          a.title = 'Baixa el GPX de ' + nom;
+          a.setAttribute('aria-label', 'Baixa el GPX de ' + nom);
+          a.innerHTML =
+            '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+            '<path d="M12 3v10m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12' +
+            'a2 2 0 0 0 2-2v-2" fill="none" stroke="currentColor" ' +
+            'stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+          li.appendChild(a);
+        }
+
+        ul.appendChild(li);
+      }
+      plec.hidden = false;
+    }
+
+    // Els dos errors possibles es tracten per separat: si es confonen,
+    // un problema de la llista acaba disfressat de "no hi ha rutes".
     fetch('/dades/rutes.geojson')
       .then((r) => (r.ok ? r.json() : null))
-      .then((d) => d && mapa.getSource('rutes').setData(d))
-      .catch(() => console.info('Encara no hi ha rutes.'));
+      .catch(() => null)                       // xarxa o fitxer absent
+      .then((d) => {
+        if (!d?.features?.length) {
+          console.info('Encara no hi ha rutes.');
+          return;
+        }
+        mapa.getSource('rutes').setData(d);
+        try {
+          construeixLlista(d.features);
+        } catch (e) {
+          // Les rutes ja es veuen al mapa; només falla la llista.
+          console.error('No he pogut construir la llista de rutes:', e);
+        }
+      });
   });
 
   mapa.on('error', (e) => console.error('Mapa:', e.error?.message ?? e));
@@ -221,13 +370,70 @@ const llista = Object.entries(CATEGORIES);
 
   .mostra { width: 12px; height: 12px; border-radius: 50%;
     background: var(--c); border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.2); }
-  .mostra-linia { width: 14px; height: 3px; border-radius: 2px;
-    background: #A03030; border: 0; box-shadow: 0 0 0 1px #fff; }
+  /* Franges de colors, perquè la mostra no menteixi: ara cada ruta té el seu */
+  .mostra-linia { width: 14px; height: 3px; border-radius: 2px; border: 0;
+    box-shadow: 0 0 0 1px #fff;
+    background: linear-gradient(90deg, #C0392B 0 25%, #2471A3 25% 50%,
+                                       #B9770E 50% 75%, #6C3483 75% 100%); }
+
+  /* ── Llista de rutes ─────────────────────────────────────────────── */
+  .rutes-plec { border-top: 1px solid var(--vora); padding: .7rem .9rem .8rem; }
+  .rutes-plec h3 { margin: 0 0 .5rem; font-size: .7rem; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--tinta-suau); font-weight: 600; }
+
+  .llista-rutes { list-style: none; margin: 0; padding: 0;
+    display: grid; gap: .15rem;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    max-height: 13rem; overflow-y: auto; }
+
+  /* ATENCIÓ: els fills de .llista-rutes es creen amb JavaScript i no porten
+     l'atribut de scope d'Astro, de manera que els estils normals no els
+     agafen. Van amb :global(), però penjats de .llista-rutes perquè no
+     s'escapin a la resta del web. */
+  .llista-rutes :global(li) { display: flex; align-items: center; gap: .1rem;
+    min-width: 0; }
+
+  .llista-rutes :global(button) { display: flex; align-items: center; gap: .5rem;
+    flex: 1 1 auto; min-width: 0;
+    padding: .3rem .45rem; border: 0; border-radius: 5px;
+    background: none; font: inherit; font-size: .82rem; color: inherit;
+    text-align: left; cursor: pointer; }
+  .llista-rutes :global(button:hover) { background: rgba(0,0,0,.055); }
+  .llista-rutes :global(button:focus-visible) { outline: 2px solid #1a1a1a;
+    outline-offset: 1px; }
+  .llista-rutes :global(button[aria-pressed='true']) { background: rgba(0,0,0,.09);
+    font-weight: 600; }
+
+  .llista-rutes :global(.tirallonga) { flex: 0 0 auto; display: block;
+    width: 16px; height: 3px; border-radius: 2px;
+    background: var(--c); box-shadow: 0 0 0 1px #fff; }
+  .llista-rutes :global(.nom) { overflow: hidden; text-overflow: ellipsis;
+    white-space: nowrap; }
+
+  .llista-rutes :global(.baixa) { flex: 0 0 auto;
+    display: inline-grid; place-items: center;
+    width: 24px; height: 24px; border-radius: 5px;
+    color: var(--tinta-suau, #6b6b6b); opacity: .5;
+    text-decoration: none; }
+  /* La mida la fixem a l'SVG: sense això, ocupa tot el que pot. */
+  .llista-rutes :global(.baixa svg) { display: block; width: 14px; height: 14px; }
+  .llista-rutes :global(.baixa:hover), .llista-rutes :global(.baixa:focus-visible) {
+    opacity: 1; background: rgba(0,0,0,.06); }
+  .llista-rutes :global(.baixa:focus-visible) { outline: 2px solid #1a1a1a;
+    outline-offset: 1px; }
+  .llista-rutes :global(li:hover) :global(.baixa) { opacity: .85; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .llista-rutes button { transition: none; }
+  }
 
   .mapa-nota { margin: 0; padding: .6rem .9rem; font-size: .8rem;
     color: var(--tinta-suau); border-top: 1px solid var(--vora); }
 
   @media (max-width: 640px) {
     .capes { font-size: .78rem; padding: .5rem .6rem; }
+    .llista-rutes { grid-template-columns: 1fr; max-height: 11rem; }
+    .llista-rutes :global(button) { padding: .45rem; } /* prou alt per al dit */
+    .llista-rutes :global(.baixa) { width: 32px; height: 32px; opacity: .85; }
   }
 </style>
