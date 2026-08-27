@@ -304,4 +304,11 @@
 		<sym>Water Source</sym>
 		<type>font</type>
 	</wpt>
+	
+	<wpt lat="42.14166" lon="2.50812">
+		<name>Font del Pujolet</name>
+		<desc>A 100 m del Mas El Pujolet. Font: OpenStreetMap, ODbL.</desc>
+		<sym>Drinking Water</sym>
+		<type>font</type>
+	</wpt>
 </gpx>

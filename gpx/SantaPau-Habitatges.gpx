@@ -250,7 +250,7 @@
 	<wpt lat="42.13810" lon="2.53085">
 		<ele>-1.0</ele>
 		<name>Can Batlle</name>
-		<desc>Sant Miquel de Sacot - XVIII - Regular, habitada. Posicio reconstruida: cal confirmar-la. Segon nom truncat a l origen</desc>
+		<desc>Sant Miquel de Sacot - XVIII - Regular, habitada. La masoveria del conjunt de Can Batlle de Sacot; el casal fortificat es el punt Castell - Can Batlle, a 18 m. Posicio reconstruida: cal confirmar-la.</desc>
 		<sym> </sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.136149935489335" lon="2.544714050712878">
@@ -385,10 +385,10 @@
 		<desc>Sant Miquel de Sacot - 1760 - Dolent, no habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
-	<wpt lat="42.14" lon="2.57">
+	<wpt lat="42.13670" lon="2.57942">
 		<ele>-1.0</ele>
 		<name>Can Gordi</name>
-		<desc>? -  - </desc>
+		<desc>Les Fages. Coordenada d OpenStreetMap (ODbL); abans era un marcador de dos decimals al mig del poble. El Turo de Can Gordi es a 298 m.</desc>
 		<sym> </sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.138259552722" lon="2.5153849017711054">
@@ -1399,10 +1399,10 @@
 		<desc>Sant Martí - 1884 - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
-	<wpt lat="42.15446211273701" lon="2.579005658626557">
+	<wpt lat="42.15264" lon="2.57844">
 		<ele>478.2</ele>
 		<name>Mas Coderch</name>
-		<desc>Sant Martí - 1989 - Bo, habitada</desc>
+		<desc>Sant Marti. Coordenada d OpenStreetMap (ODbL, hi consta com a Can Coderc); abans duia la del temple de Sant Marti Vell, a 208 m.</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.154352749316956" lon="2.5634890794754033">
@@ -1815,8 +1815,8 @@
 	</wpt>
 	<wpt lat="42.162868611453895" lon="2.5649388134479527">
 		<ele>509.4</ele>
-		<name>Mas les Feixes</name>
-		<desc>Sant Martí - XVIII - Bo, habitada</desc>
+		<name>Mas les Feixes (Sant Martí)</name>
+		<desc>Sant Martí - XVIII - Bo, habitada. Hi ha l Oratori de les Feixes.</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.16300281210918" lon="2.5653532147407536">
@@ -2031,7 +2031,8 @@
 	</wpt>
 	<wpt lat="42.13582385852074" lon="2.56407380104065">
 		<ele>544.0</ele>
-		<name>Mas les Feixes</name>
+		<name>Mas les Feixes (Pujolars)</name>
+		<desc>Pujolars</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.13541014317862" lon="2.546446323394776">
@@ -2196,5 +2197,15 @@
 		<desc>Sant Martí</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
-
+	
+	<!-- Mogut el 25-08-2026 des del GPX de ponts: El Pont es una masia,
+	     no un pont. No hi ha cap curs d aigua a la vora. -->
+	<wpt lat="42.14563" lon="2.60869">
+		<ele>344.7</ele>
+		<name>El Pont</name>
+		<desc>El Sallent</desc>
+		<sym>Residence</sym>
+		<type>habitatge</type>
+	</wpt>
+	
 </gpx>

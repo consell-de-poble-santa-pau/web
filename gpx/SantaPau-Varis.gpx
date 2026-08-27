@@ -83,4 +83,37 @@
 		<type>varis</type>
 	</wpt>
 	
+	<!-- Afegits el 25-08-2026. Relleus, no masos: la Font de la Rocassa,
+	     al nostre GPX de fonts, es a 180 m de les Rocasses. Coordenades
+	     dels nostres GPX de rutes. -->
+	<wpt lat="42.15030" lon="2.51441">
+		<ele>573.1</ele>
+		<name>Tossol</name>
+		<desc>Turonet de lava dins la Fageda d en Jorda. Surt a les rutes R1 i R24.</desc>
+		<sym>Geographic place name, land</sym>
+		<type>varis</type>
+	</wpt>
+	
+	<wpt lat="42.15918" lon="2.50430">
+		<ele>549.8</ele>
+		<name>Les Rocasses</name>
+		<desc>Paratge de cingles al limit amb Olot, 86 m fora del terme. Surt a la ruta R12.</desc>
+		<sym>Geographic place name, land</sym>
+		<type>varis</type>
+	</wpt>
+	
+	<wpt lat="42.13953" lon="2.53458">
+		<name>Creu de Sant Isidre</name>
+		<desc>Creu de terme, prop de Sant Miquel Sacot. Font: OpenStreetMap, ODbL.</desc>
+		<sym>Cross</sym>
+		<type>varis</type>
+	</wpt>
+	
+	<wpt lat="42.15346" lon="2.53128">
+		<ele>617.0</ele>
+		<name>Clot Sagolla</name>
+		<desc>Fondalada, no cap gorg. Coordenada del nostre GPX de la ruta 9; OpenStreetMap hi te un place=locality a 65 m.</desc>
+		<sym>Geographic place name, land</sym>
+		<type>varis</type>
+	</wpt>
 </gpx>

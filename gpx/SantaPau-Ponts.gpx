@@ -8,13 +8,6 @@
 	</metadata>
 	
 	<!-- Ponts -->
-	<wpt lat="42.14563281603039" lon="2.6086923345497097">
-		<ele>344.7</ele>
-		<name>El Pont</name>
-		<sym>Bridge</sym>
-		<type>pont</type>
-	</wpt>
-	
 	<wpt lat="42.1555522481159" lon="2.6130194461191674">
 		<ele>328.1</ele>
 		<name>Pont de Sant Martí</name>
@@ -39,6 +32,37 @@
 	<wpt lat="42.14475" lon="2.57767">
 		<ele>450.6</ele>
 		<name>Pont d&apos;Instints</name>
+		<sym>Bridge</sym>
+		<type>pont</type>
+	</wpt>
+	
+	<!-- Afegits el 25-08-2026 des d'OpenStreetMap. A OSM els ponts porten el
+	     nom de la via que hi passa, no un nom propi: cal preguntar al poble
+	     com se'n diuen. -->
+	<wpt lat="42.14578" lon="2.57298">
+		<name>Pont del Cami de la Doma</name>
+		<desc>Nom pres de la via que hi passa. Font: OpenStreetMap, ODbL.</desc>
+		<sym>Bridge</sym>
+		<type>pont</type>
+	</wpt>
+	
+	<wpt lat="42.14836" lon="2.58494">
+		<name>Pont de la Carretera dels Arcs</name>
+		<desc>Nom pres de la via que hi passa. Font: OpenStreetMap, ODbL.</desc>
+		<sym>Bridge</sym>
+		<type>pont</type>
+	</wpt>
+	
+	<wpt lat="42.15435" lon="2.61694">
+		<name>Pont de la Pista de la Torroella I</name>
+		<desc>Nom pres de la via que hi passa. Font: OpenStreetMap, ODbL.</desc>
+		<sym>Bridge</sym>
+		<type>pont</type>
+	</wpt>
+	
+	<wpt lat="42.15147" lon="2.61450">
+		<name>Pont de la Pista de la Torroella II</name>
+		<desc>Nom pres de la via que hi passa. Font: OpenStreetMap, ODbL.</desc>
 		<sym>Bridge</sym>
 		<type>pont</type>
 	</wpt>

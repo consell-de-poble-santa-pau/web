@@ -236,14 +236,8 @@
 	
 	<wpt lat="42.13211" lon="2.56775">
 		<ele>622.0</ele>
-		<name>Coll de Maria I</name>
-		<sym>Geographic place name, land</sym>
-		<type>muntanya</type>
-	</wpt>
-	
-	<wpt lat="42.13188" lon="2.56749">
-		<ele>622.9</ele>
-		<name>Coll de Maria II</name>
+		<name>Coll de Maria</name>
+		<desc>Un sol coll. Itinerannia hi te dos pals de senyalitzacio, Coll de Maria I i II, a 33 m l un de l altre.</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -270,4 +264,10 @@
 		<type>muntanya</type>
 	</wpt>
 	
+	<wpt lat="42.12542" lon="2.57172">
+		<name>Collada del Grau</name>
+		<desc>A 260 m del Grau de l'Escaler, que tenim a varis. Font: OpenStreetMap, ODbL.</desc>
+		<sym>Geographic place name, land</sym>
+		<type>muntanya</type>
+	</wpt>
 </gpx>
