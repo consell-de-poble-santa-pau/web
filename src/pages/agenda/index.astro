@@ -1,0 +1,513 @@
+---
+import Base from '../../layouts/Base.astro';
+import CapPagina from '../../components/CapPagina.astro';
+import EsdevenimentAgenda from '../../components/EsdevenimentAgenda.astro';
+import { getCollection } from 'astro:content';
+
+// Els cercles surten dels fitxers de src/content/cercles/. El de Coordinació
+// no en té cap, i convoca reunions: aquí hi ha el seu nom i color de recanvi.
+// Si algun dia se li fa la fitxa, la fitxa mana.
+const RECANVI = {
+  coordinacio: { nom: 'Coordinació', color: 'var(--verd, #006018)', ordre: 0 },
+};
+
+const totsCercles = await getCollection('cercles');
+const cercles = {
+  ...RECANVI,
+  ...Object.fromEntries(
+    totsCercles.map((c) => [c.id, { nom: c.data.nom, color: c.data.color, ordre: c.data.ordre }])
+  ),
+};
+
+const clau = (e) => `${e.data.data}T${e.data.hora ?? '00:00'}`;
+const esdeveniments = (await getCollection('agenda')).sort((a, b) => clau(a).localeCompare(clau(b)));
+
+// Repartiment fet en compilar. El navegador el torna a fer amb la data real
+// (vegeu l'script), de manera que la pàgina no queda desfasada entre publicacions.
+const avui = new Date().toISOString().slice(0, 10);
+const properes = esdeveniments.filter((e) => e.data.data >= avui);
+const passades = esdeveniments.filter((e) => e.data.data < avui).reverse();
+
+// Dades mínimes per al calendari del navegador.
+const dades = esdeveniments.map((e) => ({
+  id: e.id,
+  titol: e.data.titol,
+  data: e.data.data,
+  hora: e.data.hora ?? '',
+  cercle: e.data.cercle ?? 'sense',
+  color: e.data.cercle ? cercles[e.data.cercle]?.color : null,
+  tipus: e.data.tipus,
+  cancellada: e.data.cancellada,
+}));
+
+// Filtres: només els cercles que han convocat alguna cosa, més les activitats.
+const cerclesAmbActes = [...new Set(esdeveniments.map((e) => e.data.cercle).filter(Boolean))]
+  .filter((id) => cercles[id])
+  .map((id) => ({ id, ...cercles[id] }))
+  .sort((a, b) => (a.ordre ?? 99) - (b.ordre ?? 99));
+const hiHaActivitats = esdeveniments.some((e) => e.data.tipus === 'activitat');
+
+// L'adreça surt d'`astro.config.mjs`. Quan hi hagi el domini .cat, es canvia
+// allà i aquesta pàgina i el fitxer .ics s'hi adapten sols.
+const arrel = Astro.site ?? new URL('https://consell-de-poble-santa-pau.pages.dev/');
+const urlIcs = new URL('/agenda.ics', arrel).href;
+const urlWebcal = urlIcs.replace(/^https?:/, 'webcal:');
+const urlGoogle = `https://calendar.google.com/calendar/r?cid=${encodeURIComponent(urlWebcal)}`;
+---
+
+<Base
+  titol="Agenda"
+  descripcio="Reunions, trobades i activitats del Consell de Poble de Santa Pau."
+>
+  <CapPagina sobre="Agenda oberta" titol="Què hi ha, i quan"
+    entrada="Les reunions dels cercles i les activitats que organitza el Consell. A les trobades obertes hi pot venir tothom: no cal avisar ni apuntar-s'hi enlloc." />
+
+  <div class="contenidor" style="margin-top:1.5rem">
+
+    {esdeveniments.length === 0 ? (
+      <p class="buit">Encara no hi ha res convocat. Quan hi hagi la propera trobada, sortirà aquí.</p>
+    ) : (
+      <>
+        <div id="controls" hidden>
+          <div class="filtres" role="group" aria-label="Filtra per cercle">
+            <button type="button" class="xip xip--actiu" data-filtre="tot" aria-pressed="true">Tot</button>
+            {cerclesAmbActes.map((c) => (
+              <button type="button" class="xip" data-filtre={c.id} aria-pressed="false"
+                style={`--color-cercle:${c.color}`}>{c.nom}</button>
+            ))}
+            {hiHaActivitats && (
+              <button type="button" class="xip" data-filtre="activitat" aria-pressed="false">Activitats</button>
+            )}
+          </div>
+
+          <section class="calendari" aria-label="Calendari mensual">
+            <header class="cal-cap">
+              <div>
+                <p class="cal-sobre">Calendari mensual</p>
+                <h2 id="cal-mes" aria-live="polite">&nbsp;</h2>
+              </div>
+              <div class="cal-nav">
+                <button type="button" id="cal-anterior" aria-label="Mes anterior">←</button>
+                <button type="button" id="cal-avui" class="cal-avui">Avui</button>
+                <button type="button" id="cal-seguent" aria-label="Mes següent">→</button>
+              </div>
+            </header>
+            <div class="cal-graella" id="cal-graella"></div>
+          </section>
+        </div>
+
+        <section aria-labelledby="t-properes" class="bloc">
+          <h2 id="t-properes">El que ve ara</h2>
+          <ul class="llista" id="llista-properes">
+            {properes.map((e) => <EsdevenimentAgenda esd={e} cercles={cercles} />)}
+          </ul>
+          <p class="buit" id="buit-properes" hidden>No hi ha res convocat de moment.</p>
+        </section>
+
+        <section class="bloc">
+          <details class="historic">
+            <summary>
+              Trobades anteriors <span id="compta-historic">({passades.length})</span>
+            </summary>
+            <ul class="llista" id="llista-historic">
+              {passades.map((e) => <EsdevenimentAgenda esd={e} cercles={cercles} />)}
+            </ul>
+          </details>
+        </section>
+
+        <section class="subscriu">
+          <h2>Porta-te-la al calendari</h2>
+          <p>
+            Aquesta agenda es pot subscriure: el teu calendari s'actualitzarà sol cada
+            vegada que hi afegim una trobada.
+          </p>
+          <p class="subscriu-enllacos">
+            <a class="boto" href="/agenda.ics">Subscriu-t'hi</a>
+            <a href={urlGoogle}>Afegeix-la al Google Calendar</a>
+          </p>
+          <p class="peu-nota">
+            Si el teu programa demana una adreça, enganxa-hi <code>{urlIcs}</code>.
+          </p>
+        </section>
+
+        <script type="application/json" id="dades-agenda" set:html={JSON.stringify(dades)}></script>
+      </>
+    )}
+  </div>
+</Base>
+
+<script>
+  const font = document.getElementById('dades-agenda');
+  if (font) {
+    const esdeveniments = JSON.parse(font.textContent || '[]');
+    const controls = document.getElementById('controls');
+    const graella = document.getElementById('cal-graella');
+    const etiquetaMes = document.getElementById('cal-mes');
+    const llistaProperes = document.getElementById('llista-properes');
+    const llistaHistoric = document.getElementById('llista-historic');
+    const buitProperes = document.getElementById('buit-properes');
+    const comptaHistoric = document.getElementById('compta-historic');
+
+    const nomMes = new Intl.DateTimeFormat('ca-ES', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+    const dies = ['Dl', 'Dt', 'Dc', 'Dj', 'Dv', 'Ds', 'Dg'];
+
+    let filtre = 'tot';
+    let mes; // primer dia del mes visible, en UTC
+
+    const p2 = (n) => String(n).padStart(2, '0');
+    const avuiLocal = () => {
+      const d = new Date();
+      return `${d.getFullYear()}-${p2(d.getMonth() + 1)}-${p2(d.getDate())}`;
+    };
+    const passaElFiltre = (e) =>
+      filtre === 'tot' ||
+      (filtre === 'activitat' ? e.tipus === 'activitat' : e.cercle === filtre);
+
+    // 1. Repartir les llistes segons la data real, no la de compilació.
+    function repartir() {
+      const avui = avuiLocal();
+      const items = [...document.querySelectorAll('.esd')];
+      items.sort((a, b) =>
+        (a.dataset.data + a.dataset.hora).localeCompare(b.dataset.data + b.dataset.hora)
+      );
+      const futur = items.filter((li) => li.dataset.data >= avui);
+      const passat = items.filter((li) => li.dataset.data < avui).reverse();
+      futur.forEach((li) => llistaProperes.appendChild(li));
+      passat.forEach((li) => llistaHistoric.appendChild(li));
+      if (comptaHistoric) comptaHistoric.textContent = `(${passat.length})`;
+    }
+
+    // 2. Filtre
+    function aplicarFiltre() {
+      let visiblesFutur = 0;
+      for (const li of document.querySelectorAll('.esd')) {
+        const coincideix =
+          filtre === 'tot' ||
+          (filtre === 'activitat'
+            ? li.dataset.tipus === 'activitat'
+            : li.dataset.cercle === filtre);
+        li.hidden = !coincideix;
+        if (coincideix && li.parentElement === llistaProperes) visiblesFutur++;
+      }
+      if (buitProperes) buitProperes.hidden = visiblesFutur > 0;
+      pintarMes();
+    }
+
+    for (const xip of document.querySelectorAll('.xip')) {
+      xip.addEventListener('click', () => {
+        filtre = xip.dataset.filtre;
+        for (const altre of document.querySelectorAll('.xip')) {
+          const actiu = altre === xip;
+          altre.classList.toggle('xip--actiu', actiu);
+          altre.setAttribute('aria-pressed', String(actiu));
+        }
+        aplicarFiltre();
+      });
+    }
+
+    // 3. Calendari
+    function pintarMes() {
+      if (!graella) return;
+      etiquetaMes.textContent = nomMes.format(mes).replace(/^./, (c) => c.toUpperCase());
+      graella.textContent = '';
+
+      for (const d of dies) {
+        const cap = document.createElement('div');
+        cap.className = 'cal-diaset';
+        cap.textContent = d;
+        graella.appendChild(cap);
+      }
+
+      const any = mes.getUTCFullYear();
+      const numMes = mes.getUTCMonth();
+      const primer = (mes.getUTCDay() + 6) % 7; // dilluns = 0
+      const totalDies = new Date(Date.UTC(any, numMes + 1, 0)).getUTCDate();
+      const caselles = Math.ceil((primer + totalDies) / 7) * 7;
+      const avui = avuiLocal();
+
+      for (let i = 0; i < caselles; i++) {
+        const d = new Date(Date.UTC(any, numMes, i - primer + 1));
+        const iso = `${d.getUTCFullYear()}-${p2(d.getUTCMonth() + 1)}-${p2(d.getUTCDate())}`;
+        const fora = d.getUTCMonth() !== numMes;
+
+        const cel = document.createElement('div');
+        cel.className = 'cal-dia' + (fora ? ' cal-dia--fora' : '') + (iso === avui ? ' cal-dia--avui' : '');
+
+        const num = document.createElement('span');
+        num.className = 'cal-num';
+        num.textContent = String(d.getUTCDate());
+        cel.appendChild(num);
+
+        for (const e of esdeveniments.filter((x) => x.data === iso && passaElFiltre(x))) {
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'cal-esd' + (e.cancellada ? ' cal-esd--cancellada' : '');
+          if (e.color) b.style.setProperty('--color-cercle', e.color);
+          if (e.hora) {
+            const h = document.createElement('span');
+            h.className = 'cal-hora';
+            h.textContent = e.hora;
+            b.appendChild(h);
+          }
+          const t = document.createElement('span');
+          t.className = 'cal-titol';
+          t.textContent = e.titol;
+          b.appendChild(t);
+          b.title = (e.hora ? e.hora + ' · ' : '') + e.titol;
+          b.addEventListener('click', () => anarA(e.id));
+          cel.appendChild(b);
+        }
+        graella.appendChild(cel);
+      }
+    }
+
+    function anarA(id) {
+      const li = document.getElementById('esd-' + id);
+      if (!li) return;
+      const contenidor = li.closest('details');
+      if (contenidor) contenidor.open = true;
+      const suau = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+      li.scrollIntoView({ behavior: suau, block: 'center' });
+      li.classList.add('destacada');
+      setTimeout(() => li.classList.remove('destacada'), 2500);
+    }
+
+    const anarAlMes = (delta) => {
+      mes = new Date(Date.UTC(mes.getUTCFullYear(), mes.getUTCMonth() + delta, 1));
+      pintarMes();
+    };
+    document.getElementById('cal-anterior')?.addEventListener('click', () => anarAlMes(-1));
+    document.getElementById('cal-seguent')?.addEventListener('click', () => anarAlMes(1));
+    document.getElementById('cal-avui')?.addEventListener('click', () => {
+      const ara = new Date();
+      mes = new Date(Date.UTC(ara.getFullYear(), ara.getMonth(), 1));
+      pintarMes();
+    });
+
+    // Obre el calendari al mes en curs si hi passa alguna cosa; si no, al mes
+    // de la propera trobada, perquè no s'obri en un mes buit.
+    function mesInicial() {
+      const avui = avuiLocal();
+      let referencia = avui;
+      if (!esdeveniments.some((e) => e.data.slice(0, 7) === avui.slice(0, 7))) {
+        const seguent = esdeveniments.find((e) => e.data >= avui);
+        referencia = (seguent ?? esdeveniments[esdeveniments.length - 1])?.data ?? avui;
+      }
+      const [a, m] = referencia.split('-').map(Number);
+      return new Date(Date.UTC(a, m - 1, 1));
+    }
+
+    mes = mesInicial();
+    repartir();
+    aplicarFiltre();
+    if (controls) controls.hidden = false;
+
+    // Si s'arriba amb una àncora (des del fitxer .ics, per exemple), obre
+    // l'històric si cal i porta-hi.
+    if (location.hash.startsWith('#esd-')) anarA(location.hash.slice(5));
+  }
+</script>
+
+<style>
+  /* El to del calendari acompanya el de la capçalera. Si es canvia el
+     parametre `to` de CapPagina, canvia aquesta linia i prou. */
+  .calendari { --to: var(--verd, #006018); }
+  .bloc { margin-top: 2.5rem; }
+  .bloc h2 { font-size: 1.35rem; margin-bottom: .4rem; }
+  .llista { list-style: none; margin: 0; padding: 0; }
+  .buit {
+    background: var(--crema, #f6f2e8);
+    padding: 1rem 1.2rem;
+    border-radius: var(--radi, 8px);
+  }
+
+  .filtres { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1.6rem 0 1rem; }
+  .xip {
+    font: inherit;
+    font-size: .88rem;
+    padding: .3rem .8rem;
+    border: 1px solid var(--vora, #e2ddd2);
+    border-radius: 999px;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+  }
+  .xip:hover { border-color: var(--color-cercle, currentColor); }
+  .xip--actiu {
+    background: var(--color-cercle, var(--tinta, #2c2a25));
+    border-color: var(--color-cercle, var(--tinta, #2c2a25));
+    color: #fff;
+  }
+
+  .calendari {
+    border-radius: var(--radi, 10px);
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .07);
+  }
+  .cal-cap {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.4rem 1.6rem 1.5rem;
+    background: var(--to);
+    color: #fff;
+  }
+  .cal-sobre {
+    margin: 0 0 .1rem;
+    font-size: .72rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .72);
+  }
+  .cal-cap h2 {
+    margin: 0;
+    font-family: var(--tipo-titol, inherit);
+    font-size: clamp(1.7rem, 4vw, 2.6rem);
+    font-weight: 400;
+    line-height: 1;
+    color: #fff;
+  }
+  .cal-nav { display: flex; gap: .4rem; }
+  .cal-nav button {
+    font: inherit;
+    font-size: .82rem;
+    min-width: 2.4rem;
+    height: 2.4rem;
+    padding: 0 .7rem;
+    border: 1px solid rgba(255, 255, 255, .45);
+    border-radius: 999px;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .cal-nav button:hover { background: rgba(255, 255, 255, .16); }
+  .cal-avui { letter-spacing: .1em; text-transform: uppercase; font-size: .7rem; }
+  .cal-graella { display: grid; grid-template-columns: repeat(7, 1fr); }
+
+  .historic > summary {
+    cursor: pointer;
+    font-size: 1.35rem;
+    font-weight: 700;
+    font-family: var(--tipo-titol, inherit);
+    margin-bottom: .4rem;
+  }
+
+  .subscriu {
+    margin-top: 2.5rem;
+    padding: 1.4rem;
+    background: var(--crema, #f6f2e8);
+    border-radius: var(--radi, 8px);
+  }
+  .subscriu h2 { font-size: 1.35rem; margin-top: 0; margin-bottom: .4rem; }
+  .subscriu p { max-width: 52ch; }
+  .subscriu-enllacos { display: flex; flex-wrap: wrap; align-items: center; gap: 1.1rem; }
+  .boto {
+    display: inline-block;
+    padding: .45rem 1rem;
+    border-radius: 999px;
+    background: var(--blau-fosc, #2c2a25);
+    color: #fff;
+    text-decoration: none;
+  }
+  .peu-nota { font-size: .85rem; color: var(--tinta-suau, #6b6455); }
+  .peu-nota code { word-break: break-all; }
+
+  @media (max-width: 640px) {
+    .cal-cap { padding: 1rem 1.1rem 1.2rem; align-items: center; }
+    .cal-cap h2 { font-size: 1.45rem; }
+    .cal-nav button { min-width: 2.1rem; height: 2.1rem; padding: 0 .5rem; }
+  }
+</style>
+
+<!-- Les caselles del calendari es creen amb JavaScript i no reben l'àmbit
+     d'estils d'Astro: han d'anar en un bloc global. -->
+<style is:global>
+  .cal-diaset {
+    padding: .5rem .4rem;
+    font-size: .68rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--tinta-suau, #6b6455);
+    text-align: center;
+    background: var(--crema, #f6f2e8);
+    border-bottom: 1px solid var(--vora, #e2ddd2);
+  }
+  .cal-dia {
+    min-height: 6.4rem;
+    padding: .35rem;
+    border-right: 1px solid var(--vora, #e2ddd2);
+    border-bottom: 1px solid var(--vora, #e2ddd2);
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+  }
+  .cal-dia:nth-child(7n + 7) { border-right: none; }
+  .cal-dia--fora { background: #fbfaf7; }
+  .cal-dia--fora .cal-num { opacity: .38; }
+  .cal-num {
+    align-self: flex-end;
+    font-size: .8rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--tinta-suau, #6b6455);
+    padding: 0 .15rem;
+  }
+  .cal-dia--avui .cal-num {
+    font-weight: 700;
+    color: #fff;
+    background: var(--to, var(--verd, #006018));
+    border-radius: 999px;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    display: grid;
+    place-items: center;
+  }
+  .cal-esd {
+    font: inherit;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: .1rem;
+    padding: .3rem .45rem;
+    border: none;
+    border-left: 3px solid var(--color-cercle, var(--coral, #2c2a25));
+    border-radius: 4px;
+    background: var(--crema, #f6f2e8);
+    color: inherit;
+    cursor: pointer;
+  }
+  .cal-esd:hover { filter: brightness(.97); }
+  .cal-hora {
+    font-size: .66rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: var(--color-cercle, var(--tinta-suau, #6b6455));
+  }
+  .cal-titol {
+    font-size: .72rem;
+    font-weight: 600;
+    line-height: 1.2;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  .cal-esd--cancellada { opacity: .55; }
+  .cal-esd--cancellada .cal-titol { text-decoration: line-through; }
+
+  @media (max-width: 640px) {
+    .cal-dia { min-height: 3.6rem; padding: .2rem; gap: .15rem; }
+    .cal-num { font-size: .72rem; }
+    .cal-esd {
+      padding: 0;
+      height: 6px;
+      border-left-width: 0;
+      border-radius: 3px;
+      background: var(--color-cercle, var(--coral, #2c2a25));
+    }
+    .cal-hora, .cal-titol { display: none; }
+  }
+</style>

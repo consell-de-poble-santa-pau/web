@@ -1,0 +1,129 @@
+---
+import { render } from 'astro:content';
+
+const { esd, cercles } = Astro.props;
+const d = esd.data;
+
+const { Content } = await render(esd);
+const teCos = Boolean(esd.body && esd.body.trim().length > 0);
+
+const cercle = d.cercle ? cercles[d.cercle] : null;
+const color = cercle?.color ?? 'var(--tinta-suau, #6b6455)';
+
+const fmtData = new Intl.DateTimeFormat('ca-ES', {
+  weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
+});
+const dataLlegible = fmtData.format(new Date(`${d.data}T00:00:00Z`));
+---
+
+<li
+  class:list={['esd', { 'esd--cancellada': d.cancellada }]}
+  id={`esd-${esd.id}`}
+  data-data={d.data}
+  data-hora={d.hora ?? ''}
+  data-cercle={d.cercle ?? 'sense'}
+  data-tipus={d.tipus}
+>
+  <p class="esd-quan">
+    <time datetime={d.hora ? `${d.data}T${d.hora}` : d.data}>
+      {dataLlegible}{d.hora ? `, a les ${d.hora}` : ''}{d.horaFi ? ` – ${d.horaFi}` : ''}
+    </time>
+  </p>
+
+  <h3 class="esd-titol">{d.titol}</h3>
+
+  <p class="esd-meta">
+    {cercle && (
+      <span class="etiqueta" style={`--color-cercle:${color}`}>{cercle.nom}</span>
+    )}
+    {d.tipus === 'activitat' && <span class="etiqueta etiqueta--neutra">Activitat</span>}
+    {d.oberta
+      ? <span class="etiqueta etiqueta--neutra">Oberta a tothom</span>
+      : <span class="etiqueta etiqueta--neutra">Trobada interna</span>}
+    {d.lloc && <span class="esd-lloc">{d.lloc}</span>}
+  </p>
+
+  {d.cancellada && <p class="esd-avis">Cancel·lada{d.nota ? `: ${d.nota}` : '.'}</p>}
+  {!d.cancellada && d.nota && <p class="esd-nota">{d.nota}</p>}
+
+  {teCos && (
+    <details class="esd-detall">
+      <summary>{d.tipus === 'activitat' ? 'Més detalls' : 'Ordre del dia'}</summary>
+      <div class="prosa"><Content /></div>
+    </details>
+  )}
+
+  {(d.ordreDia || d.acta) && (
+    <p class="esd-enllacos">
+      {d.ordreDia && <a href={d.ordreDia}>Ordre del dia (document)</a>}
+      {d.acta && <a href={`/actes/${d.acta.id}/`}>Llegeix-ne l'acta</a>}
+    </p>
+  )}
+</li>
+
+<style>
+  .esd {
+    border-top: 1px solid var(--vora, #e2ddd2);
+    padding: 1.1rem 0;
+  }
+  .esd:last-child { border-bottom: 1px solid var(--vora, #e2ddd2); }
+  .esd.destacada {
+    background: var(--crema, #f6f2e8);
+    box-shadow: 0 0 0 .6rem var(--crema, #f6f2e8);
+    border-radius: 3px;
+  }
+  .esd-quan {
+    margin: 0 0 .2rem;
+    font-size: .85rem;
+    letter-spacing: .02em;
+    color: var(--tinta-suau, #6b6455);
+  }
+  .esd-titol {
+    margin: 0 0 .45rem;
+    font-size: 1.15rem;
+    line-height: 1.25;
+  }
+  .esd-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .45rem;
+    margin: 0;
+    font-size: .88rem;
+  }
+  .esd-lloc { color: var(--tinta-suau, #6b6455); }
+  .etiqueta {
+    display: inline-block;
+    padding: .1rem .55rem;
+    border-radius: 999px;
+    font-size: .78rem;
+    line-height: 1.6;
+    color: #fff;
+    background: var(--color-cercle, #555);
+  }
+  .etiqueta--neutra {
+    background: transparent;
+    color: var(--tinta-suau, #6b6455);
+    border: 1px solid var(--vora, #e2ddd2);
+  }
+  .esd-avis {
+    margin: .5rem 0 0;
+    font-weight: 600;
+    color: #8c2b1f;
+  }
+  .esd-nota {
+    margin: .5rem 0 0;
+    font-size: .9rem;
+    color: var(--tinta-suau, #6b6455);
+  }
+  .esd--cancellada .esd-titol { text-decoration: line-through; }
+  .esd-detall { margin-top: .6rem; font-size: .95rem; }
+  .esd-detall summary { cursor: pointer; }
+  .esd-enllacos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: .6rem 0 0;
+    font-size: .9rem;
+  }
+</style>

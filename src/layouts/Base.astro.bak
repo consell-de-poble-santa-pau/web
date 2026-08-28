@@ -4,7 +4,6 @@ const { titol, descripcio } = Astro.props;
 const nav = [
   { href: '/el-consell/', text: 'El Consell' },
   { href: '/cercles/', text: 'Cercles' },
-  { href: '/agenda/', text: 'Agenda' },
   { href: '/reunions/', text: 'Reunions i actes' },
   { href: '/noticies/', text: 'Notícies' },
   { href: '/mapa/', text: 'Mapa' },

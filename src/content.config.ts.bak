@@ -1,4 +1,4 @@
-import { defineCollection, z, reference } from 'astro:content';
+import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 const actes = defineCollection({
@@ -57,35 +57,4 @@ const rutes = defineCollection({
   }),
 });
 
-// ── Agenda de reunions, trobades i activitats ──────────────────────────
-//
-// La data acaba sempre sent text (2026-09-08), no un objecte Date. És
-// deliberat: així no depèn de la zona horària de la màquina que compila el
-// web, que a Cloudflare és UTC. El YAML converteix les dates sense cometes
-// en Date, i aquí es desfà la conversió.
-const dataDelDia = z
-  .union([z.string(), z.date()])
-  .transform((v) => (typeof v === 'string' ? v.trim().slice(0, 10) : v.toISOString().slice(0, 10)))
-  .refine((v) => /^\d{4}-\d{2}-\d{2}$/.test(v), 'La data ha de ser AAAA-MM-DD');
-
-const agenda = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/agenda' }),
-  schema: z.object({
-    titol: z.string(),
-    data: dataDelDia,
-    hora: z.string().regex(/^\d{2}:\d{2}$/).optional(),
-    horaFi: z.string().regex(/^\d{2}:\d{2}$/).optional(),
-    tipus: z.enum(['reunio', 'activitat']).default('reunio'),
-    // Identificador d'un fitxer de src/content/cercles/. Si no hi és o no
-    // coincideix, l'esdeveniment surt sense etiqueta de cercle.
-    cercle: z.string().optional(),
-    lloc: z.string().optional(),
-    oberta: z.boolean().default(true),
-    cancellada: z.boolean().default(false),
-    nota: z.string().optional(),
-    ordreDia: z.string().optional(),
-    acta: reference('actes').optional(),
-  }),
-});
-
-export const collections = { actes, noticies, cercles, rutes, agenda };
+export const collections = { actes, noticies, cercles, rutes };

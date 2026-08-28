@@ -1,0 +1,59 @@
+
+  - name: agenda
+    label: Agenda
+    label_singular: Trobada o activitat
+    folder: src/content/agenda
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    sortable_fields: [data]
+    summary: "{{data}} · {{titol}}"
+    fields:
+      - { name: titol, label: Títol, widget: string }
+      - { name: data, label: Dia, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+      - name: hora
+        label: Hora d'inici
+        widget: datetime
+        required: false
+        format: "HH:mm"
+        date_format: false
+        time_format: "HH:mm"
+        hint: "Deixa-ho buit si dura tot el dia."
+      - name: horaFi
+        label: Hora d'acabament
+        widget: datetime
+        required: false
+        format: "HH:mm"
+        date_format: false
+        time_format: "HH:mm"
+        hint: "Opcional. Si no hi és, al calendari hi consten dues hores."
+      - name: tipus
+        label: Tipus
+        widget: select
+        default: reunio
+        options:
+          - { label: Reunió o trobada de treball, value: reunio }
+          - { label: Activitat, value: activitat }
+      - name: cercle
+        label: Cercle que la convoca
+        widget: select
+        required: false
+        options:
+          - { label: Coordinació, value: coordinacio }
+          - { label: Comunicació, value: comunicacio }
+          - { label: Gent Gran, value: gent-gran }
+          - { label: Aigua, value: aigua }
+      - { name: lloc, label: On, widget: string, required: false, hint: "Per exemple: Sala del Casal, Santa Pau" }
+      - { name: oberta, label: Oberta a tothom, widget: boolean, default: true }
+      - { name: cancellada, label: Cancel·lada, widget: boolean, default: false }
+      - { name: nota, label: Nota, widget: string, required: false, hint: "Motiu d'una cancel·lació o qualsevol avís curt." }
+      - { name: ordreDia, label: Ordre del dia (document), widget: file, required: false }
+      - name: acta
+        label: Acta publicada
+        widget: relation
+        required: false
+        collection: actes
+        search_fields: [titol]
+        display_fields: [titol]
+        value_field: "{{slug}}"
+        hint: "S'omple després de la reunió, quan l'acta ja és al web."
+      - { name: body, label: Ordre del dia o descripció, widget: markdown, required: false }
