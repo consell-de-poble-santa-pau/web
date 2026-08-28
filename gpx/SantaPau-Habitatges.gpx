@@ -20,11 +20,12 @@
 		<desc>Els Arcs - XV</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
-	<wpt lat="42.12842" lon="2.546987">
-		<ele>766.1</ele>
+	<wpt lat="42.126721" lon="2.545923">
+		<ele>-1.0</ele>
 		<name>La Bernadella</name>
-		<desc>Les Fages - 1720 - Runes</desc>
-		<sym>Block, Red</sym><type>habitatge</type>
+		<desc>Les Fages - 1720 - Runes. Coordenada facilitada, coincident amb la d OpenStreetMap; abans en duia una 208 m enlla. La Penya Peguera es a 78 m.</desc>
+		<sym>Block, Red</sym>
+		<type>habitatge</type>
 	</wpt>
 	<wpt lat="42.128836" lon="2.584807">
 		<ele>538.2</ele>
@@ -248,9 +249,9 @@
 		<sym> </sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.13810" lon="2.53085">
-		<ele>-1.0</ele>
+		<ele>660.0</ele>
 		<name>Can Batlle</name>
-		<desc>Sant Miquel de Sacot - XVIII - Regular, habitada. La masoveria del conjunt de Can Batlle de Sacot; el casal fortificat es el punt Castell - Can Batlle, a 18 m. Posicio reconstruida: cal confirmar-la.</desc>
+		<desc>Sant Miquel de Sacot - XVIII - Regular, habitada. La masoveria del conjunt de Can Batlle de Sacot, bastida molt despres de la casa forta i al capdavall dels marges que la fortifiquen. POSICIO INVENTADA: nomes en teniem la longitud i la latitud es una reconstruccio. Les traces de les rutes 7 i 19 diuen que el terreny baixa cap a ponent i cap a llevant i puja cap al sud-est, o sigui que el punt actual, que hi es al sud-est, es justament on no hauria de ser.</desc>
 		<sym> </sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.136149935489335" lon="2.544714050712878">
@@ -265,14 +266,15 @@
 		<desc>Sant Miquel de Sacot - 1774 - Regular, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
-	<wpt lat="42.13792483147845" lon="2.530861224544308">
-		<ele>659.8</ele>
-		<name>Castell - Can Batlle</name>
-		<desc>Sant Miquel de Sacot</desc>
-		<sym>Residence</sym><type>habitatge</type>
+	<wpt lat="42.138348" lon="2.530542">
+		<ele>658.7</ele>
+		<name>Can Batlle Vell / Castell de Can Batlle</name>
+		<desc>Sant Miquel de Sacot - 1700 - Runes. Casa forta feudal damunt d'un pujol de la vall de la Cot, amb vista sobre la vall del Corb, la carena de Finestres i la mateixa vall de la Cot. Planta quadrada d'uns 14 m de costat, carreus ben escairats i murs amb espitlleres; les teulades s'han ensorrat, pero encara s'endevina el pis superior. Fortificada de manera natural per alts marges de lloses planes. Al costat de ponent hi ha una cisterna amb volta de pedra. Sembla que hi vivia el batlle, l'administrador del terme. Avui hi guarden el ramat de la masoveria. Coordenada facilitada pero NO VERIFICADA. Fusio de dos registres, un amb el nom de castell i l'altre amb la fitxa.</desc>
+		<sym>Block, Red</sym>
+		<type>habitatge</type>
 	</wpt>
 	<wpt lat="42.138106" lon="2.523967">
-		<ele>-1.0</ele>
+		<ele>567.9</ele>
 		<name>Mas Prat de la Plaça</name>
 		<desc>Sant Miquel de Sacot (Fageda d&apos;en Jordà) - 1792 - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
@@ -385,11 +387,12 @@
 		<desc>Sant Miquel de Sacot - 1760 - Dolent, no habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
-	<wpt lat="42.13670" lon="2.57942">
-		<ele>-1.0</ele>
+	<wpt lat="42.136703" lon="2.579416">
+		<ele>521.5</ele>
 		<name>Can Gordi</name>
-		<desc>Les Fages. Coordenada d OpenStreetMap (ODbL); abans era un marcador de dos decimals al mig del poble. El Turo de Can Gordi es a 298 m.</desc>
-		<sym> </sym><type>habitatge</type>
+		<desc>Les Fages. Coordenada facilitada, coincident a 0,5 m amb la d OpenStreetMap. Abans era un marcador de dos decimals al mig del poble, 859 m enlla. El Turo de Can Gordi es a 298 m i el Mas Gordi, que es una altra casa, a 299 m.</desc>
+		<sym>Residence</sym>
+		<type>habitatge</type>
 	</wpt>
 	<wpt lat="42.138259552722" lon="2.5153849017711054">
 		<ele>567.8</ele>
@@ -397,13 +400,7 @@
 		<desc>Sant Miquel de Sacot - 1760 - Dolent, no habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
-	<wpt lat="42.13830808274972" lon="2.530634701251984">
-		<ele>658.7</ele>
-		<name>Can Batlle Vell</name>
-		<desc>Sant Miquel de Sacot (al costat de l&apos;església) - 1700 - Runes</desc>
-		<sym>Block, Red</sym><type>habitatge</type>
-	</wpt>
-	<wpt lat="42.140381" lon="2.505733">
+<wpt lat="42.140381" lon="2.505733">
 		<ele>-1.0</ele>
 		<name>Mas Can Genís</name>
 		<desc>Sant Miquel de Sacot - 1700 - Runes</desc>
@@ -536,7 +533,7 @@
 		<sym> </sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.141349" lon="2.584851">
-		<ele>-1.0</ele>
+		<ele>458.0</ele>
 		<name>Santuari dels Arcs</name>
 		<desc>Els Arcs - 1621 / 1691 / 1776 - Regular</desc>
 		<sym>Residence</sym><type>habitatge</type>
@@ -841,11 +838,12 @@
 		<desc>Can Font - XVIII - Regular, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
-	<wpt lat="42.14405" lon="2.57000">
-		<ele>-1.0</ele>
-		<name>Ajuntament-escoles de Santa Pau</name>
-		<desc>Santa Pau (C. del Pont 23) - XX. Posicio aproximada (+/- 80 m): cal confirmar-la</desc>
-		<sym> </sym><type>habitatge</type>
+	<wpt lat="42.144864" lon="2.569684">
+		<ele>493.3</ele>
+		<name>Ajuntament de Santa Pau</name>
+		<desc>Santa Pau (C. Major, 23) - XX. Actual casa de la vila; abans hi havia les escoles. Coordenada de les UTM que publica santapau.cat (464537, 4666155), interpretades com a ED50: en ETRS89 cauen 226 m enlla, fora del carrer. La numeracio del carrer Major que ja teniem al fitxer hi coincideix a 2 m.</desc>
+		<sym>Building</sym>
+		<type>habitatge</type>
 	</wpt>
 	<wpt lat="42.14529680251886" lon="2.5305783748626713">
 		<ele>628.9</ele>
@@ -1034,7 +1032,7 @@
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.148904" lon="2.585097">
-		<ele>-1.0</ele>
+		<ele>428.0</ele>
 		<name>Can Potuí</name>
 		<desc>Santa Pau</desc>
 		<sym>Residence</sym><type>habitatge</type>
@@ -1130,7 +1128,7 @@
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.150982" lon="2.591006">
-		<ele>-1.0</ele>
+		<ele>425.0</ele>
 		<name>Cal Sant / Ca l&apos;Avellana / Can Biel</name>
 		<desc>Els Arcs - 1777 - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
@@ -1196,7 +1194,7 @@
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.151907" lon="2.598425">
-		<ele>-1.0</ele>
+		<ele>408.9</ele>
 		<name>Can Formiga</name>
 		<desc>El Sallent - 1700 - Dolent, no habitada</desc>
 		<sym>Block, Red</sym><type>habitatge</type>
@@ -1328,13 +1326,13 @@
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.153191" lon="2.601652">
-		<ele>-1.0</ele>
+		<ele>397.6</ele>
 		<name>Mas Gasparic</name>
 		<desc>El Sallent - 1712 / 1980 - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.153697" lon="2.613598">
-		<ele>-1.0</ele>
+		<ele>353.8</ele>
 		<name>La Camància</name>
 		<desc>El Sallent - XIX - Dolent, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
@@ -1633,11 +1631,12 @@
 		<desc>Sant Miquel de Sacot - 1753 / 1996 - Bo, habitada</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
-	<wpt lat="42.156854" lon="2.507916">
+	<wpt lat="42.156481" lon="2.510379">
 		<ele>-1.0</ele>
 		<name>Mas Cal Cisteller</name>
-		<desc>? - XVIII - Runes</desc>
-		<sym>Block, Red</sym><type>habitatge</type>
+		<desc>Cal Blanc - XVIII - Runes. Coordenada facilitada, coincident a 2 m amb la d OpenStreetMap; abans en duia una 207 m enlla.</desc>
+		<sym>Block, Red</sym>
+		<type>habitatge</type>
 	</wpt>
 	<wpt lat="42.15700923275276" lon="2.543750703334809">
 		<ele>614.7</ele>
@@ -1772,7 +1771,7 @@
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.160913" lon="2.594462">
-		<ele>-1.0</ele>
+		<ele>432.0</ele>
 		<name>Mas Lloet</name>
 		<desc>Sant Martí - XVIII - Runes</desc>
 		<sym>Block, Red</sym><type>habitatge</type>
@@ -1816,7 +1815,7 @@
 	<wpt lat="42.162868611453895" lon="2.5649388134479527">
 		<ele>509.4</ele>
 		<name>Mas les Feixes (Sant Martí)</name>
-		<desc>Sant Martí - XVIII - Bo, habitada. Hi ha l Oratori de les Feixes.</desc>
+		<desc>Sant Martí - XVIII - Bo, habitada.</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.16300281210918" lon="2.5653532147407536">
@@ -1982,7 +1981,7 @@
 		<sym>Block, Red</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.176339" lon="2.61232">
-		<ele>-1.0</ele>
+		<ele>414.3</ele>
 		<name>La Guardia</name>
 		<desc>El Sallent - XVIII - Runes</desc>
 		<sym>Block, Red</sym><type>habitatge</type>
@@ -2031,8 +2030,8 @@
 	</wpt>
 	<wpt lat="42.13582385852074" lon="2.56407380104065">
 		<ele>544.0</ele>
-		<name>Mas les Feixes (Pujolars)</name>
-		<desc>Pujolars</desc>
+		<name>Mas les Feixes (Pujolars) / Can Feixes</name>
+		<desc>Pujolars. Coordenada confirmada (42°08 09.0 N, 2°33 50.6 E). Hi hagué un oratori al costat de la porta principal, amb entrada per l era; avui l espai serveix de magatzem. La talla del Sant Crist, del segle XV o XVI, sembla que es va traslladar a Santa Pau.</desc>
 		<sym>Residence</sym><type>habitatge</type>
 	</wpt>
 	<wpt lat="42.13541014317862" lon="2.546446323394776">

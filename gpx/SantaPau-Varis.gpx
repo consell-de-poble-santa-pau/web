@@ -103,6 +103,7 @@
 	</wpt>
 	
 	<wpt lat="42.13953" lon="2.53458">
+		<ele>602.9</ele>
 		<name>Creu de Sant Isidre</name>
 		<desc>Creu de terme, prop de Sant Miquel Sacot. Font: OpenStreetMap, ODbL.</desc>
 		<sym>Cross</sym>

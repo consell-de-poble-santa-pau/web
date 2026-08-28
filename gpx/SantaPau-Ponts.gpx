@@ -11,6 +11,7 @@
 	<wpt lat="42.1555522481159" lon="2.6130194461191674">
 		<ele>328.1</ele>
 		<name>Pont de Sant Martí</name>
+		<desc>Pont. 328 m. Hi passen les rutes R11, R14, R22. A prop: El Casals (99 m), Rectoria del Sallent (147 m).</desc>
 		<sym>Bridge</sym>
 		<type>pont</type>
 	</wpt>
@@ -18,6 +19,7 @@
 	<wpt lat="42.14400298108903" lon="2.569899110774796">
 		<ele>485.4</ele>
 		<name>Pont de Santa Pau</name>
+		<desc>Pont. 485 m. Hi passen les rutes R3, R4, R5, R7, R8, R17, R18. A prop: Cal Sintet (18 m), Can Sila (40 m).</desc>
 		<sym>Bridge</sym>
 		<type>pont</type>
 	</wpt>
@@ -25,6 +27,7 @@
 	<wpt lat="42.1542846456372" lon="2.606475502252579">
 		<ele>348.4</ele>
 		<name>Pont del Mas Batlle</name>
+		<desc>Pont. 348 m. Hi passen les rutes R4, R11, R14. A prop: Gorg de Can Batlle (133 m), La Carreteria (155 m).</desc>
 		<sym>Bridge</sym>
 		<type>pont</type>
 	</wpt>
@@ -32,6 +35,7 @@
 	<wpt lat="42.14475" lon="2.57767">
 		<ele>450.6</ele>
 		<name>Pont d&apos;Instints</name>
+		<desc>Pont. 450 m. Hi passen les rutes R3, R4, R5, R14, R15. A prop: Font de Nogués (88 m), Font del Pujol (108 m).</desc>
 		<sym>Bridge</sym>
 		<type>pont</type>
 	</wpt>
@@ -40,6 +44,7 @@
 	     nom de la via que hi passa, no un nom propi: cal preguntar al poble
 	     com se'n diuen. -->
 	<wpt lat="42.14578" lon="2.57298">
+		<ele>482.0</ele>
 		<name>Pont del Cami de la Doma</name>
 		<desc>Nom pres de la via que hi passa. Font: OpenStreetMap, ODbL.</desc>
 		<sym>Bridge</sym>
@@ -47,6 +52,7 @@
 	</wpt>
 	
 	<wpt lat="42.14836" lon="2.58494">
+		<ele>432.0</ele>
 		<name>Pont de la Carretera dels Arcs</name>
 		<desc>Nom pres de la via que hi passa. Font: OpenStreetMap, ODbL.</desc>
 		<sym>Bridge</sym>
@@ -54,6 +60,7 @@
 	</wpt>
 	
 	<wpt lat="42.15435" lon="2.61694">
+		<ele>317.3</ele>
 		<name>Pont de la Pista de la Torroella I</name>
 		<desc>Nom pres de la via que hi passa. Font: OpenStreetMap, ODbL.</desc>
 		<sym>Bridge</sym>
@@ -61,6 +68,7 @@
 	</wpt>
 	
 	<wpt lat="42.15147" lon="2.61450">
+		<ele>338.0</ele>
 		<name>Pont de la Pista de la Torroella II</name>
 		<desc>Nom pres de la via que hi passa. Font: OpenStreetMap, ODbL.</desc>
 		<sym>Bridge</sym>

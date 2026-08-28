@@ -77,6 +77,7 @@
 		<type>arbre</type>
 	</wpt>
 	<wpt lat="42.14532" lon="2.51043">
+		<ele>562.3</ele>
 		<name>Aulina entre can Jorda i can Palleu</name>
 		<desc>Alzina (Quercus ilex) amb molts bonys, probablement per haver-ne talat branques per fer llenya. Perimetre 3,32 m i alcada 15 m (2015). Singular per l edat, les dimensions i la forma del port. A la dreta del cami que va de can Palleu a can Jorda. [Codi AUL051, guia Arbres amb historia de la Garrotxa 2018]</desc>
 		<sym>Forest</sym>
@@ -89,18 +90,21 @@
 		<type>arbre</type>
 	</wpt>
 	<wpt lat="42.14558" lon="2.54343">
+		<ele>683.2</ele>
 		<name>Cirerer de can Caselles</name>
 		<desc>Cirerer (Prunus avium) amb el tronc bifurcat a pocs centimetres de la base: besses de 1,88 i 1,75 m de perimetre, alcada 14 m (2017). Una branca gruixuda i horitzontal es dirigeix cap al cami buscant la llum. [Codi CIR005, guia Arbres amb historia de la Garrotxa 2018]</desc>
 		<sym>Forest</sym>
 		<type>arbre</type>
 	</wpt>
 	<wpt lat="42.15283" lon="2.51629">
+		<ele>576.9</ele>
 		<name>Faig de la Fageda d en Jorda</name>
 		<desc>Faig (Fagus sylvatica) de la Fageda d en Jorda, Reserva Natural per la Llei 2/1982. Les dimensions dels faigs de la fageda no son gaire grans; dins del bosc n hi ha de mes grossos pero son mes dificils de situar. [Codi FAI053, guia Arbres amb historia de la Garrotxa 2018]</desc>
 		<sym>Forest</sym>
 		<type>arbre</type>
 	</wpt>
 	<wpt lat="42.14579" lon="2.53029">
+		<ele>631.3</ele>
 		<name>Roure del mas l Olivera</name>
 		<desc>Roure martinenc (Quercus pubescens) forca ben conservat a prop del mas de l Olivera. Perimetre 3,89 m i alcada 20 m (2013). Al nord-est del mas, dins la propietat, hi ha altres roures de dimensions no menyspreables. [Codi ROU077, guia Arbres amb historia de la Garrotxa 2018]</desc>
 		<sym>Forest</sym>
@@ -113,6 +117,7 @@
 		<type>arbre</type>
 	</wpt>
 	<wpt lat="42.13088" lon="2.58274">
+		<ele>526.4</ele>
 		<name>Roure del mas Cargol</name>
 		<desc>Roure martinenc (Quercus pubescens) curios: tronc molt gruixut i capcada ni alta ni ampla, d aspecte rabassut. Perimetre 3,59 m mesurat a la part estreta per sota de la tumoracio, alcada 9,5 m (2017). [Codi ROU033, guia Arbres amb historia de la Garrotxa 2018]</desc>
 		<sym>Forest</sym>
@@ -120,7 +125,7 @@
 	</wpt>
 	<wpt lat="42.14364" lon="2.49891">
 		<name>Roures de can So</name>
-		<desc>Dos roures martinencs (Quercus pubescens) dins l explotacio ramadera de can So, visibles des de fora de la finca. Roure I: perimetre 3,70 m i alcada 17 m, darrere la casa. Roure II: 3,10 m i uns 19 m, mes a l esquerra (ROU133, UTM 458577/4665866). Coordenada del roure I. [Codi ROU132, guia Arbres amb historia de la Garrotxa 2018]</desc>
+		<desc>Dos roures martinencs (Quercus pubescens) dins l explotacio ramadera de can So, visibles des de fora de la finca. Roure I: perimetre 3,70 m i alcada 17 m, darrere la casa. Roure II: 3,10 m i uns 19 m, mes a l esquerra (ROU133), a 42.143818, 2.498699 (UTM ETRS89 458577/4665866), 26 m del roure I. Coordenada del punt: la del roure I. S hi va des de l aparcament de can Serra pel itinerari 3 del Parc i despres pel GR-2 fins al Pla de Sant Miquel; can So es l ultima casa del turo de l esquerra. [Codi ROU132, guia Arbres amb historia de la Garrotxa 2018]</desc>
 		<sym>Forest</sym>
 		<type>arbre</type>
 	</wpt>

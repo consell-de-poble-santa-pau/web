@@ -11,6 +11,7 @@
 	<wpt lat="42.12470474059058" lon="2.562133448569553">
 		<ele>973.0</ele>
 		<name>Sant Jordi</name>
+		<desc>Cim. 973 m. Hi passa la ruta R17. A prop: Grau de l'Escaler (566 m), Coll Ciuro (682 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -18,6 +19,7 @@
 	<wpt lat="42.13441761314169" lon="2.6112484931945805">
 		<ele>682.3</ele>
 		<name>Montestí</name>
+		<desc>Cim. 682 m. Hi passa la ruta R16. A prop: Torre de Telegrafia de Can Badia (22 m), Mas Badia (564 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -25,6 +27,7 @@
 	<wpt lat="42.13651702456281" lon="2.498155497014523">
 		<ele>862.4</ele>
 		<name>Roca Lladre</name>
+		<desc>Roca. 862 m, fora del terme, a 5 m del limit. A prop: Cova de Rocalladre (292 m), Puig del Prat (459 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -32,6 +35,7 @@
 	<wpt lat="42.13935151736646" lon="2.579925991594792">
 		<ele>590.8</ele>
 		<name>Turó de Can Gordi</name>
+		<desc>Cim. 590 m. A prop: Can Conill (142 m), Can Gordi (297 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -39,6 +43,7 @@
 	<wpt lat="42.14904141196564" lon="2.619490673239531">
 		<ele>508.4</ele>
 		<name>Muntanya de Colitzà</name>
+		<desc>Muntanya. 508 m. A prop: Pont de la Pista de la Torroella II (492 m), Mas Can Mainou (591 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -46,6 +51,7 @@
 	<wpt lat="42.17232732091376" lon="2.560101784765721">
 		<ele>758.4</ele>
 		<name>Puigsacreu</name>
+		<desc>Cim. 758 m. Hi passa la ruta R2. A prop: Sant Abdó i Sant Senen (8 m), Mas Mitjanell (168 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -53,6 +59,7 @@
 	<wpt lat="42.17304269896309" lon="2.5775337964296345">
 		<ele>907.0</ele>
 		<name>Sant Julià del Mont</name>
+		<desc>Cim. 907 m. Hi passa la ruta R2. A prop: Rectoria de Sant Julià del Mont / Casalot (98 m), Monestir Sant Julià del Mont (129 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -60,6 +67,7 @@
 	<wpt lat="42.17458300790691" lon="2.5867012515664105">
 		<ele>768.2</ele>
 		<name>Puig dels Tres Quartos</name>
+		<desc>Cim. 768 m. A prop: Coll Satrapa (426 m), Puig dels Agustins (511 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -67,6 +75,7 @@
 	<wpt lat="42.17579877939378" lon="2.5926768779754643">
 		<ele>754.8</ele>
 		<name>Puig dels Agustins</name>
+		<desc>Cim. 754 m. A prop: Mas Agustins (308 m), La Camota (460 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -74,6 +83,7 @@
 	<wpt lat="42.17141139103081" lon="2.570288863756405">
 		<ele>772.8</ele>
 		<name>Puig d&apos;en Bardissa</name>
+		<desc>Cim. 772 m. Hi passa la ruta R2. A prop: Bauma dels Monjos (158 m), Coll de Boixeda (430 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -81,6 +91,7 @@
 	<wpt lat="42.163345248126056" lon="2.5500672273093583">
 		<ele>622.2</ele>
 		<name>Turó del Buc</name>
+		<desc>Cim. 622 m. A prop: Can Buch (143 m), El Bac (175 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -88,6 +99,7 @@
 	<wpt lat="42.16488742572074" lon="2.561132039448926">
 		<ele>570.7</ele>
 		<name>Turó de l&apos;Omell</name>
+		<desc>Cim. 570 m. A prop: La Teuleria (182 m), Can Bosquet Nou (279 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -95,6 +107,7 @@
 	<wpt lat="42.13467597454716" lon="2.5031347095171923">
 		<ele>867.3</ele>
 		<name>Puig del Prat</name>
+		<desc>Cim. 867 m. A prop: Cova de Rocalladre (430 m), Roca Lladre (459 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -102,6 +115,7 @@
 	<wpt lat="42.13135592064887" lon="2.522008805850225">
 		<ele>859.5</ele>
 		<name>Turó de Sant Joan</name>
+		<desc>Cim. 859 m. A prop: Can Talaia (373 m), Can Betra (452 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -109,6 +123,7 @@
 	<wpt lat="42.132751897579716" lon="2.5287303852507352">
 		<ele>829.0</ele>
 		<name>Turó de la Rovira</name>
+		<desc>Cim. 829 m. A prop: Penyes Llargues (133 m), Castell de Colltort (332 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -116,6 +131,7 @@
 	<wpt lat="42.13257538028165" lon="2.530329225949011">
 		<ele>825.3</ele>
 		<name>Penyes Llargues</name>
+		<desc>Cim. 825 m. A prop: Turó de la Rovira (133 m), Castell de Colltort (199 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -123,6 +139,7 @@
 	<wpt lat="42.115047787673994" lon="2.581511094375184">
 		<ele>1026.0</ele>
 		<name>Puigsallança</name>
+		<desc>Cim. 1026 m, fora del terme, a 449 m del limit. Hi passa la ruta R18. A prop: Faig Rodó (284 m), Faig Rodó (304 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -130,6 +147,7 @@
 	<wpt lat="42.12105146377658" lon="2.592314174585462">
 		<ele>790.4</ele>
 		<name>Muntanya del Clascar</name>
+		<desc>Muntanya. 790 m. A prop: El Clascar (296 m), Font del Clascar (571 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -137,6 +155,7 @@
 	<wpt lat="42.127374580171185" lon="2.594592949317334">
 		<ele>663.4</ele>
 		<name>Puig Gros</name>
+		<desc>Cim. 663 m. A prop: Font dels Colls (637 m), Muntanya del Clascar (728 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -144,6 +163,7 @@
 	<wpt lat="42.137484162496015" lon="2.5936646014451985">
 		<ele>574.8</ele>
 		<name>Turó de Sant Joan</name>
+		<desc>Cim. 574 m. A prop: Collet de Can Rosta (370 m), Mas Mateus (437 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -151,6 +171,7 @@
 	<wpt lat="42.15628758390821" lon="2.5794305151984402">
 		<ele>536.2</ele>
 		<name>Turó de Sant Martí</name>
+		<desc>Cim. 536 m. A prop: Ca l'Ermità (43 m), Sant Martí Vell de Santa Pau (206 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -158,6 +179,7 @@
 	<wpt lat="42.16049569804099" lon="2.5711233168840413">
 		<ele>560.4</ele>
 		<name>Turó del Campells</name>
+		<desc>Cim. 560 m. A prop: La Terrada (155 m), Els Campells (181 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -165,6 +187,7 @@
 	<wpt lat="42.114337419840496" lon="2.5782070308923726">
 		<ele>1016.8</ele>
 		<name>Faig Rodó</name>
+		<desc>Cim. 1016 m, fora del terme, a 596 m del limit. Hi passa la ruta R18. A prop: Faig Rodó (42 m), Avenc Pujolar (226 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -172,6 +195,7 @@
 	<wpt lat="42.13501731000382" lon="2.5788608193397526">
 		<ele>593.4</ele>
 		<name>Montverd</name>
+		<desc>Cim. 593 m. A prop: La Ginebreda (183 m), Can Gordi (193 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -179,6 +203,7 @@
 	<wpt lat="42.158523090114286" lon="2.5394833087921143">
 		<ele>619.5</ele>
 		<name>Puig s&apos;Agonia</name>
+		<desc>Cim. 619 m, fora del terme, a 191 m del limit. A prop: Cal Titot (194 m), Grederes del Croscat (305 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -186,6 +211,7 @@
 	<wpt lat="42.12727" lon="2.54651">
 		<ele>855.5</ele>
 		<name>Penya Peguera</name>
+		<desc>Cingle. 855 m. Hi passen les rutes R17, R19. A prop: La Bernadella (78 m), Font de Fontpobra (220 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -195,6 +221,7 @@
 	<wpt lat="42.12310" lon="2.54754">
 		<ele>895.4</ele>
 		<name>Collada de Fontpobra</name>
+		<desc>Coll. 895 m, fora del terme, a 156 m del limit. Hi passa la ruta R19. A prop: Tell de Can Tià (135 m), Beços de Fontpobra (388 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -202,6 +229,7 @@
 	<wpt lat="42.12422" lon="2.55389">
 		<ele>861.2</ele>
 		<name>Coll Ciuro</name>
+		<desc>Coll. 861 m, fora del terme, a 12 m del limit. Hi passen les rutes R17, R19. A prop: Mas Medró / Can Roure (487 m), Collada de Fontpobra (538 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -209,6 +237,7 @@
 	<wpt lat="42.13170" lon="2.53543">
 		<ele>799.3</ele>
 		<name>Collada de Colltort</name>
+		<desc>Coll. 799 m. Hi passen les rutes R7, R19. A prop: Castell de Colltort (234 m), Comadega / El Torrent (375 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -216,6 +245,7 @@
 	<wpt lat="42.17100" lon="2.58852">
 		<ele>749.2</ele>
 		<name>Coll Satrapa</name>
+		<desc>Coll. 749 m. Hi passa la ruta R2. A prop: Mas Agustins (425 m), Puig dels Tres Quartos (426 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -223,6 +253,7 @@
 	<wpt lat="42.17263" lon="2.54908">
 		<ele>671.6</ele>
 		<name>Coll de Palomeres</name>
+		<desc>Coll. 671 m, fora del terme, a 1 m del limit. Hi passa la ruta R2. A prop: Can Bosquets de Dalt (848 m), Can Bosquet Vell (853 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -230,6 +261,7 @@
 	<wpt lat="42.17151" lon="2.56507">
 		<ele>664.6</ele>
 		<name>Coll de Boixeda</name>
+		<desc>Coll. 664 m. Hi passa la ruta R2. A prop: Sant Abdó i Sant Senen (413 m), Puigsacreu (419 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -245,6 +277,7 @@
 	<wpt lat="42.14077" lon="2.59436">
 		<ele>504.7</ele>
 		<name>Collet de Can Rosta</name>
+		<desc>Coll. 504 m. Hi passa la ruta R14. A prop: Can Rosta (184 m), La Casanova (332 m).</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -252,6 +285,7 @@
 	<wpt lat="42.18167" lon="2.62807">
 		<ele>431.0</ele>
 		<name>Coll de Can Jou</name>
+		<desc>Coll. 431 m, fora del terme, a 858 m del limit. Hi passa la ruta R22.</desc>
 		<sym>Geographic place name, land</sym>
 		<type>muntanya</type>
 	</wpt>
@@ -265,6 +299,7 @@
 	</wpt>
 	
 	<wpt lat="42.12542" lon="2.57172">
+		<ele>865.2</ele>
 		<name>Collada del Grau</name>
 		<desc>A 260 m del Grau de l'Escaler, que tenim a varis. Font: OpenStreetMap, ODbL.</desc>
 		<sym>Geographic place name, land</sym>

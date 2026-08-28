@@ -69,10 +69,11 @@
 	     descripcio del Grup d'Espeleologia de Badalona: uns 600 m a ponent
 	     de Sant Julia del Mont (31TDG652694) i uns 200 m de la cova dels
 	     Encantats. Cal comprovar-la sobre el terreny. -->
-	<wpt lat="42.17410" lon="2.57070">
+	<wpt lat="42.172769" lon="2.570873">
+		<ele>706</ele>
 		<name>Bauma dels Monjos</name>
-		<desc>Santa Pau. Tambe dita bauma de la Font dels Monjos. Amplada 26 m, fondaria 11 m. Prop del cami dels Monjos, coll de Boixedes. POSICIO APROXIMADA, cal comprovar.</desc>
-		<sym>Square, Red</sym>
+		<desc>Tambe dita bauma de la Font dels Monjos. Amplada 26 m, fondaria 11 m. Coordenada de la fitxa d espeleoworld.com (dades del Grup d Espeleologia de Badalona, 30-9-2024). A 606 m a ponent del monestir de Sant Julia del Mont i a uns 200 m de la cova dels Encantats, que ja es de Sant Joan les Fonts. El cami que uneix les esglesies del sector es el cami dels Monjos, i d aqui li ve el nom.</desc>
+		<sym>Cave</sym>
 		<type>cova</type>
 	</wpt>
 </gpx>

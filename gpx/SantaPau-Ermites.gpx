@@ -43,7 +43,7 @@
 	<wpt lat="42.13926" lon="2.53219">
 		<ele>642.6</ele>
 		<name>Sant Miquel Sacot</name>
-		<desc>XVIII, 1787 - Sant Miquel Sacot. Amb la rectoria, avui casa de colonies La Cot.</desc>
+		<desc>XVIII, 1787 - Sant Miquel Sacot. Amb la rectoria, avui casa de colonies La Cot. Coordenada confirmada per dues vies independents, totes dues a menys de 2 m.</desc>
 		<sym>Church</sym>
 		<type>ermita</type>
 	</wpt>
@@ -125,45 +125,20 @@
 	     l'homenatge del castell. Coordenada del castell segons l'Inventari
 	     del Patrimoni del Consell Comarcal de la Garrotxa. -->
 	<wpt lat="42.14474" lon="2.57159">
+		<ele>489.0</ele>
 		<name>Capella de Sant Antoni i Sant Honorat</name>
-		<desc>XIV, 1766 - Castell. Capella de la baronia, a la planta baixa de la torre de l homenatge. Hi hagueren el retaule d alabastre de 1340 i la veracreu de 1391.</desc>
+		<desc>XIV, 1766 - Castell. Capella de la baronia, a la planta baixa de la torre de l homenatge. Consagrada a sant Antoni Abat i sant Honorat. Hi hagueren el retaule d alabastre de 1340 i la veracreu de 1391. Les referencies a una capella de Sant Antoni de Padua al terme apunten a aquesta mateixa: no n hi ha cap altra.</desc>
 		<sym>Church</sym>
 		<type>ermita</type>
 	</wpt>
 	
-	<!-- Afegit el 25-08-2026. Es dins el Mas les Feixes de Sant Marti,
-	     segons informacio del poble. Coordenada del mas, al nostre
-	     SantaPau-Habitatges.gpx: cal ajustar-la sobre el terreny. -->
-	<wpt lat="42.16287" lon="2.56494">
-		<name>Oratori de les Feixes</name>
-		<desc>XVI - Sant Marti. Oratori amb un Crist del segle XVI, dins el Mas les Feixes. Coordenada del mas.</desc>
-		<sym>Church</sym>
-		<type>ermita</type>
-	</wpt>
-	
-	<!-- Afegides el 25-08-2026. Son les tres capelles de mas que
-	     l'enciclopedia documenta al terme. La coordenada es la del mas al
-	     nostre SantaPau-Habitatges.gpx: cal ajustar-la sobre el terreny,
-	     perque una capella de mas no sol ser al mig de la casa. -->
-	<wpt lat="42.14532" lon="2.58816">
-		<name>Capella de Sant Antoni de Padua</name>
-		<desc>Els Arcs. Capella del mas Pratdavall. Coordenada de Can Prat de Vall: cal confirmar que Pratdavall es aquest mas, perque la casa consta del 1905.</desc>
-		<sym>Church</sym>
-		<type>ermita</type>
-	</wpt>
-	
-	<wpt lat="42.147604" lon="2.576187">
-		<ele>465.2</ele>
-		<name>Capella de la Mare de Deu del Carme</name>
-		<desc>Els Arcs. Capella del mas la Quintana, casa del 1898. Coordenada del mas.</desc>
-		<sym>Church</sym>
-		<type>ermita</type>
-	</wpt>
-	
+	<!-- Afegida el 25-08-2026. Capella de mas documentada a
+	     l'enciclopedia. Es publica amb la coordenada del mas, per decisio
+	     presa: la capella es part de la casa. -->
 	<wpt lat="42.155681" lon="2.618179">
 		<ele>322.2</ele>
 		<name>Capella de Santa Maria de Rocacorba</name>
-		<desc>El Sallent. Capella moderna del mas Rocacorba, casa del 1971. Coordenada del mas.</desc>
+		<desc>El Sallent. Capella moderna del mas Rocacorba, casa del 1971. Es publica amb la coordenada de la casa, per decisio presa: la capella n es part.</desc>
 		<sym>Church</sym>
 		<type>ermita</type>
 	</wpt>

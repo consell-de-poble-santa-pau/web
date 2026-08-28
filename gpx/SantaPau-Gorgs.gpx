@@ -10,6 +10,7 @@
 	<wpt lat="42.14425188870831" lon="2.5896892688602025">
 		<ele>427.6</ele>
 		<name>Gorg Blau</name>
+		<desc>Gorg. 427 m. Hi passen les rutes R4, R14. A prop: Font de la Canova (26 m), Can Prat de Vall (173 m).</desc>
 		<sym>Geographic place name, water</sym>
 		<type>gorg</type>
 	</wpt>
@@ -17,6 +18,7 @@
 	<wpt lat="42.146878718499615" lon="2.580552358938664">
 		<ele>441.2</ele>
 		<name>Gorg de Caga-rates</name>
+		<desc>Gorg. 441 m. Hi passen les rutes R3, R4. A prop: Font sense nom del torrent de Caga-rates (102 m), El Pujol (156 m).</desc>
 		<sym>Geographic place name, water</sym>
 		<type>gorg</type>
 	</wpt>
@@ -24,6 +26,7 @@
 	<wpt lat="42.15218234344685" lon="2.5907778739929204">
 		<ele>406.7</ele>
 		<name>Gorg de Can Cutilla</name>
+		<desc>Gorg. 406 m. A prop: Molí Cutilla (37 m), Mas Avellanes (132 m).</desc>
 		<sym>Geographic place name, water</sym>
 		<type>gorg</type>
 	</wpt>
@@ -31,6 +34,7 @@
 	<wpt lat="42.15543133166099" lon="2.6060029441462134">
 		<ele>352.3</ele>
 		<name>Gorg de Can Batlle</name>
+		<desc>Gorg. 352 m. Hi passen les rutes R4, R11, R14. A prop: Salt de Can Batlle (45 m), Pont del Mas Batlle (133 m).</desc>
 		<sym>Geographic place name, water</sym>
 		<type>gorg</type>
 	</wpt>
@@ -46,6 +50,7 @@
 	<wpt lat="42.14414923201217" lon="2.5066149855329694">
 		<ele>528.4</ele>
 		<name>Basses de can Jorda</name>
+		<desc>Basses. 528 m. A prop: Mas El Pujolet (261 m), Mas Can Samala (271 m).</desc>
 		<sym>Geographic place name, water</sym>
 		<type>gorg</type>
 	</wpt>

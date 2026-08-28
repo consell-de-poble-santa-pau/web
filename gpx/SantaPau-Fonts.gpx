@@ -33,7 +33,7 @@
 	</wpt>
 	
 	<wpt lat="42.145542" lon="2.57843">
-		<ele></ele>
+		<ele>450.0</ele>
 		<name>Font del Pujol</name>
 		<desc>A 20 m de la Font de Nogues. Comprovar si son dues fonts o una de sola amb dos noms.</desc>
 		<sym>Water Source</sym>
@@ -41,7 +41,7 @@
 	</wpt>
 	
 	<wpt lat="42.145405" lon="2.57827">
-		<ele></ele>
+		<ele>449.0</ele>
 		<name>Font de Nogués</name>
 		<desc>A 20 m de la Font del Pujol. Comprovar si son dues fonts o una de sola amb dos noms.</desc>
 		<sym>Water Source</sym>
@@ -49,7 +49,7 @@
 	</wpt>
 	
 	<wpt lat="42.148315" lon="2.584183">
-		<ele></ele>
+		<ele>432.0</ele>
 		<name>Font de Can Teixidor</name>
 		<desc>A 14 m de la Font Calenta. Comprovar si son dues fonts o una de sola amb dos noms.</desc>
 		<sym>Water Source</sym>
@@ -158,7 +158,7 @@
 	<wpt lat="42.1484" lon="2.5843">
 		<ele>428.0</ele>
 		<name>Font Calenta</name>
-		<desc>A 14 m de la Font de Can Teixidor. Comprovar si son dues fonts o una de sola amb dos noms.</desc>
+		<desc>Natural, ben conservada, d acces lliure. Raja. Visitada el maig del 2021. Alcada de la fitxa: 424 m. A 14 m de la Font de Can Teixidor. Comprovar si son dues fonts o una de sola amb dos noms.</desc>
 		<sym>Water Source</sym>
 		<type>font</type>
 	</wpt>
@@ -166,7 +166,7 @@
 	<wpt lat="42.1539" lon="2.5862">
 		<ele>429.1</ele>
 		<name>Font de Bernadal / Vernadal / Vernadar</name>
-		<desc>ALT INTERES (SIGMA 2010), codi GSPA47.</desc>
+		<desc>Natural, ben conservada, d acces lliure. Raja. Visitada el maig del 2021. Alcada de la fitxa: 421 m. ALT INTERES (SIGMA 2010), codi GSPA47.</desc>
 		<sym>Water Source</sym>
 		<type>font</type>
 	</wpt>
@@ -189,6 +189,7 @@
 	<wpt lat="42.1459" lon="2.61">
 		<ele>343.3</ele>
 		<name>Font de Corbs</name>
+		<desc>Natural, ben conservada, d acces lliure. Raja. Visitada el maig del 2021. Alcada de la fitxa: 336 m.</desc>
 		<sym>Water Source</sym>
 		<type>font</type>
 	</wpt>
@@ -203,6 +204,7 @@
 	<wpt lat="42.1443" lon="2.59">
 		<ele>428.1</ele>
 		<name>Font de la Canova</name>
+		<desc>Natural, ben conservada. Raja. ACCES PERMES PERO DINS DE PROPIETAT PRIVADA. Visitada el maig del 2021. Alcada de la fitxa: 420 m.</desc>
 		<sym>Water Source</sym>
 		<type>font</type>
 	</wpt>
@@ -225,7 +227,7 @@
 	<wpt lat="42.1541" lon="2.5675">
 		<ele>464.9</ele>
 		<name>Font del Consol</name>
-		<desc>ALT INTERES a l Inventari de fonts de la Garrotxa (SIGMA 2010), codi GSPA51. ATENCIO: 74 mg/l de nitrats el 2010, per sobre del limit de potabilitat de 50 mg/l.</desc>
+		<desc>Natural, ben conservada, d acces lliure. Cabal ABUNDANT. Visitada el maig del 2021. Alcada de la fitxa: 467 m. ALT INTERES a l Inventari de fonts de la Garrotxa (SIGMA 2010), codi GSPA51. ATENCIO: 74 mg/l de nitrats el 2010, per sobre del limit de potabilitat de 50 mg/l.</desc>
 		<sym>Water Source</sym>
 		<type>font</type>
 	</wpt>
@@ -257,12 +259,14 @@
 	     propis GPX de rutes, que no constaven en aquest fitxer. Coordenades
 	     reals preses sobre el terreny, pero SENSE NOM. Cal identificar-les. -->
 	<wpt lat="42.14391" lon="2.57095">
+		<ele>491.5</ele>
 		<name>Font sense nom del camí de Sant Jordi</name>
 		<desc>Marcada com a "Font" a cinc rutes nostres (R3, R4, R5, R7 i R8), sempre a la mateixa coordenada. La font documentada mes propera es la de Nogues, a 627 m. Falta identificar-ne el nom.</desc>
 		<sym>Water Source</sym>
 		<type>font</type>
 	</wpt>
 	<wpt lat="42.14545" lon="2.57011">
+		<ele>495.0</ele>
 		<name>Font sense nom del camí dels Monjos</name>
 		<desc>Marcada com a "Font" a la ruta R2. A 674 m de la Font de Nogues. Falta identificar-ne el nom.</desc>
 		<sym>Water Source</sym>
@@ -275,12 +279,14 @@
 		<type>font</type>
 	</wpt>
 	<wpt lat="42.15582" lon="2.54088">
+		<ele>627.0</ele>
 		<name>Font sense nom sota Santa Llúcia</name>
 		<desc>Marcada com a "Font" a les rutes R1 i R6. A 815 m de la Font Blanca. Falta identificar-ne el nom.</desc>
 		<sym>Water Source</sym>
 		<type>font</type>
 	</wpt>
 	<wpt lat="42.14788" lon="2.5313">
+		<ele>620.5</ele>
 		<name>Font sense nom de la Fageda</name>
 		<desc>Marcada com a "Font" a la ruta R9. A 772 m de la Font de la Llet. Falta identificar-ne el nom.</desc>
 		<sym>Water Source</sym>
