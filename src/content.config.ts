@@ -45,18 +45,6 @@ const cercles = defineCollection({
   }),
 });
 
-const rutes = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/rutes' }),
-  schema: z.object({
-    nom: z.string(),
-    descripcio: z.string().optional(),
-    gpx: z.string(),
-    color: z.string().default('#4890C0'),
-    categoria: z.enum(['ruta', 'fonts', 'patrimoni', 'natura', 'equipaments']).default('ruta'),
-    visible: z.boolean().default(true),
-  }),
-});
-
 // ── Agenda de reunions, trobades i activitats ──────────────────────────
 //
 // La data acaba sempre sent text (2026-09-08), no un objecte Date. És
@@ -88,4 +76,4 @@ const agenda = defineCollection({
   }),
 });
 
-export const collections = { actes, noticies, cercles, rutes, agenda };
+export const collections = { actes, noticies, cercles, agenda };

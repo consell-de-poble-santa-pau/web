@@ -13,3 +13,7 @@ dist/
 
 # Cloudflare
 .wrangler/
+
+# copies de seguretat dels scripts d'instal-lacio
+*.bak
+*.bak-*
