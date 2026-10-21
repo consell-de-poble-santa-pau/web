@@ -128,7 +128,7 @@ collections:
     folder: src/content/cercles
     create: true
     delete: false
-    summary: "{{nom}}{{#if dataFi}} (tancat){{/if}}"
+    summary: "{{nom}}"
     fields:
       - { name: nom, label: Nom del cercle, widget: string }
       - name: tipus
