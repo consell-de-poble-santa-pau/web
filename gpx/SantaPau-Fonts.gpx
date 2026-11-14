@@ -1,320 +1,936 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd http://www.topografix.com/GPX/gpx_style/0/2 http://www.topografix.com/GPX/gpx_style/0/2/gpx_style.xsd" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpx_style="http://www.topografix.com/GPX/gpx_style/0/2" version="1.1" creator="@alexistudela">
-	<metadata>
-		<name>SantaPau_Fonts</name>
-		<author>
-			<name>Alexis Tudela i Casanovas</name>
-		</author>
-	</metadata>
-	
-	<!-- Fonts -->
-	<wpt lat="42.1651800" lon="2.5663980">
-		<ele></ele>
-		<name>Font del Roc</name>
-		<desc>A 17 m de la Font de Bellapart. Comprovar si son dues fonts o una de sola amb dos noms.</desc>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.1653200" lon="2.5663290">
-		<ele></ele>
-		<name>Font de Bellapart</name>
-		<desc>A 17 m de la Font del Roc. Comprovar si son dues fonts o una de sola amb dos noms.</desc>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.12956" lon="2.571333">
-		<ele></ele>
-		<name>Font Mallonga</name>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.145542" lon="2.57843">
-		<ele>450.0</ele>
-		<name>Font del Pujol</name>
-		<desc>A 20 m de la Font de Nogues. Comprovar si son dues fonts o una de sola amb dos noms.</desc>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.145405" lon="2.57827">
-		<ele>449.0</ele>
-		<name>Font de Nogués</name>
-		<desc>A 20 m de la Font del Pujol. Comprovar si son dues fonts o una de sola amb dos noms.</desc>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.148315" lon="2.584183">
-		<ele>432.0</ele>
-		<name>Font de Can Teixidor</name>
-		<desc>A 14 m de la Font Calenta. Comprovar si son dues fonts o una de sola amb dos noms.</desc>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.11592" lon="2.59247">
-		<ele>796.5</ele>
-		<name>Font del Clascar</name>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.11999" lon="2.58491">
-		<ele>626.1</ele>
-		<name>Font de la Salgueda</name>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.12744" lon="2.57084">
-		<ele>712.4</ele>
-		<name>Font del Fang</name>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.13173" lon="2.59961">
-		<ele>436.1</ele>
-		<name>Font dels Colls</name>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.13182" lon="2.57194">
-		<ele>563.6</ele>
-		<name>Font de Can Mallogre</name>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.13483" lon="2.57254">
-		<ele>510.8</ele>
-		<name>Font Xuclara / Suclara</name>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.13508593167078" lon="2.5865936279296875">
-		<ele>458.7</ele>
-		<name>Font de Canyart</name>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.139509" lon="2.491562">
-		<ele>603.2</ele>
-		<name>Font de Sant Martí del Corb</name>
-		<desc>Al terme de LES PRESES, serra de Marboleny, al costat de l ermita. Comprovar si es vol al mapa municipal.</desc>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.14818" lon="2.58574">
-		<ele>424.6</ele>
-		<name>Font de Barbavella</name>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.15192" lon="2.54924">
-		<ele>582.1</ele>
-		<name>Font Blanca</name>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.15637" lon="2.56702">
-		<ele>475.6</ele>
-		<name>Font de Llevadús</name>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.15958" lon="2.57513">
-		<ele>484.9</ele>
-		<name>Font de la Terrada</name>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.16033067436006" lon="2.505920827388764">
-		<ele>547.6</ele>
-		<name>Font de la Rocassa</name>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.18272" lon="2.60235">
-		<ele>465.6</ele>
-		<name>Font del Palomer</name>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.1484" lon="2.5843">
-		<ele>428.0</ele>
-		<name>Font Calenta</name>
-		<desc>Natural, ben conservada, d acces lliure. Raja. Visitada el maig del 2021. Alcada de la fitxa: 424 m. A 14 m de la Font de Can Teixidor. Comprovar si son dues fonts o una de sola amb dos noms.</desc>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.1539" lon="2.5862">
-		<ele>429.1</ele>
-		<name>Font de Bernadal / Vernadal / Vernadar</name>
-		<desc>Natural, ben conservada, d acces lliure. Raja. Visitada el maig del 2021. Alcada de la fitxa: 421 m. ALT INTERES (SIGMA 2010), codi GSPA47.</desc>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.14026" lon="2.59963">
-		<ele>379.7</ele>
-		<name>Font de Bonolla</name>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.14679786214207" lon="2.5458131351549356">
-		<ele>618.9</ele>
+<gpx version="1.1" creator="Consell de Poble de Santa Pau" xmlns="http://www.topografix.com/GPX/1/1" xmlns:cdp="https://consell-de-poble-santa-pau.github.io/gpx/camps/1">
+	<metadata><name>Fonts de Santa Pau</name></metadata>
+	<wpt lat="42.147147" lon="2.545449">
+		<ele>620.7</ele>
 		<name>Font de Collelldamunt</name>
-		<desc>ALT INTERES (SIGMA 2010), codi GSPA58.</desc>
-		<sym>Water Source</sym>
+		<desc>Referència: INV-001
+Tipus: Font
+Ús: Recreatiu
+Cota: 620,7 m
+Aqüífer: Eocè
+Interès patrimonial: Alt
+Codi ICGC: SPAU0001
+Codi IGME: 381210024
+Codi ACA: 17184-0089
+Codi SIGMA: GSPA58
+Observacions: La data és la de l'any de restauració. L'aigua de la font es regula amb una canella</desc>
 		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-001</cdp:camp><cdp:camp nom="Tipus">Font</cdp:camp><cdp:camp nom="Ús">Recreatiu</cdp:camp><cdp:camp nom="Cota">620,7 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè</cdp:camp><cdp:camp nom="Interès patrimonial">Alt</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0001</cdp:camp><cdp:camp nom="Codi IGME">381210024</cdp:camp><cdp:camp nom="Codi ACA">17184-0089</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA58</cdp:camp><cdp:camp nom="Observacions">La data és la de l'any de restauració. L'aigua de la font es regula amb una canella</cdp:camp></cdp:camps></extensions>
 	</wpt>
-	
-	<wpt lat="42.1459" lon="2.61">
-		<ele>343.3</ele>
-		<name>Font de Corbs</name>
-		<desc>Natural, ben conservada, d acces lliure. Raja. Visitada el maig del 2021. Alcada de la fitxa: 336 m.</desc>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	<wpt lat="42.127698807505894" lon="2.5439060956269226">
-		<ele>840.1</ele>
-		<name>Font de Fontpobra</name>
-		<desc>Possiblement la Font Pobre (GSPA02) de l Inventari SIGMA 2010, classificada d ALT INTERES. Cal confirmar que sigui la mateixa.</desc>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.1443" lon="2.59">
-		<ele>428.1</ele>
-		<name>Font de la Canova</name>
-		<desc>Natural, ben conservada. Raja. ACCES PERMES PERO DINS DE PROPIETAT PRIVADA. Visitada el maig del 2021. Alcada de la fitxa: 420 m.</desc>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.14241708200815" lon="2.525535151362419">
-		<ele>636.3</ele>
-		<name>Font de la Llet</name>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.140950619097936" lon="2.553011711513458">
-		<ele>554.4</ele>
-		<name>Font del Clavell o de Roca Negra</name>
-		<desc>ALT INTERES (SIGMA 2010), codi GSPA05.</desc>
-		<sym>Water Source</sym>
-		<type>font</type>
-	</wpt>
-	
-	<wpt lat="42.1541" lon="2.5675">
-		<ele>464.9</ele>
+	<wpt lat="42.154100" lon="2.567500">
+		<ele>455</ele>
 		<name>Font del Consol</name>
-		<desc>Natural, ben conservada, d acces lliure. Cabal ABUNDANT. Visitada el maig del 2021. Alcada de la fitxa: 467 m. ALT INTERES a l Inventari de fonts de la Garrotxa (SIGMA 2010), codi GSPA51. ATENCIO: 74 mg/l de nitrats el 2010, per sobre del limit de potabilitat de 50 mg/l.</desc>
-		<sym>Water Source</sym>
+		<desc>Referència: INV-002
+Tipus: Font
+Ús: Recreatiu
+Cota: 455 m
+Aqüífer: Volcànic
+Interès hidrogeològic: 7
+Interès patrimonial: Alt
+Codi ICGC: SPAU0002
+Codi IGME: 381210088
+Codi ACA: 17184-0108
+Codi SIGMA: GSPA51</desc>
 		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-002</cdp:camp><cdp:camp nom="Tipus">Font</cdp:camp><cdp:camp nom="Ús">Recreatiu</cdp:camp><cdp:camp nom="Cota">455 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Interès hidrogeològic">7</cdp:camp><cdp:camp nom="Interès patrimonial">Alt</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0002</cdp:camp><cdp:camp nom="Codi IGME">381210088</cdp:camp><cdp:camp nom="Codi ACA">17184-0108</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA51</cdp:camp></cdp:camps></extensions>
 	</wpt>
-	
-	<wpt lat="42.14622" lon="2.61142">
-		<ele>342.0</ele>
-		<name>Font del Ferro</name>
-		<sym>Water Source</sym>
+	<wpt lat="42.142501" lon="2.525539">
+		<ele>624</ele>
+		<name>Font Mas Costa o de la Llet</name>
+		<desc>Referència: INV-003
+Tipus: Font
+Ús: Sense ús
+Cota: 624 m
+Aqüífer: Volcànic
+Codi ICGC: SPAU0003
+Codi IGME: 381210053
+Codi ACA: 17184-0096
+Codi SIGMA: GSPA88
+Observacions: Hi ha un dipòsit del que en surt una mangera que deu ser d'on treuen l'aigua per regar. S'hi arriba per un camí a la dreta de la carretera a l'alçada de Can Xel. Raja molt poc</desc>
 		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-003</cdp:camp><cdp:camp nom="Tipus">Font</cdp:camp><cdp:camp nom="Ús">Sense ús</cdp:camp><cdp:camp nom="Cota">624 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0003</cdp:camp><cdp:camp nom="Codi IGME">381210053</cdp:camp><cdp:camp nom="Codi ACA">17184-0096</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA88</cdp:camp><cdp:camp nom="Observacions">Hi ha un dipòsit del que en surt una mangera que deu ser d'on treuen l'aigua per regar. S'hi arriba per un camí a la dreta de la carretera a l'alçada de Can Xel. Raja molt poc</cdp:camp></cdp:camps></extensions>
 	</wpt>
-	
-	<wpt lat="42.15122301390035" lon="2.584908867935014">
-		<ele>429.0</ele>
-		<name>Font Fresca</name>
-		<desc>ALT INTERES (SIGMA 2010), codi GSPA46. Proposada per a la xarxa de seguiment comarcal.</desc>
-		<sym>Water Source</sym>
+	<wpt lat="42.137752" lon="2.573167">
+		<ele>482.7</ele>
+		<name>Font del Pet / La Fontica</name>
+		<desc>Referència: INV-004
+Tipus: Font
+Ús: Sense ús
+Cota: 482,7 m
+Aqüífer: Al·luvial Ser
+Codi ICGC: SPAU0004
+Codi IGME: 381220024
+Codi ACA: 17184-0104
+Codi SIGMA: GSPA17</desc>
 		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-004</cdp:camp><cdp:camp nom="Tipus">Font</cdp:camp><cdp:camp nom="Ús">Sense ús</cdp:camp><cdp:camp nom="Cota">482,7 m</cdp:camp><cdp:camp nom="Aqüífer">Al·luvial Ser</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0004</cdp:camp><cdp:camp nom="Codi IGME">381220024</cdp:camp><cdp:camp nom="Codi ACA">17184-0104</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA17</cdp:camp></cdp:camps></extensions>
 	</wpt>
-	
-	<wpt lat="42.14334" lon="2.6045">
-		<ele>371.0</ele>
+	<wpt lat="42.138297" lon="2.523997">
+		<ele>564.4</ele>
+		<name>Font del Prat de la Plaça</name>
+		<desc>Referència: INV-005
+Tipus: Font artificial
+Ús: Sense ús
+Cota: 564,4 m
+Aqüífer: Volcànic
+Codi ICGC: SPAU0005
+Codi IGME: 381210054
+Codi ACA: 17184-0109
+Observacions: Totalment artificial, agafa l'aigua del pou número 381210008. La font va a parar a un rec que està sec</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-005</cdp:camp><cdp:camp nom="Tipus">Font artificial</cdp:camp><cdp:camp nom="Ús">Sense ús</cdp:camp><cdp:camp nom="Cota">564,4 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0005</cdp:camp><cdp:camp nom="Codi IGME">381210054</cdp:camp><cdp:camp nom="Codi ACA">17184-0109</cdp:camp><cdp:camp nom="Observacions">Totalment artificial, agafa l'aigua del pou número 381210008. La font va a parar a un rec que està sec</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.150861" lon="2.584190">
+		<ele>422.3</ele>
+		<name>Font Calenta</name>
+		<desc>Referència: INV-006
+Tipus: Font
+Ús: Industrial
+Cota: 422,3 m
+Aqüífer: Volcànic
+Codi ICGC: SPAU0006
+Codi IGME: 381220036
+Codi ACA: 17184-0038
+Codi SIGMA: GSPA45
+Observacions: Hi ha un càmping que n'extreu aigua per abastir-se'n. L'aigua surt calenta comparada amb la de la riera</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-006</cdp:camp><cdp:camp nom="Tipus">Font</cdp:camp><cdp:camp nom="Ús">Industrial</cdp:camp><cdp:camp nom="Cota">422,3 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0006</cdp:camp><cdp:camp nom="Codi IGME">381220036</cdp:camp><cdp:camp nom="Codi ACA">17184-0038</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA45</cdp:camp><cdp:camp nom="Observacions">Hi ha un càmping que n'extreu aigua per abastir-se'n. L'aigua surt calenta comparada amb la de la riera</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.148336" lon="2.584328">
+		<ele>425</ele>
+		<name>Font de Cal Teixidor</name>
+		<desc>Referència: INV-007
+Tipus: Font
+Ús: Abastament domèstic
+Cota: 425 m
+Aqüífer: Volcànic
+Codi ICGC: SPAU0007
+Codi SIGMA: GSPA33</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-007</cdp:camp><cdp:camp nom="Tipus">Font</cdp:camp><cdp:camp nom="Ús">Abastament domèstic</cdp:camp><cdp:camp nom="Cota">425 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0007</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA33</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.145935" lon="2.610048">
+		<ele>337</ele>
+		<name>Font de Corbs</name>
+		<desc>Referència: INV-008
+Tipus: Font
+Ús: Abastament domèstic
+Cota: 337 m
+Aqüífer: Al·luvial-volcànic
+Codi ICGC: SPAU0008
+Codi ACA: 17184-0106
+Codi SIGMA: GSPA37</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-008</cdp:camp><cdp:camp nom="Tipus">Font</cdp:camp><cdp:camp nom="Ús">Abastament domèstic</cdp:camp><cdp:camp nom="Cota">337 m</cdp:camp><cdp:camp nom="Aqüífer">Al·luvial-volcànic</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0008</cdp:camp><cdp:camp nom="Codi ACA">17184-0106</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA37</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.131730" lon="2.599610">
+		<name>Font dels Colls</name>
+		<desc>Referència: INV-009
+Tipus: Font
+Ús: Sense ús
+Codi ICGC: SPAU0009</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-009</cdp:camp><cdp:camp nom="Tipus">Font</cdp:camp><cdp:camp nom="Ús">Sense ús</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0009</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.127742" lon="2.544112">
+		<ele>823.5</ele>
+		<name>Font de Fontpobra</name>
+		<desc>Referència: INV-010
+Tipus: Font
+Ús: Recreatiu
+Cota: 823,5 m
+Aqüífer: Volcànic / Basalts
+Interès hidrogeològic: 6
+Interès patrimonial: Alt
+Codi ICGC: SPAU0012
+Codi IGME: 381210033
+Codi ACA: 17184-0090
+Codi SIGMA: GSPA02
+Observacions: Hi ha una imatge de la Reina dels Martirs. Surgeis d'una arqueta i dona a un petit safareig. A 14m. hi ha la Font del Mas Bassols què és una captació de la Fontpobra</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-010</cdp:camp><cdp:camp nom="Tipus">Font</cdp:camp><cdp:camp nom="Ús">Recreatiu</cdp:camp><cdp:camp nom="Cota">823,5 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic / Basalts</cdp:camp><cdp:camp nom="Interès hidrogeològic">6</cdp:camp><cdp:camp nom="Interès patrimonial">Alt</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0012</cdp:camp><cdp:camp nom="Codi IGME">381210033</cdp:camp><cdp:camp nom="Codi ACA">17184-0090</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA02</cdp:camp><cdp:camp nom="Observacions">Hi ha una imatge de la Reina dels Martirs. Surgeis d'una arqueta i dona a un petit safareig. A 14m. hi ha la Font del Mas Bassols què és una captació de la Fontpobra</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.144810" lon="2.589639">
+		<ele>418</ele>
+		<name>Font del Xampany</name>
+		<desc>Referència: INV-011
+Tipus: Font
+Ús: Recreatiu
+Cota: 418 m
+Aqüífer: Volcànic
+Interès hidrogeològic: 2
+Codi ICGC: SPAU0013
+Codi IGME: 381220046
+Codi ACA: 17184-0081
+Observacions: Pertany a la xarxa de punts de control de la Conca dels Arcs</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-011</cdp:camp><cdp:camp nom="Tipus">Font</cdp:camp><cdp:camp nom="Ús">Recreatiu</cdp:camp><cdp:camp nom="Cota">418 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Interès hidrogeològic">2</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0013</cdp:camp><cdp:camp nom="Codi IGME">381220046</cdp:camp><cdp:camp nom="Codi ACA">17184-0081</cdp:camp><cdp:camp nom="Observacions">Pertany a la xarxa de punts de control de la Conca dels Arcs</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.146763" lon="2.589118">
+		<ele>415.9</ele>
+		<name>Font d'en Pere</name>
+		<desc>Referència: INV-012
+Tipus: Font
+Ús: Recreatiu
+Cota: 415,9 m
+Aqüífer: Al·luvial-volcànic
+Interès hidrogeològic: 4
+Codi ICGC: SPAU0014
+Codi IGME: 381220029
+Codi ACA: 17184-0048
+Codi SIGMA: GSPA29
+Observacions: Al costat d'aquesta font hi ha la Font d'en Jaume (canalització a 19m), la Font d'en Tei i la Font del Racó</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-012</cdp:camp><cdp:camp nom="Tipus">Font</cdp:camp><cdp:camp nom="Ús">Recreatiu</cdp:camp><cdp:camp nom="Cota">415,9 m</cdp:camp><cdp:camp nom="Aqüífer">Al·luvial-volcànic</cdp:camp><cdp:camp nom="Interès hidrogeològic">4</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0014</cdp:camp><cdp:camp nom="Codi IGME">381220029</cdp:camp><cdp:camp nom="Codi ACA">17184-0048</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA29</cdp:camp><cdp:camp nom="Observacions">Al costat d'aquesta font hi ha la Font d'en Jaume (canalització a 19m), la Font d'en Tei i la Font del Racó</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.151287" lon="2.584998">
+		<ele>418</ele>
+		<name>Font Fresca (Can Patxet)</name>
+		<desc>Referència: INV-013
+Cota: 418 m
+Aqüífer: Volcànic / Basalts
+Interès hidrogeològic: 1
+Interès patrimonial: Alt
+Codi ICGC: SPAU0040
+Codi IGME: 381220025
+Codi ACA: 17184-0099
+Codi SIGMA: GSPA46
+Observacions: Prop del pou 381220033. Hi ha 6 sortides d'aigua que van a parar directament a la riera. La Font Fresca alimenta la deu del pou del Patxet. Només s'usen tres brolladors</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-013</cdp:camp><cdp:camp nom="Cota">418 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic / Basalts</cdp:camp><cdp:camp nom="Interès hidrogeològic">1</cdp:camp><cdp:camp nom="Interès patrimonial">Alt</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0040</cdp:camp><cdp:camp nom="Codi IGME">381220025</cdp:camp><cdp:camp nom="Codi ACA">17184-0099</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA46</cdp:camp><cdp:camp nom="Observacions">Prop del pou 381220033. Hi ha 6 sortides d'aigua que van a parar directament a la riera. La Font Fresca alimenta la deu del pou del Patxet. Només s'usen tres brolladors</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.134830" lon="2.572540">
+		<ele>485.1</ele>
+		<name>Font Xuclada / Xuclara / Suclara / Mina Xuclana</name>
+		<desc>Referència: INV-014
+Tipus: Mina
+Ús: Sense ús
+Cota: 485,1 m
+Aqüífer: Volcànic
+Codi ICGC: SPAU0055
+Codi IGME: 381220008
+Codi ACA: 17184-0062
+Codi SIGMA: GSPA18
+Observacions: Presentava problemes sanitaris relacionats amb les vaques. Té una estructura similar a una mina (galeries)</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-014</cdp:camp><cdp:camp nom="Tipus">Mina</cdp:camp><cdp:camp nom="Ús">Sense ús</cdp:camp><cdp:camp nom="Cota">485,1 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0055</cdp:camp><cdp:camp nom="Codi IGME">381220008</cdp:camp><cdp:camp nom="Codi ACA">17184-0062</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA18</cdp:camp><cdp:camp nom="Observacions">Presentava problemes sanitaris relacionats amb les vaques. Té una estructura similar a una mina (galeries)</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.141255" lon="2.505714">
+		<ele>542</ele>
 		<name>La Fontica</name>
-		<sym>Water Source</sym>
+		<desc>Referència: INV-015
+Cota: 542 m
+Aqüífer: Eocè
+Codi IGME: 381210031
+Codi ACA: 17184-0092
+Codi SIGMA: GSPA61
+Observacions: L'aigua va a parar a una riera i no s'aprofita</desc>
 		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-015</cdp:camp><cdp:camp nom="Cota">542 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè</cdp:camp><cdp:camp nom="Codi IGME">381210031</cdp:camp><cdp:camp nom="Codi ACA">17184-0092</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA61</cdp:camp><cdp:camp nom="Observacions">L'aigua va a parar a una riera i no s'aprofita</cdp:camp></cdp:camps></extensions>
 	</wpt>
-
-
-	<!-- Fonts afegides el 25-08-2026. Origen: waypoints "Font" dels nostres
-	     propis GPX de rutes, que no constaven en aquest fitxer. Coordenades
-	     reals preses sobre el terreny, pero SENSE NOM. Cal identificar-les. -->
-	<wpt lat="42.14391" lon="2.57095">
-		<ele>491.5</ele>
-		<name>Font sense nom del camí de Sant Jordi</name>
-		<desc>Marcada com a "Font" a cinc rutes nostres (R3, R4, R5, R7 i R8), sempre a la mateixa coordenada. La font documentada mes propera es la de Nogues, a 627 m. Falta identificar-ne el nom.</desc>
-		<sym>Water Source</sym>
+	<wpt lat="42.140945" lon="2.553033">
+		<ele>551.4</ele>
+		<name>Font de Can Clavell o de Roca Negra</name>
+		<desc>Referència: INV-016
+Cota: 551,4 m
+Aqüífer: Volcànic / Basalts
+Interès patrimonial: Alt
+Codi IGME: 381210036
+Codi ACA: 17184-0093
+Codi SIGMA: GSPA05
+Observacions: Va seca, més amunt hi ha un tub que se l'emporta però no se sap on va</desc>
 		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-016</cdp:camp><cdp:camp nom="Cota">551,4 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic / Basalts</cdp:camp><cdp:camp nom="Interès patrimonial">Alt</cdp:camp><cdp:camp nom="Codi IGME">381210036</cdp:camp><cdp:camp nom="Codi ACA">17184-0093</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA05</cdp:camp><cdp:camp nom="Observacions">Va seca, més amunt hi ha un tub que se l'emporta però no se sap on va</cdp:camp></cdp:camps></extensions>
 	</wpt>
-	<wpt lat="42.14545" lon="2.57011">
-		<ele>495.0</ele>
-		<name>Font sense nom del camí dels Monjos</name>
-		<desc>Marcada com a "Font" a la ruta R2. A 674 m de la Font de Nogues. Falta identificar-ne el nom.</desc>
-		<sym>Water Source</sym>
+	<wpt lat="42.162139" lon="2.544374">
+		<ele>630.5</ele>
+		<name>Font de Buc</name>
+		<desc>Referència: INV-017
+Cota: 630,5 m
+Aqüífer: Volcànic / Basalt
+Codi IGME: 381210043
+Codi ACA: 17184-0094
+Codi SIGMA: GSPA63
+Observacions: Està dins la propietat, per poder-hi entrar s'ha de demanar permís als propietaris</desc>
 		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-017</cdp:camp><cdp:camp nom="Cota">630,5 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic / Basalt</cdp:camp><cdp:camp nom="Codi IGME">381210043</cdp:camp><cdp:camp nom="Codi ACA">17184-0094</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA63</cdp:camp><cdp:camp nom="Observacions">Està dins la propietat, per poder-hi entrar s'ha de demanar permís als propietaris</cdp:camp></cdp:camps></extensions>
 	</wpt>
-	<wpt lat="42.14768" lon="2.58115">
-		<name>Font sense nom del torrent de Caga-rates</name>
-		<desc>Marcada com a "Font" a les rutes R3 i R4, prop del gorg de Caga-rates. A 260 m de la Font de Can Teixidor. Falta identificar-ne el nom.</desc>
-		<sym>Water Source</sym>
+	<wpt lat="42.153439" lon="2.549156">
+		<ele>589.4</ele>
+		<name>Font Can Falguera</name>
+		<desc>Referència: INV-018
+Cota: 589,4 m
+Aqüífer: Volcànic
+Codi IGME: 381210044
+Codi ACA: 17184-0095
+Codi SIGMA: GSPA57
+Observacions: De molt difícil accés, al costat d'una riera</desc>
 		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-018</cdp:camp><cdp:camp nom="Cota">589,4 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi IGME">381210044</cdp:camp><cdp:camp nom="Codi ACA">17184-0095</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA57</cdp:camp><cdp:camp nom="Observacions">De molt difícil accés, al costat d'una riera</cdp:camp></cdp:camps></extensions>
 	</wpt>
-	<wpt lat="42.15582" lon="2.54088">
-		<ele>627.0</ele>
-		<name>Font sense nom sota Santa Llúcia</name>
-		<desc>Marcada com a "Font" a les rutes R1 i R6. A 815 m de la Font Blanca. Falta identificar-ne el nom.</desc>
-		<sym>Water Source</sym>
+	<wpt lat="42.156166" lon="2.553168">
+		<ele>533</ele>
+		<name>Font de la Torre / Torra</name>
+		<desc>Referència: INV-019
+Cota: 533 m
+Aqüífer: Volcànic
+Interès patrimonial: Alt
+Codi IGME: 381210098
+Codi SIGMA: GSPA80</desc>
 		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-019</cdp:camp><cdp:camp nom="Cota">533 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Interès patrimonial">Alt</cdp:camp><cdp:camp nom="Codi IGME">381210098</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA80</cdp:camp></cdp:camps></extensions>
 	</wpt>
-	<wpt lat="42.14788" lon="2.5313">
-		<ele>620.5</ele>
-		<name>Font sense nom de la Fageda</name>
-		<desc>Marcada com a "Font" a la ruta R9. A 772 m de la Font de la Llet. Falta identificar-ne el nom.</desc>
-		<sym>Water Source</sym>
+	<wpt lat="42.151494" lon="2.594994">
+		<ele>398.8</ele>
+		<name>Can Biel</name>
+		<desc>Referència: INV-020
+Cota: 398,8 m
+Aqüífer: Eocè
+Codi IGME: 381220005
+Codi ACA: 17184-0073
+Codi SIGMA: GSPA70
+Observacions: És al costat de la riera, en surt una canalització que va a parar a una artificial (UTMX 466723, UTMY 4667007)</desc>
 		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-020</cdp:camp><cdp:camp nom="Cota">398,8 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè</cdp:camp><cdp:camp nom="Codi IGME">381220005</cdp:camp><cdp:camp nom="Codi ACA">17184-0073</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA70</cdp:camp><cdp:camp nom="Observacions">És al costat de la riera, en surt una canalització que va a parar a una artificial (UTMX 466723, UTMY 4667007)</cdp:camp></cdp:camps></extensions>
 	</wpt>
-	<wpt lat="42.15893" lon="2.51147">
-		<name>Font sense nom I del camí del Corb</name>
-		<desc>Marcada com a "Font" a la ruta R10. Tres punts de font seguits en aquest cami, a 78 i 211 m l un de l altre. Falta identificar-ne el nom.</desc>
-		<sym>Water Source</sym>
+	<wpt lat="42.139315" lon="2.564746">
+		<ele>520.5</ele>
+		<name>Font de la Sal</name>
+		<desc>Referència: INV-021
+Cota: 520,5 m
+Aqüífer: Volcànic
+Codi IGME: 381220023
+Codi ACA: 17184-0097
+Codi SIGMA: GSPA16
+Observacions: El nom li ve donat a la gran concentració de sals que porta. L'aigua va a parar a una riera</desc>
 		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-021</cdp:camp><cdp:camp nom="Cota">520,5 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi IGME">381220023</cdp:camp><cdp:camp nom="Codi ACA">17184-0097</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA16</cdp:camp><cdp:camp nom="Observacions">El nom li ve donat a la gran concentració de sals que porta. L'aigua va a parar a una riera</cdp:camp></cdp:camps></extensions>
 	</wpt>
-	<wpt lat="42.15963" lon="2.51145">
-		<name>Font sense nom II del camí del Corb</name>
-		<desc>Marcada com a "Font" a la ruta R10, 78 m amunt de la I. Falta identificar-ne el nom.</desc>
-		<sym>Water Source</sym>
+	<wpt lat="42.153796" lon="2.586385">
+		<ele>421.5</ele>
+		<name>Font Bernadal / Vernadal / Vernedar</name>
+		<desc>Referència: INV-022
+Cota: 421,5 m
+Aqüífer: Volcànic / basalt
+Interès patrimonial: Alt
+Codi IGME: 381220031
+Codi ACA: 17184-0091
+Codi SIGMA: GSPA47
+Observacions: Tota la que surt va a parar a la riera</desc>
 		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-022</cdp:camp><cdp:camp nom="Cota">421,5 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic / basalt</cdp:camp><cdp:camp nom="Interès patrimonial">Alt</cdp:camp><cdp:camp nom="Codi IGME">381220031</cdp:camp><cdp:camp nom="Codi ACA">17184-0091</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA47</cdp:camp><cdp:camp nom="Observacions">Tota la que surt va a parar a la riera</cdp:camp></cdp:camps></extensions>
 	</wpt>
-	<wpt lat="42.16146" lon="2.5108">
-		<name>Font sense nom III del camí del Corb</name>
-		<desc>Marcada com a "Font" a la ruta R10, 211 m amunt de la II. Falta identificar-ne el nom.</desc>
-		<sym>Water Source</sym>
+	<wpt lat="42.159707" lon="2.574847">
+		<ele>490.5</ele>
+		<name>Font Terrades o de la Terrada</name>
+		<desc>Referència: INV-023
+Cota: 490,5 m
+Aqüífer: Al·luvial Falla Eocè
+Codi IGME: 381220034
+Codi ACA: 17184-0098
+Codi SIGMA: GSPA49
+Observacions: És una font que sembla un pou. Sembla que abasteix dues masies</desc>
 		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-023</cdp:camp><cdp:camp nom="Cota">490,5 m</cdp:camp><cdp:camp nom="Aqüífer">Al·luvial Falla Eocè</cdp:camp><cdp:camp nom="Codi IGME">381220034</cdp:camp><cdp:camp nom="Codi ACA">17184-0098</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA49</cdp:camp><cdp:camp nom="Observacions">És una font que sembla un pou. Sembla que abasteix dues masies</cdp:camp></cdp:camps></extensions>
 	</wpt>
-	
-	<wpt lat="42.14166" lon="2.50812">
-		<name>Font del Pujolet</name>
-		<desc>A 100 m del Mas El Pujolet. Font: OpenStreetMap, ODbL.</desc>
-		<sym>Drinking Water</sym>
+	<wpt lat="42.144477" lon="2.589726">
+		<ele>423.3</ele>
+		<name>Font de l'Aure</name>
+		<desc>Referència: INV-024
+Cota: 423,3 m
+Aqüífer: Volcànic
+Codi IGME: 381220035
+Codi ACA: 17184-0100
+Codi SIGMA: GSPA31
+Observacions: Està al costat del Gorg blau, al costat de la riera, i al costat seu hi ha la Font del Xampany</desc>
 		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-024</cdp:camp><cdp:camp nom="Cota">423,3 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi IGME">381220035</cdp:camp><cdp:camp nom="Codi ACA">17184-0100</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA31</cdp:camp><cdp:camp nom="Observacions">Està al costat del Gorg blau, al costat de la riera, i al costat seu hi ha la Font del Xampany</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.151659" lon="2.590744">
+		<ele>409.8</ele>
+		<name>Font Molí d'en Riera</name>
+		<desc>Referència: INV-025
+Cota: 409,8 m
+Aqüífer: Volcànic
+Codi IGME: 381220037
+Codi ACA: 17184-0101
+Observacions: Lloc amb dues gorgues grans. S'hi arriba agafant un camí que baixa cap al riu abans d'arribar als camps de Can Riera. Està tancat el pas i no s'hi pot accedir</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-025</cdp:camp><cdp:camp nom="Cota">409,8 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi IGME">381220037</cdp:camp><cdp:camp nom="Codi ACA">17184-0101</cdp:camp><cdp:camp nom="Observacions">Lloc amb dues gorgues grans. S'hi arriba agafant un camí que baixa cap al riu abans d'arribar als camps de Can Riera. Està tancat el pas i no s'hi pot accedir</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.151159" lon="2.586802">
+		<ele>417</ele>
+		<name>Font del molí nou</name>
+		<desc>Referència: INV-026
+Cota: 417 m
+Aqüífer: Volcànic
+Codi IGME: 381220038
+Codi ACA: 17184-0102
+Codi SIGMA: GSPA71
+Observacions: La fan servir per moure les pedres del molí i la tornen al riu. També l'utilitzen per l'us domèstic d'una casa. Te dues sortides</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-026</cdp:camp><cdp:camp nom="Cota">417 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi IGME">381220038</cdp:camp><cdp:camp nom="Codi ACA">17184-0102</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA71</cdp:camp><cdp:camp nom="Observacions">La fan servir per moure les pedres del molí i la tornen al riu. També l'utilitzen per l'us domèstic d'una casa. Te dues sortides</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.135459" lon="2.586565">
+		<ele>449.3</ele>
+		<name>Font del Canyart</name>
+		<desc>Referència: INV-027
+Cota: 449,3 m
+Aqüífer: Volcànic
+Codi IGME: 381220039
+Codi ACA: 17184-0103
+Codi SIGMA: GSPA25
+Observacions: Hi ha una teula que regula el raig d'aigua</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-027</cdp:camp><cdp:camp nom="Cota">449,3 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi IGME">381220039</cdp:camp><cdp:camp nom="Codi ACA">17184-0103</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA25</cdp:camp><cdp:camp nom="Observacions">Hi ha una teula que regula el raig d'aigua</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.146829" lon="2.549276">
+		<ele>561</ele>
+		<name>Font de Masdavall</name>
+		<desc>Referència: INV-028
+Cota: 561 m
+Aqüífer: Volcànic
+Codi IGME: 381220044</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-028</cdp:camp><cdp:camp nom="Cota">561 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi IGME">381220044</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.146134" lon="2.589521">
+		<ele>416.5</ele>
+		<name>Font d'en Tei</name>
+		<desc>Referència: INV-029
+Cota: 416,5 m
+Aqüífer: Volcànic
+Interès hidrogeològic: 3
+Codi IGME: 381220047
+Codi ACA: 17184-0080
+Codi SIGMA: GSPA30
+Observacions: Pertany a la xarxa de punts de control de la Conca dels Arcs</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-029</cdp:camp><cdp:camp nom="Cota">416,5 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Interès hidrogeològic">3</cdp:camp><cdp:camp nom="Codi IGME">381220047</cdp:camp><cdp:camp nom="Codi ACA">17184-0080</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA30</cdp:camp><cdp:camp nom="Observacions">Pertany a la xarxa de punts de control de la Conca dels Arcs</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.143754" lon="2.589041">
+		<ele>423</ele>
+		<name>Font Mas la Canova</name>
+		<desc>Referència: INV-030
+Cota: 423 m
+Aqüífer: Al·luvial-volcànic
+Interès hidrogeològic: 5
+Codi IGME: 381220060
+Codi ACA: 17184-0071
+Codi SIGMA: GSPA27
+Observacions: Pertany a la xarxa de punts de control de la Conca dels Arcs. La font original segons el SIGMA es troba més amunt. (2,59, 42,1443)</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-030</cdp:camp><cdp:camp nom="Cota">423 m</cdp:camp><cdp:camp nom="Aqüífer">Al·luvial-volcànic</cdp:camp><cdp:camp nom="Interès hidrogeològic">5</cdp:camp><cdp:camp nom="Codi IGME">381220060</cdp:camp><cdp:camp nom="Codi ACA">17184-0071</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA27</cdp:camp><cdp:camp nom="Observacions">Pertany a la xarxa de punts de control de la Conca dels Arcs. La font original segons el SIGMA es troba més amunt. (2,59, 42,1443)</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.127787" lon="2.543954">
+		<ele>823</ele>
+		<name>Font Bassols</name>
+		<desc>Referència: INV-031
+Tipus: Font artificial
+Cota: 823 m
+Aqüífer: Al·luvial-volcànic
+Codi ACA: 17184-0006
+Observacions: Captació de la Font Fontpobra (SPAU0012) a 14 m</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-031</cdp:camp><cdp:camp nom="Tipus">Font artificial</cdp:camp><cdp:camp nom="Cota">823 m</cdp:camp><cdp:camp nom="Aqüífer">Al·luvial-volcànic</cdp:camp><cdp:camp nom="Codi ACA">17184-0006</cdp:camp><cdp:camp nom="Observacions">Captació de la Font Fontpobra (SPAU0012) a 14 m</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.157577" lon="2.609057">
+		<ele>356</ele>
+		<name>Aiguaneix de Can Batlle</name>
+		<desc>Referència: INV-032
+Cota: 356 m
+Aqüífer: Eocè
+Codi ACA: 17184-0019
+Codi SIGMA: GSPA83</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-032</cdp:camp><cdp:camp nom="Cota">356 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè</cdp:camp><cdp:camp nom="Codi ACA">17184-0019</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA83</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.130966" lon="2.549426">
+		<ele>577</ele>
+		<name>Font de Can Gil</name>
+		<desc>Referència: INV-033
+Cota: 577 m
+Aqüífer: Al·luvial
+Codi SIGMA: GSPA03</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-033</cdp:camp><cdp:camp nom="Cota">577 m</cdp:camp><cdp:camp nom="Aqüífer">Al·luvial</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA03</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.132494" lon="2.572090">
+		<ele>517</ele>
+		<name>Font de Pla Sa Ribera</name>
+		<desc>Referència: INV-034
+Cota: 517 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA04</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-034</cdp:camp><cdp:camp nom="Cota">517 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA04</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.142385" lon="2.551390">
+		<ele>557</ele>
+		<name>Font de Cresteió</name>
+		<desc>Referència: INV-035
+Cota: 557 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA06</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-035</cdp:camp><cdp:camp nom="Cota">557 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA06</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.134714" lon="2.547463">
+		<ele>576</ele>
+		<name>Font Mosquera</name>
+		<desc>Referència: INV-036
+Cota: 576 m
+Aqüífer: Eocè
+Codi SIGMA: GSPA07</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-036</cdp:camp><cdp:camp nom="Cota">576 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA07</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.138095" lon="2.546023">
+		<ele>510</ele>
+		<name>Font de Roure</name>
+		<desc>Referència: INV-037
+Cota: 510 m
+Aqüífer: Eocè
+Codi SIGMA: GSPA09</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-037</cdp:camp><cdp:camp nom="Cota">510 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA09</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.128577" lon="2.544252">
+		<ele>760</ele>
+		<name>Font Posa</name>
+		<desc>Referència: INV-038
+Cota: 760 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA10</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-038</cdp:camp><cdp:camp nom="Cota">760 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA10</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.140364" lon="2.552905">
+		<ele>550</ele>
+		<name>Font Negra</name>
+		<desc>Referència: INV-039
+Cota: 550 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA11</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-039</cdp:camp><cdp:camp nom="Cota">550 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA11</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.130784" lon="2.565241">
+		<ele>549</ele>
+		<name>Font de Can Xart</name>
+		<desc>Referència: INV-040
+Cota: 549 m
+Aqüífer: Aqüífer al·luvial
+Codi SIGMA: GSPA12</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-040</cdp:camp><cdp:camp nom="Cota">549 m</cdp:camp><cdp:camp nom="Aqüífer">Aqüífer al·luvial</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA12</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.131977" lon="2.557029">
+		<ele>577</ele>
+		<name>Font del Faig</name>
+		<desc>Referència: INV-041
+Cota: 577 m
+Aqüífer: Eocè
+Codi SIGMA: GSPA13</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-041</cdp:camp><cdp:camp nom="Cota">577 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA13</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.135469" lon="2.563358">
+		<ele>533</ele>
+		<name>Font de Can Coll</name>
+		<desc>Referència: INV-042
+Cota: 533 m
+Aqüífer: Al·luvial
+Codi SIGMA: GSPA14</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-042</cdp:camp><cdp:camp nom="Cota">533 m</cdp:camp><cdp:camp nom="Aqüífer">Al·luvial</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA14</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.156298" lon="2.567294">
+		<ele>466</ele>
+		<name>Font de Llevadús</name>
+		<desc>Referència: INV-043
+Cota: 466 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA15</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-043</cdp:camp><cdp:camp nom="Cota">466 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA15</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.143297" lon="2.575684">
+		<ele>446</ele>
+		<name>Font de Magallard</name>
+		<desc>Referència: INV-044
+Cota: 446 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA19</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-044</cdp:camp><cdp:camp nom="Cota">446 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA19</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.131722" lon="2.572736">
+		<ele>593</ele>
+		<name>Font Mallonga o de Can Mallogre</name>
+		<desc>Referència: INV-045
+Cota: 593 m
+Aqüífer: Eocè
+Codi SIGMA: GSPA20</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-045</cdp:camp><cdp:camp nom="Cota">593 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA20</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.138467" lon="2.570077">
+		<ele>511</ele>
+		<name>Font de Can Jan Magre</name>
+		<desc>Referència: INV-046
+Cota: 511 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA21</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-046</cdp:camp><cdp:camp nom="Cota">511 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA21</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.127312" lon="2.571217">
+		<ele>710</ele>
+		<name>Font del Fang</name>
+		<desc>Referència: INV-047
+Cota: 710 m
+Aqüífer: Eocè
+Codi SIGMA: GSPA22</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-047</cdp:camp><cdp:camp nom="Cota">710 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA22</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.145180" lon="2.578237">
+		<ele>450</ele>
+		<name>Font de Nogués o del Pujol</name>
+		<desc>Referència: INV-048
+Cota: 450 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA23</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-048</cdp:camp><cdp:camp nom="Cota">450 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA23</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.120338" lon="2.585104">
+		<ele>605</ele>
+		<name>Font Salgueda</name>
+		<desc>Referència: INV-049
+Cota: 605 m
+Aqüífer: Eocè
+Codi SIGMA: GSPA24</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-049</cdp:camp><cdp:camp nom="Cota">605 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA24</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.148092" lon="2.586581">
+		<ele>425</ele>
+		<name>Font de Barbavella o del Roure</name>
+		<desc>Referència: INV-050
+Cota: 425 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA35</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-050</cdp:camp><cdp:camp nom="Cota">425 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA35</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.155265" lon="2.613393">
+		<ele>317</ele>
+		<name>Font del Rector</name>
+		<desc>Referència: INV-051
+Cota: 317 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA38</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-051</cdp:camp><cdp:camp nom="Cota">317 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA38</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.169713" lon="2.603402">
+		<ele>683</ele>
+		<name>Font de Pruan</name>
+		<desc>Referència: INV-052
+Cota: 683 m
+Aqüífer: Eocè
+Codi SIGMA: GSPA40</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-052</cdp:camp><cdp:camp nom="Cota">683 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA40</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.152116" lon="2.590997">
+		<ele>390</ele>
+		<name>Font de Can Riera</name>
+		<desc>Referència: INV-053
+Cota: 390 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA44</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-053</cdp:camp><cdp:camp nom="Cota">390 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA44</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.159364" lon="2.575528">
+		<ele>475</ele>
+		<name>Font de Viladecàs</name>
+		<desc>Referència: INV-054
+Cota: 475 m
+Aqüífer: Eocè (falla)
+Codi SIGMA: GSPA50</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-054</cdp:camp><cdp:camp nom="Cota">475 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè (falla)</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA50</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.166545" lon="2.566752">
+		<ele>540</ele>
+		<name>Font de Bellapart</name>
+		<desc>Referència: INV-055
+Cota: 540 m
+Aqüífer: Eocè (falla)
+Codi SIGMA: GSPA52</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-055</cdp:camp><cdp:camp nom="Cota">540 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè (falla)</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA52</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.160123" lon="2.543287">
+		<ele>648</ele>
+		<name>Font de les Tremolenques</name>
+		<desc>Referència: INV-056
+Cota: 648 m
+Aqüífer: Eocè
+Codi SIGMA: GSPA53</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-056</cdp:camp><cdp:camp nom="Cota">648 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA53</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.135787" lon="2.543111">
+		<ele>636</ele>
+		<name>Font de la Grevoleda</name>
+		<desc>Referència: INV-057
+Cota: 636 m
+Aqüífer: Eocè
+Codi SIGMA: GSPA54</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-057</cdp:camp><cdp:camp nom="Cota">636 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA54</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.146365" lon="2.548905">
+		<ele>488</ele>
+		<name>Font de Collelldevall</name>
+		<desc>Referència: INV-058
+Cota: 488 m
+Aqüífer: Eocè
+Codi SIGMA: GSPA59</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-058</cdp:camp><cdp:camp nom="Cota">488 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA59</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.140266" lon="2.599508">
+		<ele>367</ele>
+		<name>Font de la Bonolla</name>
+		<desc>Referència: INV-059
+Cota: 367 m
+Aqüífer: Eocè
+Codi SIGMA: GSPA62</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-059</cdp:camp><cdp:camp nom="Cota">367 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA62</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.151994" lon="2.548986">
+		<ele>594</ele>
+		<name>Font Blanca</name>
+		<desc>Referència: INV-060
+Cota: 594 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA64</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-060</cdp:camp><cdp:camp nom="Cota">594 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA64</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.154648" lon="2.617633">
+		<ele>302</ele>
+		<name>Font de Roca</name>
+		<desc>Referència: INV-061
+Cota: 302 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA67</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-061</cdp:camp><cdp:camp nom="Cota">302 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA67</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.139686" lon="2.510386">
+		<ele>548</ele>
+		<name>Font de Pujolet</name>
+		<desc>Referència: INV-062
+Cota: 548 m
+Aqüífer: Eocè
+Codi SIGMA: GSPA68</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-062</cdp:camp><cdp:camp nom="Cota">548 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA68</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.146651" lon="2.588950">
+		<ele>430</ele>
+		<name>Font d'en Jaume</name>
+		<desc>Referència: INV-063
+Tipus: Font artificial
+Cota: 430 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA72
+Observacions: Canalització de la font d'en Pere (SPAU0014) a 19 m</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-063</cdp:camp><cdp:camp nom="Tipus">Font artificial</cdp:camp><cdp:camp nom="Cota">430 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA72</cdp:camp><cdp:camp nom="Observacions">Canalització de la font d'en Pere (SPAU0014) a 19 m</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.145637" lon="2.590010">
+		<ele>431</ele>
+		<name>Fonts del Racó</name>
+		<desc>Referència: INV-064
+Cota: 431 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA73
+Observacions: Al costat de les fonts d'en Pere (SPAU0014) i d'en Jaume (GSPA72)</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-064</cdp:camp><cdp:camp nom="Cota">431 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA73</cdp:camp><cdp:camp nom="Observacions">Al costat de les fonts d'en Pere (SPAU0014) i d'en Jaume (GSPA72)</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.132569" lon="2.570456">
+		<ele>546</ele>
+		<name>Font de Cal Borrec</name>
+		<desc>Referència: INV-065
+Cota: 546 m
+Aqüífer: Eocè
+Codi SIGMA: GSPA74</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-065</cdp:camp><cdp:camp nom="Cota">546 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA74</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.133231" lon="2.581414">
+		<ele>513</ele>
+		<name>Font de la Ginebreda</name>
+		<desc>Referència: INV-066
+Cota: 513 m
+Aqüífer: Eocè
+Codi SIGMA: GSPA75</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-066</cdp:camp><cdp:camp nom="Cota">513 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA75</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.129946" lon="2.584654">
+		<ele>474</ele>
+		<name>Font del Pont dels Arcs</name>
+		<desc>Referència: INV-067
+Cota: 474 m
+Aqüífer: Al·luvial
+Codi SIGMA: GSPA76</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-067</cdp:camp><cdp:camp nom="Cota">474 m</cdp:camp><cdp:camp nom="Aqüífer">Al·luvial</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA76</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.125123" lon="2.585956">
+		<ele>482</ele>
+		<name>Font del Tei de la Coma</name>
+		<desc>Referència: INV-068
+Cota: 482 m
+Aqüífer: Eocè
+Codi SIGMA: GSPA77</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-068</cdp:camp><cdp:camp nom="Cota">482 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA77</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.134007" lon="2.548521">
+		<ele>559</ele>
+		<name>Font de Can Xibeca</name>
+		<desc>Referència: INV-069
+Cota: 559 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA78</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-069</cdp:camp><cdp:camp nom="Cota">559 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA78</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.165907" lon="2.567083">
+		<ele>532</ele>
+		<name>Font del Roc</name>
+		<desc>Referència: INV-070
+Cota: 532 m
+Aqüífer: Eocè (falla)
+Codi SIGMA: GSPA79</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-070</cdp:camp><cdp:camp nom="Cota">532 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè (falla)</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA79</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.153380" lon="2.577130">
+		<ele>443</ele>
+		<name>Font de Can Coderch</name>
+		<desc>Referència: INV-071
+Cota: 443 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA81</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-071</cdp:camp><cdp:camp nom="Cota">443 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA81</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.155446" lon="2.605742">
+		<ele>492</ele>
+		<name>Font de la Carreteria</name>
+		<desc>Referència: INV-072
+Cota: 492 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA82</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-072</cdp:camp><cdp:camp nom="Cota">492 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA82</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.152380" lon="2.615178">
+		<ele>312</ele>
+		<name>Font de la Rocassa</name>
+		<desc>Referència: INV-073
+Cota: 312 m
+Aqüífer: Al·luvial
+Codi SIGMA: GSPA85</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-073</cdp:camp><cdp:camp nom="Cota">312 m</cdp:camp><cdp:camp nom="Aqüífer">Al·luvial</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA85</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.143434" lon="2.614482">
+		<ele>418</ele>
+		<name>Font de Puigmolí</name>
+		<desc>Referència: INV-074
+Cota: 418 m
+Aqüífer: Eocè
+Codi SIGMA: GSPA86</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-074</cdp:camp><cdp:camp nom="Cota">418 m</cdp:camp><cdp:camp nom="Aqüífer">Eocè</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA86</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.134482" lon="2.550405">
+		<ele>572</ele>
+		<name>Font de la Mina</name>
+		<desc>Referència: INV-075
+Cota: 572 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA87</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-075</cdp:camp><cdp:camp nom="Cota">572 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA87</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.142586" lon="2.523070">
+		<ele>585</ele>
+		<name>Biot de Can Costa</name>
+		<desc>Referència: INV-076
+Cota: 585 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA89</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-076</cdp:camp><cdp:camp nom="Cota">585 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA89</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.152490" lon="2.567864">
+		<ele>461</ele>
+		<name>Font de la Boixa</name>
+		<desc>Referència: INV-077
+Cota: 461 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA90</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-077</cdp:camp><cdp:camp nom="Cota">461 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA90</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.143834" lon="2.569859">
+		<ele>483</ele>
+		<name>Font del Pou</name>
+		<desc>Referència: INV-078
+Cota: 483 m
+Aqüífer: Volcànic
+Codi SIGMA: GSPA91</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-078</cdp:camp><cdp:camp nom="Cota">483 m</cdp:camp><cdp:camp nom="Aqüífer">Volcànic</cdp:camp><cdp:camp nom="Codi SIGMA">GSPA91</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.182720" lon="2.602350">
+		<name>Font del Palomer</name>
+		<desc>Referència: INV-079</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-079</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.146220" lon="2.611420">
+		<name>Font del Ferro</name>
+		<desc>Referència: INV-080</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-080</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.143340" lon="2.604500">
+		<name>La Fontica</name>
+		<desc>Referència: INV-081</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-081</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.147680" lon="2.581150">
+		<name>Font de Caga-rates</name>
+		<desc>Referència: INV-082</desc>
+		<type>font</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-082</cdp:camp></cdp:camps></extensions>
 	</wpt>
 </gpx>

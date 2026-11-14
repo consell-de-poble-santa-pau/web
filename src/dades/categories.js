@@ -56,6 +56,15 @@ export const CATEGORIES = {
     color: '#5E6C8A',
     icona: 'm0 6.84201v4.15799h2v-1c.036-1.08899.911-1.96399 2-1.99999 1.089.036 1.964.911 2 1.99999v1h3v-1c.036-1.08899.911-1.96399 2-1.99999 1.089.036 1.964.911 2 1.99999v1h2v-4.15799c-4.4-5.76-11.929-4.442-15 0zm9.5-3.108c.514.121 1.016.289 1.5.5v2.766h-1.5zm-.5-.1v3.366h-1.5v-3.494c.503 0 1.005.043 1.5.128zm-5.5.843c.48-.248.982-.451 1.5-.606v3.129h-1.5zm2 2.523v-3.27c.493-.115.995-.187 1.5-.215v3.485zm-2.5-2.256v2.256h-2.5c.676-.906 1.532-1.672 2.5-2.256zm8.5 2.256v-2.5l-.053-.053c1.202.603 2.247 1.477 3.053 2.553z',
   },
+  // Els pous duen marcador QUADRAT i blau fosc: aixi no es confonen amb
+  // les fonts (cercle blau clar) ni de lluny ni per a qui no distingeix
+  // be els colors. forma: 'quadrat' es opcional; sense, surt un cercle.
+  pou: {
+    etiqueta: 'Pous',
+    color: '#12355B',
+    forma: 'quadrat',
+    icona: 'M7.5 1L1.5 4.6V5.8H13.5V4.6Z M3 5.8H4.2V9H3Z M10.8 5.8H12V9H10.8Z M7.2 5.8H7.8V6.7H8.7V8.2H6.3V6.7H7.2Z M2 9H13V14H2Z M3.2 11V12H11.8V11Z',
+  },
   volca: {
     etiqueta: 'Volcans i grederes',
     color: '#B03A2E',
@@ -81,6 +90,7 @@ export const SINONIMS = {
   muntanya: 'muntanya', muntanyes: 'muntanya', cim: 'muntanya', puig: 'muntanya', turo: 'muntanya',
   coll: 'muntanya', colls: 'muntanya', collada: 'muntanya', collet: 'muntanya', portell: 'muntanya',
   pont: 'pont', ponts: 'pont', palanca: 'pont',
+  pou: 'pou', pous: 'pou', well: 'pou',
   volca: 'volca', volcans: 'volca', craters: 'volca', crater: 'volca',
   gredera: 'volca', grederes: 'volca', aflorament: 'volca',
   varis: 'varis', altres: 'varis', divers: 'varis',

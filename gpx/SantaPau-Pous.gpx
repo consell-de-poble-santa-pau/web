@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Consell de Poble de Santa Pau" xmlns="http://www.topografix.com/GPX/1/1" xmlns:cdp="https://consell-de-poble-santa-pau.github.io/gpx/camps/1">
+	<metadata><name>Pous de Santa Pau</name></metadata>
+	<wpt lat="42.151655" lon="2.584693">
+		<ele>425</ele>
+		<name>Mina de Can Patxet / Font Fresca (municipal)</name>
+		<desc>Referència: INV-100
+Tipus: Mina
+Estat (2015): Actiu
+Ús: Abastament municipal
+Cota: 425 m
+Fondària: 3,5 m
+Codi ICGC: SPAU0010
+Codi IGME: 381220033
+Comentari: Al costat de la Font Fresca</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-100</cdp:camp><cdp:camp nom="Tipus">Mina</cdp:camp><cdp:camp nom="Estat (2015)">Actiu</cdp:camp><cdp:camp nom="Ús">Abastament municipal</cdp:camp><cdp:camp nom="Cota">425 m</cdp:camp><cdp:camp nom="Fondària">3,5 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0010</cdp:camp><cdp:camp nom="Codi IGME">381220033</cdp:camp><cdp:camp nom="Comentari">Al costat de la Font Fresca</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.134729" lon="2.550402">
+		<ele>572</ele>
+		<name>Mina 2 / La Mina / Can Xibeca (municipal)</name>
+		<desc>Referència: INV-101
+Tipus: Mina
+Estat (2015): Actiu
+Ús: Abastament municipal
+Cota: 572 m
+Fondària: 2 m
+Codi ICGC: SPAU0011
+Codi IGME: 381210034
+Comentari: A 27 m de la Font de la Mina. 381210035 és al costat</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-101</cdp:camp><cdp:camp nom="Tipus">Mina</cdp:camp><cdp:camp nom="Estat (2015)">Actiu</cdp:camp><cdp:camp nom="Ús">Abastament municipal</cdp:camp><cdp:camp nom="Cota">572 m</cdp:camp><cdp:camp nom="Fondària">2 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0011</cdp:camp><cdp:camp nom="Codi IGME">381210034</cdp:camp><cdp:camp nom="Comentari">A 27 m de la Font de la Mina. 381210035 és al costat</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.157934" lon="2.624173">
+		<ele>306</ele>
+		<name>Pou sondeig entubat (SPAU0042)</name>
+		<desc>Referència: INV-102
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Ramader
+Cota: 306 m
+Fondària: 132 m
+Codi ICGC: SPAU0042</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-102</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Ramader</cdp:camp><cdp:camp nom="Cota">306 m</cdp:camp><cdp:camp nom="Fondària">132 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0042</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.164680" lon="2.624376">
+		<ele>339</ele>
+		<name>Pou sondeig entubat (SPAU0043)</name>
+		<desc>Referència: INV-103
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Ramader
+Cota: 339 m
+Codi ICGC: SPAU0043</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-103</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Ramader</cdp:camp><cdp:camp nom="Cota">339 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0043</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.147843" lon="2.550503">
+		<ele>596</ele>
+		<name>Pou obert (SPAU0044)</name>
+		<desc>Referència: INV-104
+Tipus: Pou obert
+Estat (2015): En explotació
+Ús: Abastament domèstic, Agrícola
+Cota: 596 m
+Fondària: 4,9 m
+Codi ICGC: SPAU0044</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-104</cdp:camp><cdp:camp nom="Tipus">Pou obert</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Abastament domèstic, Agrícola</cdp:camp><cdp:camp nom="Cota">596 m</cdp:camp><cdp:camp nom="Fondària">4,9 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0044</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.145896" lon="2.559461">
+		<ele>543</ele>
+		<name>Corominas (Puig de Mar)</name>
+		<desc>Referència: INV-105
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Ramader
+Cota: 543 m
+Fondària: 100 m
+Codi ICGC: SPAU0045
+Codi IGME: 381210004</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-105</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Ramader</cdp:camp><cdp:camp nom="Cota">543 m</cdp:camp><cdp:camp nom="Fondària">100 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0045</cdp:camp><cdp:camp nom="Codi IGME">381210004</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.137775" lon="2.521823">
+		<ele>567</ele>
+		<name>Pou sondeig entubat (SPAU0046)</name>
+		<desc>Referència: INV-106
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Ramader
+Cota: 567 m
+Fondària: 50 m
+Codi ICGC: SPAU0046</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-106</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Ramader</cdp:camp><cdp:camp nom="Cota">567 m</cdp:camp><cdp:camp nom="Fondària">50 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0046</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.136843" lon="2.520934">
+		<ele>577</ele>
+		<name>Pou sondeig entubat (SPAU0047)</name>
+		<desc>Referència: INV-107
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Ramader
+Cota: 577 m
+Fondària: 95 m
+Codi ICGC: SPAU0047</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-107</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Ramader</cdp:camp><cdp:camp nom="Cota">577 m</cdp:camp><cdp:camp nom="Fondària">95 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0047</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.151196" lon="2.572483">
+		<ele>470</ele>
+		<name>Pou sondeig entubat (SPAU0048)</name>
+		<desc>Referència: INV-108
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Ramader
+Cota: 470 m
+Fondària: 92 m
+Codi ICGC: SPAU0048</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-108</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Ramader</cdp:camp><cdp:camp nom="Cota">470 m</cdp:camp><cdp:camp nom="Fondària">92 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0048</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.142282" lon="2.522878">
+		<ele>575</ele>
+		<name>Pou sondeig entubat (SPAU0049)</name>
+		<desc>Referència: INV-109
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Abastament domèstic
+Cota: 575 m
+Fondària: 125 m
+Codi ICGC: SPAU0049</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-109</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Abastament domèstic</cdp:camp><cdp:camp nom="Cota">575 m</cdp:camp><cdp:camp nom="Fondària">125 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0049</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.148383" lon="2.530215">
+		<ele>614</ele>
+		<name>Can Xel (municipal)</name>
+		<desc>Referència: INV-110
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Abastament municipal
+Cota: 614 m
+Fondària: 95 m
+Codi ICGC: SPAU0050
+Codi IGME: 381210025
+Codi ACA: 17184-2</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-110</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Abastament municipal</cdp:camp><cdp:camp nom="Cota">614 m</cdp:camp><cdp:camp nom="Fondària">95 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0050</cdp:camp><cdp:camp nom="Codi IGME">381210025</cdp:camp><cdp:camp nom="Codi ACA">17184-2</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.134845" lon="2.552519">
+		<ele>574</ele>
+		<name>Pou sondeig entubat (SPAU0051)</name>
+		<desc>Referència: INV-111
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Ramader
+Cota: 574 m
+Fondària: 50 m
+Codi ICGC: SPAU0051</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-111</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Ramader</cdp:camp><cdp:camp nom="Cota">574 m</cdp:camp><cdp:camp nom="Fondària">50 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0051</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.136433" lon="2.550778">
+		<ele>561</ele>
+		<name>Granja El Cros (vall de Santa Margarida)</name>
+		<desc>Referència: INV-112
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Ramader
+Cota: 561 m
+Fondària: 100 m
+Codi ICGC: SPAU0052
+Codi IGME: 381210037</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-112</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Ramader</cdp:camp><cdp:camp nom="Cota">561 m</cdp:camp><cdp:camp nom="Fondària">100 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0052</cdp:camp><cdp:camp nom="Codi IGME">381210037</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.137897" lon="2.571084">
+		<ele>498</ele>
+		<name>Pou obert (SPAU0053)</name>
+		<desc>Referència: INV-113
+Tipus: Pou obert
+Estat (2015): Fora d'ús permanent
+Ús: Sense ús
+Cota: 498 m
+Fondària: 3,7 m
+Codi ICGC: SPAU0053</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-113</cdp:camp><cdp:camp nom="Tipus">Pou obert</cdp:camp><cdp:camp nom="Estat (2015)">Fora d'ús permanent</cdp:camp><cdp:camp nom="Ús">Sense ús</cdp:camp><cdp:camp nom="Cota">498 m</cdp:camp><cdp:camp nom="Fondària">3,7 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0053</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.138295" lon="2.571566">
+		<ele>495</ele>
+		<name>Pou obert (SPAU0054)</name>
+		<desc>Referència: INV-114
+Tipus: Pou obert
+Estat (2015): Fora d'ús permanent
+Ús: Sense ús
+Cota: 495 m
+Fondària: 3,5 m
+Codi ICGC: SPAU0054</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-114</cdp:camp><cdp:camp nom="Tipus">Pou obert</cdp:camp><cdp:camp nom="Estat (2015)">Fora d'ús permanent</cdp:camp><cdp:camp nom="Ús">Sense ús</cdp:camp><cdp:camp nom="Cota">495 m</cdp:camp><cdp:camp nom="Fondària">3,5 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0054</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.159398" lon="2.510790">
+		<ele>540</ele>
+		<name>Pou sondeig entubat (SPAU0056)</name>
+		<desc>Referència: INV-115
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Industrial
+Cota: 540 m
+Fondària: 138 m
+Codi ICGC: SPAU0056</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-115</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Industrial</cdp:camp><cdp:camp nom="Cota">540 m</cdp:camp><cdp:camp nom="Fondària">138 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0056</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.137024" lon="2.516698">
+		<ele>565</ele>
+		<name>Pou sondeig entubat (SPAU0057)</name>
+		<desc>Referència: INV-116
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Ramader
+Cota: 565 m
+Fondària: 40 m
+Codi ICGC: SPAU0057</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-116</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Ramader</cdp:camp><cdp:camp nom="Cota">565 m</cdp:camp><cdp:camp nom="Fondària">40 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0057</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.136598" lon="2.516132">
+		<ele>569</ele>
+		<name>Pou obert (SPAU0058)</name>
+		<desc>Referència: INV-117
+Tipus: Pou obert
+Estat (2015): Fora d'ús permanent
+Ús: Sense ús
+Cota: 569 m
+Codi ICGC: SPAU0058</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-117</cdp:camp><cdp:camp nom="Tipus">Pou obert</cdp:camp><cdp:camp nom="Estat (2015)">Fora d'ús permanent</cdp:camp><cdp:camp nom="Ús">Sense ús</cdp:camp><cdp:camp nom="Cota">569 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0058</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.148089" lon="2.584825">
+		<ele>425</ele>
+		<name>Pou obert (SPAU0059)</name>
+		<desc>Referència: INV-118
+Tipus: Pou obert
+Estat (2015): En explotació
+Ús: Ramader
+Cota: 425 m
+Fondària: 14 m
+Codi ICGC: SPAU0059</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-118</cdp:camp><cdp:camp nom="Tipus">Pou obert</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Ramader</cdp:camp><cdp:camp nom="Cota">425 m</cdp:camp><cdp:camp nom="Fondària">14 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0059</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.135466" lon="2.588296">
+		<ele>466</ele>
+		<name>Pou sondeig entubat (SPAU0060)</name>
+		<desc>Referència: INV-119
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Abastament domèstic
+Cota: 466 m
+Fondària: 60 m
+Codi ICGC: SPAU0060</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-119</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Abastament domèstic</cdp:camp><cdp:camp nom="Cota">466 m</cdp:camp><cdp:camp nom="Fondària">60 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0060</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.135761" lon="2.582691">
+		<ele>471</ele>
+		<name>Pou obert (SPAU0061)</name>
+		<desc>Referència: INV-120
+Tipus: Pou obert
+Estat (2015): En explotació
+Ús: Ramader
+Cota: 471 m
+Fondària: 9,5 m
+Codi ICGC: SPAU0061</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-120</cdp:camp><cdp:camp nom="Tipus">Pou obert</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Ramader</cdp:camp><cdp:camp nom="Cota">471 m</cdp:camp><cdp:camp nom="Fondària">9,5 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0061</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.155465" lon="2.560653">
+		<ele>498</ele>
+		<name>Pou sondeig entubat (SPAU0062)</name>
+		<desc>Referència: INV-121
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Abastament domèstic
+Cota: 498 m
+Fondària: 60 m
+Codi ICGC: SPAU0062</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-121</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Abastament domèstic</cdp:camp><cdp:camp nom="Cota">498 m</cdp:camp><cdp:camp nom="Fondària">60 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0062</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.162769" lon="2.553642">
+		<ele>535</ele>
+		<name>Pou sondeig entubat (SPAU0063)</name>
+		<desc>Referència: INV-122
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Ramader
+Cota: 535 m
+Fondària: 100 m
+Codi ICGC: SPAU0063</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-122</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Ramader</cdp:camp><cdp:camp nom="Cota">535 m</cdp:camp><cdp:camp nom="Fondària">100 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0063</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.141739" lon="2.584552">
+		<ele>452</ele>
+		<name>Pou sondeig entubat (SPAU0064)</name>
+		<desc>Referència: INV-123
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Abastament domèstic
+Cota: 452 m
+Fondària: 72 m
+Codi ICGC: SPAU0064</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-123</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Abastament domèstic</cdp:camp><cdp:camp nom="Cota">452 m</cdp:camp><cdp:camp nom="Fondària">72 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0064</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.131468" lon="2.601365">
+		<ele>442</ele>
+		<name>Pou sondeig entubat (SPAU0065)</name>
+		<desc>Referència: INV-124
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Ramader
+Cota: 442 m
+Fondària: 330 m
+Codi ICGC: SPAU0065
+Codi IGME: 381220018</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-124</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Ramader</cdp:camp><cdp:camp nom="Cota">442 m</cdp:camp><cdp:camp nom="Fondària">330 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0065</cdp:camp><cdp:camp nom="Codi IGME">381220018</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.159963" lon="2.563830">
+		<ele>490</ele>
+		<name>Pou sondeig entubat (SPAU0066)</name>
+		<desc>Referència: INV-125
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Ramader
+Cota: 490 m
+Fondària: 40 m
+Codi ICGC: SPAU0066</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-125</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Ramader</cdp:camp><cdp:camp nom="Cota">490 m</cdp:camp><cdp:camp nom="Fondària">40 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0066</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.137542" lon="2.524329">
+		<ele>578</ele>
+		<name>Pou sondeig entubat (SPAU0067)</name>
+		<desc>Referència: INV-126
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Abastament domèstic
+Cota: 578 m
+Fondària: 30 m
+Codi ICGC: SPAU0067</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-126</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Abastament domèstic</cdp:camp><cdp:camp nom="Cota">578 m</cdp:camp><cdp:camp nom="Fondària">30 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0067</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.157953" lon="2.510087">
+		<ele>560</ele>
+		<name>Can Jofre (municipal)</name>
+		<desc>Referència: INV-127
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Abastament municipal
+Cota: 560 m
+Fondària: 210 m
+Codi ICGC: SPAU0068
+Codi IGME: 381210046
+Codi ACA: 17184-3</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-127</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Abastament municipal</cdp:camp><cdp:camp nom="Cota">560 m</cdp:camp><cdp:camp nom="Fondària">210 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0068</cdp:camp><cdp:camp nom="Codi IGME">381210046</cdp:camp><cdp:camp nom="Codi ACA">17184-3</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.147691" lon="2.564919">
+		<ele>504</ele>
+		<name>Dos pous de la zona esportiva (municipal)</name>
+		<desc>Referència: INV-128
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Abastament municipal
+Cota: 504 m
+Fondària: 150 / 213 m
+Codi ICGC: SPAU0069
+Codi IGME: 381220026
+Comentari: Separats 5m</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-128</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Abastament municipal</cdp:camp><cdp:camp nom="Cota">504 m</cdp:camp><cdp:camp nom="Fondària">150 / 213 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0069</cdp:camp><cdp:camp nom="Codi IGME">381220026</cdp:camp><cdp:camp nom="Comentari">Separats 5m</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.150951" lon="2.584213">
+		<ele>419</ele>
+		<name>Pou sondeig entubat (SPAU0070)</name>
+		<desc>Referència: INV-129
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Industrial
+Cota: 419 m
+Fondària: 70 m
+Codi ICGC: SPAU0070</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-129</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Industrial</cdp:camp><cdp:camp nom="Cota">419 m</cdp:camp><cdp:camp nom="Fondària">70 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0070</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.142786" lon="2.565787">
+		<ele>501</ele>
+		<name>Pou de l’Ajuntament (camí de Can Font)</name>
+		<desc>Referència: INV-130
+Tipus: Pou sondeig entubat
+Estat (2015): Fora d'ús permanent
+Ús: Sense ús
+Cota: 501 m
+Codi ICGC: SPAU0071
+Codi IGME: 381220027
+Comentari: El 1998 s’hi van detectar gèrmens fecals</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-130</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">Fora d'ús permanent</cdp:camp><cdp:camp nom="Ús">Sense ús</cdp:camp><cdp:camp nom="Cota">501 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0071</cdp:camp><cdp:camp nom="Codi IGME">381220027</cdp:camp><cdp:camp nom="Comentari">El 1998 s’hi van detectar gèrmens fecals</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.153635" lon="2.550704">
+		<ele>561</ele>
+		<name>Càmping Lava</name>
+		<desc>Referència: INV-131
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Abastament domèstic
+Cota: 561 m
+Fondària: 200 m
+Codi ICGC: SPAU0072
+Codi IGME: 381210038
+Codi ACA: 17184-7</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-131</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Abastament domèstic</cdp:camp><cdp:camp nom="Cota">561 m</cdp:camp><cdp:camp nom="Fondària">200 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0072</cdp:camp><cdp:camp nom="Codi IGME">381210038</cdp:camp><cdp:camp nom="Codi ACA">17184-7</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.147917" lon="2.532954">
+		<ele>604</ele>
+		<name>Pou sondeig entubat (SPAU0073)</name>
+		<desc>Referència: INV-132
+Tipus: Pou sondeig entubat
+Estat (2015): Antic sense equipar
+Ús: Sense ús
+Cota: 604 m
+Fondària: 265 m
+Codi ICGC: SPAU0073
+Codi IGME: 381210006</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-132</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">Antic sense equipar</cdp:camp><cdp:camp nom="Ús">Sense ús</cdp:camp><cdp:camp nom="Cota">604 m</cdp:camp><cdp:camp nom="Fondària">265 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0073</cdp:camp><cdp:camp nom="Codi IGME">381210006</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.146513" lon="2.575020">
+		<ele>469</ele>
+		<name>Pou sondeig entubat (SPAU0074)</name>
+		<desc>Referència: INV-133
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Ramader
+Cota: 469 m
+Fondària: 60 m
+Codi ICGC: SPAU0074</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-133</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Ramader</cdp:camp><cdp:camp nom="Cota">469 m</cdp:camp><cdp:camp nom="Fondària">60 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0074</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.152998" lon="2.580060">
+		<ele>438</ele>
+		<name>Pou obert (SPAU0075)</name>
+		<desc>Referència: INV-134
+Tipus: Pou obert
+Estat (2015): Fora d'ús permanent
+Ús: Sense ús
+Cota: 438 m
+Fondària: 9 m
+Codi ICGC: SPAU0075</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-134</cdp:camp><cdp:camp nom="Tipus">Pou obert</cdp:camp><cdp:camp nom="Estat (2015)">Fora d'ús permanent</cdp:camp><cdp:camp nom="Ús">Sense ús</cdp:camp><cdp:camp nom="Cota">438 m</cdp:camp><cdp:camp nom="Fondària">9 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0075</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.145596" lon="2.587915">
+		<ele>427</ele>
+		<name>Pou de Can Pratdevall</name>
+		<desc>Referència: INV-135
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Abastament domèstic, Agrícola
+Cota: 427 m
+Fondària: 50-57 m
+Codi ICGC: SPAU0076
+Codi IGME: 381220045
+Codi ACA: 17184-0016
+Comentari: Capta aigües profundes, sorres i graves a ~50 m sota els basalts. P-9</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-135</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Abastament domèstic, Agrícola</cdp:camp><cdp:camp nom="Cota">427 m</cdp:camp><cdp:camp nom="Fondària">50-57 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0076</cdp:camp><cdp:camp nom="Codi IGME">381220045</cdp:camp><cdp:camp nom="Codi ACA">17184-0016</cdp:camp><cdp:camp nom="Comentari">Capta aigües profundes, sorres i graves a ~50 m sota els basalts. P-9</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.154705" lon="2.617499">
+		<ele>306</ele>
+		<name>Pou obert (SPAU0077)</name>
+		<desc>Referència: INV-136
+Tipus: Pou obert
+Estat (2015): En explotació
+Ús: Abastament domèstic, Agrícola
+Cota: 306 m
+Fondària: 10,4 m
+Codi ICGC: SPAU0077</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-136</cdp:camp><cdp:camp nom="Tipus">Pou obert</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Abastament domèstic, Agrícola</cdp:camp><cdp:camp nom="Cota">306 m</cdp:camp><cdp:camp nom="Fondària">10,4 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0077</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.144008" lon="2.589596">
+		<ele>423</ele>
+		<name>Piezòmetre P-3 riera dels Arcs</name>
+		<desc>Referència: INV-137
+Tipus: Piezòmetre
+Estat (2015): En explotació
+Ús: Altres
+Cota: 423 m
+Fondària: 8 m
+Codi ICGC: SPAU0078
+Codi IGME: 381220051
+Codi ACA: 17184-0079
+Comentari: Aqüífer de la bretxa piroclàstica</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-137</cdp:camp><cdp:camp nom="Tipus">Piezòmetre</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Altres</cdp:camp><cdp:camp nom="Cota">423 m</cdp:camp><cdp:camp nom="Fondària">8 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0078</cdp:camp><cdp:camp nom="Codi IGME">381220051</cdp:camp><cdp:camp nom="Codi ACA">17184-0079</cdp:camp><cdp:camp nom="Comentari">Aqüífer de la bretxa piroclàstica</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.143682" lon="2.588920">
+		<ele>422</ele>
+		<name>Piezòmetre P-1 riera dels Arcs</name>
+		<desc>Referència: INV-138
+Tipus: Piezòmetre
+Estat (2015): En explotació
+Ús: Altres
+Cota: 422 m
+Fondària: 21 m
+Codi ICGC: SPAU0079
+Codi IGME: 381220049
+Codi ACA: 17184-0077
+Comentari: Aqüífer al·luvial confinat</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-138</cdp:camp><cdp:camp nom="Tipus">Piezòmetre</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Altres</cdp:camp><cdp:camp nom="Cota">422 m</cdp:camp><cdp:camp nom="Fondària">21 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0079</cdp:camp><cdp:camp nom="Codi IGME">381220049</cdp:camp><cdp:camp nom="Codi ACA">17184-0077</cdp:camp><cdp:camp nom="Comentari">Aqüífer al·luvial confinat</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.140991" lon="2.587098">
+		<ele>431</ele>
+		<name>Piezòmetre P-2 riera dels Arcs</name>
+		<desc>Referència: INV-139
+Tipus: Piezòmetre
+Estat (2015): En explotació
+Ús: Altres
+Cota: 431 m
+Fondària: 10 m
+Codi ICGC: SPAU0080
+Codi IGME: 381220050
+Codi ACA: 17184-0078</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-139</cdp:camp><cdp:camp nom="Tipus">Piezòmetre</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Altres</cdp:camp><cdp:camp nom="Cota">431 m</cdp:camp><cdp:camp nom="Fondària">10 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0080</cdp:camp><cdp:camp nom="Codi IGME">381220050</cdp:camp><cdp:camp nom="Codi ACA">17184-0078</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.143840" lon="2.501543">
+		<ele>531</ele>
+		<name>Cal Roure</name>
+		<desc>Referència: INV-140
+Tipus: Pou obert
+Estat (2015): En explotació
+Ús: Abastament domèstic
+Cota: 531 m
+Fondària: &lt;8 m
+Codi ICGC: SPAU0081
+Codi IGME: 381210030</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-140</cdp:camp><cdp:camp nom="Tipus">Pou obert</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Abastament domèstic</cdp:camp><cdp:camp nom="Cota">531 m</cdp:camp><cdp:camp nom="Fondària">&lt;8 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0081</cdp:camp><cdp:camp nom="Codi IGME">381210030</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.143821" lon="2.590238">
+		<ele>424</ele>
+		<name>Pou Nou de La Canova</name>
+		<desc>Referència: INV-141
+Tipus: Pou sondeig entubat
+Estat (2015): En explotació
+Ús: Agrícola
+Cota: 424 m
+Fondària: &gt;90 m
+Codi ICGC: SPAU0082
+Codi IGME: 381220052
+Codi ACA: 17184-0074
+Comentari: S’utilitza per regar. P-4. ~120 m, al costat del P-3</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-141</cdp:camp><cdp:camp nom="Tipus">Pou sondeig entubat</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Agrícola</cdp:camp><cdp:camp nom="Cota">424 m</cdp:camp><cdp:camp nom="Fondària">&gt;90 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0082</cdp:camp><cdp:camp nom="Codi IGME">381220052</cdp:camp><cdp:camp nom="Codi ACA">17184-0074</cdp:camp><cdp:camp nom="Comentari">S’utilitza per regar. P-4. ~120 m, al costat del P-3</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.157141" lon="2.533479">
+		<ele>609</ele>
+		<name>Piezòmetre (SPAU0085)</name>
+		<desc>Referència: INV-142
+Tipus: Piezòmetre
+Estat (2015): En explotació
+Ús: Altres
+Cota: 609 m
+Codi ICGC: SPAU0085
+Codi IGME: 381210015</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-142</cdp:camp><cdp:camp nom="Tipus">Piezòmetre</cdp:camp><cdp:camp nom="Estat (2015)">En explotació</cdp:camp><cdp:camp nom="Ús">Altres</cdp:camp><cdp:camp nom="Cota">609 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0085</cdp:camp><cdp:camp nom="Codi IGME">381210015</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.152846" lon="2.530177">
+		<ele>630</ele>
+		<name>Pou (SPAU0140)</name>
+		<desc>Referència: INV-143
+Tipus: Pou
+Ús: Sense ús
+Cota: 630 m
+Codi ICGC: SPAU0140</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-143</cdp:camp><cdp:camp nom="Tipus">Pou</cdp:camp><cdp:camp nom="Ús">Sense ús</cdp:camp><cdp:camp nom="Cota">630 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0140</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.130575" lon="2.602430">
+		<ele>441</ele>
+		<name>Pou obert (SPAU0144)</name>
+		<desc>Referència: INV-144
+Tipus: Pou obert
+Estat (2015): Desmantellat
+Ús: Sense ús
+Cota: 441 m
+Fondària: 6,5 m
+Codi ICGC: SPAU0144</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-144</cdp:camp><cdp:camp nom="Tipus">Pou obert</cdp:camp><cdp:camp nom="Estat (2015)">Desmantellat</cdp:camp><cdp:camp nom="Ús">Sense ús</cdp:camp><cdp:camp nom="Cota">441 m</cdp:camp><cdp:camp nom="Fondària">6,5 m</cdp:camp><cdp:camp nom="Codi ICGC">SPAU0144</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.131521" lon="2.552361">
+		<ele>610</ele>
+		<name>Sondeig (381210005)</name>
+		<desc>Referència: INV-145
+Tipus: Sondeig
+Ús: Indústria
+Cota: 610 m
+Fondària: 50 m
+Codi IGME: 381210005</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-145</cdp:camp><cdp:camp nom="Tipus">Sondeig</cdp:camp><cdp:camp nom="Ús">Indústria</cdp:camp><cdp:camp nom="Cota">610 m</cdp:camp><cdp:camp nom="Fondària">50 m</cdp:camp><cdp:camp nom="Codi IGME">381210005</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.135977" lon="2.542637">
+		<ele>650</ele>
+		<name>Sondeig (381210007)</name>
+		<desc>Referència: INV-146
+Tipus: Sondeig
+Ús: Agrícola
+Cota: 650 m
+Fondària: 50 m
+Codi IGME: 381210007</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-146</cdp:camp><cdp:camp nom="Tipus">Sondeig</cdp:camp><cdp:camp nom="Ús">Agrícola</cdp:camp><cdp:camp nom="Cota">650 m</cdp:camp><cdp:camp nom="Fondària">50 m</cdp:camp><cdp:camp nom="Codi IGME">381210007</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.144853" lon="2.519579">
+		<ele>570</ele>
+		<name>Pou de la Font del Prat de la Plaça</name>
+		<desc>Referència: INV-147
+Tipus: Sondeig
+Ús: Abastament (no nucli urbà)
+Cota: 570 m
+Fondària: 30 m
+Codi IGME: 381210008
+Comentari: Alimenta aquesta font, que és artificial</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-147</cdp:camp><cdp:camp nom="Tipus">Sondeig</cdp:camp><cdp:camp nom="Ús">Abastament (no nucli urbà)</cdp:camp><cdp:camp nom="Cota">570 m</cdp:camp><cdp:camp nom="Fondària">30 m</cdp:camp><cdp:camp nom="Codi IGME">381210008</cdp:camp><cdp:camp nom="Comentari">Alimenta aquesta font, que és artificial</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.162216" lon="2.561829">
+		<ele>500</ele>
+		<name>Sondeig (381210009)</name>
+		<desc>Referència: INV-148
+Tipus: Sondeig
+Ús: Abastament (no nucli urbà)
+Cota: 500 m
+Fondària: 36 m
+Codi IGME: 381210009</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-148</cdp:camp><cdp:camp nom="Tipus">Sondeig</cdp:camp><cdp:camp nom="Ús">Abastament (no nucli urbà)</cdp:camp><cdp:camp nom="Cota">500 m</cdp:camp><cdp:camp nom="Fondària">36 m</cdp:camp><cdp:camp nom="Codi IGME">381210009</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.145800" lon="2.507046">
+		<ele>550</ele>
+		<name>Pou (381210026)</name>
+		<desc>Referència: INV-149
+Tipus: Pou
+Ús: Abastament (no nucli urbà)
+Cota: 550 m
+Fondària: 13,83 m
+Codi IGME: 381210026</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-149</cdp:camp><cdp:camp nom="Tipus">Pou</cdp:camp><cdp:camp nom="Ús">Abastament (no nucli urbà)</cdp:camp><cdp:camp nom="Cota">550 m</cdp:camp><cdp:camp nom="Fondària">13,83 m</cdp:camp><cdp:camp nom="Codi IGME">381210026</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.144479" lon="2.497459">
+		<ele>505</ele>
+		<name>Pou de Can Só</name>
+		<desc>Referència: INV-150
+Tipus: Pou
+Ús: Desconegut
+Cota: 505 m
+Fondària: 13 m
+Codi IGME: 381210029</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-150</cdp:camp><cdp:camp nom="Tipus">Pou</cdp:camp><cdp:camp nom="Ús">Desconegut</cdp:camp><cdp:camp nom="Cota">505 m</cdp:camp><cdp:camp nom="Fondària">13 m</cdp:camp><cdp:camp nom="Codi IGME">381210029</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.132879" lon="2.549387">
+		<ele>607</ele>
+		<name>Pou + mina (al costat de La Mina)</name>
+		<desc>Referència: INV-151
+Tipus: Pou + mina
+Ús: Abastament a nuclis urbans
+Cota: 607 m
+Fondària: 15 m
+Codi IGME: 381210035
+Comentari: A 27 m de la Font de la Mina. 381210034 és al costat</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-151</cdp:camp><cdp:camp nom="Tipus">Pou + mina</cdp:camp><cdp:camp nom="Ús">Abastament a nuclis urbans</cdp:camp><cdp:camp nom="Cota">607 m</cdp:camp><cdp:camp nom="Fondària">15 m</cdp:camp><cdp:camp nom="Codi IGME">381210035</cdp:camp><cdp:camp nom="Comentari">A 27 m de la Font de la Mina. 381210034 és al costat</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.145124" lon="2.500734">
+		<ele>523</ele>
+		<name>Sondeig (381210039)</name>
+		<desc>Referència: INV-152
+Tipus: Sondeig
+Ús: Abastament (no nucli urbà)
+Cota: 523 m
+Fondària: 140 m
+Codi IGME: 381210039</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-152</cdp:camp><cdp:camp nom="Tipus">Sondeig</cdp:camp><cdp:camp nom="Ús">Abastament (no nucli urbà)</cdp:camp><cdp:camp nom="Cota">523 m</cdp:camp><cdp:camp nom="Fondària">140 m</cdp:camp><cdp:camp nom="Codi IGME">381210039</cdp:camp></cdp:camps></extensions>
+	</wpt>
+	<wpt lat="42.147368" lon="2.577193">
+		<ele>452</ele>
+		<name>La Quintana</name>
+		<desc>Referència: INV-153
+Tipus: Pou
+Ús: Desconegut
+Cota: 452 m
+Fondària: 27 m
+Codi IGME: 381220028
+Comentari: Aigua a uns 26 m; s’asseca a l’estiu</desc>
+		<type>pou</type>
+		<extensions><cdp:camps><cdp:camp nom="Referència">INV-153</cdp:camp><cdp:camp nom="Tipus">Pou</cdp:camp><cdp:camp nom="Ús">Desconegut</cdp:camp><cdp:camp nom="Cota">452 m</cdp:camp><cdp:camp nom="Fondària">27 m</cdp:camp><cdp:camp nom="Codi IGME">381220028</cdp:camp><cdp:camp nom="Comentari">Aigua a uns 26 m; s’asseca a l’estiu</cdp:camp></cdp:camps></extensions>
+	</wpt>
+</gpx>

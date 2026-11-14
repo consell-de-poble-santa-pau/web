@@ -124,6 +124,32 @@ function simplifica(punts, tol) {
   return punts.filter((_, i) => guarda[i]);
 }
 
+// Camps addicionals d'un punt, del GPX:
+//   <extensions><cdp:camps><cdp:camp nom="Cota">455 m</cdp:camp>...</cdp:camps></extensions>
+// togeojson no llegeix les extensions, així que es busquen aquí i es
+// guarden per "nom|lon,lat" per poder-los aparellar després amb cada punt.
+function campsPerPunt(xml) {
+  const resultat = new Map();
+  const wpts = xml.getElementsByTagName('wpt');
+  for (let i = 0; i < wpts.length; i++) {
+    const w = wpts[i];
+    const camps = [];
+    const tots = w.getElementsByTagName('*');
+    for (let j = 0; j < tots.length; j++) {
+      const e = tots[j];
+      const clau = e.getAttribute && e.getAttribute('nom');
+      const valor = (e.textContent || '').trim();
+      if (e.localName === 'camp' && clau && valor) camps.push([clau, valor]);
+    }
+    if (!camps.length) continue;
+    const nom = w.getElementsByTagName('name')[0]?.textContent?.trim() || '(sense nom)';
+    const lon = Number(w.getAttribute('lon')).toFixed(6);
+    const lat = Number(w.getAttribute('lat')).toFixed(6);
+    resultat.set(`${nom}|${lon},${lat}`, camps);
+  }
+  return resultat;
+}
+
 // ------------------------------------------------------------------ procés
 
 const gpxDe = (carpeta) => {
@@ -163,6 +189,7 @@ for (const cami of fitxers) {
   const categoriaFitxer = esRuta ? null : categoriaDelNom(fitxer);
   const xml = new DOMParser().parseFromString(readFileSync(cami, 'utf8'), 'text/xml');
   const dades = gpx(xml);
+  const campsDe = campsPerPunt(xml);
   perFitxer[fitxer] = { categoria: esRuta ? 'RUTA' : categoriaFitxer, punts: 0, rutes: 0 };
 
   for (const f of dades.features) {
@@ -190,7 +217,15 @@ for (const cami of fitxers) {
         properties: {
           nom,
           categoria,
-          ...(p.desc?.trim() ? { descripcio: p.desc.trim() } : {}),
+          // Si el punt porta camps addicionals, la fitxa els mostra en taula
+          // i la descripció (que en aquests GPX és la mateixa informació en
+          // text pla, per a altres aplicacions) no cal.
+          ...(() => {
+            const [lon, lat] = f.geometry.coordinates;
+            const camps = campsDe.get(`${nom}|${lon.toFixed(6)},${lat.toFixed(6)}`);
+            if (camps?.length) return { camps: JSON.stringify(camps) };
+            return p.desc?.trim() ? { descripcio: p.desc.trim() } : {};
+          })(),
         },
       });
     }
