@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Habitatge">
+  <circle cx="256" cy="256" r="222" fill="#B5761F"/>
+  <rect x="302" y="150" width="30" height="70" rx="4" fill="#FBE2CA"/>
+  <path d="M136 246 L256 152 L376 246 Z" fill="#FBE2CA" stroke="#FBE2CA" stroke-width="18" stroke-linejoin="round"/>
+  <rect x="164" y="236" width="184" height="142" fill="#FBE2CA"/>
+  <path d="M234 378 V326 a22 22 0 0 1 44 0 V378 Z" fill="#B5761F"/>
+  <rect x="186" y="262" width="34" height="34" rx="4" fill="#B5761F"/>
+  <rect x="292" y="262" width="34" height="34" rx="4" fill="#B5761F"/>
+  <rect x="120" y="372" width="272" height="24" rx="12" fill="#7A4E14"/>
+</svg>

@@ -6,7 +6,7 @@ const actes = defineCollection({
   schema: z.object({
     titol: z.string(),
     data: z.coerce.date(),
-    cercle: z.enum(['coordinacio', 'comunicacio', 'gent-gran', 'aigua']).default('coordinacio'),
+    cercle: z.enum(['coordinacio', 'comunicacio', 'gent-gran', 'salut-comunitaria', 'aigua', 'habitatge']).default('coordinacio'),
     estat: z.enum(['esborrany', 'aprovada']).default('aprovada'),
     assistents: z.array(z.string()).optional(),
     pdf: z.string().optional(),

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Salut Comunitària">
+  <circle cx="256" cy="256" r="222" fill="#D86048"/>
+  <path d="M256 384 C168 326 128 276 136 222 C144 168 214 150 256 202 C298 150 368 168 376 222 C384 276 344 326 256 384 Z" fill="#FBE2CA"/>
+  <rect x="238" y="214" width="36" height="104" rx="7" fill="#D86048"/>
+  <rect x="204" y="248" width="104" height="36" rx="7" fill="#D86048"/>
+</svg>

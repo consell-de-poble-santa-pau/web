@@ -35,6 +35,8 @@ collections:
           - { label: Coordinació, value: coordinacio }
           - { label: Comunicació, value: comunicacio }
           - { label: Gent Gran, value: gent-gran }
+          - { label: Salut Comunitària, value: salut-comunitaria }
+          - { label: Habitatge, value: habitatge }
           - { label: Aigua, value: aigua }
       - name: estat
         label: Estat
@@ -89,6 +91,8 @@ collections:
           - { label: Coordinació, value: coordinacio }
           - { label: Comunicació, value: comunicacio }
           - { label: Gent Gran, value: gent-gran }
+          - { label: Salut Comunitària, value: salut-comunitaria }
+          - { label: Habitatge, value: habitatge }
           - { label: Aigua, value: aigua }
       - { name: lloc, label: On, widget: string, required: false, hint: "Per exemple: Sala del Casal, Santa Pau" }
       - { name: oberta, label: Oberta a tothom, widget: boolean, default: true }
