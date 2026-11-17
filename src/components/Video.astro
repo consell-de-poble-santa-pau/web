@@ -1,0 +1,70 @@
+---
+// Vídeo de YouTube que no carrega res de YouTube fins que es prem el botó.
+// Abans del clic, el requadre el dibuixa el mateix web: cap petició a Google.
+// En prémer, es carrega des de youtube-nocookie.com.
+//
+//   <Video id="6MDQ4KnYkTo" titol="El Consell de Poble" font="Resilience Earth" />
+//
+// Per posar-ne dos l'un al costat de l'altre:
+//   <div class="videos-parell"> <Video .../> <Video .../> </div>
+interface Props { id: string; titol: string; font?: string; }
+const { id, titol, font } = Astro.props;
+const enllac = `https://www.youtube.com/watch?v=${id}`;
+---
+<figure class="video">
+  <div class="video__marc" data-id={id} data-titol={titol}>
+    <button type="button" class="video__play" aria-label={`Reprodueix el vídeo: ${titol}`}>
+      <svg class="video__icona" viewBox="0 0 68 48" aria-hidden="true" focusable="false">
+        <rect width="68" height="48" rx="12" fill="currentColor" />
+        <path d="M27 14 L47 24 L27 34 Z" fill="var(--blau-fosc, #10202A)" />
+      </svg>
+      <span class="video__titol">{titol}</span>
+      <span class="video__avis">En prémer, el vídeo es carrega des de YouTube</span>
+    </button>
+  </div>
+  <figcaption>
+    {font && <>{font} · </>}<a href={enllac} target="_blank" rel="noopener">Mira'l a YouTube</a>
+  </figcaption>
+</figure>
+
+<script>
+  for (const marc of document.querySelectorAll<HTMLElement>('.video__marc')) {
+    const boto = marc.querySelector('button');
+    boto?.addEventListener('click', () => {
+      const f = document.createElement('iframe');
+      f.src = `https://www.youtube-nocookie.com/embed/${marc.dataset.id}?autoplay=1&rel=0`;
+      f.title = marc.dataset.titol ?? 'Vídeo';
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      marc.replaceChildren(f);
+      f.focus();
+    }, { once: true });
+  }
+</script>
+
+<style>
+  .video { margin: 1.8rem 0; }
+  .video__marc { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radi, 10px);
+    overflow: hidden; background: var(--blau-fosc, #10202A); }
+  .video__marc :global(iframe) { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .video__play { position: absolute; inset: 0; width: 100%; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: .7rem; padding: 1.2rem;
+    border: 0; cursor: pointer; color: #fff; font: inherit; text-align: center;
+    background:
+      radial-gradient(120% 90% at 30% 20%, rgba(255,255,255,.10), transparent 60%),
+      linear-gradient(135deg, var(--blau-fosc, #10202A), #1F4A3A); }
+  .video__icona { width: 68px; height: 48px; color: var(--crema, #FBE2CA);
+    transition: transform .15s ease; }
+  .video__play:hover .video__icona, .video__play:focus-visible .video__icona { transform: scale(1.08); }
+  .video__play:focus-visible { outline: 3px solid var(--crema, #FBE2CA); outline-offset: -6px; }
+  .video__titol { font-family: var(--tipo-titol, serif); font-size: clamp(1.05rem, 2.4vw, 1.4rem);
+    max-width: 28ch; line-height: 1.25; }
+  .video__avis { font-size: .78rem; opacity: .75; }
+  .video figcaption { margin-top: .45rem; font-size: .85rem; color: var(--tinta-suau, #666); }
+  @media (prefers-reduced-motion: reduce) { .video__icona { transition: none; } }
+
+  :global(.videos-parell) { display: grid; gap: 0 1.2rem; margin: 1.8rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+  :global(.videos-parell) .video { margin: 0 0 1rem; }
+</style>
