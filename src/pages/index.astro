@@ -13,7 +13,7 @@ const fmt = d => d.toLocaleDateString('ca-ES', { day:'numeric', month:'long', ye
     <div class="hero__fons" aria-hidden="true"></div>
     <div class="contenidor hero__int">
       <p class="hero__sobre">Consell de Poble de Santa Pau</p>
-      <h1>L'espai on el poble<br/>es coordina, decideix<br/>i es cuida.</h1>
+      <h1>L'espai on el poble<br/>es coordina,<br/>proposa i decideix el seu futur.</h1>
       <p class="hero__entrada">Participar-hi és obert a tothom. No cal ser escollit ni demanar permís: qui ve a una reunió d'un cercle, en aquell moment, en forma part.</p>
       <p class="hero__botons">
         <a class="boto" href="/participa/">Com hi puc participar</a>
@@ -29,7 +29,7 @@ const fmt = d => d.toLocaleDateString('ca-ES', { day:'numeric', month:'long', ye
   <section class="contenidor bloc">
     <p class="eyebrow">Com ens organitzem</p>
     <h2 class="bloc__titol">Els cercles actius</h2>
-    <p class="bloc__intro">La feina del Consell es reparteix en cercles que es creen a partir de les necessitats reals del municipi. Són oberts a tothom: no cal apuntar-s'hi enlloc, n'hi ha prou de venir.</p>
+    <p class="bloc__intro">El Consell de poble obre espais de reflexió, diàleg i proposta en funció de les necessitats reals del municipi “els cercles”. Són espais oberts a tothom, si t’interessa, n’hi ha prou en anar-hi!</p>
     <ul class="graella">
       {cercles.map(c => (
         <li><a href={`/cercles/${c.id}/`} style={`--accent:${c.data.color}`}>
@@ -46,9 +46,9 @@ const fmt = d => d.toLocaleDateString('ca-ES', { day:'numeric', month:'long', ye
 
   <section class="fons-alt bloc-ple">
     <div class="contenidor tres">
-      <div class="tres__i"><span class="num">01</span><h3>Obert de veritat</h3><p>Qualsevol persona pot prendre part en un cercle. La pertinença s'adquireix participant-hi.</p></div>
-      <div class="tres__i"><span class="num">02</span><h3>Decisions compartides</h3><p>No es decideix per majoria, sinó per consens i consentiment, allà on hi ha el coneixement.</p></div>
-      <div class="tres__i"><span class="num">03</span><h3>Tot a la vista</h3><p>Les actes de les reunions es publiquen aquí, tal com estableix el reglament del Consell.</p></div>
+      <div class="tres__i"><span class="num">01</span><h3>Obert a la diversitat</h3><p>Qualsevol persona pot entrar a dialogar i a proposar en un cercle.</p></div>
+      <div class="tres__i"><span class="num">02</span><h3>Decisions compartides</h3><p>Es decideix per consentiment, allà on hi ha vitalitat, rigorositat i coneixement (local i científic).</p></div>
+      <div class="tres__i"><span class="num">03</span><h3>Transparència</h3><p>Les actes de les reunions es publiquen a la pàgina web perquè tothom pugui accedir-hi.</p></div>
     </div>
   </section>
 
