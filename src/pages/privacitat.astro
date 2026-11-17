@@ -25,7 +25,7 @@ import CapPagina from '../components/CapPagina.astro';
     <h2>Serveis externs</h2>
     <p>Algunes pàgines mostren contingut allotjat fora d'aquest web:</p>
     <ul>
-      <li><strong>Mapes</strong>: la cartografia prové d'OpenFreeMap, un servei sense claus ni galetes basat en dades d'OpenStreetMap. En carregar el mapa es fan peticions als seus servidors.</li>
+      <li><strong>Mapes</strong>: la biblioteca que dibuixa el mapa es carrega des d'unpkg.com, i les imatges del mapa, dels servidors d'OpenStreetMap. Només passa a les pàgines que tenen mapa, i aquests serveis reben la teva adreça IP en fer-hi la petició.</li>
       <li><strong>Vídeos</strong>: si n'hi ha, no es carreguen fins que hi fas clic, de manera que si no els mires, YouTube no rep cap dada teva.</li>
       <li><strong>WhatsApp i Instagram</strong>: hi enllacem, però no hi ha contingut incrustat. Si hi entres, s'hi apliquen les seves polítiques.</li>
     </ul>

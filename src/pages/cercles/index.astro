@@ -22,6 +22,7 @@ const any = d => d.getFullYear();
         <li><a href={`/cercles/${c.id}/`} style={`--accent:${c.data.color}`}>
           <img src={c.data.icona} alt="" width="60" height="60" />
           <strong>{c.data.nom}</strong>
+          {c.data.dataInici && c.data.dataInici > new Date() && <span class="graella__aviat">S'obre el {c.data.dataInici.getFullYear()}</span>}
           <span>{c.data.entradeta}</span>
         </a></li>
       ))}
@@ -36,6 +37,7 @@ const any = d => d.getFullYear();
             <li><a href={`/cercles/${c.id}/`} style={`--accent:${c.data.color}`}>
               <img src={c.data.icona} alt="" width="60" height="60" />
               <strong>{c.data.nom}</strong>
+          {c.data.dataInici && c.data.dataInici > new Date() && <span class="graella__aviat">S'obre el {c.data.dataInici.getFullYear()}</span>}
               <span>{c.data.entradeta}</span>
             </a></li>
           ))}
@@ -72,4 +74,7 @@ const any = d => d.getFullYear();
 .arxiu { list-style: none; padding: 0; margin: 0; max-width: var(--amplada-text); }
 .arxiu li { display: flex; justify-content: space-between; gap: 1rem; padding: .6rem 0; border-bottom: 1px solid var(--vora); }
 .arxiu span { color: var(--tinta-suau); font-size: .9rem; white-space: nowrap; }
+.graella .graella__aviat { display: inline-block; align-self: flex-start; margin: 0 0 .55rem;
+  padding: .15rem .65rem; border-radius: 999px; font-size: .78rem; font-weight: 650;
+  color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
 </style>

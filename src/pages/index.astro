@@ -35,6 +35,7 @@ const fmt = d => d.toLocaleDateString('ca-ES', { day:'numeric', month:'long', ye
         <li><a href={`/cercles/${c.id}/`} style={`--accent:${c.data.color}`}>
           <span class="graella__icona"><img src={c.data.icona} alt="" width="56" height="56" /></span>
           <strong>{c.data.nom}</strong>
+          {c.data.dataInici && c.data.dataInici > new Date() && <span class="graella__aviat">S'obre el {c.data.dataInici.getFullYear()}</span>}
           <span class="graella__txt">{c.data.entradeta}</span>
           <span class="graella__mes">Vés-hi</span>
         </a></li>
@@ -135,4 +136,7 @@ const fmt = d => d.toLocaleDateString('ca-ES', { day:'numeric', month:'long', ye
 .llista p { margin: .35rem 0 0; color: var(--tinta-suau); max-width: 62ch; }
 .mes { display: inline-block; margin-top: 1.4rem; font-weight: 650; text-decoration: none; }
 .mes:hover { text-decoration: underline; }
+.graella .graella__aviat { display: inline-block; align-self: flex-start; margin: 0 0 .55rem;
+  padding: .15rem .65rem; border-radius: 999px; font-size: .78rem; font-weight: 650;
+  color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
 </style>
