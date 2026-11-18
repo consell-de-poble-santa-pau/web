@@ -6,7 +6,9 @@ const actes = defineCollection({
   schema: z.object({
     titol: z.string(),
     data: z.coerce.date(),
-    cercle: z.enum(['coordinacio', 'comunicacio', 'gent-gran', 'salut-comunitaria', 'aigua', 'habitatge']).default('coordinacio'),
+    // Identificador d'un fitxer de src/content/cercles/ (el panell només
+    // deixa triar cercles que existeixen).
+    cercle: z.string().default('coordinacio'),
     estat: z.enum(['esborrany', 'aprovada']).default('aprovada'),
     assistents: z.array(z.string()).optional(),
     pdf: z.string().optional(),
@@ -76,4 +78,71 @@ const agenda = defineCollection({
   }),
 });
 
-export const collections = { actes, noticies, cercles, agenda };
+// ── Textos de les pàgines (al panell: «Pàgines») ───────────────────────
+// Un fitxer per pàgina. Els camps comuns són els de la capçalera; la resta
+// només els fa servir la pàgina que els necessita.
+const pagines = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/pagines' }),
+  schema: z.object({
+    titol: z.string(),
+    sobre: z.string().optional(),
+    entrada: z.string().optional(),
+    descripcio: z.string().optional(),
+    to: z.enum(['verd', 'blau', 'terra']).default('verd'),
+    // Segon bloc de text, per a les pàgines que tenen un llistat al mig
+    textFinal: z.string().optional(),
+    // Portada
+    boto1Text: z.string().optional(),
+    boto1Enllac: z.string().optional(),
+    boto2Text: z.string().optional(),
+    boto2Enllac: z.string().optional(),
+    cerclesSobre: z.string().optional(),
+    cerclesTitol: z.string().optional(),
+    cerclesIntro: z.string().optional(),
+    idees: z.array(z.object({ titol: z.string(), text: z.string() })).optional(),
+    noticiesSobre: z.string().optional(),
+    noticiesTitol: z.string().optional(),
+    // El Consell: Cercle de Coordinació
+    coordinacioTitol: z.string().optional(),
+    coordinacioNota: z.string().optional(),
+    membres: z.array(z.string()).optional(),
+    ajuntament: z.array(z.string()).optional(),
+    coordinacioPeu: z.string().optional(),
+    // Cercles
+    notaEstrategics: z.string().optional(),
+    notaOperatius: z.string().optional(),
+    notaTancats: z.string().optional(),
+    // Participa-hi
+    canalsTitol: z.string().optional(),
+    canalsNota: z.string().optional(),
+  }),
+});
+
+// ── Documents (al panell: «Documents») ─────────────────────────────────
+const documents = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/documents' }),
+  schema: z.object({
+    titol: z.string(),
+    tipus: z.string().default('Altres'),
+    fitxer: z.string(),
+    quan: z.string().optional(),
+    descripcio: z.string().optional(),
+    ordre: z.number().default(99),
+  }),
+});
+
+// ── Dades generals: contacte i xarxes (al panell: «Dades generals») ────
+const general = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/general' }),
+  schema: z.object({
+    correu: z.string(),
+    whatsapp: z.string().optional(),
+    whatsappText: z.string().optional(),
+    instagram: z.string().optional(),
+    instagramUsuari: z.string().optional(),
+    lema: z.string().optional(),
+    creditFotos: z.string().optional(),
+  }),
+});
+
+export const collections = { actes, noticies, cercles, agenda, pagines, documents, general };

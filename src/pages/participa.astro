@@ -1,18 +1,22 @@
 ---
+// El text d'aquesta pàgina s'edita al panell: Pàgines → Participa-hi.
+// La llista de cercles i els canals es fan sols (els canals, amb les
+// Dades generals del panell).
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
-import Foto from '../components/Foto.astro';
 import CapPagina from '../components/CapPagina.astro';
-const cercles = (await getCollection('cercles', c => !c.data.dataFi)).sort((a,b)=>a.data.ordre-b.data.ordre);
+import Markdown from '../components/Markdown.astro';
+import { pagina, general } from '../lib/pagina';
+const { d, Content } = await pagina('participa');
+const g = await general();
+const cercles = (await getCollection('cercles', c => !c.data.dataFi && c.data.tipus !== 'coordinacio'))
+  .sort((a,b)=>a.data.ordre-b.data.ordre);
 ---
-<Base titol="Participa-hi" descripcio="Com prendre part en el Consell de Poble de Santa Pau.">
-  <CapPagina sobre="Fes-hi cap" titol="Participa-hi" to="terra"
-    entrada="No cal ser escollit, ni apuntar-se enlloc, ni demanar permís. Els cercles del Consell són oberts a tothom." />
+<Base titol="Participa-hi" descripcio={d.descripcio ?? d.titol}>
+  <CapPagina sobre={d.sobre} titol={d.titol} entrada={d.entrada} to={d.to} />
 
   <div class="contenidor--mitja prosa" style="padding-top:1rem">
-    <h2>Vine a un cercle</h2>
-    <p>Els cercles es reuneixen quan ells mateixos ho acorden, sense calendari fix: es troben en funció de la feina que tenen i de l'energia que hi ha al poble en cada moment. Per això, la manera d'assabentar-se'n és estar connectat a algun dels canals.</p>
-    <p><strong>Escriu-nos i t'avisem</strong> de la propera trobada del cercle que t'interessi.</p>
+    <Content />
     <ul class="cercles">
       {cercles.map(c => (
         <li style={`--accent:${c.data.color}`}>
@@ -25,35 +29,28 @@ const cercles = (await getCollection('cercles', c => !c.data.dataFi)).sort((a,b)
       ))}
     </ul>
 
-    <h2>Segueix-nos</h2>
+    <h2>{d.canalsTitol ?? 'Segueix-nos'}</h2>
     <div class="canals">
-      <a class="canal canal--wa" href="https://whatsapp.com/channel/0029Va8LbICDuMRnssDBYR1r">
-        <strong>Canal de WhatsApp</strong>
-        <span>Avisos de reunions i activitats. Només hi publica el Consell.</span>
-      </a>
-      <a class="canal canal--ig" href="https://www.instagram.com/conselldepoble_santapau">
-        <strong>Instagram</strong>
-        <span>@conselldepoble_santapau</span>
-      </a>
-      <a class="canal canal--mail" href="mailto:conselldepoble@santapau.cat">
+      {g.whatsapp && (
+        <a class="canal canal--wa" href={g.whatsapp}>
+          <strong>Canal de WhatsApp</strong>
+          {g.whatsappText && <span>{g.whatsappText}</span>}
+        </a>
+      )}
+      {g.instagram && (
+        <a class="canal canal--ig" href={g.instagram}>
+          <strong>Instagram</strong>
+          {g.instagramUsuari && <span>{g.instagramUsuari}</span>}
+        </a>
+      )}
+      <a class="canal canal--mail" href={`mailto:${g.correu}`}>
         <strong>Correu</strong>
-        <span>conselldepoble@santapau.cat</span>
+        <span>{g.correu}</span>
       </a>
     </div>
-    <p class="nota">Els canals avisen; aquest web guarda. Tot el que importa acaba publicat aquí.</p>
+    {d.canalsNota && <p class="nota">{d.canalsNota}</p>}
 
-  </div>
-
-  <div class="contenidor" style="margin:2.5rem auto">
-    <Foto nom="fageda" alt="Bosc de faigs al terme de Santa Pau a la tardor, amb el terra cobert de fullaraca." proporcio="21/9" />
-  </div>
-
-  <div class="contenidor--mitja prosa">
-    <h2>Proposa un cercle nou</h2>
-    <p>Els cercles neixen de necessitats reals del poble. Si detectes un tema que no té qui se n'ocupi, es pot proposar al Cercle de Coordinació la creació d'un cercle nou — estratègic si és una feina de llarg recorregut, o operatiu si és per a una acció concreta.</p>
-
-    <h2>Presenta't a les eleccions? No cal</h2>
-    <p>Al Cercle de Coordinació no s'hi arriba presentant-s'hi. Cada dos anys, el poble proposa noms en unes <a href="/el-consell/#les-eleccions-sense-candidatura">eleccions sense candidatura</a>. Si algun dia et proposen, tindràs tot el dret a dir que no.</p>
+    <Markdown text={d.textFinal} />
   </div>
 </Base>
 <style>

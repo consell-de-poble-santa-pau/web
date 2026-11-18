@@ -2,14 +2,17 @@
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 import CapPagina from '../../components/CapPagina.astro';
+import { pagina } from '../../lib/pagina';
+// Els textos s'editen al panell: Pàgines → Notícies.
+const { d, Content } = await pagina('noticies');
 const noticies = (await getCollection('noticies')).sort((a,b)=>b.data.data-a.data.data);
 const fmt = d => d.toLocaleDateString('ca-ES', { day:'numeric', month:'long', year:'numeric' });
 ---
-<Base titol="Notícies" descripcio="Què fa el Consell de Poble de Santa Pau.">
-  <CapPagina sobre="Què fem" titol="Notícies"
-    entrada="Què decideix i què fa el Consell de Poble, explicat a mesura que passa." />
+<Base titol="Notícies" descripcio={d.descripcio ?? d.titol}>
+  <CapPagina sobre={d.sobre} titol={d.titol} entrada={d.entrada} to={d.to} />
 
   <div class="contenidor--mitja prosa" style="padding-top:1rem">
+    <Content />
     <ul class="llista">
       {noticies.map(n => (
         <li>

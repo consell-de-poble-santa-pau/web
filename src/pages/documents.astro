@@ -1,41 +1,50 @@
 ---
+// El text d'aquesta pàgina s'edita al panell: Pàgines → Documents.
+// Els documents s'afegeixen i s'esborren al panell: Documents.
 import Base from '../layouts/Base.astro';
 import CapPagina from '../components/CapPagina.astro';
-const docs = [
-  { grup: 'Reglaments', items: [
-    { titol: 'Reglament del Consell de Poble de Santa Pau', desc: "El document que crea el Consell i en regula el funcionament: els cercles, les eleccions sense candidatura, com es prenen les decisions i com es fan els processos participatius.", fitxer: '/documents/reglament-consell-de-poble.pdf', data: 'Setembre de 2022' },
-    { titol: 'Reglament de Participació Ciutadana de Santa Pau', desc: 'El marc general de participació del municipi, dins del qual s\u2019inscriu el Consell de Poble.', fitxer: '/documents/reglament-participacio-ciutadana.pdf', data: '' },
-  ]},
-];
+import Markdown from '../components/Markdown.astro';
+import { getCollection } from 'astro:content';
+import { pagina } from '../lib/pagina';
+const { d, Content } = await pagina('documents');
+
+// Ordre dels grups. Un tipus nou que no sigui aquí surt al final.
+const ORDRE_GRUPS = ['Reglaments', 'Informes i processos participatius', 'Enquestes', 'Altres'];
+const docs = await getCollection('documents');
+const tipus = [...new Set(docs.map(x => x.data.tipus))].sort((a, b) => {
+  const ia = ORDRE_GRUPS.indexOf(a), ib = ORDRE_GRUPS.indexOf(b);
+  return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib) || a.localeCompare(b, 'ca');
+});
+const grups = tipus.map(t => ({
+  grup: t,
+  items: docs.filter(x => x.data.tipus === t)
+    .sort((a, b) => a.data.ordre - b.data.ordre || a.data.titol.localeCompare(b.data.titol, 'ca')),
+}));
+const format = (f) => (f.split('?')[0].split('.').pop() ?? '').toUpperCase();
 ---
-<Base titol="Documents" descripcio="Reglaments, informes i materials del Consell de Poble de Santa Pau.">
-  <CapPagina sobre="Arxiu" titol="Documents" to="blau"
-    entrada="Els documents que regeixen el Consell i els materials que en surten." />
+<Base titol="Documents" descripcio={d.descripcio ?? d.titol}>
+  <CapPagina sobre={d.sobre} titol={d.titol} entrada={d.entrada} to={d.to} />
 
   <div class="contenidor--mitja prosa" style="padding-top:1rem">
-    <p>Les actes de les reunions tenen secció pròpia, a <a href="/reunions/">Reunions i actes</a>.</p>
+    <Content />
 
-    {docs.map(g => (
+    {grups.map(g => (
       <>
         <h2>{g.grup}</h2>
         <ul class="docs">
-          {g.items.map(d => (
+          {g.items.map(x => (
             <li>
-              <a href={d.fitxer}>{d.titol}</a>
-              {d.data && <span class="data">{d.data}</span>}
-              <p>{d.desc}</p>
-              <span class="format">PDF</span>
+              <a href={x.data.fitxer}>{x.data.titol}</a>
+              {x.data.quan && <span class="data">{x.data.quan}</span>}
+              {x.data.descripcio && <p>{x.data.descripcio}</p>}
+              {format(x.data.fitxer) && <span class="format">{format(x.data.fitxer)}</span>}
             </li>
           ))}
         </ul>
       </>
     ))}
 
-    <h2>Enquestes</h2>
-    <p class="pendent">Els resultats de les enquestes de 2022 i 2023 es publicaran aquí. Pendent de recuperar-los de la pàgina de participació de l'Ajuntament.</p>
-
-    <h2>Pla Estratègic</h2>
-    <p class="pendent">El Pla Estratègic del Consell de Poble encara no s'ha redactat. Quan es cocreï amb la població, es publicarà en aquesta pàgina.</p>
+    <Markdown text={d.textFinal} />
   </div>
 </Base>
 <style>

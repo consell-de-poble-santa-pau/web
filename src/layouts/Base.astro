@@ -1,5 +1,8 @@
 ---
 import '../styles/tokens.css';
+import '../styles/contingut.css';
+import { general } from '../lib/pagina';
+const g = await general();
 const { titol, descripcio } = Astro.props;
 const nav = [
   { href: '/el-consell/', text: 'El Consell' },
@@ -52,6 +55,23 @@ const actual = Astro.url.pathname;
 
 <main id="principal"><slot /></main>
 
+<script>
+  // Vídeos: es carreguen de YouTube només quan es prem el botó.
+  document.addEventListener('click', (ev) => {
+    const boto = (ev.target as HTMLElement).closest?.('.video__play');
+    const marc = boto?.closest<HTMLElement>('.video__marc');
+    if (!marc) return;
+    const f = document.createElement('iframe');
+    f.src = `https://www.youtube-nocookie.com/embed/${marc.dataset.id}?autoplay=1&rel=0`;
+    f.title = marc.dataset.titol ?? 'Vídeo';
+    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.allowFullscreen = true;
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    marc.replaceChildren(f);
+    f.focus();
+  });
+</script>
+
 <footer class="peu">
   <div class="contenidor peu__int">
     <div class="peu__marca">
@@ -59,10 +79,10 @@ const actual = Astro.url.pathname;
     </div>
     <div>
       <p class="peu__nom">Consell de Poble de Santa Pau</p>
-      <p class="peu__lema">L'espai on el poble es coordina, decideix i es cuida.</p>
+      <p class="peu__lema">{g.lema}</p>
       <p class="xarxes">
-        <a class="wa" href="https://whatsapp.com/channel/0029Va8LbICDuMRnssDBYR1r">Canal de WhatsApp</a>
-        <a class="ig" href="https://www.instagram.com/conselldepoble_santapau">Instagram</a>
+        {g.whatsapp && <a class="wa" href={g.whatsapp}>Canal de WhatsApp</a>}
+        {g.instagram && <a class="ig" href={g.instagram}>Instagram</a>}
       </p>
     </div>
     <div class="peu__enll">
@@ -75,7 +95,7 @@ const actual = Astro.url.pathname;
       <p class="peu__legal">
         <a href="/credits/">Crèdits</a> · <a href="/accessibilitat/">Accessibilitat</a> · <a href="/privacitat/">Privacitat</a>
       </p>
-      <p class="fi">Fotografies: Jacint Garrigolas Coll</p>
+      {g.creditFotos && <p class="fi">Fotografies: {g.creditFotos}</p>}
     </div>
   </div>
 </footer>

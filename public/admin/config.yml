@@ -29,15 +29,13 @@ collections:
       - { name: data, label: Data de la reunió, widget: datetime, format: "YYYY-MM-DD", time_format: false }
       - name: cercle
         label: Cercle
-        widget: select
+        widget: relation
+        collection: cercles
+        value_field: "{{slug}}"
+        search_fields: [nom]
+        display_fields: [nom]
         default: coordinacio
-        options:
-          - { label: Coordinació, value: coordinacio }
-          - { label: Comunicació, value: comunicacio }
-          - { label: Gent Gran, value: gent-gran }
-          - { label: Salut Comunitària, value: salut-comunitaria }
-          - { label: Habitatge, value: habitatge }
-          - { label: Aigua, value: aigua }
+        hint: "Els cercles surten de la col·lecció Cercles. Si se'n crea un de nou, apareix aquí sol."
       - name: estat
         label: Estat
         widget: select
@@ -85,15 +83,13 @@ collections:
           - { label: Activitat, value: activitat }
       - name: cercle
         label: Cercle que la convoca
-        widget: select
+        widget: relation
+        collection: cercles
+        value_field: "{{slug}}"
+        search_fields: [nom]
+        display_fields: [nom]
         required: false
-        options:
-          - { label: Coordinació, value: coordinacio }
-          - { label: Comunicació, value: comunicacio }
-          - { label: Gent Gran, value: gent-gran }
-          - { label: Salut Comunitària, value: salut-comunitaria }
-          - { label: Habitatge, value: habitatge }
-          - { label: Aigua, value: aigua }
+        hint: "Els cercles surten de la col·lecció Cercles. Si se'n crea un de nou, apareix aquí sol."
       - { name: lloc, label: On, widget: string, required: false, hint: "Per exemple: Sala del Casal, Santa Pau" }
       - { name: oberta, label: Oberta a tothom, widget: boolean, default: true }
       - { name: cancellada, label: Cancel·lada, widget: boolean, default: false }
@@ -142,6 +138,7 @@ collections:
         options:
           - { label: "Estratègic — treballa un àmbit de manera continuada", value: estrategic }
           - { label: "Operatiu — creat per a una acció concreta", value: operatiu }
+          - { label: "Coordinació — només n'hi ha un, no en creïs cap altre", value: coordinacio }
       - { name: entradeta, label: En una frase, widget: text, hint: "Què fa aquest cercle. Surt a la portada i al llistat." }
       - { name: dataInici, label: Data de creació, widget: datetime, format: "YYYY-MM-DD", time_format: false }
       - name: color
@@ -156,9 +153,14 @@ collections:
           - { label: Terra, value: "#A84848" }
           - { label: Sorra, value: "#C09060" }
           - { label: Sol, value: "#F5921E" }
+          - { label: Ocre, value: "#B5761F" }
+          - { label: Blau fosc, value: "#21384A" }
       - { name: icona, label: Icona, widget: image, required: false,
           hint: "Si no se'n posa cap, es fa servir l'isotip del Consell." }
       - { name: ordre, label: Ordre al llistat, widget: number, default: 99 }
+      - { name: imatge, label: Foto de capçalera, widget: string, required: false,
+          hint: "Nom de la foto preparada a /imatges/, sense mida ni extensió (per exemple: salt-aigua). Deixa-ho buit si no n'hi ha." }
+      - { name: imatgeAlt, label: Descripció de la foto, widget: string, required: false }
       - { name: body, label: Descripció, widget: markdown }
 
       # --- Tancar un cercle ---
@@ -167,3 +169,276 @@ collections:
       - { name: dataFi, label: "Data de tancament (deixar buit si és actiu)", widget: datetime,
           format: "YYYY-MM-DD", time_format: false, required: false }
       - { name: motiuTancament, label: Per què s'ha tancat, widget: text, required: false }
+
+  # ── Pàgines ─────────────────────────────────────────────────────────────
+  # Els textos de cada pàgina del web. Les parts que es fan soles (llistats
+  # de cercles, agenda, actes, notícies, documents, mapa) no s'editen aquí.
+  - name: pagines
+    label: Pàgines
+    label_singular: Pàgina
+    files:
+      - name: portada
+        label: Portada
+        file: src/content/pagines/portada.md
+        fields:
+          - { name: titol, label: Títol gran, widget: text, hint: "Cada salt de línia que hi posis surt també al títol." }
+          - { name: sobre, label: Text petit sobre el títol, widget: string, required: false }
+          - { name: entrada, label: Frase d'entrada, widget: text, required: false }
+          - { name: descripcio, label: Descripció per als cercadors, widget: string, required: false, hint: "Una frase. No surt a la pàgina: és el que mostren Google i les xarxes en compartir-la." }
+          - { name: boto1Text, label: Botó principal (text), widget: string, required: false }
+          - { name: boto1Enllac, label: Botó principal (enllaç), widget: string, required: false, hint: "Per exemple: /participa/" }
+          - { name: boto2Text, label: Segon botó (text), widget: string, required: false }
+          - { name: boto2Enllac, label: Segon botó (enllaç), widget: string, required: false }
+          - { name: cerclesSobre, label: "Cercles: text petit", widget: string, required: false }
+          - { name: cerclesTitol, label: "Cercles: títol", widget: string, required: false }
+          - { name: cerclesIntro, label: "Cercles: presentació", widget: text, required: false }
+          - name: idees
+            label: Les tres idees
+            label_singular: Idea
+            widget: list
+            required: false
+            fields:
+              - { name: titol, label: Títol, widget: string }
+              - { name: text, label: Text, widget: text }
+          - { name: noticiesSobre, label: "Notícies: text petit", widget: string, required: false }
+          - { name: noticiesTitol, label: "Notícies: títol", widget: string, required: false }
+      - name: el-consell
+        label: El Consell
+        file: src/content/pagines/el-consell.md
+        fields:
+          - { name: titol, label: Títol de la pàgina, widget: string }
+          - { name: sobre, label: Text petit sobre el títol, widget: string, required: false }
+          - { name: entrada, label: Frase d'entrada, widget: text, required: false }
+          - { name: descripcio, label: Descripció per als cercadors, widget: string, required: false, hint: "Una frase. No surt a la pàgina: és el que mostren Google i les xarxes en compartir-la." }
+          - name: to
+            label: Color de la capçalera
+            widget: select
+            default: verd
+            options:
+              - { label: Verd, value: verd }
+              - { label: Blau, value: blau }
+              - { label: Terra, value: terra }
+          - { name: body, label: "Text de la pàgina", widget: markdown, required: false, modes: [raw, rich_text], hint: "La taula es pot editar en mode Markdown (és el mode en què s'obre aquest camp). Per posar-hi un vídeo, enganxa l'enllaç de YouTube sol en una línia. Per a una foto, fes servir el botó d'imatge." }
+          - { name: coordinacioTitol, label: "Cercle de Coordinació: títol", widget: string, required: false }
+          - { name: coordinacioNota, label: "Cercle de Coordinació: nota sota el títol", widget: string, required: false }
+          - { name: membres, label: Persones del poble escollides, label_singular: Persona, widget: list, required: false }
+          - { name: ajuntament, label: "Per part de l'Ajuntament", label_singular: Persona, widget: list, required: false, hint: "Si una plaça és vacant, escriu-ho així i sortirà en cursiva: Segona plaça vacant" }
+          - { name: coordinacioPeu, label: "Cercle de Coordinació: nota final", widget: text, required: false }
+      - name: cercles
+        label: Cercles
+        file: src/content/pagines/cercles.md
+        fields:
+          - { name: titol, label: Títol de la pàgina, widget: string }
+          - { name: sobre, label: Text petit sobre el títol, widget: string, required: false }
+          - { name: entrada, label: Frase d'entrada, widget: text, required: false }
+          - { name: descripcio, label: Descripció per als cercadors, widget: string, required: false, hint: "Una frase. No surt a la pàgina: és el que mostren Google i les xarxes en compartir-la." }
+          - name: to
+            label: Color de la capçalera
+            widget: select
+            default: verd
+            options:
+              - { label: Verd, value: verd }
+              - { label: Blau, value: blau }
+              - { label: Terra, value: terra }
+          - { name: body, label: "Text opcional sota la capçalera", widget: markdown, required: false, hint: "Per posar-hi un vídeo, enganxa l'enllaç de YouTube sol en una línia. Per a una foto, fes servir el botó d'imatge." }
+          - { name: notaEstrategics, label: Nota sota «Cercles Estratègics», widget: string, required: false }
+          - { name: notaOperatius, label: Nota sota «Cercles Operatius», widget: string, required: false }
+          - { name: notaTancats, label: Nota sota «Cercles tancats», widget: string, required: false }
+      - name: agenda
+        label: Agenda
+        file: src/content/pagines/agenda.md
+        fields:
+          - { name: titol, label: Títol de la pàgina, widget: string }
+          - { name: sobre, label: Text petit sobre el títol, widget: string, required: false }
+          - { name: entrada, label: Frase d'entrada, widget: text, required: false }
+          - { name: descripcio, label: Descripció per als cercadors, widget: string, required: false, hint: "Una frase. No surt a la pàgina: és el que mostren Google i les xarxes en compartir-la." }
+          - name: to
+            label: Color de la capçalera
+            widget: select
+            default: verd
+            options:
+              - { label: Verd, value: verd }
+              - { label: Blau, value: blau }
+              - { label: Terra, value: terra }
+          - { name: body, label: "Text opcional sota la capçalera", widget: markdown, required: false, hint: "El calendari i les trobades surten sols, de la col·lecció Agenda." }
+      - name: reunions
+        label: Reunions i actes
+        file: src/content/pagines/reunions.md
+        fields:
+          - { name: titol, label: Títol de la pàgina, widget: string }
+          - { name: sobre, label: Text petit sobre el títol, widget: string, required: false }
+          - { name: entrada, label: Frase d'entrada, widget: text, required: false }
+          - { name: descripcio, label: Descripció per als cercadors, widget: string, required: false, hint: "Una frase. No surt a la pàgina: és el que mostren Google i les xarxes en compartir-la." }
+          - name: to
+            label: Color de la capçalera
+            widget: select
+            default: verd
+            options:
+              - { label: Verd, value: verd }
+              - { label: Blau, value: blau }
+              - { label: Terra, value: terra }
+          - { name: body, label: "Text sobre la llista d'actes", widget: markdown, required: false, hint: "Les actes surten soles, de la col·lecció Actes. Per fer un requadre destacat, fes servir el botó de cita." }
+      - name: noticies
+        label: Notícies
+        file: src/content/pagines/noticies.md
+        fields:
+          - { name: titol, label: Títol de la pàgina, widget: string }
+          - { name: sobre, label: Text petit sobre el títol, widget: string, required: false }
+          - { name: entrada, label: Frase d'entrada, widget: text, required: false }
+          - { name: descripcio, label: Descripció per als cercadors, widget: string, required: false, hint: "Una frase. No surt a la pàgina: és el que mostren Google i les xarxes en compartir-la." }
+          - name: to
+            label: Color de la capçalera
+            widget: select
+            default: verd
+            options:
+              - { label: Verd, value: verd }
+              - { label: Blau, value: blau }
+              - { label: Terra, value: terra }
+          - { name: body, label: "Text opcional sobre la llista de notícies", widget: markdown, required: false }
+      - name: mapa
+        label: Mapa
+        file: src/content/pagines/mapa.md
+        fields:
+          - { name: titol, label: Títol de la pàgina, widget: string }
+          - { name: sobre, label: Text petit sobre el títol, widget: string, required: false }
+          - { name: entrada, label: Frase d'entrada, widget: text, required: false }
+          - { name: descripcio, label: Descripció per als cercadors, widget: string, required: false, hint: "Una frase. No surt a la pàgina: és el que mostren Google i les xarxes en compartir-la." }
+          - name: to
+            label: Color de la capçalera
+            widget: select
+            default: verd
+            options:
+              - { label: Verd, value: verd }
+              - { label: Blau, value: blau }
+              - { label: Terra, value: terra }
+          - { name: body, label: "Text sota el mapa", widget: markdown, required: false, hint: "Per posar-hi un vídeo, enganxa l'enllaç de YouTube sol en una línia. Per a una foto, fes servir el botó d'imatge." }
+      - name: participa
+        label: Participa-hi
+        file: src/content/pagines/participa.md
+        fields:
+          - { name: titol, label: Títol de la pàgina, widget: string }
+          - { name: sobre, label: Text petit sobre el títol, widget: string, required: false }
+          - { name: entrada, label: Frase d'entrada, widget: text, required: false }
+          - { name: descripcio, label: Descripció per als cercadors, widget: string, required: false, hint: "Una frase. No surt a la pàgina: és el que mostren Google i les xarxes en compartir-la." }
+          - name: to
+            label: Color de la capçalera
+            widget: select
+            default: verd
+            options:
+              - { label: Verd, value: verd }
+              - { label: Blau, value: blau }
+              - { label: Terra, value: terra }
+          - { name: body, label: "Text abans de la llista de cercles", widget: markdown, required: false, hint: "La llista de cercles i els canals surten sols." }
+          - { name: canalsTitol, label: Títol dels canals, widget: string, required: false, hint: "Els enllaços dels canals es canvien a Dades generals." }
+          - { name: canalsNota, label: Nota sota els canals, widget: text, required: false }
+          - { name: textFinal, label: Text final (després dels canals), widget: markdown, required: false, hint: "Per posar-hi un vídeo, enganxa l'enllaç de YouTube sol en una línia. Per a una foto, fes servir el botó d'imatge." }
+      - name: documents
+        label: Documents
+        file: src/content/pagines/documents.md
+        fields:
+          - { name: titol, label: Títol de la pàgina, widget: string }
+          - { name: sobre, label: Text petit sobre el títol, widget: string, required: false }
+          - { name: entrada, label: Frase d'entrada, widget: text, required: false }
+          - { name: descripcio, label: Descripció per als cercadors, widget: string, required: false, hint: "Una frase. No surt a la pàgina: és el que mostren Google i les xarxes en compartir-la." }
+          - name: to
+            label: Color de la capçalera
+            widget: select
+            default: verd
+            options:
+              - { label: Verd, value: verd }
+              - { label: Blau, value: blau }
+              - { label: Terra, value: terra }
+          - { name: body, label: "Text abans de la llista de documents", widget: markdown, required: false, hint: "Els documents s'afegeixen i s'esborren a la col·lecció Documents." }
+          - { name: textFinal, label: Text després de la llista, widget: markdown, required: false }
+      - name: credits
+        label: Crèdits
+        file: src/content/pagines/credits.md
+        fields:
+          - { name: titol, label: Títol de la pàgina, widget: string }
+          - { name: sobre, label: Text petit sobre el títol, widget: string, required: false }
+          - { name: entrada, label: Frase d'entrada, widget: text, required: false }
+          - { name: descripcio, label: Descripció per als cercadors, widget: string, required: false, hint: "Una frase. No surt a la pàgina: és el que mostren Google i les xarxes en compartir-la." }
+          - name: to
+            label: Color de la capçalera
+            widget: select
+            default: verd
+            options:
+              - { label: Verd, value: verd }
+              - { label: Blau, value: blau }
+              - { label: Terra, value: terra }
+          - { name: body, label: "Text de la pàgina", widget: markdown, required: false, hint: "Per posar-hi un vídeo, enganxa l'enllaç de YouTube sol en una línia. Per a una foto, fes servir el botó d'imatge." }
+      - name: privacitat
+        label: Privacitat
+        file: src/content/pagines/privacitat.md
+        fields:
+          - { name: titol, label: Títol de la pàgina, widget: string }
+          - { name: sobre, label: Text petit sobre el títol, widget: string, required: false }
+          - { name: entrada, label: Frase d'entrada, widget: text, required: false }
+          - { name: descripcio, label: Descripció per als cercadors, widget: string, required: false, hint: "Una frase. No surt a la pàgina: és el que mostren Google i les xarxes en compartir-la." }
+          - name: to
+            label: Color de la capçalera
+            widget: select
+            default: verd
+            options:
+              - { label: Verd, value: verd }
+              - { label: Blau, value: blau }
+              - { label: Terra, value: terra }
+          - { name: body, label: "Text de la pàgina", widget: markdown, required: false, hint: "Si s'afegeix al web cap servei extern nou (mapes, vídeos, formularis...), cal explicar-ho aquí." }
+      - name: accessibilitat
+        label: Accessibilitat
+        file: src/content/pagines/accessibilitat.md
+        fields:
+          - { name: titol, label: Títol de la pàgina, widget: string }
+          - { name: sobre, label: Text petit sobre el títol, widget: string, required: false }
+          - { name: entrada, label: Frase d'entrada, widget: text, required: false }
+          - { name: descripcio, label: Descripció per als cercadors, widget: string, required: false, hint: "Una frase. No surt a la pàgina: és el que mostren Google i les xarxes en compartir-la." }
+          - name: to
+            label: Color de la capçalera
+            widget: select
+            default: verd
+            options:
+              - { label: Verd, value: verd }
+              - { label: Blau, value: blau }
+              - { label: Terra, value: terra }
+          - { name: body, label: "Text de la pàgina", widget: markdown, required: false, hint: "Quan es revisi la declaració, actualitza la data del final." }
+
+  # ── Documents ───────────────────────────────────────────────────────────
+  - name: documents
+    label: Documents
+    label_singular: Document
+    folder: src/content/documents
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{tipus}} · {{titol}}"
+    fields:
+      - { name: titol, label: Títol, widget: string }
+      - name: tipus
+        label: Apartat
+        widget: select
+        default: Altres
+        options:
+          - Reglaments
+          - Informes i processos participatius
+          - Enquestes
+          - Altres
+      - { name: fitxer, label: Fitxer, widget: file, media_folder: /public/documents, public_folder: /documents, hint: "Millor en PDF. Es desa a la carpeta de documents del web." }
+      - { name: quan, label: Data, widget: string, required: false, hint: "Com vulguis que surti. Per exemple: Setembre de 2022" }
+      - { name: descripcio, label: Descripció, widget: text, required: false }
+      - { name: ordre, label: Ordre dins l'apartat, widget: number, default: 99, value_type: int, hint: "Els números petits surten primer." }
+
+  # ── Dades generals ──────────────────────────────────────────────────────
+  - name: general
+    label: Dades generals
+    files:
+      - name: general
+        label: Contacte i xarxes
+        file: src/content/general/general.md
+        fields:
+          - { name: correu, label: Correu electrònic, widget: string, hint: "Surt a Participa-hi, a les pàgines dels cercles i al peu." }
+          - { name: whatsapp, label: Enllaç del canal de WhatsApp, widget: string, required: false }
+          - { name: whatsappText, label: Descripció del canal de WhatsApp, widget: string, required: false }
+          - { name: instagram, label: Enllaç d'Instagram, widget: string, required: false }
+          - { name: instagramUsuari, label: "Nom d'usuari d'Instagram", widget: string, required: false }
+          - { name: lema, label: Lema (peu de pàgina), widget: string, required: false }
+          - { name: creditFotos, label: Autoria de les fotografies (peu de pàgina), widget: string, required: false }

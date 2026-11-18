@@ -2,6 +2,9 @@
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 import CapPagina from '../../components/CapPagina.astro';
+import { pagina } from '../../lib/pagina';
+// Els textos s'editen al panell: Pàgines → Cercles. Els cercles, a Cercles.
+const { d, Content, teText } = await pagina('cercles');
 const tots = await getCollection('cercles');
 const ordena = (a,b) => a.data.ordre - b.data.ordre;
 const oberts = tots.filter(c => !c.data.dataFi).sort(ordena);
@@ -10,13 +13,14 @@ const operatius   = oberts.filter(c => c.data.tipus === 'operatiu');
 const tancats = tots.filter(c => c.data.dataFi).sort((a,b)=>b.data.dataFi-a.data.dataFi);
 const any = d => d.getFullYear();
 ---
-<Base titol="Cercles" descripcio="Els cercles de treball del Consell de Poble de Santa Pau.">
-  <CapPagina sobre="Com ens organitzem" titol="Cercles"
-    entrada="La feina del Consell es reparteix en cercles que es creen a partir de les necessitats reals del municipi. Són oberts a tothom: no cal apuntar-s'hi enlloc, n'hi ha prou de venir." />
+<Base titol="Cercles" descripcio={d.descripcio ?? d.titol}>
+  <CapPagina sobre={d.sobre} titol={d.titol} entrada={d.entrada} to={d.to} />
+
+  {teText && <div class="contenidor--mitja prosa" style="padding-top:1rem"><Content /></div>}
 
   <div class="contenidor" style="margin-top:1.5rem">
     <h2 class="titolet">Cercles Estratègics</h2>
-    <p class="nota">Treballen un àmbit del poble de manera continuada.</p>
+    {d.notaEstrategics && <p class="nota">{d.notaEstrategics}</p>}
     <ul class="graella">
       {estrategics.map(c => (
         <li><a href={`/cercles/${c.id}/`} style={`--accent:${c.data.color}`}>
@@ -31,7 +35,7 @@ const any = d => d.getFullYear();
     {operatius.length > 0 && (
       <>
         <h2 class="titolet">Cercles Operatius</h2>
-        <p class="nota">Neixen per dur a terme una acció concreta i es dissolen quan la feina està feta.</p>
+        {d.notaOperatius && <p class="nota">{d.notaOperatius}</p>}
         <ul class="graella">
           {operatius.map(c => (
             <li><a href={`/cercles/${c.id}/`} style={`--accent:${c.data.color}`}>
@@ -48,7 +52,7 @@ const any = d => d.getFullYear();
     {tancats.length > 0 && (
       <>
         <h2 class="titolet">Cercles tancats</h2>
-        <p class="nota">Van fer la seva feina i es van dissoldre. Les seves pàgines i actes es conserven.</p>
+        {d.notaTancats && <p class="nota">{d.notaTancats}</p>}
         <ul class="arxiu">
           {tancats.map(c => (
             <li>

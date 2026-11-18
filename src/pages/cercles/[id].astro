@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
 import Foto from '../../components/Foto.astro';
+import { general } from '../../lib/pagina';
 export async function getStaticPaths() {
   const cercles = await getCollection('cercles');
   return cercles.map(c => ({ params: { id: c.id }, props: { c } }));
@@ -12,6 +13,7 @@ const actes = (await getCollection('actes', a => a.data.cercle === c.id)).sort((
 const etiqueta = { estrategic: 'Cercle Estratègic', operatiu: 'Cercle Operatiu', coordinacio: 'Cercle de Coordinació' }[c.data.tipus];
 const fmt = d => d.toLocaleDateString('ca-ES', { day:'numeric', month:'long', year:'numeric' });
 const tancat = !!c.data.dataFi;
+const g = await general();
 ---
 <Base titol={c.data.nom} descripcio={c.data.entradeta}>
   <div class={`capsa ${tancat ? 'capsa--tancat' : ''}`} style={`--accent:${c.data.color}`}>
@@ -41,9 +43,9 @@ const tancat = !!c.data.dataFi;
     )}
     <Content />
 
-    {!tancat && (
+    {!tancat && c.data.tipus !== 'coordinacio' && (
       <p class="obert"><strong>Vols venir-hi?</strong> Els cercles són oberts: no cal apuntar-s'hi.
-      Escriu a <a href="mailto:conselldepoble@santapau.cat">conselldepoble@santapau.cat</a> i t'avisem de la propera trobada.</p>
+      Escriu a <a href={`mailto:${g.correu}`}>{g.correu}</a> i t'avisem de la propera trobada.</p>
     )}
 
     {actes.length > 0 && (

@@ -3,6 +3,9 @@ import Base from '../../layouts/Base.astro';
 import CapPagina from '../../components/CapPagina.astro';
 import EsdevenimentAgenda from '../../components/EsdevenimentAgenda.astro';
 import { getCollection } from 'astro:content';
+import { pagina } from '../../lib/pagina';
+// Els textos s'editen al panell: Pàgines → Agenda.
+const { d, Content, teText } = await pagina('agenda');
 
 // Els cercles surten dels fitxers de src/content/cercles/. El de Coordinació
 // no en té cap, i convoca reunions: aquí hi ha el seu nom i color de recanvi.
@@ -55,12 +58,9 @@ const urlWebcal = urlIcs.replace(/^https?:/, 'webcal:');
 const urlGoogle = `https://calendar.google.com/calendar/r?cid=${encodeURIComponent(urlWebcal)}`;
 ---
 
-<Base
-  titol="Agenda"
-  descripcio="Reunions, trobades i activitats del Consell de Poble de Santa Pau."
->
-  <CapPagina sobre="Agenda oberta" titol="Què hi ha, i quan"
-    entrada="Les reunions dels cercles i les activitats que organitza el Consell. A les trobades obertes hi pot venir tothom: no cal avisar ni apuntar-s'hi enlloc." />
+<Base titol="Agenda" descripcio={d.descripcio ?? d.titol}>
+  <CapPagina sobre={d.sobre} titol={d.titol} entrada={d.entrada} to={d.to} />
+  {teText && <div class="contenidor--mitja prosa" style="padding-top:1rem"><Content /></div>}
 
   <div class="contenidor" style="margin-top:1.5rem">
 
@@ -284,17 +284,10 @@ const urlGoogle = `https://calendar.google.com/calendar/r?cid=${encodeURICompone
       pintarMes();
     });
 
-    // Obre el calendari al mes en curs si hi passa alguna cosa; si no, al mes
-    // de la propera trobada, perquè no s'obri en un mes buit.
+    // El calendari s'obre sempre al mes en curs. Les fletxes porten als altres.
     function mesInicial() {
-      const avui = avuiLocal();
-      let referencia = avui;
-      if (!esdeveniments.some((e) => e.data.slice(0, 7) === avui.slice(0, 7))) {
-        const seguent = esdeveniments.find((e) => e.data >= avui);
-        referencia = (seguent ?? esdeveniments[esdeveniments.length - 1])?.data ?? avui;
-      }
-      const [a, m] = referencia.split('-').map(Number);
-      return new Date(Date.UTC(a, m - 1, 1));
+      const ara = new Date();
+      return new Date(Date.UTC(ara.getFullYear(), ara.getMonth(), 1));
     }
 
     mes = mesInicial();

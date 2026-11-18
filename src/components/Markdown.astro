@@ -1,0 +1,8 @@
+---
+// Mostra un camp de text llarg del panell, amb les mateixes regles que el cos
+// de les pàgines (vídeos, imatges, taules).
+import { markdown } from '../lib/markdown';
+const { text } = Astro.props;
+const html = await markdown(text);
+---
+{html && <Fragment set:html={html} />}
