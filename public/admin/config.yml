@@ -2,10 +2,8 @@ backend:
   name: github
   repo: consell-de-poble-santa-pau/web
   branch: main
-  # base_url: https://sveltia-cms-auth.XXXX.workers.dev
-  #   Nomes cal quan hi hagi mes d'una persona editant. Amb un sol editor,
-  #   s'hi entra amb un token personal de GitHub, sense muntar res.
-  #   Vegeu SETUP.md, pas 5.
+  base_url: https://sveltia-cms-auth.cdpsantapau.workers.dev
+  # Boto 'Inicia la sessio amb GitHub' (GitHub App Panell web CdP Santa Pau)
 locale: ca
 media_folder: public/imatges
 public_folder: /imatges
