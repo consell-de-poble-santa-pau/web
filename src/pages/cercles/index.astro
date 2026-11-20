@@ -8,6 +8,7 @@ const { d, Content, teText } = await pagina('cercles');
 const tots = await getCollection('cercles');
 const ordena = (a,b) => a.data.ordre - b.data.ordre;
 const oberts = tots.filter(c => !c.data.dataFi).sort(ordena);
+const coordinacio = oberts.filter(c => c.data.tipus === 'coordinacio');
 const estrategics = oberts.filter(c => c.data.tipus === 'estrategic');
 const operatius   = oberts.filter(c => c.data.tipus === 'operatiu');
 const tancats = tots.filter(c => c.data.dataFi).sort((a,b)=>b.data.dataFi-a.data.dataFi);
@@ -19,6 +20,21 @@ const any = d => d.getFullYear();
   {teText && <div class="contenidor--mitja prosa" style="padding-top:1rem"><Content /></div>}
 
   <div class="contenidor" style="margin-top:1.5rem">
+    {coordinacio.length > 0 && (
+      <>
+        <h2 class="titolet">Cercle de Coordinació</h2>
+        <ul class="graella">
+          {coordinacio.map(c => (
+            <li><a href={`/cercles/${c.id}/`} style={`--accent:${c.data.color}`}>
+              <img src={c.data.icona} alt="" width="60" height="60" />
+              <strong>{c.data.nom}</strong>
+              <span>{c.data.entradeta}</span>
+            </a></li>
+          ))}
+        </ul>
+      </>
+    )}
+
     <h2 class="titolet">Cercles Estratègics</h2>
     {d.notaEstrategics && <p class="nota">{d.notaEstrategics}</p>}
     <ul class="graella">

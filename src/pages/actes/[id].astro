@@ -15,7 +15,7 @@ const fmt = d => d.toLocaleDateString('ca-ES', { day:'numeric', month:'long', ye
     <h1>{a.data.titol}</h1>
     <p class="meta"><time datetime={a.data.data.toISOString()}>{fmt(a.data.data)}</time></p>
     <Content />
-    {a.data.pdf && <p><a href={a.data.pdf}>Descarrega l'acta signada (PDF)</a></p>}
+    {a.data.pdf && <p><a href={a.data.pdf}>Descarrega l'acta en PDF</a></p>}
   </article>
 </Base>
 <style>

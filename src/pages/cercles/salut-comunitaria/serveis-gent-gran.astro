@@ -1,0 +1,17 @@
+---
+// El text d'aquesta pàgina s'edita al panell: Pàgines → Serveis per a la gent gran.
+import Base from '../../../layouts/Base.astro';
+import CapPagina from '../../../components/CapPagina.astro';
+import { pagina } from '../../../lib/pagina';
+const { d, Content } = await pagina('serveis-gent-gran');
+---
+<Base titol={d.titol} descripcio={d.descripcio ?? d.titol}>
+  <CapPagina sobre={d.sobre} titol={d.titol} entrada={d.entrada} to={d.to} />
+  <div class="contenidor--mitja prosa" style="padding-top:1rem">
+    <p class="torna"><a href="/cercles/salut-comunitaria/">← Cercle de Salut Comunitària</a></p>
+    <Content />
+  </div>
+</Base>
+<style>
+.torna { font-size: .9rem; margin-bottom: 1.5rem; }
+</style>

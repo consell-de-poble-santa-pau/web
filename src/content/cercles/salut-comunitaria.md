@@ -12,6 +12,11 @@ ordre: 1
 
 Aquest cercle es deia abans **Cercle de la Gent Gran**. La feina que va començar al voltant de l'envelliment continua ara dins de Salut Comunitària.
 
+## Informació pràctica
+
+- [Serveis i tràmits per a la gent gran](/cercles/salut-comunitaria/serveis-gent-gran/): com demanar cita amb la treballadora social, quins tràmits es poden fer, a quins serveis es pot optar i les activitats del Casal d'Avis.
+- [El SAIAR de Can Torra](/cercles/salut-comunitaria/saiar/): què és, qui hi pot anar, què s'hi pot fer i com demanar-hi plaça.
+
 ## Procés participatiu: Envellir dignament a Santa Pau
 
 A la tardor del 2024, el cercle va obrir dos espais de diàleg a tota la població per pensar què vol dir envellir dignament a Santa Pau: què ja estem fent com a poble, què ens preocupa i què cal enfortir o crear. El procés va comptar amb el suport de la Diputació de Girona, Resilience Earth i l'Ajuntament de Santa Pau.
@@ -41,3 +46,10 @@ Més de vint-i-cinc persones van tornar a reunir-se per decidir quines actuacion
 Algunes de les accions que en van sortir: preparar un tríptic informatiu, enviar des del Casal de la Gent Gran i el Consell de Poble una petició per tenir més bancs, revisar els accessos quotidians del poble, i aprofitar Can Torra com a espai accessible i de participació comunitària.
 
 Al llarg del procés van tornar a sortir, una vegada i una altra, tres idees de fons: la gent gran és un grup divers; hi conviuen diverses generacions amb necessitats diferents; i envellir és un procés de vida pel qual passem totes i tots.
+
+## Documents
+
+- [Informe del procés participatiu Envellir dignament a Santa Pau](/documents/envellir-dignament-a-santa-pau.pdf). Resum de les dues trobades comunitàries del 2024. PDF.
+- [Díptic del SAIAR](/documents/salut-comunitaria/diptic-saiar.pdf). Per imprimir i repartir. PDF.
+- [Guió de la segona trobada comunitària (19 de novembre de 2024)](/documents/salut-comunitaria/guio-trobada-2024-11-19.pdf). Objectius i desenvolupament de la sessió. PDF.
+- [Guió de la trobada del cercle (4 de febrer de 2025)](/documents/salut-comunitaria/guio-trobada-2025-02-04.pdf). Objectius, desenvolupament i notes de la sessió. PDF.
