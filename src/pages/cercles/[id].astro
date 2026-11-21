@@ -45,7 +45,8 @@ const g = await general();
 
     {!tancat && c.data.tipus !== 'coordinacio' && (
       <p class="obert"><strong>Vols venir-hi?</strong> Els cercles són oberts: no cal apuntar-s'hi.
-      Escriu a <a href={`mailto:${g.correu}`}>{g.correu}</a> i t'avisem de la propera trobada.</p>
+      Escriu a <a href={`mailto:${g.correu}`}>{g.correu}</a> i t'avisem de la propera trobada.
+      {g.comunitat && <>També pots entrar a la <a href={g.comunitat}>Comunitat de WhatsApp del Consell</a>, on hi ha els grups dels Cercles.</>}</p>
     )}
 
     {actes.length > 0 && (

@@ -144,6 +144,8 @@ const general = defineCollection({
     correu: z.string(),
     whatsapp: z.string().optional(),
     whatsappText: z.string().optional(),
+    comunitat: z.string().optional(),
+    comunitatText: z.string().optional(),
     instagram: z.string().optional(),
     instagramUsuari: z.string().optional(),
     lema: z.string().optional(),

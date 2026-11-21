@@ -481,6 +481,8 @@ collections:
           - { name: correu, label: Correu electrònic, widget: string, hint: "Surt a Participa-hi, a les pàgines dels cercles i al peu." }
           - { name: whatsapp, label: Enllaç del canal de WhatsApp, widget: string, required: false }
           - { name: whatsappText, label: Descripció del canal de WhatsApp, widget: string, required: false }
+          - { name: comunitat, label: Enllaç de la Comunitat de WhatsApp, widget: string, required: false, hint: "Enllaç d'invitació (chat.whatsapp.com/...). Si es deixa buit, el botó no surt." }
+          - { name: comunitatText, label: Descripció de la Comunitat de WhatsApp, widget: string, required: false }
           - { name: instagram, label: Enllaç d'Instagram, widget: string, required: false }
           - { name: instagramUsuari, label: "Nom d'usuari d'Instagram", widget: string, required: false }
           - { name: lema, label: Lema (peu de pàgina), widget: string, required: false }

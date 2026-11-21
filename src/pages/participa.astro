@@ -37,6 +37,12 @@ const cercles = (await getCollection('cercles', c => !c.data.dataFi && c.data.ti
           {g.whatsappText && <span>{g.whatsappText}</span>}
         </a>
       )}
+      {g.comunitat && (
+        <a class="canal canal--wa-com" href={g.comunitat}>
+          <strong>Comunitat de WhatsApp</strong>
+          {g.comunitatText && <span>{g.comunitatText}</span>}
+        </a>
+      )}
       {g.instagram && (
         <a class="canal canal--ig" href={g.instagram}>
           <strong>Instagram</strong>
@@ -66,6 +72,7 @@ const cercles = (await getCollection('cercles', c => !c.data.dataFi && c.data.ti
 .canal strong { display: block; margin-bottom: .2rem; }
 .canal span { font-size: .88rem; color: var(--tinta-suau); }
 .canal--wa { border-left: 4px solid #25D366; }
+.canal--wa-com { border-left: 4px solid #128C7E; }
 .canal--ig { border-left: 4px solid #C13584; }
 .canal--mail { border-left: 4px solid var(--blau); }
 .nota { font-size: .92rem; color: var(--tinta-suau); }
