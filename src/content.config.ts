@@ -1,6 +1,12 @@
 import { defineCollection, z, reference } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+// El panell desa els camps opcionals que es deixen en blanc com a text buit
+// (''). Aquí es tracten com si no hi fossin; si no, un camp buit amb format
+// (una hora, una data, una referència) atura tota la compilació del web.
+const buit = <T extends z.ZodTypeAny>(esquema: T) =>
+  z.preprocess((v) => (v === '' || v === null ? undefined : v), esquema);
+
 const actes = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/actes' }),
   schema: z.object({
@@ -11,7 +17,7 @@ const actes = defineCollection({
     cercle: z.string().default('coordinacio'),
     estat: z.enum(['esborrany', 'aprovada']).default('aprovada'),
     assistents: z.array(z.string()).optional(),
-    pdf: z.string().optional(),
+    pdf: buit(z.string().optional()),
   }),
 });
 
@@ -21,8 +27,8 @@ const noticies = defineCollection({
     titol: z.string(),
     data: z.coerce.date(),
     entradeta: z.string(),
-    imatge: z.string().optional(),
-    imatgeAlt: z.string().optional(),
+    imatge: buit(z.string().optional()),
+    imatgeAlt: buit(z.string().optional()),
     credit: z.string().default('Jacint Garrigolas Coll'),
   }),
 });
@@ -38,10 +44,10 @@ const cercles = defineCollection({
     color: z.string().default('#30A860'),
     imatge: z.string().optional(),
     imatgeAlt: z.string().optional(),
-    dataInici: z.coerce.date().optional(),
+    dataInici: buit(z.coerce.date().optional()),
     // Tancar un cercle = posar-hi data de fi. MAI esborrar el fitxer:
     // la pàgina i les seves actes queden a l'arxiu.
-    dataFi: z.coerce.date().optional(),
+    dataFi: buit(z.coerce.date().optional()),
     motiuTancament: z.string().optional(),
     ordre: z.number().default(99),
   }),
@@ -63,18 +69,18 @@ const agenda = defineCollection({
   schema: z.object({
     titol: z.string(),
     data: dataDelDia,
-    hora: z.string().regex(/^\d{2}:\d{2}$/).optional(),
-    horaFi: z.string().regex(/^\d{2}:\d{2}$/).optional(),
+    hora: buit(z.string().regex(/^\d{2}:\d{2}$/).optional()),
+    horaFi: buit(z.string().regex(/^\d{2}:\d{2}$/).optional()),
     tipus: z.enum(['reunio', 'activitat']).default('reunio'),
     // Identificador d'un fitxer de src/content/cercles/. Si no hi és o no
     // coincideix, l'esdeveniment surt sense etiqueta de cercle.
-    cercle: z.string().optional(),
-    lloc: z.string().optional(),
+    cercle: buit(z.string().optional()),
+    lloc: buit(z.string().optional()),
     oberta: z.boolean().default(true),
     cancellada: z.boolean().default(false),
-    nota: z.string().optional(),
-    ordreDia: z.string().optional(),
-    acta: reference('actes').optional(),
+    nota: buit(z.string().optional()),
+    ordreDia: buit(z.string().optional()),
+    acta: buit(reference('actes').optional()),
   }),
 });
 
