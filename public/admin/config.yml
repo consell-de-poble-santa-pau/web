@@ -5,6 +5,9 @@ backend:
   base_url: https://sveltia-cms-auth.cdpsantapau.workers.dev
   # Boto 'Inicia la sessio amb GitHub' (GitHub App Panell web CdP Santa Pau)
 locale: ca
+slug:
+  encoding: ascii
+  clean_accents: true
 media_folder: public/imatges
 public_folder: /imatges
 
@@ -50,7 +53,8 @@ collections:
     label_singular: Trobada o activitat
     folder: src/content/agenda
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    identifier_field: titol
+    slug: "{{fields.data}}-{{slug}}"
     sortable_fields: [data]
     summary: "{{data}} · {{titol}}"
     fields:
@@ -103,6 +107,11 @@ collections:
         value_field: "{{slug}}"
         hint: "S'omple després de la reunió, quan l'acta ja és al web."
       - { name: body, label: Ordre del dia o descripció, widget: markdown, required: false }
+      - name: difusio
+        label: Difusió per WhatsApp
+        widget: difusio-whatsapp
+        required: false
+        hint: "Quan hagis desat i l'esdeveniment ja surti al web (un parell de minuts), copia el missatge o obre el WhatsApp i envia'l al canal del Consell. Aquest camp no surt al web."
 
   - name: noticies
     label: Notícies
@@ -110,6 +119,7 @@ collections:
     folder: src/content/noticies
     create: true
     delete: true
+    identifier_field: titol
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { name: titol, label: Títol, widget: string }
@@ -126,6 +136,7 @@ collections:
     folder: src/content/cercles
     create: true
     delete: false
+    identifier_field: nom
     summary: "{{nom}}"
     fields:
       - { name: nom, label: Nom del cercle, widget: string }
