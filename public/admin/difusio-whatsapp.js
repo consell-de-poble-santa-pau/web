@@ -30,40 +30,21 @@
     return dia + ' ' + d + ' ' + de + mes;
   }
 
-  function textPla(md) {
-    if (!md) return '';
-    var t = String(md)
-      .replace(/\r/g, '')
-      .replace(/^#+\s*/gm, '')
-      .replace(/\*\*(.+?)\*\*/g, '*$1*')
-      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-      .replace(/^\s*[-*]\s+/gm, '• ')
-      .replace(/\n{3,}/g, '\n\n')
-      .trim();
-    return t.length > 700 ? t.slice(0, 700).replace(/\s+\S*$/, '') + '…' : t;
-  }
-
   function missatge(d) {
     var linies = [];
     var titol = (d.titol || '').trim() || 'Trobada del Consell de Poble';
-    if (d.cancellada) {
-      linies.push('❌ *CANCEL·LADA* · ' + titol);
-    } else {
-      linies.push('📅 *' + titol + '*');
-    }
+    linies.push(d.cancellada ? '*CANCEL·LADA:* ' + titol : '*' + titol + '*');
     var quan = dataLlarga(d.data);
     if (quan) {
-      var hores = d.hora ? (d.horaFi ? 'de ' + d.hora + ' a ' + d.horaFi + ' h' : d.hora + ' h') : '';
-      linies.push('🗓️ ' + quan + (hores ? ' · ' + hores : ''));
+      var hores = d.hora ? (d.horaFi ? 'de ' + d.hora + ' a ' + d.horaFi + ' h' : 'a les ' + d.hora + ' h') : '';
+      linies.push(quan + (hores ? ', ' + hores : ''));
     }
-    if (d.lloc) linies.push('📍 ' + d.lloc);
+    if (d.lloc) linies.push('Lloc: ' + d.lloc);
     var cercle = CERCLES[d.cercle];
-    if (cercle && titol.indexOf(cercle.replace(/^Cercle (de |d')/, '')) === -1) linies.push('👥 Convoca: ' + cercle);
-    if (!d.cancellada) linies.push(d.oberta === false ? '🔒 Reunió de treball del cercle.' : '✅ Oberta a tothom.');
-    if (d.nota) linies.push('ℹ️ ' + d.nota);
-    var cos = d.cancellada ? '' : textPla(d.body);
-    if (cos) linies.push('', cos);
-    linies.push('', '🔗 ' + WEB + '/agenda/' + (d.slug ? '#esd-' + d.slug : ''));
+    if (cercle && titol.indexOf(cercle.replace(/^Cercle (de |d')/, '')) === -1) linies.push('Convoca: ' + cercle);
+    if (!d.cancellada) linies.push(d.oberta === false ? 'Reunió de treball del cercle.' : 'Oberta a tothom.');
+    if (d.nota) linies.push('Nota: ' + d.nota);
+    linies.push('', 'Més informació: ' + WEB + '/agenda/' + (d.slug ? '#esd-' + d.slug : ''));
     return linies.join('\n');
   }
 
@@ -71,12 +52,18 @@
     var estat = React.useState('');
     var avis = estat[0], setAvis = estat[1];
     var e = props.entry;
-    var get = function (k) { return e ? e.getIn(['data', k]) : undefined; };
-    var slug = e ? e.get('slug') || '' : '';
+    // L'entrada arriba com a Immutable Map; per si de cas, també s'accepta un objecte normal.
+    var dades = e ? (typeof e.get === 'function' ? e.get('data') : e.data) : null;
+    var get = function (k) {
+      if (!dades) return undefined;
+      var v = typeof dades.get === 'function' ? dades.get(k) : dades[k];
+      return typeof v === 'string' ? v.trim() : v;
+    };
+    var slug = e ? (typeof e.get === 'function' ? e.get('slug') : e.slug) || '' : '';
     var text = missatge({
       titol: get('titol'), data: get('data'), hora: get('hora'), horaFi: get('horaFi'),
       lloc: get('lloc'), cercle: get('cercle'), oberta: get('oberta'), cancellada: get('cancellada'),
-      nota: get('nota'), body: get('body'), slug: slug,
+      nota: get('nota'), slug: slug,
     });
     var copia = function () {
       var fet = function () { setAvis('Copiat. Ara enganxa’l al canal.'); setTimeout(function () { setAvis(''); }, 4000); };
@@ -104,7 +91,9 @@
           style: Object.assign({}, boto, { background: '#25D366', color: '#08361c', borderColor: '#25D366' }),
         }, 'Obre el WhatsApp'),
         avis ? h('span', { role: 'status' }, avis) : null
-      )
+      ),
+      dades ? null : h('p', { style: { marginTop: '.5rem', color: '#b3261e' } },
+        'No puc llegir els altres camps del formulari. Avisa la persona que administra el web.')
     );
   }
 
